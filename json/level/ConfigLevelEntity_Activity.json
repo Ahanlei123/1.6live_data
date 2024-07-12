@@ -1,0 +1,13 @@
+{
+	"LevelEntity_Activity_TowerDefence_AvatarDebuff" :
+	{
+		"$type" : "ConfigLevelEntity",
+	    "avatarAbilities": [
+			{
+				"abilityID": "ActivityAbility_TowerDefence_AvatarDebuff",
+				"abilityName": "ActivityAbility_TowerDefence_AvatarDebuff",
+			},
+	    ],
+
+	},
+}

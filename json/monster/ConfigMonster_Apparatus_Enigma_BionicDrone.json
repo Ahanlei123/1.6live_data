@@ -1,0 +1,646 @@
+{
+	"$type" : "ConfigMonster",
+	"hasDither" : true,
+	// "headControl" :
+	// {
+	// 	"$type": "ConfigHeadControl",
+	// 	"useHeadControl": true,
+	// 	"maxYawDegree": 60.0,
+	// 	"maxPitchDegree": 15.0,
+	// },
+	"common":
+	{
+		"effectAttachShape":
+		{
+			"$type": "ConfigEffectAttachSkinnedMesh",
+			"mesh": "EffectMesh",
+		},
+		"mass" : 1000000.0,
+		"useGrassDisplacement" : true,
+		"height": 4.2,
+		"viewSize": 2.5,
+		"affectedByWorld" : true,
+		"checkInSurface" : true,
+	},
+	"dither":
+	{
+		"showDitherDuration": 2.0,
+		"normalBetweenCamera":
+		{
+			"detectDitherRange": 5.0,
+		},
+	},
+	"model":
+	{
+		"canBakeMesh": false,
+	},
+	"billboard":
+	{
+		"$type" : "ConfigCombatBillboard",
+		"offsetType": "Character",
+		"offset":
+		{
+			"x": 0,
+			"y": 0,
+			"z": 0,
+		},
+		"radiusOffset": 1.0,
+		"enableSelfAdapt": true,
+		"showDistance": 48,
+		"showHPBar": true,
+		"size": "Grand",
+	},
+	"combat" :
+	{
+		"property":
+		{
+			"weight" : 300,	//weightLevel = 4
+			"endureType": "Monster_Demiboss_Other",
+		},
+		"combatLock":
+ 		{
+ 			"denyLockOn": false,
+ 			"lockType": "Avatar&Monster_Lv4",
+ 		},
+		"beHit" :
+		{
+			"hitBloodEffect": "",
+			"hitAutoRedirect": false,
+			"muteAllHit": false,
+			"muteAllHitEffect": false,
+			"muteAllHitText": false,
+		},
+		"die":
+		{
+			"hasAnimatorDie": true,
+			"dieDisappearEffect": "Eff_Death_Common",
+			"dieDisappearEffectDelay": 0.0,
+			"dieEndTime": 2.0,
+			"dieForceDisappearTime": 4,
+			"dieShaderData": "MonsterDie",
+			"useRagDoll": true,
+			"ragDollDieEndTimeDelay": 0.0,
+		},
+		"animEvents":
+		{
+			
+		},
+	},
+	"inputKeys":
+	[
+		{
+			"keyID": 201,
+			"inputKeyCode": 257,
+		},
+		{
+			"keyID": 211,
+			"inputKeyCode": 258,
+		},
+		{
+			"keyID": 221,
+			"inputKeyCode": 259,
+		},
+		{
+			"keyID": 231,
+			"inputKeyCode": 260,
+		},
+	],
+	"stateLayers":
+	{
+		"defaultLayer":
+		{
+			"$type" : "ConfigNormalStateLayer",
+			"stateIDs" :
+			{
+				"Born" :
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Born": [],
+					},
+					"combatMove": true,
+					"canSyncMove" : true,
+					"resetAnimatorTriggerOnExit" : ["DoSkill"],
+				},
+				"NormalIdle" :
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Standby": [],
+					},
+					"combatMove": true,
+					"canDoSkill" : true,
+					"canSyncMove" : true,
+					"resetAnimatorTriggerOnExit" : ["DoSkill"],
+				},
+				"NormalIdle_WeakLoop" :
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"WeakLoop": [],
+					},
+					"combatMove": true,
+					"canDoSkill" : true,
+					"canSyncMove" : true,
+					"resetAnimatorTriggerOnExit" : ["DoSkill"],
+				},
+				"NormalIdle_PowerOff" :
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"PowerOff": [],
+					},
+					"combatMove": true,
+					"canDoSkill" : true,
+					"canSyncMove" : true,
+					"resetAnimatorTriggerOnExit" : ["DoSkill"],
+				},
+				"Turn" :
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Turn": [],
+					},
+					"combatMove": true,
+					"canDoSkill" : true,
+					"canSyncMove" : true,
+					"resetAnimatorTriggerOnExit": ["BeHit"],
+				},
+				"NormalMove" :
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"WalkForward": [],
+						"WalkBack": [],
+					},
+					"combatMove": true,
+					"canDoSkill" : true,
+					"canSteer" : true,
+					"canSyncMove" : true,
+					"resetAnimatorTriggerOnExit" : ["DoSkill"],
+				},
+				"Weak_Start":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Weak_Start": [],
+					},
+					"combatMove": true,
+					"resetAnimatorTriggerOnEnter": [ "BeHit", "WeakStartTrigger", "BreakTrigger"],
+					"resetAnimatorTriggerOnExit": [ "DoSkill" ],
+				},
+				"Weak_End":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Weak_End": [],
+					},
+					"combatMove": true,
+					"resetAnimatorTriggerOnEnter": [ "BeHit"],
+					"resetAnimatorTriggerOnExit": [ "DoSkill" ],
+				},
+				"Break":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Break": [],
+					},
+					"combatMove": true,
+					"resetAnimatorTriggerOnEnter": [ "BeHit", "BreakTrigger" ],
+					"resetAnimatorTriggerOnExit": [ "DoSkill" ],
+				},
+				"Die":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Die_BS": [],
+						"WeakDie_BS": [],
+						"SwimDie":[],
+					},
+				},
+				"Die_RagDoll":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Die": [],
+						"WeakDie": [],
+					},
+					"enableRagDoll": true,
+				},
+				"PowerOff_WakeUp":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"PowerOff_WakeUp": [],
+					},
+					"combatMove": true,
+					"cullingModelAlwaysAnimate": true,
+					"resetAnimatorTriggerOnEnter": [ "BeHit" ],
+					"resetAnimatorTriggerOnExit": [ "DoSkill", "LevelEnterBattle" ],
+				},
+				"AimAtk":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"AimAtk": [],
+					},
+					"combatMove": true,
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill" ],
+				},
+				"CharkAtk":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"CharkAtk": [],
+					},
+					"combatMove": true,
+					"resetAnimatorTriggerOnEnter": [ "SwipeTrigger" ],
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill" ],
+				},
+				"VoltSwitch":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"VoltSwitch": [],
+					},
+					"combatMove": true,
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill" ],
+				},
+				"CoveringFire":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"CoveringFireBS": [],
+						"CoveringFireLoop": [],
+						"CoveringFireAS": [],
+					},
+					"combatMove": true,
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill" ],
+				},
+			},
+		},
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "ResistStruggle",
+			"abilityName": "AbilityResistStruggle",
+		},
+		{
+			"abilityID": "Born",
+			"abilityName": "Defender_None_Born",
+		},
+		{
+			"abilityID": "PowerOff",
+			"abilityName": "Defender_None_PowerOff",
+		},
+		{
+			"abilityID": "PowerOff_WakeUp",
+			"abilityName": "Defender_None_PowerOff_WakeUp",
+		},
+		{
+			"abilityID": "PowerOff_Remove",
+			"abilityName": "Defender_None_PowerOff_Remove",
+		},
+		{
+			"abilityID": "Weakness",
+			"abilityName": "Defender_None_Weakness",
+		},
+		{
+			"abilityID": "Weakness_Remove",
+			"abilityName": "Defender_None_Weakness_Remove",
+		},
+		{
+			"abilityID": "Break_Remove",
+			"abilityName": "Defender_None_Break_Remove",
+		},
+		{
+			"abilityID": "Weak",
+			"abilityName": "Defender_None_Weak",
+		},
+		{
+			"abilityID": "Weak_Effect",
+			"abilityName": "Defender_None_Weak_Effect",
+		},
+		{
+			"abilityID": "Weak_Ground",
+			"abilityName": "Defender_None_Weak_Ground",
+		},
+		{
+			"abilityID": "Weak_End",
+			"abilityName": "Defender_None_Weak_End",
+		},
+		{
+			"abilityID": "Turn",
+			"abilityName": "Defender_None_Turn",
+		},
+		{
+			"abilityID": "ReturnToBorn",
+			"abilityName": "Defender_None_ReturnToBorn",
+		},
+		{
+			"abilityID": "GearControl",
+			"abilityName": "Defender_None_GearControl",
+		},
+		{
+			"abilityID": "HeadControl",
+			"abilityName": "Defender_None_HeadControl",
+		},
+		{
+			"abilityID": "Die",
+			"abilityName": "Defender_None_Die",
+		},
+		{
+			"abilityID": "Die_Ground",
+			"abilityName": "Defender_None_Die_Ground",
+		},
+		{
+			"abilityID": "WeakDie_Ground",
+			"abilityName": "Defender_None_WeakDie_Ground",
+		},
+	],
+	"initialPoses":
+	{
+		"Default":
+		{
+			"initialPoseID" : 100,
+			"initialPoseParams":
+			{
+				"boolParams":
+				{
+					"PowerOff": "false",
+				},
+			},
+		},
+		"PowerOff":
+		{
+			"initialPoseID" : 101,
+			"initialPoseParams":
+			{
+				"boolParams":
+				{
+					"PowerOff": "true",
+				},
+			},
+		},
+	},
+	"aibeta":
+	{
+		"enable": true,
+		"skillGCD": 3.0,
+		"profiling":
+		{
+			"staticPoses": [101],
+		},
+		"moveSetting":
+		{
+			"almostReachedDistanceWalk": 2.0,
+		},
+		"neurons":
+		{
+			"DefaultSetting": ["HIT"],
+			"PowerOff_Passive": [],
+			"NeverCombat": [],
+		},
+		"sensing":
+		{
+			"settings":
+			{
+				"DefaultSetting":
+				{
+					"viewRange": 60.0,
+					"horizontalFov": 120.0,
+					"verticalFov": 120.0,
+					"feelRange": 12.0,
+				},
+				"PowerOff_Active":
+				{
+					"enableVision": false,
+					"feelRange": 8.0,
+				},
+				"PowerOff_Passive":
+				{
+					"enableVision": false,
+					"feelRange": 0.0,
+					"hearAttractionRange": 0.0,
+				},
+				"NeverCombat":
+				{
+					"enableVision": false,
+					"feelRange": 0.0,
+					"hearAttractionRange": 0.0,
+				},
+			},
+			"templates":
+			{
+				"DefaultTemplate":
+				{
+					"DefaultPoses": "DefaultSetting",
+					"101": "PowerOff_Active",
+				},
+				"PowerOff_Passive":
+				{
+					"DefaultPoses": "DefaultSetting",
+					"101": "PowerOff_Passive",
+				},
+				"NeverCombatTemplate":
+				{
+					"DefaultPoses": "NeverCombat",
+					"101": "NeverCombat",
+				},
+			},
+		},
+		"defendArea":
+		{
+			"defendRange": 75.0,
+		},
+		"threat":
+		{
+			"clearThreatTargetDistance": 60.0,
+			"clearThreatTimerByDistance": 2.0,
+			"clearThreatEdgeDistance": 25.0,
+			"viewAttenuation":
+			[
+				{"x": 10.0, "y": 2.0},
+				{"x": 20.0, "y": 1.0},
+				{"x": 30.0, "y": 0.5},
+				{"x": 50.0, "y": 0.1},
+			],
+			"resistTauntLevel": "Monster_TauntLevel_2",
+		},
+		"returnToBornTactic":
+		{
+			"enable": true,
+			"defaultSetting":
+			{
+				"speedLevel": 0,
+				"fadeoutBeginTime": 1.0,
+				"fadeoutEndTime": 3.0,
+			},
+			"specification":
+			{
+				"201":
+				{
+					"speedLevel": 1,
+					"fadeoutBeginTime": 4.0,
+					"fadeoutEndTime": 6.0,
+				},
+			},
+		},
+		"wanderTactic":
+		{
+			"enable": true,
+			"condition":
+			{
+				"pose": [100],
+			},
+			"defaultSetting":
+			{
+				"speedLevel": 1,
+				"turnSpeedOverride": 0.25,
+				"cdMin": 3.0,
+				"cdMax": 5.0,
+				"distanceFromBorn": 30.0,
+				"distanceFromCurrentMin": 10,
+				"distanceFromCurrentMax": 15,
+			},
+		},
+		"meleeChargeTactic":
+		{
+			"enable": true,
+			"condition":
+			{
+				"pose": [201],
+			},
+			"defaultSetting":
+			{
+				"speedLevel": 1,
+				"stopDistance": 4.0,
+				"startDistanceMin": 7.0,
+				"startDistanceMax": 99.0,
+				"useMeleeSlot": false,
+			},
+		},
+		"skills":
+		{
+			"101":
+			{
+				"name": "OnAlert",
+				"stateIDs": ["PowerOff_WakeUp", "PowerOff_Warning", "PowerOff_WarningAS"],
+				"skillType": "OnAlert",
+				"skillQueryingTime": 3,
+				"triggerGCD": false,
+				"castCondition":
+				{
+					"pose": [101],
+				},
+			},
+			"102":
+			{
+				"name": "OnHitAlert",
+				"stateIDs": ["PowerOff_WakeUp", "PowerOff_Warning", "PowerOff_WarningAS"],
+				"skillType": "OnNerve",
+				"skillQueryingTime": 3,
+				"triggerGCD": false,
+				"castCondition":
+				{
+					"pose": [101],
+				},
+				"nerveTrigger": ["HIT"],
+			},
+			"111":
+			{
+				"cd": 1.0,
+				"name": "WeakEnd",
+				"stateIDs": ["Weak_End"],
+				"ignoreGCD": true,
+				"flagSelfInZone": "11",
+				"flagTargetReachable": "11",
+				"flagSelfOnTemplateCollider": "11",
+				"castCondition":
+				{
+					"pose": [202],
+				},
+			},
+			"201":
+			{
+				"cd": 12.5,
+				"cdUpperRange": 5.0,
+				"initialCD": 5.0,
+				"initialCDUpperRange": 10.0,
+				"name": "AimAtk",
+				"stateIDs": ["AimAtk"],
+				"flagSelfInZone": "11",
+				"flagTargetReachable": "11",
+				"castCondition":
+				{
+					"pickRangeMin": 0.0,
+					"pickRangeMax": 35.0,
+					"pose": [201],
+				},
+			},
+			"211":
+			{
+				"cd": 12.0,
+				"cdUpperRange": 12.0,
+				"name": "ChargeAtk",
+				"stateIDs": ["ChargeAtk"],
+				"flagSelfInZone": "11",
+				"flagTargetReachable": "11",
+				"castCondition":
+				{
+					"pickRangeMin": 0.0,
+					"pickRangeMax": 35,
+					"pose": [201],
+				},
+			},
+			"221":
+			{
+				"cd": 12.0,
+				"cdUpperRange": 12.0,
+				"name": "VoltSwitch",
+				"stateIDs": ["VoltSwitch"],
+				"triggerGCD": false,
+				"castCondition":
+				{
+					"maxTargetAngleXZ": 90,
+					"pickRangeMin": 0.0,
+					"pickRangeMax": 4,
+					"pose": [201],
+				},
+			},
+			"231":
+			{
+				"cd": 12.0,
+				"cdUpperRange": 12.0,
+				"name": "CoveringFire",
+				"stateIDs": ["CoveringFire"],
+				"triggerGCD": false,
+				"flagSelfInZone": "11",
+				"flagTargetReachable": "11",
+				"castCondition":
+				{
+					"pickRangeMin": 0.0,
+					"pickRangeMax": 99,
+					"pose": [201],
+				},
+			},
+		},
+	},
+}

@@ -1,0 +1,175 @@
+[
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// 家园 欧式的火炉
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	{
+		"Default": 
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "SceneObj_Homeworld_Interior_Md_Decoration_Fireplace_01_Ability",
+			"abilityMixins":
+			[
+				{
+					"$type":"HomeworldEnterEditorMixin",
+					"editorModifierNames":["OnHomeEditor"],
+					"worldModifierNames":["OnHomeWorld"],
+				},
+			],
+			"modifiers": 
+			{
+				"OnHomeEditor":
+				{
+					"onAdded":
+					[
+					],
+				},
+				"OnHomeWorld":
+				{
+					"onAdded":
+					[
+						{
+							"$type" : "SetGlobalValue",
+							"key": "_Homeworld_Cooking",
+							"value": 1,
+						},
+						{
+							"$type": "AttachModifier",
+							"modifierName": "Fire_State",
+						},
+					],
+				},
+				"Fire_State":
+				{
+					"modifierMixins":
+					[
+						{
+							"$type": "AttachModifierToSelfGlobalValueMixin", // 计数到0时,移除WindBlade这个modifier
+							"globalValueKey": "_Homeworld_Cooking",
+							"valueSteps" : [-0.5, 0.5, 1.5],
+							"modifierNameSteps" : ["Fire_Off","Fire_On"],
+						},
+					],
+				},
+				"Fire_Off":
+				{
+					"duration":5,
+					"onBeingHit":
+					[
+						{
+							"$type": "SetGlobalValue",
+							"key": "_Homeworld_Cooking",
+							"value": 1,
+							"predicates":
+							[
+								{
+									"$type": "ByHitElement",
+									"element": "Fire",
+								},
+							],
+						},
+					],
+					"onRemoved":
+					[
+						{
+							"$type": "SetGlobalValue",
+							"key": "_Homeworld_Cooking",
+							"value": 1,
+						},
+					],
+				},
+				"Fire_On":
+				{
+					"elementType": "Fire",
+					"elementDurability": 25,
+					"onAdded":
+					[
+						{
+							"$type":"AttachEffect",
+							"effectPattern": "Eff_SceneObj_Griller_FireCook_01",
+							"born": 
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName" : "FirePoint",
+							},
+						},
+					],
+					"onRemoved":
+					[
+						{
+							"$type": "FireEffect",
+							"effectPattern": "FireBasin_Smoke",
+							"born": 
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName" : "FirePoint",
+							},
+						},
+						{
+							"$type": "SetGlobalValue",
+							"key": "_Homeworld_Cooking",
+							"value": 0,
+						},
+					],
+				},
+			},
+		},
+	},
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// 家园 丘丘人标靶
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	{
+		"Default": 
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "SceneObj_Homeworld_Exterior_Common_Decoration_Junk_06_Ability",
+			"onAdded":
+			[
+				{
+					"$type": "AttachModifier",
+					"modifierName": "LimboState",
+					"target": "Self",
+				},
+
+			],
+			"modifiers": 
+			{
+				"LimboState":
+				{
+					"state" : "Limbo",
+				},
+			},
+		},
+	},
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// 家园 木桩
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	{
+		"Default": 
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "SceneObj_Homeworld_Exterior_Common_Decoration_Stake_01_Ability",
+			"onAdded":
+			[
+				{
+					"$type": "AttachModifier",
+					"modifierName": "LimboState",
+					"target": "Self",
+				},
+
+			],
+			"modifiers": 
+			{
+				"LimboState":
+				{
+					"state" : "Limbo",
+				},
+			},
+		},
+	},	
+]

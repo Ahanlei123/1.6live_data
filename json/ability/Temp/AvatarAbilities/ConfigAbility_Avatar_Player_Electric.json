@@ -1,0 +1,5329 @@
+[
+
+    {
+        "Default":
+        {
+            "$type": "ConfigAbility",
+            "abilityName": "Avatar_PlayerBoy_ExtraAttack_Electric",
+            "abilityMixins": [
+                {
+                    "$type": "ButtonHoldChargeMixin",
+                    "skillID": 100546,
+                    "chargeTime": 0.12,
+                    "secondChargeTime": 0.2,
+                    "OnBeginUncharged": [
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "triggerID": "DoSkill",
+                        },
+                        {
+                            "$type": "SetAnimatorInt",
+                            "intID": "SkillID",
+                            "value": 99,
+                            "predicates": [
+                                {
+                                    "$type": "ByAny",
+                                    "predicates": [
+                                        {
+                                            "$type": "ByAnimatorInt",
+                                            "value": 0,
+                                            "parameter": "ComboCount",
+                                            "logic": "Equal",
+                                        },
+                                        {
+                                            "$type": "ByAnimatorInt",
+                                            "value": 5,
+                                            "parameter": "ComboCount",
+                                            "logic": "Equal",
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            "$type": "SetAnimatorBool",
+                            "boolID": "IsCharging",
+                            "value": false,
+                        },
+                    ],
+                    "OnReleaseUncharged": [
+                        /*                      {
+                            "$type": "SetAnimatorTrigger",
+                            "triggerID": "DoSkill",
+                        },*/
+                        {
+                            "$type": "SetAnimatorInt",
+                            "intID": "SkillID",
+                            "value": 1,
+                        },
+                    ],
+                    "OnBeginCharged": [
+                        {
+                            "$type": "SetAnimatorBool",
+                            "boolID": "IsCharging",
+                            "value": true,
+                        },
+                    ],
+                    "OnReleaseCharged": [
+                        {
+                            "$type": "SetAnimatorBool",
+                            "boolID": "IsCharging",
+                            "value": false,
+                        },
+                        /*                      {
+                            "$type": "SetAnimatorTrigger",
+                            "triggerID": "DoSkill",
+                        },*/
+                        {
+                            "$type": "SetAnimatorInt",
+                            "intID": "SkillID",
+                            "value": 1,
+                        },
+                        /*                      {
+                            "$type": "ResetAnimatorTrigger",
+                            "triggerID": "DoSkill",
+                        },*/
+                    ],
+                    "OnBeginSecondCharged": [
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "triggerID": "DoSkill",
+                            "predicates": [
+                                {
+                                    "$type": "ByLocalAvatarStamina",
+                //故意少判了一点点体力，为了顾及一部分网络延迟
+                                    "stamina": "%ExtraAttack_Sword_Stamina_Cost+%Flexible_Stamina",
+                                    "logic": "GreaterOrEqual",
+                                },
+                            ],
+                        },
+                        {
+                            "$type": "SetAnimatorInt",
+                            "intID": "SkillID",
+                            "value": 6,
+                            "predicates": [
+                                {
+                                    "$type": "ByLocalAvatarStamina",
+                //故意少判了一点点体力，为了顾及一部分网络延迟
+                                    "stamina": "%ExtraAttack_Sword_Stamina_Cost+%Flexible_Stamina",
+                                    "logic": "GreaterOrEqual",
+                                },
+                            ],
+                        },
+                        {
+                            "$type": "SetAnimatorBool",
+                            "boolID": "IsCharging",
+                            "value": false,
+                        },
+                        /*                      {
+                            "$type": "ResetAnimatorTrigger",
+                            "triggerID": "DoSkill",
+                        },*/
+                    ],
+                    "OnReleaseSecondCharged": [],
+                    "chargeStateIDs": [
+                        "Attack01",
+                        "Attack02",
+                        "Attack03",
+                        "Attack04",
+                        "Run"
+                    ],
+                },
+                {
+                    "$type": "AttachToStateIDMixin",
+                    "stateIDs": [
+                        "ExtraAttack"
+                    ],
+                    "modifierName": "ExtraAttack_StaminaCost",
+                },
+            ],
+            "modifiers": {
+                "ExtraAttack_StaminaCost": {
+                    // "duration": 0.2,
+                    "onAdded": [
+                        {
+                            "$type": "AvatarSkillStart",
+                            "skillID": 10001,
+                            "costStaminaRatio":"%ExtraAttack_Sword_Stamina_Cost",
+                        },
+                    ],
+                },
+            },
+            "abilitySpecials": {
+                //故意少判了一点点体力，为了顾及一部分网络延迟
+                "ExtraAttack_Sword_Stamina_Cost": 0,
+                "Flexible_Stamina":-2,
+            },
+        },
+    },
+
+    {
+        "Default":
+        {
+            "$type": "ConfigAbility",
+            "abilityName": "Avatar_PlayerGirl_ExtraAttack_Electric",
+            "abilityMixins": [
+                {
+                    "$type": "ButtonHoldChargeMixin",
+                    "skillID": 100556,
+                    "chargeTime": 0.12,
+                    "secondChargeTime": 0.2,
+                    "OnBeginUncharged": [
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "triggerID": "DoSkill",
+                        },
+                        {
+                            "$type": "SetAnimatorInt",
+                            "intID": "SkillID",
+                            "value": 99,
+                            "predicates": [
+                                {
+                                    "$type": "ByAny",
+                                    "predicates": [
+                                        {
+                                            "$type": "ByAnimatorInt",
+                                            "value": 0,
+                                            "parameter": "ComboCount",
+                                            "logic": "Equal",
+                                        },
+                                        {
+                                            "$type": "ByAnimatorInt",
+                                            "value": 5,
+                                            "parameter": "ComboCount",
+                                            "logic": "Equal",
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            "$type": "SetAnimatorBool",
+                            "boolID": "IsCharging",
+                            "value": false,
+                        },
+                    ],
+                    "OnReleaseUncharged": [
+                        /*                      {
+                            "$type": "SetAnimatorTrigger",
+                            "triggerID": "DoSkill",
+                        },*/
+                        {
+                            "$type": "SetAnimatorInt",
+                            "intID": "SkillID",
+                            "value": 1,
+                        },
+                    ],
+                    "OnBeginCharged": [
+                        {
+                            "$type": "SetAnimatorBool",
+                            "boolID": "IsCharging",
+                            "value": true,
+                        },
+                    ],
+                    "OnReleaseCharged": [
+                        {
+                            "$type": "SetAnimatorBool",
+                            "boolID": "IsCharging",
+                            "value": false,
+                        },
+                        /*                      {
+                            "$type": "SetAnimatorTrigger",
+                            "triggerID": "DoSkill",
+                        },*/
+                        {
+                            "$type": "SetAnimatorInt",
+                            "intID": "SkillID",
+                            "value": 1,
+                        },
+                        /*                      {
+                            "$type": "ResetAnimatorTrigger",
+                            "triggerID": "DoSkill",
+                        },*/
+                    ],
+                    "OnBeginSecondCharged": [
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "triggerID": "DoSkill",
+                            "predicates": [
+                                {
+                                    "$type": "ByLocalAvatarStamina",
+                //故意少判了一点点体力，为了顾及一部分网络延迟
+                                    "stamina": "%ExtraAttack_Sword_Stamina_Cost+%Flexible_Stamina",
+                                    "logic": "GreaterOrEqual",
+                                },
+                            ],
+                        },
+                        {
+                            "$type": "SetAnimatorInt",
+                            "intID": "SkillID",
+                            "value": 6,
+                            "predicates": [
+                                {
+                                    "$type": "ByLocalAvatarStamina",
+                //故意少判了一点点体力，为了顾及一部分网络延迟
+                                    "stamina": "%ExtraAttack_Sword_Stamina_Cost+%Flexible_Stamina",
+                                    "logic": "GreaterOrEqual",
+                                },
+                            ],
+                        },
+                        {
+                            "$type": "SetAnimatorBool",
+                            "boolID": "IsCharging",
+                            "value": false,
+                        },
+                        /*                      {
+                            "$type": "ResetAnimatorTrigger",
+                            "triggerID": "DoSkill",
+                        },*/
+                    ],
+                    "OnReleaseSecondCharged": [],
+                    "chargeStateIDs": [
+                        "Attack01",
+                        "Attack02",
+                        "Attack03",
+                        "Attack04",
+                        "Run"
+                    ],
+                },
+                {
+                    "$type": "AttachToStateIDMixin",
+                    "stateIDs": [
+                        "ExtraAttack"
+                    ],
+                    "modifierName": "ExtraAttack_StaminaCost",
+                },
+            ],
+            "modifiers": {
+                "ExtraAttack_StaminaCost": {
+                    // "duration": 0.2,
+                    "onAdded": [
+                        {
+                            "$type": "AvatarSkillStart",
+                            "skillID": 10001,
+                            "costStaminaRatio":"%ExtraAttack_Sword_Stamina_Cost",
+                        },
+                    ],
+                },
+            },
+            "abilitySpecials": {
+                //故意少判了一点点体力，为了顾及一部分网络延迟
+                "ExtraAttack_Sword_Stamina_Cost": 0,
+                "Flexible_Stamina":-2,
+            },
+        },
+    },
+
+////////////////////////////////////////////////////////////////
+//
+//  ElementalBurst_Initiate
+//
+////////////////////////////////////////////////////////////////
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Player_Electric_ElementalBurst_Initiate",
+			"abilityMixins":
+			[
+				{
+					"$type": "AttachToNormalizedTimeMixin",
+					"stateID": "Player_Electric_ElementalBurst",
+					"modifierName": "Player_Electric_ElementalBurst_Initiate_VFX",
+					"normalizeStart" : 0.0,
+					"normalizeEnd" : 1.0,					
+				},
+			],
+			"onAbilityStart":
+			[
+				{
+					"$type": "AttachModifier",
+					"modifierName": "Magatama_Formation",
+				},				
+				{
+					"$type": "AvatarSkillStart",
+					"skillID": 10605,
+				},				
+				{
+					"$type": "FireEffect",
+					"effectPattern": "Eff_Player_Electric_ElementalBurst_Thunder_Whitebox",
+					"target":"Self",
+				},
+				{
+					"$type": "KillGadget",
+					"gadgetInfo":
+					{
+						"$type": "SelectTargetsByChildren",
+						"configID": 41044001,
+					},
+				},											
+				{
+					"$type": "CreateGadget",
+					"gadgetID": 41044001,
+					"campID": 1001,
+					"campTargetType": "Enemy",
+					"born":
+					{
+						"$type": "ConfigBornByAttachPoint",
+						"attachPointName": "RootNode",
+						"attachPointTargetType": "Caster",
+						"offset":
+						{
+							"x": 0.0,
+							"y": 0.0,
+							"z": 0.0,
+						},
+						"direction":
+						{
+							"$type": "ConfigDirectionByEntity",
+							"angleOffset":
+							{
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+							}
+						}
+					},
+				},	
+				{
+					"$type": "CreateGadget",
+					"gadgetID": 41044001,
+					"campID": 1001,
+					"campTargetType": "Enemy",
+					"born":
+					{
+						"$type": "ConfigBornByAttachPoint",
+						"attachPointName": "RootNode",
+						"attachPointTargetType": "Caster",
+						"offset":
+						{
+							"x": 0.0,
+							"y": 0.0,
+							"z": 0.0,
+						},
+						"direction":
+						{
+							"$type": "ConfigDirectionByEntity",
+							"angleOffset":
+							{
+								"x": 0.0,
+								"y": 120.0,
+								"z": 0.0,
+							}
+						}
+					},
+				},	
+				{
+					"$type": "CreateGadget",
+					"gadgetID": 41044001,
+					"campID": 1001,
+					"campTargetType": "Enemy",
+					"born":
+					{
+						"$type": "ConfigBornByAttachPoint",
+						"attachPointName": "RootNode",
+						"attachPointTargetType": "Caster",
+						"offset":
+						{
+							"x": 0.0,
+							"y": 0.0,
+							"z": 0.0,
+						},
+						"direction":
+						{
+							"$type": "ConfigDirectionByEntity",
+							"angleOffset":
+							{
+								"x": 0.0,
+								"y": 240.0,
+								"z": 0.0,
+							}
+						}
+					},
+				},			
+				// {
+				// 	"$type": "CreateGadget",
+				// 	"gadgetID": 41044001,
+				// 	"campID": 1001,
+				// 	"campTargetType": "Enemy",
+				// 	"born":
+				// 	{
+				// 		"$type": "ConfigBornByAttachPoint",
+				// 		"attachPointName": "RootNode",
+				// 		"attachPointTargetType": "Caster",
+				// 		"offset":
+				// 		{
+				// 			"x": 0.0,
+				// 			"y": 0.0,
+				// 			"z": 0.0,
+				// 		},
+				// 		"direction":
+				// 		{
+				// 			"$type": "ConfigDirectionByEntity",
+				// 			"angleOffset":
+				// 			{
+				// 				"x": 0.0,
+				// 				"y": 288.0,
+				// 				"z": 0.0,
+				// 			}
+				// 		}
+				// 	},
+				// },	
+				// {
+				// 	"$type": "CreateGadget",
+				// 	"gadgetID": 41044001,
+				// 	"campID": 1001,
+				// 	"campTargetType": "Enemy",
+				// 	"born":
+				// 	{
+				// 		"$type": "ConfigBornByAttachPoint",
+				// 		"attachPointName": "RootNode",
+				// 		"attachPointTargetType": "Caster",
+				// 		"offset":
+				// 		{
+				// 			"x": 0.0,
+				// 			"y": 0.0,
+				// 			"z": 0.0,
+				// 		},
+				// 		"direction":
+				// 		{
+				// 			"$type": "ConfigDirectionByEntity",
+				// 			"angleOffset":
+				// 			{
+				// 				"x": 0.0,
+				// 				"y": 0.0,
+				// 				"z": 0.0,
+				// 			}
+				// 		}
+				// 	},
+				// },																									
+			],		
+			"modifiers":
+			{
+				"Magatama_Formation":
+				{
+					"duration": 12,
+					"modifierMixins": 
+					[
+						{
+							"$type":"CurLocalAvatarMixin",
+							"modifierName":"Magatama_Detector",
+						},						
+					],
+				},
+				"Magatama_Detector":
+				{
+					"onAttackLanded":
+					[
+						{
+							"$type": "Predicated",
+							"target": "Other",
+							"targetPredicates": 
+							[
+								{
+									"$type": "ByEntityTypes",
+									"entityTypes": ["Monster"],
+								},
+								{
+				                 	"$type": "ByTargetGlobalValue",
+				                 	"key": "_ANIMAL_ENTITY_TYPE",
+				                 	"value": 0,
+				                 	"compareType": "NoneOrEqual",
+				                },
+								{
+									"$type": "ByAttackTags",
+									"attackTags": 
+									[
+										"NormalAttack_01",
+										"NormalAttack_02",
+										"NormalAttack_03",
+										"NormalAttack_04",
+										"NormalAttack_05",
+										"NormalAttack_06",	
+										"ExtraAttack"																		
+									],	//普攻打中怪
+								},
+							],
+							"successActions":
+							[
+								// {
+								// 	"$type": "SetSelfAttackTarget",
+								// 	"target": "Target",
+								// 	"doOffStage": true,
+								// },		
+								{
+									"$type": "ApplyModifier",
+									"modifierName": "Attack",
+									"target": "CurLocalAvatar",
+									"doOffStage": true,
+								},						
+								{
+									"$type": "ApplyModifier",
+									"modifierName": "FX",
+									"target": "CurLocalAvatar",
+									"doOffStage": true,
+								},								
+							],							
+						},
+					],					
+				},
+				"FX":
+				{
+					"duration": 0.25,					
+					"onAdded":
+					[
+						{
+							"$type": "FireEffect",
+							"effectPattern": "Eff_Player_Electric_ElementalArt_Magatama_Buff_Dissipate",
+							"target":"Self",							
+						}
+					]
+				},	
+				"Attack":
+				{
+					"duration": 0.3,
+					"stacking": "Unique",
+					"onAdded": 
+					[
+						{
+							"$type": "ApplyModifier",
+							"target": "SelfAttackTarget",
+							"modifierName": "Thunder",
+							"doOffStage": true,
+						},						
+						// {
+						// 	"$type": "TriggerAbility",
+						// 	"abilityName": "Avatar_Player_Electric_ElementalBurst_MagatamaAttack",
+						// 	"target": "Caster",
+						// 	"forceUseSelfCurrentAttackTarget": true,
+						// },
+						{
+							"$type": "ReviveElemEnergy",
+							"value": 1,						
+						}					
+					],	
+				},
+				"Thunder":
+				{
+					"duration": 0.2,
+					"onAdded":
+					[
+						{
+							"$type": "FireEffect",
+							"effectPattern": "Eff_Player_Electric_ElementalBurst_Thunder_Whitebox",
+							"born":
+							{
+								"$type": "ConfigBornBySelf",
+								"offset":
+								{
+									"x": 0.0,
+									"y": 0.0,
+									"z": 0.0,
+								},
+								"onGround": true,
+							},							
+						},		
+						{
+							"$type": "TriggerAttackEvent",
+							"target":"Caster",
+							"targetType": "Enemy",
+							"attackEvent":
+							{
+								"attackPattern" :
+								{
+									"$type": "ConfigAttackSphere",
+									"duration": 0.0,
+									"triggerType": "TriggerNoRepeat",
+									"radius": 2,
+									"ignoreMassive":true,
+									"born":
+									{
+										"$type": "ConfigBornBySelf",
+										"offset":
+										{
+											"x": 0.0,
+											"y": 0.0,
+											"z": 0.0,
+										},
+										"onGround": true,
+									},	
+								},
+								"attackInfo":
+								{
+									"attackTag": "Elemental_Burst",
+									"attackProperty":
+									{
+										"damagePercentage": 0.5,
+										"elementType": "Electric",
+										"elementRank":1.5,
+										"elementDurability": 50,
+										"enBreak": 150,
+									},
+									"hitPattern" :
+									{
+										"hitImpulseType":"LV2",
+										"reboundRatio": 0,
+										"canBeDefenceHalt": false,
+										"hitHaltTime": 0.0,
+										"hitHaltTimeScale": 0.05,
+										"muteHitText": false,
+									},
+									"forceCameraShake": false,
+								},
+							},
+						},						
+					]
+				},
+				"Player_Electric_ElementalBurst_Initiate_VFX":
+				{
+					"onAdded":
+					[
+						{
+							"$type":"AttachEffect",
+							"effectPattern":"Eff_Player_Electric_ElementalBurst_Initiate",								
+						}
+					],
+				},
+			}
+		},
+	},		
+
+  	{
+    	"Default":
+    	{
+      		"$type": "ConfigAbility",
+      		"abilityName": "Avatar_Player_Electric_ElementalBurst_TriMagatamaAttack_1",
+      		"onAbilityStart":
+      		[
+				{
+					"$type":"KillGadget", //干掉点击的子弹（如果存在）
+					"gadgetInfo":
+					{
+						"$type": "SelectTargetsByChildren",
+						"configID": 41044001,
+						"sortType": "Default",
+						// "topLimit":1,
+					},
+					"doOffStage":true,
+				},	      			
+				{
+					"$type": "Predicated",
+					"target": "Target",
+					"targetPredicates":
+					[
+						{
+							"$type": "ByEntityTypes",
+							"entityTypes": ["Avatar"],
+						},
+					],
+					"failActions":
+					[
+						{
+							"$type": "SetSelfAttackTarget",
+							"target": "Target",
+							"doOffStage": true,
+						},
+					],
+					"doOffStage": true,
+				},
+				{
+					"$type": "TriggerBullet",
+					// "target":"Caster",
+					"bulletID": 41044101,
+					"campID": 1001,
+					"campTargetType": "Enemy",
+					"born": 
+					{
+						"$type": "ConfigBornByGlobalValue",
+						"positionKey": "_ABILITY_Player_Electric_ElementalArt_AttackerPos",
+						"offset": 
+						{
+							"x": 0.0,
+							"y": 1.5,
+							"z": -1.5,
+						},		
+						"direction":
+						{
+							"$type": "ConfigDirectionByGlobalValue",
+							"directionKey": "_ABILITY_Player_Electric_ElementalArt_AttackerDir",
+							"angleOffset": 
+							{
+								"x": 0.0,
+								"y": 90.0,
+								"z": 0.0,
+							},											
+						},																			
+					},
+					"trackTarget": "SelfAttackTarget",
+					// "turnToTargetImmediately": true,
+					"doOffStage": true,
+				},
+      		],
+    	},
+  	},
+
+  	{
+    	"Default":
+    	{
+      		"$type": "ConfigAbility",
+      		"abilityName": "Avatar_Player_Electric_ElementalBurst_TriMagatamaAttack_2",
+      		"onAbilityStart":
+      		[  
+				{
+					"$type":"KillGadget", //干掉点击的子弹（如果存在）
+					"gadgetInfo":
+					{
+						"$type": "SelectTargetsByChildren",
+						"configID": 41044002,
+						"sortType": "Default",
+						// "topLimit":1,
+					},
+					"doOffStage":true,
+				},					    			
+				{
+					"$type": "Predicated",
+					"target": "Target",
+					"targetPredicates":
+					[
+						{
+							"$type": "ByEntityTypes",
+							"entityTypes": ["Avatar"],
+						},
+					],
+					"failActions":
+					[
+						{
+							"$type": "SetSelfAttackTarget",
+							"target": "Target",
+							"doOffStage": true,
+						},
+					],
+					"doOffStage": true,
+				},
+				{
+					"$type": "TriggerBullet",
+					// "target":"Caster",
+					"bulletID": 41044101,
+					"campID": 1001,
+					"campTargetType": "Enemy",
+					"born": 
+					{
+						"$type": "ConfigBornByGlobalValue",
+						"positionKey": "_ABILITY_Player_Electric_ElementalArt_AttackerPos",
+						"offset": 
+						{
+							"x": 0.0,
+							"y": 1.5,
+							"z": -1.5,
+						},		
+						"direction":
+						{
+							"$type": "ConfigDirectionByGlobalValue",
+							"directionKey": "_ABILITY_Player_Electric_ElementalArt_AttackerDir",
+							"angleOffset": 
+							{
+								"x": 0.0,
+								"y": 90.0,
+								"z": 0.0,
+							},											
+						},																			
+					},
+					"trackTarget": "SelfAttackTarget",
+					// "turnToTargetImmediately": true,
+					"doOffStage": true,
+				},
+      		],
+    	},
+  	},
+
+  	{
+    	"Default":
+    	{
+      		"$type": "ConfigAbility",
+      		"abilityName": "Avatar_Player_Electric_ElementalBurst_TriMagatamaAttack_3",
+      		"onAbilityStart":
+      		[
+				{
+					"$type":"KillGadget", //干掉点击的子弹（如果存在）
+					"gadgetInfo":
+					{
+						"$type": "SelectTargetsByChildren",
+						"configID": 41044003,
+						"sortType": "Default",
+						// "topLimit":1,
+					},
+					"doOffStage":true,
+				},	      			
+				{
+					"$type": "Predicated",
+					"target": "Target",
+					"targetPredicates":
+					[
+						{
+							"$type": "ByEntityTypes",
+							"entityTypes": ["Avatar"],
+						},
+					],
+					"failActions":
+					[
+						{
+							"$type": "SetSelfAttackTarget",
+							"target": "Target",
+							"doOffStage": true,
+						},
+					],
+					"doOffStage": true,
+				},
+				{
+					"$type": "TriggerBullet",
+					// "target":"Caster",
+					"bulletID": 41044101,
+					"campID": 1001,
+					"campTargetType": "Enemy",
+					"born": 
+					{
+						"$type": "ConfigBornByGlobalValue",
+						"positionKey": "_ABILITY_Player_Electric_ElementalArt_AttackerPos",
+						"offset": 
+						{
+							"x": 0.0,
+							"y": 1.5,
+							"z": -1.5,
+						},		
+						"direction":
+						{
+							"$type": "ConfigDirectionByGlobalValue",
+							"directionKey": "_ABILITY_Player_Electric_ElementalArt_AttackerDir",
+							"angleOffset": 
+							{
+								"x": 0.0,
+								"y": 90.0,
+								"z": 0.0,
+							},											
+						},																			
+					},
+					"trackTarget": "SelfAttackTarget",
+					// "turnToTargetImmediately": true,
+					"doOffStage": true,
+				},
+      		],
+    	},
+  	},
+
+  	{
+    	"Default":
+    	{
+      		"$type": "ConfigAbility",
+      		"abilityName": "Avatar_Player_Electric_ElementalBurst_MagatamaAttack",
+      		"onAbilityStart":
+      		[
+				{
+					"$type": "Predicated",
+					"target": "Target",
+					"targetPredicates":
+					[
+						{
+							"$type": "ByEntityTypes",
+							"entityTypes": ["Avatar"],
+						},
+					],
+					"failActions":
+					[
+						{
+							"$type": "SetSelfAttackTarget",
+							"target": "Target",
+							"doOffStage": true,
+						},
+					],
+					"doOffStage": true,
+				},
+				{
+					"$type": "TriggerBullet",
+					// "target":"Caster",
+					"bulletID": 41044101,
+					"campID": 1001,
+					"campTargetType": "Enemy",
+					"born": 
+					{
+						"$type": "ConfigBornByGlobalValue",
+						"positionKey": "_ABILITY_Player_Electric_Elementalburst_AttackerPos",
+						"offset": 
+						{
+							"x": 0.0,
+							"y": 1.5,
+							"z": -1.5,
+						},		
+						"direction":
+						{
+							"$type": "ConfigDirectionByGlobalValue",
+							"directionKey": "_ABILITY_Player_Electric_Elementalburst_AttackerDir",
+							"angleOffset": 
+							{
+								"x": 0.0,
+								"y": 90.0,
+								"z": 0.0,
+							},											
+						},																			
+					},
+					"trackTarget": "SelfAttackTarget",
+					// "turnToTargetImmediately": true,
+					"doOffStage": true,
+				},
+				{
+					"$type": "TriggerBullet",
+					// "target":"Caster",
+					"bulletID": 41044101,
+					"campID": 1001,
+					"campTargetType": "Enemy",
+					"born": 
+					{
+						"$type": "ConfigBornByGlobalValue",
+						"positionKey": "_ABILITY_Player_Electric_Elementalburst_AttackerPos",
+						"offset": 
+						{
+							"x": 1.0,
+							"y": 2.5,
+							"z": -1.5,
+						},		
+						"direction":
+						{
+							"$type": "ConfigDirectionByGlobalValue",
+							"directionKey": "_ABILITY_Player_Electric_Elementalburst_AttackerDir",
+							"angleOffset": 
+							{
+								"x": 0.0,
+								"y": -90.0,
+								"z": 0.0,
+							},											
+						},																			
+					},
+					"trackTarget": "SelfAttackTarget",
+					// "turnToTargetImmediately": true,
+					"doOffStage": true,
+				},					
+				{
+					"$type": "TriggerBullet",
+					// "target":"Caster",
+					"bulletID": 41044101,
+					"campID": 1001,
+					"campTargetType": "Enemy",
+					"born": 
+					{
+						"$type": "ConfigBornByGlobalValue",
+						"positionKey": "_ABILITY_Player_Electric_Elementalburst_AttackerPos",
+						"offset": 
+						{
+							"x": -1.0,
+							"y": 2.5,
+							"z": -1.5,
+						},		
+						"direction":
+						{
+							"$type": "ConfigDirectionByGlobalValue",
+							"directionKey": "_ABILITY_Player_Electric_Elementalburst_AttackerDir",
+							"angleOffset": 
+							{
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+							},											
+						},																			
+					},
+					"trackTarget": "SelfAttackTarget",
+					// "turnToTargetImmediately": true,
+					"doOffStage": true,
+				},	 
+      		],
+    	},
+  	},
+
+////////////////////////////////////////////////////////////////
+//
+//  元素爆发 相机
+//
+////////////////////////////////////////////////////////////////
+
+  	{
+    	"Default":
+    	{
+      		"$type": "ConfigAbility",
+      		"abilityName": "Avatar_Player_Electric_ElementalBurst_CameraExit",
+      		"onAbilityStart":
+      		[
+		        {
+		          "$type": "ApplyModifier",
+		          "modifierName": "ExitCamera",
+		        },
+      		],
+     		"modifiers":
+     		{
+        		"ExitCamera":
+        		{
+          			"duration": 0.3,
+          			"onAdded":
+          			[
+			            {
+			              	"$type": "AvatarEnterCameraShot",
+			              	"cameraMoveCfgPath": "CameraElementalBurst_Out_Player_Electric",
+			              	"target": "Self",
+			            },
+          			],
+          			"onRemoved":
+          			[
+			            {
+			              "$type": "AvatarExitCameraShot",
+			              "doOffStage": true,
+			            },
+			            {
+			              "$type": "AvatarCameraParam",
+			              "cameraParam":
+			              	{
+			                	"forceRadius": 6.0,
+			                	"forceRadiusDuration": 0.5,
+			                	"shouldKeepForceRadius": true,
+			              	},
+			            },
+          			],
+        		},
+      		},
+    	},
+  	},
+
+
+////////////////////////////////////////////////////////////////
+//
+//  ElementalBurst_Attack
+//
+////////////////////////////////////////////////////////////////
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Player_Electric_ElementalBurst_Attack",
+			"onAbilityStart":
+			[
+				// {
+				// 	"$type": "FireEffect",
+				// 	"effectPattern": "Eff_Avatar_Boy_Claymore_Razor_ThunderFang_Dissipate",
+				// 	"born":
+				// 	{
+				// 		"$type": "ConfigBornByAttachPoint",		//由于冰晶做了Z偏移，不能创生在原点
+				// 		"attachPointName": "BulletPos",
+				// 		"offset":
+				// 		{
+				// 			"x": 0.0,
+				// 			"y": 0.0,
+				// 			"z": 0.0,
+				// 		},
+				// 		"direction":
+				// 		{
+				// 			"$type": "ConfigDirectionByEntity",
+				// 			"angleOffset":
+				// 			{
+				// 				"x": 0.0,
+				// 				"y": 0.0,
+				// 				"z": 0.0,
+				// 			},
+				// 		},
+				// 		// "alongGround": true,
+				// 	},
+				// },
+				{
+					"$type": "SetGlobalPos",
+					"key": "_ABILITY_Player_Electric_ElementBurst_Pos",
+					"target":"Caster",
+					"born": 
+					{
+						"$type": "ConfigBornBySelf",
+						"bornRandom" :
+						{
+							"$type": "BornRandomFromCenter",
+							"minRandomRange": 3,
+							"maxRandomRange": 3,
+						},								
+		                "offset":
+		                {
+		                  "x": 0.0,
+		                  "y": 0.0,
+		                  "z": 0.0,
+		                },
+		                "onGround": true,
+					},
+				},	
+				{
+					"$type": "ApplyModifier",
+					"modifierName": "Avatar_Player_Electric_ElementalBurst_SendPosition",
+					"otherTargets": 
+					{
+						"$type": "SelectTargetsByShape",
+						"shapeName": "CircleR15",
+						"centerBasedOn": "Self",
+						"campTargetType": "Enemy",
+						"campBasedOn": "Self",
+						"topLimit": 1,
+        				"sortType": "Nearest",
+					},
+					"predicates": 
+					[
+						{
+							"$type": "ByEntityTypes",
+							"entityTypes": ["Monster"],
+						},
+					],
+				},
+				{
+					"$type": "ApplyModifier",
+					"modifierName": "Avatar_Player_Electric_ElementalBurst_Attack",
+				},													
+			],
+			"modifiers":
+			{
+				"Avatar_Player_Electric_ElementalBurst_SendPosition":
+				{
+					"duration":0.2,
+					"onAdded":
+					[
+						{
+							"$type": "SetGlobalPos",
+							"target": "Caster",
+							"key": "_ABILITY_Player_Electric_ElementBurst_Pos",
+							"born":
+							{
+								"$type": "ConfigBornBySelf",
+								"onGround": true,
+							},
+							"setTarget": true,
+						},																	
+					]
+				},
+				"Avatar_Player_Electric_ElementalBurst_Attack":
+				{
+					"duration":0.1,
+					"onRemoved":
+					[						
+						{
+							"$type": "FireEffect",
+							"effectPattern": "Eff_Player_Electric_ElementalBurst_Thunder_Whitebox",
+							"born":
+							{
+								"$type": "ConfigBornByGlobalValue",
+								"positionKey":"_ABILITY_Player_Electric_ElementBurst_Pos",
+								"offset":
+								{
+									"x": 0.0,
+									"y": 0.0,
+									"z": 0.0,
+								},
+								"onGround": true,
+							},							
+						},		
+						{
+							"$type": "TriggerAttackEvent",
+							"target":"Caster",
+							"targetType": "Enemy",
+							"attackEvent":
+							{
+								"attackPattern" :
+								{
+									"$type": "ConfigAttackSphere",
+									"duration": 0.0,
+									"triggerType": "TriggerNoRepeat",
+									"radius": 1.5,
+									"ignoreMassive":true,
+									"born":
+									{
+										"$type": "ConfigBornByGlobalValue",
+										"positionKey":"_ABILITY_Player_Electric_ElementBurst_Pos",
+										"offset":
+										{
+											"x": 0.0,
+											"y": 0.0,
+											"z": 0.0,
+										},
+										"onGround": true,
+									},	
+								},
+								"attackInfo":
+								{
+									"attackTag": "Elemental_Burst",
+									"attackProperty":
+									{
+										"damagePercentage": 1.0,
+										"elementType": "Electric",
+										"elementRank":1.5,
+										"elementDurability": 50,
+										"enBreak": 150,
+									},
+									"hitPattern" :
+									{
+										"hitImpulseType":"LV7",
+										"reboundRatio": 0,
+										"canBeDefenceHalt": false,
+										"hitHaltTime": 0.0,
+										"hitHaltTimeScale": 0.05,
+										"muteHitText": false,
+									},
+									"forceCameraShake": false,
+								},
+							},
+						},											
+					]
+				},								
+			},
+		},
+	},
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",  //talent 1
+			"abilityName": "Avatar_Player_Electric_ElementalBurst_AttackWithGadget",
+			"onAbilityStart":
+			[
+				// {
+				// 	"$type": "FireEffect",
+				// 	"effectPattern": "Eff_Avatar_Boy_Claymore_Razor_ThunderFang_Dissipate",
+				// 	"born":
+				// 	{
+				// 		"$type": "ConfigBornByAttachPoint",		//由于冰晶做了Z偏移，不能创生在原点
+				// 		"attachPointName": "BulletPos",
+				// 		"offset":
+				// 		{
+				// 			"x": 0.0,
+				// 			"y": 0.0,
+				// 			"z": 0.0,
+				// 		},
+				// 		"direction":
+				// 		{
+				// 			"$type": "ConfigDirectionByEntity",
+				// 			"angleOffset":
+				// 			{
+				// 				"x": 0.0,
+				// 				"y": 0.0,
+				// 				"z": 0.0,
+				// 			},
+				// 		},
+				// 		// "alongGround": true,
+				// 	},
+				// },
+				{
+					"$type": "SetGlobalPos",
+					"key": "_ABILITY_Player_Electric_ElementBurst_Pos",
+					"target":"Caster",
+					"born": 
+					{
+						"$type": "ConfigBornBySelf",
+						"bornRandom" :
+						{
+							"$type": "BornRandomFromCenter",
+							"minRandomRange": 3,
+							"maxRandomRange": 3,
+						},								
+		                "offset":
+		                {
+		                  "x": 0.0,
+		                  "y": 0.0,
+		                  "z": 0.0,
+		                },
+		                "onGround": true,
+					},
+				},	
+				{
+					"$type": "ApplyModifier",
+					"modifierName": "Avatar_Player_Electric_ElementalBurst_SendPosition",
+					"otherTargets": 
+					{
+						"$type": "SelectTargetsByShape",
+						"shapeName": "CircleR15",
+						"centerBasedOn": "Self",
+						"campTargetType": "Enemy",
+						"campBasedOn": "Self",
+						"topLimit": 1,
+        				"sortType": "Nearest",
+					},
+					"predicates": 
+					[
+						{
+							"$type": "ByEntityTypes",
+							"entityTypes": ["Monster"],
+						},
+					],
+				},
+				{
+					"$type": "ApplyModifier",
+					"modifierName": "Avatar_Player_Electric_ElementalBurst_Attack",
+				},													
+			],
+			"modifiers":
+			{
+				"Avatar_Player_Electric_ElementalBurst_SendPosition":
+				{
+					"duration":0.2,
+					"onAdded":
+					[
+						{
+							"$type": "SetGlobalPos",
+							"target": "Caster",
+							"key": "_ABILITY_Player_Electric_ElementBurst_Pos",
+							"born":
+							{
+								"$type": "ConfigBornBySelf",
+								"onGround": true,
+							},
+							"setTarget": true,
+						},		
+						{
+							"$type": "SetGlobalPos",
+							"target": "CasterOriginOwner",
+							"key": "_ABILITY_Player_Electric_ElementBurst_Pos",
+							"born":
+							{
+								"$type": "ConfigBornBySelf",
+								"onGround": true,
+							},
+							"setTarget": true,
+						},																										
+					]
+				},
+				"Avatar_Player_Electric_ElementalBurst_Attack":
+				{
+					"duration":0.1,
+					"onRemoved":
+					[						
+						{
+							"$type": "FireEffect",
+							"effectPattern": "Eff_Player_Electric_ElementalBurst_Thunder_Whitebox",
+							"born":
+							{
+								"$type": "ConfigBornByGlobalValue",
+								"positionKey":"_ABILITY_Player_Electric_ElementBurst_Pos",
+								"offset":
+								{
+									"x": 0.0,
+									"y": 0.0,
+									"z": 0.0,
+								},
+								"onGround": true,
+							},							
+						},		
+						{
+							"$type":"TriggerAbility",            //通知刻晴创建子弹,保证owner是刻晴才能查到children。（子弹的子弹不是刻晴的children）
+							"target":"OriginOwner",
+							"abilityID":"Avatar_Player_Electric_ElementalBurst_SetGadget",
+							"abilityName":"Avatar_Player_Electric_ElementalBurst_SetGadget",//只写id可能会报错，补上2个。和菲谢尔一致。
+							"doOffStage": true,
+						},											
+						{
+							"$type": "TriggerAttackEvent",
+							"target":"Caster",
+							"targetType": "Enemy",
+							"attackEvent":
+							{
+								"attackPattern" :
+								{
+									"$type": "ConfigAttackSphere",
+									"duration": 0.0,
+									"triggerType": "TriggerNoRepeat",
+									"radius": 1.5,
+									"ignoreMassive":true,
+									"born":
+									{
+										"$type": "ConfigBornByGlobalValue",
+										"positionKey":"_ABILITY_Player_Electric_ElementBurst_Pos",
+										"offset":
+										{
+											"x": 0.0,
+											"y": 0.0,
+											"z": 0.0,
+										},
+										"onGround": true,
+									},	
+								},
+								"attackInfo":
+								{
+									"attackTag": "Elemental_Burst",
+									"attackProperty":
+									{
+										"damagePercentage": 1.0,
+										"elementType": "Electric",
+										"elementRank":1.5,
+										"elementDurability": 50,
+										"enBreak": 150,
+									},
+									"hitPattern" :
+									{
+										"hitImpulseType":"LV7",
+										"reboundRatio": 0,
+										"canBeDefenceHalt": false,
+										"hitHaltTime": 0.0,
+										"hitHaltTimeScale": 0.05,
+										"muteHitText": false,
+									},
+									"forceCameraShake": false,
+								},
+							},
+						},											
+					]
+				},								
+			},
+		},
+	},
+
+////////////////////////////////////////////////////////////////
+//
+//  ElementalBurst_Bullet
+//
+////////////////////////////////////////////////////////////////
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Player_Electric_ElementalBurst_Bullet",
+			"onAdded":
+			[
+				{
+					"$type": "AttachEffect",
+					"effectPattern": "Eff_Player_Electric_ElementalBurst_Bullet_Whitebox",
+				},				
+			],
+			"onAbilityStart":
+			[
+				// {
+				// 	"$type": "TriggerAttackEvent",
+				// 	"targetType": "Enemy",
+				// 	"attackEvent":
+				// 	{
+				// 		"attackPattern":
+				// 		{
+				// 			"$type": "ConfigAttackSphere",
+				// 			"triggerType": "TriggerNoRepeat",
+				// 			"filterByFrame": true,
+				// 			"radius": 1.0,
+				// 			"born":
+				// 			{
+				// 				"$type": "ConfigBornByCollisionPoint",
+				// 				"offset":
+				// 				{
+				// 					"x": 0.0,
+				// 					"y": 0.0,
+				// 					"z": 0.0,
+				// 				},
+				// 				"direction":
+				// 				{
+				// 					"$type": "ConfigDirectionByEntity",
+				// 					"angleOffset":
+				// 					{
+				// 						"x": 0.0,
+				// 						"y": 0.0,
+				// 						"z": 0.0,
+				// 					},
+				// 				},
+				// 			},
+			 //        	},
+				// 		"attackInfo":
+				// 		{
+				// 			"attackTag": "Elemental_Burst",
+				// 			"attenuationTag": "Elemental_Burst",
+				// 			"canBeModifiedBy": "OriginOwner",
+				// 			"attackProperty":
+				// 			{
+				// 				"damagePercentage": 0.1,
+				// 				"elementType": "Electric",
+				// 				"elementDurability": 25,
+				// 				"enBreak": 25,
+				// 				"strikeType": "Default",
+				// 			},
+				// 			"hitPattern":
+				// 			{
+				// 				"onHitEffectName": "none",
+				// 				"hitImpulseType":"LV2",
+				// 				"reboundRatio": 0,
+				// 				"hitHaltTime": 0.0,
+				// 				"hitHaltTimeScale": 0.02,
+				// 				"muteHitText": false,
+				// 			},
+				// 		},
+				// 	},
+				// },
+				// {
+				// 	"$type": "FireEffect",
+				// 	"effectPattern": "Eff_Player_Electric_ElementalBurst_Bullet_Collision_Whitebox",
+				// 	"born":
+				// 	{
+				// 		"$type": "ConfigBornByCollisionPoint",
+				// 		"offset":
+				// 		{
+				// 			"x": 0.0,
+				// 			"y": 0.0,
+				// 			"z": 0.0,
+				// 		},
+				// 		"direction":
+				// 		{
+				// 			"$type": "ConfigDirectionByEntity",
+				// 			"angleOffset":
+				// 			{
+				// 				"x": 0.0,
+				// 				"y": 0.0,
+				// 				"z": 0.0,
+				// 			},
+				// 		},
+				// 	},
+				// },				
+			],
+		},
+	},		
+
+
+////////////////////////////////////////////////////////////////
+//
+//  ElementalArt_Click 元素战技短按
+//
+////////////////////////////////////////////////////////////////
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Player_Electric_ElementalArt_Click",
+			"onAdded":
+			[
+				{
+					"$type": "ApplyModifier",		//掉球检测
+					"modifierName": "Player_Electric_ElementalArt_Click_BallHandler",
+				},
+
+			],
+			"onAbilityStart":
+			[
+				{
+					"$type" : "AddGlobalValue",
+					"target": "Self",
+					"key" : "_ABILITY_Counter",
+					"value" : -4,
+					"useLimitRange" : true,
+					"maxValue" : 0,
+					"minValue" : 0,
+				},		
+				// {
+				// 	"$type": "KillGadget",
+				// 	"gadgetInfo":
+				// 	{
+				// 		"$type": "SelectTargetsByChildren",
+				// 		"configID": 41044131,
+				// 	},
+				// },		
+				{
+					"$type": "AvatarSkillStart",	//技能CD
+					"skillID": 10602,
+					"cdRatio": 1,
+				},
+
+				{
+					"$type": "SetGlobalPos",
+					"target": "Caster",
+					"key": "_ABILITY_Player_Electric_ElementalArt_Hurrican_Pos",
+					"born":
+					{
+						"$type": "ConfigBornBySelf",
+					},
+					"setTarget": false,
+				},
+				// {
+				// 	"$type":"FireEffect",
+				// 	"effectPattern":"Eff_Player_Electric_ElementalArt_Sweep_Whitebox",
+				// 	"born":
+				// 	{
+				// 		"$type": "ConfigBornByGlobalValue",
+				// 		"positionKey":"_ABILITY_Player_Electric_ElementalArt_Hurrican_Pos",
+				// 		"offset":
+				// 		{
+				// 			"x": 0.0,
+				// 			"y": 0.0,
+				// 			"z": 0.0,
+				// 		},
+				// 	},
+				// },						
+				// {
+				// 	"$type": "ApplyModifier",
+				// 	"modifierName":"AttackEvent",
+				// },	
+
+				{
+					"$type": "TriggerBullet",		//鐢ㄤ簬鍜岄殰纰嶇墿纰版挒妫€娴嬬殑瀛愬脊锛屾棤浼ゅ鏁堟灉
+					"bulletID": 41044102,
+	                "born":
+	                {
+                        "$type": "ConfigBornBySelf",
+                        "offset":
+                        {
+                            "x": 0.0,
+                            "y": 0.5,
+                            "z": 0.5,
+                        },                  
+	                },
+				},	
+
+				{
+					"$type": "TriggerBullet",
+					"bulletID": 41044102, //Placeholder
+					"born":
+					{
+						"$type": "ConfigBornBySelf",
+						"offset":
+						{
+							"x": 0.2,
+							"y": 0.5,
+							"z": 0.2,
+						},
+						"direction":
+						{
+							"$type": "ConfigDirectionByDefault",
+							"angleOffset":
+							{
+								"x": 0.0,
+								"y": 15.0,
+								"z": 0.0,
+							},
+						},
+					},
+				},					
+
+				{
+					"$type": "TriggerBullet",
+					"bulletID": 41044102, //Placeholder
+					"born":
+					{
+						"$type": "ConfigBornBySelf",
+						"offset":
+						{
+							"x": -0.2,
+							"y": 0.5,
+							"z": 0.2,
+						},
+						"direction":
+						{
+							"$type": "ConfigDirectionByDefault",
+							"angleOffset":
+							{
+								"x": 0.0,
+								"y": -15.0,
+								"z": 0.0,
+							},
+						},
+					},
+				},	
+
+				// {
+				// 	"$type": "AttachModifier",
+				// 	"modifierName": "Player_Electric_ElementalArt_Magatama_Handler",
+				// },											
+			],
+			"modifiers":
+			{		
+				"Player_Electric_ElementalArt_Magatama_Handler":
+				{
+					"duration": 0.2,
+					"stacking": "Unique",
+					"onAdded":
+					[
+						{
+							"$type": "SetGlobalValue",	//重置劈里啪啦的计数
+							"key": "_ABILITY_Player_Electric_ElementalArt_MagatamaCount",
+							"value": 0,
+						},
+						{
+							"$type": "SetGlobalPos",
+							"target": "Caster",	//先随机生成位置
+							"key": "_ABILITY_Player_Electric_ElementalArt_TargetPos_1",
+							"born": 
+							{
+								"$type": "ConfigBornBySelf",
+								"offset":
+								{
+									"x": 0.0,
+									"y": 0.0,
+									"z": 2.8,
+								},
+							},
+							"setTarget": true,
+						},	
+						{
+							"$type": "SetGlobalPos",
+							"target": "Caster",	//先随机生成位置
+							"key": "_ABILITY_Player_Electric_ElementalArt_TargetPos_2",
+							"born": 
+							{
+								"$type": "ConfigBornBySelf",
+								"offset":
+								{
+									"x": 1.6,
+									"y": 0.0,
+									"z": 1.8,
+								},
+							},
+							"setTarget": true,
+						},		
+						{
+							"$type": "SetGlobalPos",
+							"target": "Caster",	//先随机生成位置
+							"key": "_ABILITY_Player_Electric_ElementalArt_TargetPos_3",
+							"born": 
+							{
+								"$type": "ConfigBornBySelf",
+								"offset":
+								{
+									"x": -1.6,
+									"y": 0.0,
+									"z": 1.8,
+								},
+							},
+							"setTarget": true,
+						},																	
+					],
+					"onAttackLanded":
+					[
+						{
+							"$type": "AddGlobalValue",	//间隔爆炸
+							"key": "_ABILITY_Player_Electric_ElementalArt_MagatamaCount",
+							"value": 1,
+							"useLimitRange": true,
+							"maxValue": 3,
+							"minValue": 0,
+						},					
+					],
+					"modifierMixins":
+					[
+						{
+							"$type": "AttachModifierToSelfGlobalValueMixin",
+							"globalValueKey": "_ABILITY_Player_Electric_ElementalArt_MagatamaCount",
+							"valueSteps": [-0.5, 0.5, 1.5, 2.5, 3.5],	//延迟爆炸
+							"removeAppliedModifier": false,
+							"modifierNameSteps": ["Blank","Player_Electric_ElementalArt_Magatama_1", "Player_Electric_ElementalArt_Magatama_2", "Player_Electric_ElementalArt_Magatama_3"],
+						},
+					],
+					"onRemoved":
+					[
+						// {
+						// 	"$type": "SetGlobalValue",
+						// 	"key": "_ABILITY_Player_Electric_ElementalArt_MagatamaCount",
+						// 	"value": 0,
+						// },
+						{
+							"$type":"TriggerAbility",     
+							"target":"Caster",       //通知刻晴创建子弹,保证owner是刻晴才能查到children。（子弹的子弹不是刻晴的children）
+							"abilityID":"Avatar_Player_Electric_ElementalArt_SetGadget_1",
+							"abilityName":"Avatar_Player_Electric_ElementalArt_SetGadget_1",//只写id可能会报错，补上2个。和菲谢尔一致。
+							"doOffStage": true,
+						},							
+					],
+				},
+				"Player_Electric_ElementalArt_Magatama_1":
+				{
+					"duration": 0.2,
+					"onAdded":
+					[
+						{
+							"$type": "ApplyModifier",	//如果找到怪，就覆盖随机的位置
+							"modifierName": "Player_Electric_ElementalArt_GetTargetPos_1",
+							"otherTargets": 
+							{
+								"$type": "SelectTargetsByShape",
+								"shapeName": "CircleR4",
+								"centerBasedOn": "Self",
+								"campTargetType": "Enemy",
+								"campBasedOn": "Self",
+								"topLimit": 1,
+                				"sortType": "Random",
+							},
+							"predicates": 
+							[
+								{
+									"$type": "ByEntityTypes",
+									"entityTypes": ["Monster"],
+								},
+								{
+				                 	"$type": "ByTargetGlobalValue",
+				                 	"key": "_ABILITY_Player_Electric_ElementalArt_Unavailable",
+				                 	"value": 0,	//不找重复的怪
+				                 	"compareType": "NoneOrEqual",
+				                },
+								{
+				                 	"$type": "ByTargetGlobalValue",
+				                 	"key": "_ANIMAL_ENTITY_TYPE",
+				                 	"value": 0,
+				                 	"compareType": "NoneOrEqual",
+				                },
+							],
+						},						
+					]
+				},
+				"Player_Electric_ElementalArt_Magatama_2":
+				{
+					"duration": 0.2,
+					"onAdded":
+					[
+						{
+							"$type": "ApplyModifier",	//如果找到怪，就覆盖随机的位置
+							"modifierName": "Player_Electric_ElementalArt_GetTargetPos_2",
+							"otherTargets": 
+							{
+								"$type": "SelectTargetsByShape",
+								"shapeName": "CircleR4",
+								"centerBasedOn": "Self",
+								"campTargetType": "Enemy",
+								"campBasedOn": "Self",
+								"topLimit": 1,
+                				"sortType": "Random",
+							},
+							"predicates": 
+							[
+								{
+									"$type": "ByEntityTypes",
+									"entityTypes": ["Monster"],
+								},
+								{
+				                 	"$type": "ByTargetGlobalValue",
+				                 	"key": "_ABILITY_Player_Electric_ElementalArt_Unavailable",
+				                 	"value": 0,	//不找重复的怪
+				                 	"compareType": "NoneOrEqual",
+				                },
+								{
+				                 	"$type": "ByTargetGlobalValue",
+				                 	"key": "_ANIMAL_ENTITY_TYPE",
+				                 	"value": 0,
+				                 	"compareType": "NoneOrEqual",
+				                },
+							],
+						},						
+					]
+				},		
+				"Player_Electric_ElementalArt_Magatama_3":
+				{
+					"duration": 0.2,
+					"onAdded":
+					[
+						{
+							"$type": "ApplyModifier",	//如果找到怪，就覆盖随机的位置
+							"modifierName": "Player_Electric_ElementalArt_GetTargetPos_3",
+							"otherTargets": 
+							{
+								"$type": "SelectTargetsByShape",
+								"shapeName": "CircleR4",
+								"centerBasedOn": "Self",
+								"campTargetType": "Enemy",
+								"campBasedOn": "Self",
+								"topLimit": 1,
+                				"sortType": "Random",
+							},
+							"predicates": 
+							[
+								{
+									"$type": "ByEntityTypes",
+									"entityTypes": ["Monster"],
+								},
+								{
+				                 	"$type": "ByTargetGlobalValue",
+				                 	"key": "_ABILITY_Player_Electric_ElementalArt_Unavailable",
+				                 	"value": 0,	//不找重复的怪
+				                 	"compareType": "NoneOrEqual",
+				                },
+								{
+				                 	"$type": "ByTargetGlobalValue",
+				                 	"key": "_ANIMAL_ENTITY_TYPE",
+				                 	"value": 0,
+				                 	"compareType": "NoneOrEqual",
+				                },
+							],
+						},						
+					]
+				},						
+				"Player_Electric_ElementalArt_GetTargetPos_1": 
+				{
+					"duration": 0.2,
+					"stacking": "Unique",
+					"onAdded": 
+					[
+						{
+							"$type": "SetGlobalPos",	//把位置告诉底座
+							"target": "Caster",
+							"key": "_ABILITY_Player_Electric_ElementalArt_TargetPos_1",
+							"born": 
+							{
+								"$type": "ConfigBornBySelf",
+							},
+							"setTarget": true,
+						},
+						{
+							
+							"$type": "SetGlobalValue",	//标记自己不可再次被选
+							"key": "_ABILITY_Player_Electric_ElementalArt_Unavailable",
+							"value": 1,
+						},
+					],
+					"onRemoved": 
+					[
+						{
+							
+							"$type": "SetGlobalValue",
+							"key": "_ABILITY_Player_Electric_ElementalArt_Unavailable",
+							"value": 0,
+						},
+					],
+				},		
+				"Player_Electric_ElementalArt_GetTargetPos_2": 
+				{
+					"duration": 0.2,
+					"stacking": "Unique",
+					"onAdded": 
+					[
+						{
+							"$type": "SetGlobalPos",	//把位置告诉底座
+							"target": "Caster",
+							"key": "_ABILITY_Player_Electric_ElementalArt_TargetPos_2",
+							"born": 
+							{
+								"$type": "ConfigBornBySelf",
+							},
+							"setTarget": true,
+						},
+						{
+							
+							"$type": "SetGlobalValue",	//标记自己不可再次被选
+							"key": "_ABILITY_Player_Electric_ElementalArt_Unavailable",
+							"value": 1,
+						},
+					],
+					"onRemoved": 
+					[
+						{
+							
+							"$type": "SetGlobalValue",
+							"key": "_ABILITY_Player_Electric_ElementalArt_Unavailable",
+							"value": 0,
+						},
+					],
+				},	
+				"Player_Electric_ElementalArt_GetTargetPos_3": 
+				{
+					"duration": 0.2,
+					"stacking": "Unique",
+					"onAdded": 
+					[
+						{
+							"$type": "SetGlobalPos",	//把位置告诉底座
+							"target": "Caster",
+							"key": "_ABILITY_Player_Electric_ElementalArt_TargetPos_3",
+							"born": 
+							{
+								"$type": "ConfigBornBySelf",
+							},
+							"setTarget": true,
+						},
+						{
+							
+							"$type": "SetGlobalValue",	//标记自己不可再次被选
+							"key": "_ABILITY_Player_Electric_ElementalArt_Unavailable",
+							"value": 1,
+						},
+					],
+					"onRemoved": 
+					[
+						{
+							
+							"$type": "SetGlobalValue",
+							"key": "_ABILITY_Player_Electric_ElementalArt_Unavailable",
+							"value": 0,
+						},
+					],
+				},										
+				"UNIQUE_Magatama_Tri":
+				{
+					"isUnique":true,
+					"duration": 10.0,
+					"modifierMixins": 
+					[
+						{
+							"$type":"CurLocalAvatarMixin",
+							"modifierName":"Magatama_Detector",
+						},	
+						{
+							"$type": "AttachModifierToSelfGlobalValueMixin",
+							"globalValueKey": "_ABILITY_Player_Electric_ElementalArt_AttackMark",	//计算现在该打第几击
+							"valueSteps": [-0.5, 0.5, 1.5, 2.5, 3.5],
+							"removeAppliedModifier": true,
+							"modifierNameSteps": ["Blank", "Blank", "Blank", "Blank"],
+							"actionQueues": 
+							[
+								[
+								],
+								[
+									{
+										"$type": "ApplyModifier",
+										"modifierName": "TriAttack_01",
+										"target": "CurLocalAvatar",
+										"doOffStage": true,
+									},
+								],
+								[
+									{
+										"$type": "ApplyModifier",
+										"modifierName": "TriAttack_02",
+										"target": "CurLocalAvatar",
+										"doOffStage": true,
+									},
+								],
+								[
+									{
+										"$type": "ApplyModifier",
+										"modifierName": "TriAttack_03",
+										"target": "CurLocalAvatar",
+										"doOffStage": true,
+									},
+									{
+										"$type": "SetGlobalValue",
+										"key": "_ABILITY_Player_Electric_ElementalArt_AttackMark",
+										"value": 0,
+										"doOffStage": true,
+									},									
+								],
+							],
+						},											
+					],
+				},
+				"Magatama_Detector":
+				{
+					"onAttackLanded":
+					[
+						{
+							"$type": "Predicated",
+							"target": "Other",
+							"targetPredicates": 
+							[
+								{
+									"$type": "ByEntityTypes",
+									"entityTypes": ["Monster"],
+								},
+								{
+				                 	"$type": "ByTargetGlobalValue",
+				                 	"key": "_ANIMAL_ENTITY_TYPE",
+				                 	"value": 0,
+				                 	"compareType": "NoneOrEqual",
+				                },
+								{
+									"$type": "ByAttackTags",
+									"attackTags": 
+									[
+										"NormalAttack_01",
+										"NormalAttack_02",
+										"NormalAttack_03",
+										"NormalAttack_04",
+										"NormalAttack_05",
+										"NormalAttack_06",	
+										"ExtraAttack"																		
+									],	//普攻打中怪
+								},
+							],
+							"successActions":
+							[
+								// {
+								// 	"$type": "SetSelfAttackTarget",
+								// 	"target": "Target",
+								// 	"doOffStage": true,
+								// },		
+								{
+									"$type": "ApplyModifier",
+									"modifierName": "Add",	//前台角色普攻触发幻影剑
+									"target": "Caster",
+									"doOffStage": true,
+								},											
+							],	
+							"doOffStage": true,						
+						},
+					],					
+				},
+				"Add":
+				{
+					"duration":0.1,
+					"onAdded":
+					[
+						{
+							"$type": "AddGlobalValue",
+							"key": "_ABILITY_Player_Electric_ElementalArt_AttackMark",
+							"value": 1,
+							"useLimitRange": true,
+							"maxValue": 3,
+							"minValue": 0,
+							"doOffStage": true,
+						},						
+					],
+				},
+									
+				"Blank": {},
+				"TriAttack_01":
+				{
+					"duration": 0.1,
+					"onAdded": 
+					[
+						{
+							"$type": "SetGlobalPos",
+							"target": "Caster",
+							"key": "_ABILITY_Player_Electric_ElementalArt_AttackerPos",	//以当前位置通知行秋创建子弹（伤害归属行秋）
+							"born": 
+							{
+								"$type": "ConfigBornBySelf",
+							},
+							"setTarget": true,
+						},
+						{
+							"$type": "SetGlobalDir",
+							"target": "Caster",
+							"key": "_ABILITY_Player_Electric_ElementalArt_AttackerDir",
+							"born": 
+							{
+								"$type": "ConfigBornBySelf",
+							},
+							"setTarget": true,
+						},
+						{
+							"$type": "TriggerAbility",
+							"abilityName": "Avatar_Player_Electric_ElementalBurst_TriMagatamaAttack_1",
+							"target": "Caster",
+							"forceUseSelfCurrentAttackTarget": true,
+						},	
+												
+					],	
+				},					
+				"TriAttack_02":
+				{
+					"duration": 0.1,
+					"onAdded": 
+					[
+						{
+							"$type": "SetGlobalPos",
+							"target": "Caster",
+							"key": "_ABILITY_Player_Electric_ElementalArt_AttackerPos",	//以当前位置通知行秋创建子弹（伤害归属行秋）
+							"born": 
+							{
+								"$type": "ConfigBornBySelf",
+							},
+							"setTarget": true,
+						},
+						{
+							"$type": "SetGlobalDir",
+							"target": "Caster",
+							"key": "_ABILITY_Player_Electric_ElementalArt_AttackerDir",
+							"born": 
+							{
+								"$type": "ConfigBornBySelf",
+							},
+							"setTarget": true,
+						},
+						{
+							"$type": "TriggerAbility",
+							"abilityName": "Avatar_Player_Electric_ElementalBurst_TriMagatamaAttack_2",
+							"target": "Caster",
+							"forceUseSelfCurrentAttackTarget": true,
+						},			
+		
+					],	
+				},
+				"TriAttack_03":
+				{
+					"duration": 0.1,
+					"onAdded": 
+					[
+						{
+							"$type": "SetGlobalPos",
+							"target": "Caster",
+							"key": "_ABILITY_Player_Electric_ElementalArt_AttackerPos",	//以当前位置通知行秋创建子弹（伤害归属行秋）
+							"born": 
+							{
+								"$type": "ConfigBornBySelf",
+							},
+							"setTarget": true,
+						},
+						{
+							"$type": "SetGlobalDir",
+							"target": "Caster",
+							"key": "_ABILITY_Player_Electric_ElementalArt_AttackerDir",
+							"born": 
+							{
+								"$type": "ConfigBornBySelf",
+							},
+							"setTarget": true,
+						},
+						{
+							"$type": "TriggerAbility",
+							"abilityName": "Avatar_Player_Electric_ElementalBurst_TriMagatamaAttack_3",
+							"target": "Caster",
+							"forceUseSelfCurrentAttackTarget": true,
+						},	
+						{
+							"$type": "RemoveUniqueModifier",
+							"target":"Caster",
+							"modifierName": "UNIQUE_Magatama_Tri",	//不移除的话下次大招攻击计数会额外+1
+							"doOffStage": true,
+						},
+					],	
+				},								
+				"LaunchAttack_HasTarget":
+				{
+					"duration":0.5,
+					"onAdded":
+					[
+						{
+							"$type": "SetGlobalPos",
+							"target": "Caster",
+							"key": "_ABILITY_Player_Electric_ElementalArt_Hurrican_Pos",
+							"born":
+							{
+								"$type": "ConfigBornByTarget",
+							},
+							"setTarget": false,
+						},
+						{
+							"$type":"FireEffect",
+							"effectPattern":"Eff_Player_Electric_ElementalArt_Hurrican_Whitebox",
+							"born":
+							{
+								"$type": "ConfigBornByGlobalValue",
+								"positionKey":"_ABILITY_Player_Electric_ElementalArt_Hurrican_Pos",
+								"offset":
+								{
+									"x": 0.0,
+									"y": 0.0,
+									"z": 0.0,
+								},
+							},
+						},
+					
+						{
+							"$type": "ApplyModifier",
+							"modifierName":"AttackEvent",
+						},						
+					],
+				},
+		
+				"LaunchAttack_NoTarget":
+				{
+					"duration":0.5,
+					"onAdded":
+					[
+						{
+							"$type": "SetGlobalPos",
+							"key": "_ABILITY_Player_Electric_ElementalArt_Hurrican_Pos",
+							"born":
+							{
+								"$type": "ConfigBornBySelf",
+				                "offset":
+				                {
+				                  "x": 0.0,
+				                  "y": 0.0,
+				                  "z": 5.0,
+				                },
+				                "onGround": true,
+							},
+						},
+						{
+							"$type":"FireEffect",
+							"effectPattern":"Eff_Player_Electric_ElementalArt_Hurrican_Whitebox",
+							"born":
+							{
+								"$type": "ConfigBornByGlobalValue",
+								"positionKey":"_ABILITY_Player_Electric_ElementalArt_Hurrican_Pos",
+								"offset":
+								{
+									"x": 0.0,
+									"y": 0.0,
+									"z": 0.0,
+								},
+								"onGround": true,
+							},
+						},
+						{
+							"$type": "ApplyModifier",
+							"modifierName":"AttackEvent",
+						},							
+					]
+				},	
+				"AttackEvent":
+				{
+					"duration": 1.5,
+					// "thinkInterval":0.2,
+					"onAdded":
+					[
+						
+						{
+							"$type": "TriggerAttackEvent",
+							"targetType": "Enemy",
+							"attackEvent":
+							{
+								"attackPattern":
+								{
+									"$type": "ConfigAttackSphere",
+									"triggerType": "TriggerNoRepeat",
+									"radius": 4,
+									"born":
+									{
+										"$type": "ConfigBornBySelf",
+										"offset":
+										{
+											"x": 0.0,
+											"y": 0.0,
+											"z": 0.0,
+										},
+									},
+								},
+								"attackInfo":
+								{
+									"attackTag": "Elemental_Art",
+									"attackProperty":
+									{
+										"damagePercentage": 0.7,
+										"elementType": "Electric",
+										"elementDurability": 25,
+										"elementRank": 3,
+										"enBreak": 4,
+									},
+									"hitPattern":
+									{
+										"hitImpulseType":"LV7",
+										"overrideHitImpulse":
+										{
+											"hitLevel": "Air",	//hitlevel = 7
+											"hitImpulseX": 0,	//hitlevel = 7
+											"hitImpulseY": 600,	//hitlevel = 7
+										},										
+										"reboundRatio": 0,
+										"hitHaltTime": 0,
+										"hitHaltTimeScale": 0,
+										"muteHitText": false,
+										"retreatType":"ByHitDirection",
+									},
+									"forceCameraShake": false,
+						        	"cameraShake":
+						        	{
+						        		"shakeType": "CustomVector",
+										"shakeRange": 0.3,
+										"shakeTime": 0.12,
+										"shakeDistance": 20,
+										"shakeDir":
+										{
+											"x":-0.9,
+											"y":0.1,
+											"z":0,
+										},
+						        	},
+								},
+							},
+						},	
+					],
+					"onRemoved":
+					[
+															
+					]
+				},						
+				"Player_Electric_ElementalArt_Click_BallHandler":	//掉球检测
+				{
+					"onAttackLanded":
+					[
+						{
+							"$type": "Predicated",
+							"target": "Target",
+							"targetPredicates": 
+							[
+								{
+									"$type": "ByAttackTags",
+									"attackTags": ["Elemental_Art"],
+								},
+								{
+									"$type": "ByEntityTypes",
+									"entityTypes": ["Monster"],
+								},
+								{
+									"$type" : "ByHitStrikeType",
+									"strikeType" : "Pierce",
+								},								
+								{
+				                 	"$type": "ByTargetGlobalValue",
+				                 	"key": "_ANIMAL_ENTITY_TYPE",
+				                 	"value": 0,
+				                 	"compareType": "NoneOrEqual",
+				                },
+							],
+							"successActions": 
+							[
+								{
+									"$type": "ApplyModifier",
+									"target": "Caster",
+									"modifierName": "Player_Electric_ElementalArt_Click_Counter",
+								},
+							],
+						},
+					],
+				},
+				"Player_Electric_ElementalArt_Click_Counter":
+				{
+					"duration":0.1,
+					"onAdded":
+					[
+						{
+							"$type" : "AddGlobalValue",
+							"key" : "_ABILITY_Player_Electric_ElementalArt_Click_Counter",
+							"value" : 1,
+							"useLimitRange" : true,
+							"maxValue" : 3,
+							"minValue" : 0,
+						},
+					]
+				},
+				// "Player_Electric_ElementalArt_Click_Ball":		//掉球参数
+				// {
+				// 	"duration": 0.2,
+				// 	"stacking": "Unique",
+				// 	"onAdded":
+				// 	[
+    //                     {
+    //                         "$type": "GenerateElemBall",
+    //                         "configID": 2020,
+    //                         "baseEnergy": 3,
+				// 			"born":
+				// 			{
+				// 				"$type": "ConfigBornByTarget",
+				// 				"offset" :
+				// 				{
+				// 					"x": 0.0,
+				// 					"y": 0.0,
+				// 					"z": 1.0,
+				// 				},
+				// 				"doOffStage": true,
+				// 			},
+    //                     },
+				// 	],
+				// },			
+			}			
+		},
+	},
+
+////////////////////////////////////////////////////////////////
+//
+//  ElementalArt_Charge 元素战技蓄力
+//
+////////////////////////////////////////////////////////////////
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Player_Electric_ElementalArt_Charge",
+			"onAdded":
+			[
+				{
+					"$type": "ApplyModifier",
+					"modifierName":"Hit_Check",
+				},
+			],
+			"abilityMixins":
+			[
+                {
+					"$type": "SkillButtonHoldChargeMixin",
+					"skillID": 10602,
+					"beforeStateIDs" : ["Player_Electric_ElementalArt_BS"],
+					"chargeLoopStateIDs" : ["Player_Electric_ElementalArt_Charge","Player_Electric_ElementalArt_Charge_Strike"],
+					"chargeLoopDurations" : [ 0.05, ],
+					"nextLoopTriggerID" : "NextLoopTrigger",
+					"endHoldTrigger" : "EndHoldTrigger",
+				},
+				// {
+				// 	"$type":"AttachToNormalizedTimeMixin",
+				// 	"stateID":"Boomrang_Charge_Cast",
+				// 	"normalizeStart":0.14,
+				// 	"normalizeEnd":0.67,
+				// 	"modifierName":"Blink",
+				// },				
+				// {
+				// 	"$type":"AttachToNormalizedTimeMixin",
+				// 	"stateID":"Boomrang_Charge_Cast",
+				// 	"normalizeStart":0.67,
+				// 	"normalizeEnd":1.00,
+				// 	"modifierName":"Collider",
+				// },						
+				// {
+				// 	"$type": "AttachToStateIDMixin",
+				// 	"stateIDs": ["Boomrang_Charge_Loop","Boomrang_Charge_Cast", ],//是为了让相机退出的时机跟动作错开一些
+				// 	"modifierName": "Focus",
+				// },
+				// {
+				// 	"$type": "AttachToStateIDMixin",
+				// 	"stateIDs": ["Boomrang_Charge_Loop",],
+				// 	"modifierName": "Charge",
+				// },
+                {
+                    "$type":"AttachToNormalizedTimeMixin",
+                    "stateID":"Player_Electric_ElementalArt_Charge_Strike",
+                    "modifierName":"Hide",//注意角色隐藏功能会叠加。如果隐藏2次会变-2，需要显示2次才能真显示出来。
+                    "normalizeStart":0.0,
+                    "normalizeEnd":0.3,
+                },
+				// {
+				// 	"$type" : "AttachToNormalizedTimeMixin",
+				// 	"stateID" : "Boomrang_Charge_Cast",
+				// 	"modifierName" : "CloseCollider",
+				// 	"target" : "Self",
+				// 	"normalizeStart" : 0.0,
+				// 	"normalizeEnd" : 0.4,
+				// },		
+				{
+					"$type": "AttachToNormalizedTimeMixin",
+					"stateID": "Player_Electric_ElementalArt_Charge_Strike",
+					"modifierName": "Effect",
+                    "normalizeStart":0.0,
+                    "normalizeEnd":0.24,					
+				},			
+				{
+					"$type": "AttachToNormalizedTimeMixin",
+					"stateID": "Boomrang_Charge_Cast_NoTarget",
+					"modifierName": "Effect",
+                    "normalizeStart":0.0,
+                    "normalizeEnd":0.24,					
+				},			
+                {
+                    "$type":"AttachToNormalizedTimeMixin",
+                    "stateID":"Boomrang_Charge_Cast_NoTarget",
+                    "modifierName":"Hide",//注意角色隐藏功能会叠加。如果隐藏2次会变-2，需要显示2次才能真显示出来。
+                    "normalizeStart":0.0,
+                    "normalizeEnd":0.3,
+                },	
+                 {
+                    "$type":"AttachToNormalizedTimeMixin",
+                    "stateID":"Player_Electric_ElementalArt_Charge",
+                    "modifierName":"ChargeEffect",//注意角色隐藏功能会叠加。如果隐藏2次会变-2，需要显示2次才能真显示出来。
+                    "normalizeStart":0.0,
+                    "normalizeEnd":1,
+                },	                             								
+			],
+			"onAbilityStart":
+			[
+				{
+					"$type": "AvatarSkillStart", //把这个放到最初。然后让技能可以onExit也是可以的
+					"skillID": 10602,
+					"cdRatio": 1,
+				},
+				{
+					"$type": "FireEffect",		//关闭碰撞，穿小怪
+					"effectPattern": "Eff_Player_Electric_ElementalArt_Click_Strike",
+				},								
+				{
+					"$type":"TriggerAttackEvent",
+					"targetType":"Enemy",
+					"attackEvent":
+					{
+						"attackPattern" :
+						{
+							// "$type" : "ConfigAttackCircle",
+							"$type" : "ConfigAttackSphere",
+							"triggerType": "TriggerNoRepeat",
+							// "fanAngle": 360.0,
+							"radius": 5,
+							"checkHitScene": true,
+							"born":
+							{
+								"$type": "ConfigBornBySelf",
+								"offset" :
+								{
+									"x": 0.0, // + means up, - means down
+									"y": 0.0, // + means left, - means right
+									"z": 1.0, // + means forward, - means backward
+								}
+							},
+							"checkHitLayerType": "Both",
+						},
+						"attackInfo":
+						{
+							"canBeModifiedBy" : "OriginOwner",
+							"attackTag": "Elemental_Art",
+							"attackProperty":
+							{
+								"damagePercentage": 1.0,
+								"strikeType": "Blunt",
+								"elementType":"Electric",
+								"elementDurability":25,
+								"enBreak" : 50,
+							},
+							"hitPattern" :
+							{
+								"onHitEffectName": "Eff_Player_Electric_ElementalArt_Charge_Strike_Hit", //Placeholder
+								"hitImpulseType":"LV3",
+								"reboundRatio": 0,
+								"hitHaltTime": 0.0,
+								"hitHaltTimeScale": 0.01,
+								"muteHitText":false,
+							},
+							"forceCameraShake": false,
+							"cameraShake":
+							{
+								"shakeRange": 0.12,
+								"shakeTime": 0.1,
+							},
+						},
+					},
+				},		
+				// {
+				// 	"$type":"TriggerAbility", //提早播放标记快爆炸特效。
+				// 	"otherTargets":
+				// 	{
+				// 		"$type":"SelectTargetsByChildren",
+				// 		"configID":41044111,
+				// 	},
+				// 	"abilityName":"Player_Electric_ElementalArt_Gadget",
+				// 	"forceUseSelfCurrentAttackTarget": true,
+				// },					
+				{
+					"$type": "ApplyModifier",
+					"modifierName":"Timer_1",
+				},
+				{
+					"$type": "ApplyModifier",
+					"modifierName":"Timer_2",
+				},	
+				{
+					"$type": "ApplyModifier",
+					"modifierName":"Timer_Hit",
+				},																	
+			],
+			"modifiers":
+			{
+				"Timer_Hit":
+				{
+					"duration":1.0,
+					"thinkInterval":0.8,
+					"onThinkInterval":
+					[
+						{
+							"$type":"SetGlobalValueToOverrideMap",
+							"globalValueKey":"_ABILITY_Magatama_HIT_COUNT",
+							"overrideMapKey":"Magatama_HIT_COUNT",
+						},
+					],
+					"onRemoved":
+					[
+						{
+							"$type":"ReviveElemEnergy",//等onAttackLanded的包发过来
+							"value":"%ReviveElemEnergy*%Magatama_HIT_COUNT",
+							"target":"Self",
+						},						
+						{
+							"$type" : "AddGlobalValue",
+							"key" : "_ABILITY_Magatama_HIT_COUNT",
+							"value" : -5,
+							"useLimitRange" : true,
+							"maxValue" : 5,
+							"minValue" : 0,
+						},
+					]
+
+				},
+				"Hit_Check":
+				{
+					"onAttackLanded":
+					[
+						{
+							"$type" : "Predicated",
+							"target" : "Target",
+							"targetPredicates":
+							[
+								{
+									"$type" : "ByAttackTags",
+									"attackTags" : ["Elemental_Art"],
+								},
+								{
+									"$type" : "ByEntityTypes",
+									"entityTypes" : ["Monster",],
+								},
+								{
+									"$type" : "ByHitStrikeType",
+									"strikeType" : "Default",
+								},	
+							],
+							"successActions":
+							[
+								{
+									"$type":"AddGlobalValue",
+									"key":"_ABILITY_Magatama_HIT_COUNT",
+									"value" : 1,
+									"useLimitRange" : true,
+									"maxValue" : 5,//超过5个目标按照五个算，因为关卡约定一般情况下同时不会出现5个以上的怪物
+									"minValue" : 0,									
+								}
+							]
+						},							
+																			
+						{
+							"$type" : "Predicated",
+							"target" : "Target",
+							"targetPredicates":
+							[
+								{
+									"$type" : "ByAttackTags",
+									"attackTags" : ["Elemental_Art"],
+								},
+								{
+									"$type" : "ByEntityTypes",
+									"entityTypes" : ["Monster",],
+								},
+								{
+									"$type" : "ByHitStrikeType",
+									"strikeType" : "Blunt",
+								},	
+								{
+									"$type": "ByTargetGlobalValue",
+									"key": "_ANIMAL_ENTITY_TYPE",
+									"value": 0,
+									"compareType": "NoneOrEqual",
+								},								
+							],
+							"successActions":
+							[
+								{
+									"$type":"SetGlobalValueToOverrideMap",
+									"globalValueKey":"_ABILITY_Magatama_Count",
+									"overrideMapKey":"Magatama_COUNT",
+								},
+
+								{
+									"$type":"TriggerAbility", //提早播放标记快爆炸特效。
+									"otherTargets":
+									{
+										"$type":"SelectTargetsByChildren",
+										"configID":41044111,
+									},
+									"abilityName":"Player_Electric_ElementalArt_Gadget",
+									"forceUseSelfCurrentAttackTarget": true,
+								},	
+							],
+						},					
+					
+						{
+							"$type" : "Predicated",
+							"target" : "Target",
+							"targetPredicates":
+							[
+								{
+									"$type" : "ByAttackTags",
+									"attackTags" : ["Elemental_Art"],
+								},
+								{
+									"$type" : "ByEntityTypes",
+									"entityTypes" : ["Monster",],
+								},
+								{
+									"$type" : "ByHitStrikeType",
+									"strikeType" : "Blunt",
+								},	
+								{
+									"$type": "ByTargetGlobalValue",
+									"key": "_ANIMAL_ENTITY_TYPE",
+									"value": 0,
+									"compareType": "NoneOrEqual",
+								},								
+							],
+							"successActions":
+							[
+								{
+									"$type":"ApplyModifier",
+									"target":"Target",
+									"modifierName":"UNIQUE_Player_Electric_Talent_ElecResDown",							
+								}
+							]
+						},	
+						// {
+						// 	"$type" : "Predicated",
+						// 	"target" : "Target",
+						// 	"targetPredicates":
+						// 	[
+						// 		{
+						// 			"$type" : "ByAttackTags",
+						// 			"attackTags" : ["Elemental_Art"],
+						// 		},
+						// 		{
+						// 			"$type" : "ByEntityTypes",
+						// 			"entityTypes" : ["Monster",],
+						// 		},
+						// 		{
+						// 			"$type" : "ByHitStrikeType",
+						// 			"strikeType" : "Range",
+						// 		},	
+						// 	],
+						// 	"successActions":
+						// 	[
+						// 		{
+						// 			"$type":"TriggerAbility", //提早播放标记快爆炸特效。
+						// 			"otherTargets":
+						// 			{
+						// 				"$type":"SelectTargetsByChildren",
+						// 				"configID":41044111,
+						// 			},
+						// 			"abilityName":"Player_Electric_ElementalArt_Gadget",
+						// 			"forceUseSelfCurrentAttackTarget": true,
+						// 		},	
+						// 	],
+						// },											
+					]
+
+				},				
+				// "Collider":
+				// {
+				// 	"onAdded":
+				// 	[
+				// 		{
+				// 			"$type": "EnablePushColliderName",		//关闭碰撞，穿小怪
+				// 			"pushColliderNames": ["PushCollider"],
+				// 			"setEnable": false,
+				// 		},
+				// 		{
+				// 			"$type": "EnablePushColliderName",		//打开高级碰撞，防止穿越巨盾怪
+				// 			"pushColliderNames": ["PushColliderExtra"],
+				// 			"setEnable": true,
+				// 		},						
+				// 	],
+				// 	"onRemoved":
+				// 	[
+				// 		{
+				// 			"$type": "EnablePushColliderName",
+				// 			"pushColliderNames": ["PushCollider"],
+				// 			"setEnable": true,
+				// 			"doOffStage": true,
+				// 		},
+				// 		{
+				// 			"$type": "EnablePushColliderName",
+				// 			"pushColliderNames": ["PushColliderExtra"],
+				// 			"setEnable": false,
+				// 			"doOffStage": true,
+				// 		},						
+				// 	],
+				// },
+				"UNIQUE_Player_Electric_Talent_ElecResDown":
+				{
+					"isUnique": true,
+					"duration": 6,
+					"state":"DefenseDown",
+					"isLimitedProperties": true,
+					"stacking": "Refresh",		
+					"properties":
+					{
+						"Actor_ElecSubHurtDelta": "-0.08*%Magatama_COUNT",
+					},							
+				},
+                "Hide": //有目标时
+                {
+                    "onAdded" :
+                    [
+                        {
+                            "$type": "TriggerSetVisible",
+                            "visible": false,
+                            "doOffStage":true,
+                        },
+                        // {
+                        //     "$type": "EnablePushColliderName",
+                        //     "pushColliderNames": ["PushCollider"],
+                        //     "setEnable": false,
+                        // },
+                        // {
+                        //     "$type": "EnablePushColliderName",
+                        //     "pushColliderNames": ["PushColliderExtra"],
+                        //     "setEnable": true,
+                        // },
+                    ],
+                    "onRemoved":
+                    [
+                        {
+                            "$type": "TriggerSetVisible",
+                            "visible": true,
+                            "doOffStage":true,
+                        },
+                        // {
+                        //     "$type": "EnablePushColliderName",
+                        //     "pushColliderNames": ["PushCollider"],
+                        //     "setEnable": true,
+                        //     "doOffStage":true,
+                        // },
+                        // {
+                        //     "$type": "EnablePushColliderName",
+                        //     "pushColliderNames": ["PushColliderExtra"],
+                        //     "setEnable": false,
+                        //     "doOffStage":true,
+                        // },
+                    ],
+                },				
+				"Blink":
+				{
+					"onAdded" :
+					[
+
+						{
+							"$type": "TriggerSetVisible",
+							"visible": false,
+						},							
+					],
+					"onRemoved":
+					[
+						{
+							"$type": "TriggerSetVisible",
+							"visible": true,
+							"doOffStage":true,
+						},		
+						{
+							"$type":"FireEffect",
+							"effectPattern":"Eff_Avatar_Keqing_ElementalArt_HideSpark",
+						},
+						{
+							"$type":"FireEffect",
+							"effectPattern":"Eff_Avatar_Keqing_ElementalArt_ShowSpark",
+						},											
+					],					
+				},
+				"Timer_1":
+				{
+					"duration":0.03,
+					"onRemoved":
+					[
+								
+					]
+				},
+				"Timer_2":
+				{
+					"duration":0.06,
+					"onRemoved":
+					[		
+					
+					]
+				},				
+				"Effect" :
+				{
+					"onAdded" :
+					[
+						{
+							"$type": "AttachEffect",		//关闭碰撞，穿小怪
+							"effectPattern": "Eff_Player_Electric_ElementalArt_Charge_Strike",
+						},
+					],
+				},		
+				"ChargeEffect" :
+				{
+					"onAdded" :
+					[
+						{
+							"$type": "AttachEffect",		//关闭碰撞，穿小怪
+							"effectPattern": "Eff_Player_Electric_ElementalArt_Charge",
+						},
+					],
+				},								
+				"CloseCollider" :
+				{
+					"onAdded" :
+					[
+						{
+							"$type": "EnablePushColliderName",		//关闭碰撞，穿小怪
+							"pushColliderNames": ["PushCollider"],
+							"setEnable": false,
+						},
+						{
+							"$type": "EnablePushColliderName",		//打开高级碰撞，防止穿越巨盾怪
+							"pushColliderNames": ["PushColliderExtra"],
+							"setEnable": true,
+						},
+					],
+					"onRemoved":
+					[
+						{
+							"$type": "EnablePushColliderName",
+							"pushColliderNames": ["PushCollider"],
+							"setEnable": true,
+							"doOffStage": true,
+						},
+						{
+							"$type": "EnablePushColliderName",
+							"pushColliderNames": ["PushColliderExtra"],
+							"setEnable": false,
+							"doOffStage": true,
+						},
+					],
+				},				
+				"Focus":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "AvatarEnterFocus",
+							"cameraFollowLower":
+							{
+								"x": 0.8,
+								"y": 0.2,
+								"z": -2.5,
+							},
+							"cameraFollowUpper":
+							{
+								"x": 0.5,
+								"y": -0.2,
+								"z": 0.0,
+							},
+							"cameraFollowMaxDegree": 35,  //上版本设定25和-45
+							"cameraFollowMinDegree":-55,//原本上下限60,60
+							"cameraFastFocusMode": true,
+							"dragButtonName": "Skill2",
+							"assistance":
+							{
+								"ps4":
+								{
+									"useGyro": false,
+								},
+								"other":
+								{
+									"useGyro": true,
+								},
+							},
+							"canMove": false,
+							"showCrosshair":false,
+							"vcam_fov":45,
+							"focusAnchorVerAngle":0, //不用特意改变度数
+							"focusAnchorHorAngle":0,
+						},
+					],
+					"onRemoved":
+					[
+						{
+							"$type": "AvatarExitFocus",
+                            "keepRotation": true,
+						},
+					],
+				},
+				"Charge":
+				{
+					"onAdded":
+					[
+						{
+			              "$type": "AddGlobalValue",
+			              "key": "_Keqing_Aim_Range",
+			              "value": 8,
+			              "useLimitRange": true,
+			              "maxValue": 8,
+			              "minValue": 8,
+			            },
+			            {
+			              "$type": "AttachEffect",
+			              "effectPattern": "Eff_Avatar_Keqing_ElementalArt_Charge_Aim",
+			            },
+					],
+				},
+			},
+			"abilitySpecials":
+			{
+				"ReviveElemEnergy":2,
+				"Magatama_HIT_COUNT":0,
+				"Magatama_COUNT":0
+			},
+		},
+	},
+
+
+	
+
+////////////////////////////////////////////////////////////////
+//
+//  ElementalArt_SetGadget 元素战技创建创生物
+//
+////////////////////////////////////////////////////////////////
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Player_Electric_ElementalArt_SetGadget",
+			"onAbilityStart":
+			[
+				{
+					"$type": "CreateGadget",
+					"gadgetID": 41044111,
+					"campID":1001,
+					"campTargetType":"Enemy",
+					"born":
+					{
+						"$type": "ConfigBornByGlobalValue",
+						"positionKey": "_ABILITY_Player_Electric_ElementalArt_AttackPos_1",					
+					},
+				},		
+			],					
+		},
+	},
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Player_Electric_ElementalArt_SetGadget_1",
+			"onAbilityStart":
+			[
+				{
+					"$type": "CreateGadget",
+					"gadgetID": 41044111,
+					"campID":1001,
+					"campTargetType":"Enemy",
+					"born":
+					{
+						"$type": "ConfigBornByGlobalValue",
+						"positionKey": "_ABILITY_Player_Electric_ElementalArt_AttackPos_1",					
+					},
+				},					
+				// {
+				// 	"$type": "CreateGadget",
+				// 	"gadgetID": 41044111,
+				// 	"campID":1001,
+				// 	"campTargetType":"Enemy",
+				// 	"born":
+				// 	{
+				// 		"$type": "ConfigBornByGlobalValue",
+				// 		"positionKey":"_ABILITY_Player_Electric_ElementalArt_TargetPos_1",
+				// 		"offset":
+    //                     {
+    //                         "x": 0.0,
+    //                         "y": 1.0,
+    //                         "z": 0.0,
+    //                     },						
+				// 	},
+				// 	"doOffStage":true,
+				// 	"predicates":
+				// 	[
+				// 		{
+				// 			"$type":"ByTargetGlobalValue",
+				// 			"key":"_ABILITY_Player_Electric_ElementalArt_MagatamaCount",
+				// 			"value":1,
+				// 			"forceByCaster":true,
+				// 			"compareType":"MoreThanAndEqual",
+				// 		}
+				// 	],
+				// },	
+				// {
+				// 	"$type": "CreateGadget",
+				// 	"gadgetID": 41044101,
+				// 	"campID":1001,
+				// 	"campTargetType":"Enemy",
+				// 	"born":
+				// 	{
+				// 		"$type": "ConfigBornByGlobalValue",
+				// 		"positionKey":"_ABILITY_Player_Electric_ElementalArt_TargetPos_1",
+				// 		"offset":
+    //                     {
+    //                         "x": 0.0,
+    //                         "y": 1.0,
+    //                         "z": 0.0,
+    //                     },						
+				// 	},
+				// 	"doOffStage":true,
+				// 	"predicates":
+				// 	[
+				// 		{
+				// 			"$type":"ByTargetGlobalValue",
+				// 			"key":"_ABILITY_Player_Electric_ElementalArt_MagatamaCount",
+				// 			"value":0,
+				// 			"forceByCaster":true,
+				// 			"compareType":"NoneOrEqual",
+				// 		},
+				// 	],
+				// },
+
+				{
+					"$type": "CreateGadget",
+					"gadgetID": 41044111,
+					"campID":1001,
+					"campTargetType":"Enemy",
+					"born":
+					{
+						"$type": "ConfigBornByGlobalValue",
+						"positionKey":"_ABILITY_Player_Electric_ElementalArt_TargetPos_2",
+						"offset":
+                        {
+                            "x": 0.0,
+                            "y": 1.0,
+                            "z": 0.0,
+                        },							
+					},
+					"doOffStage":true,
+					"predicates":
+					[
+						{
+							"$type":"ByTargetGlobalValue",
+							"key":"_ABILITY_Player_Electric_ElementalArt_MagatamaCount",
+							"value":1,
+							"forceByCaster":true,
+							"compareType":"MoreThanAndEqual",
+						}
+					],
+				},	
+				// {
+				// 	"$type": "CreateGadget",
+				// 	"gadgetID": 41044101,
+				// 	"campID":1001,
+				// 	"campTargetType":"Enemy",
+				// 	"born":
+				// 	{
+				// 		"$type": "ConfigBornByGlobalValue",
+				// 		"positionKey":"_ABILITY_Player_Electric_ElementalArt_TargetPos_2",
+				// 		"offset":
+    //                     {
+    //                         "x": 0.0,
+    //                         "y": 1.0,
+    //                         "z": 0.0,
+    //                     },							
+				// 	},
+				// 	"doOffStage":true,
+				// 	"predicates":
+				// 	[
+				// 		{
+				// 			"$type":"ByTargetGlobalValue",
+				// 			"key":"_ABILITY_Player_Electric_ElementalArt_MagatamaCount",
+				// 			"value":0,
+				// 			"forceByCaster":true,
+				// 			"compareType":"NoneOrEqual",
+				// 		},
+				// 	],
+				// },							
+				// {
+				// 	"$type": "CreateGadget",
+				// 	"gadgetID": 41044111,
+				// 	"campID":1001,
+				// 	"campTargetType":"Enemy",
+				// 	"born":
+				// 	{
+				// 		"$type": "ConfigBornByGlobalValue",
+				// 		"positionKey":"_ABILITY_Player_Electric_ElementalArt_Hurrican_Pos",
+				// 		"offset":
+				// 		{
+				// 			"x": 1.2,
+				// 			"y": 1.0,
+				// 			"z": -1.6,
+				// 		},
+				// 	},
+				// 	"doOffStage":true,
+				// },		
+				// {
+				// 	"$type": "CreateGadget",
+				// 	"gadgetID": 41044111,
+				// 	"campID":1001,
+				// 	"campTargetType":"Enemy",
+				// 	"born":
+				// 	{
+				// 		"$type": "ConfigBornByGlobalValue",
+				// 		"positionKey":"_ABILITY_Player_Electric_ElementalArt_Hurrican_Pos",
+				// 		"offset":
+				// 		{
+				// 			"x": -1.2,
+				// 			"y": 1.0,
+				// 			"z": -1.6,
+				// 		},
+				// 	},
+				// 	"doOffStage":true,
+				// },			
+				{
+					"$type": "CreateGadget",
+					"gadgetID": 41044111,
+					"campID":1001,
+					"campTargetType":"Enemy",
+					"born":
+					{
+						"$type": "ConfigBornByGlobalValue",
+						"positionKey":"_ABILITY_Player_Electric_ElementalArt_TargetPos_3",
+						"offset":
+                        {
+                            "x": 0.0,
+                            "y": 1.0,
+                            "z": 0.0,
+                        },							
+					},
+					"doOffStage":true,
+					"predicates":
+					[
+						{
+							"$type":"ByTargetGlobalValue",
+							"key":"_ABILITY_Player_Electric_ElementalArt_MagatamaCount",
+							"value":1,
+							"forceByCaster":true,
+							"compareType":"MoreThanAndEqual",
+						},
+					],					
+				},
+				// {
+				// 	"$type": "CreateGadget",
+				// 	"gadgetID": 41044101,
+				// 	"campID":1001,
+				// 	"campTargetType":"Enemy",
+				// 	"born":
+				// 	{
+				// 		"$type": "ConfigBornByGlobalValue",
+				// 		"positionKey":"_ABILITY_Player_Electric_ElementalArt_TargetPos_3",
+				// 		"offset":
+    //                     {
+    //                         "x": 0.0,
+    //                         "y": 1.0,
+    //                         "z": 0.0,
+    //                     },							
+				// 	},
+				// 	"doOffStage":true,
+				// 	"predicates":
+				// 	[
+				// 		{
+				// 			"$type":"ByTargetGlobalValue",
+				// 			"key":"_ABILITY_Player_Electric_ElementalArt_MagatamaCount",
+				// 			"value":0,
+				// 			"forceByCaster":true,
+				// 			"compareType":"NoneOrEqual",
+				// 		},
+				// 	],					
+				// },				
+				// {
+				// 	"$type": "SetGlobalValue",
+				// 	"key": "_ABILITY_Player_Electric_ElementalArt_MagatamaCount",
+				// 	"value": 0,
+				// },																		
+			],					
+		},
+	},
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Player_Electric_ElementalArt_SetGadget_2",
+			"onAbilityStart":
+			[
+				{
+					"$type": "CreateGadget",
+					"gadgetID": 41044111,
+					"campID":1001,
+					"campTargetType":"Enemy",
+					"born":
+					{
+						"$type": "ConfigBornByGlobalValue",
+						"positionKey": "_ABILITY_Player_Electric_ElementalArt_AttackPos_2",					
+					},
+				},			
+			],					
+		},
+	},
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Player_Electric_ElementalArt_SetGadget_3",
+			"onAbilityStart":
+			[
+				{
+					"$type": "CreateGadget",
+					"gadgetID": 41044111,
+					"campID":1001,
+					"campTargetType":"Enemy",
+					"born":
+					{
+						"$type": "ConfigBornByGlobalValue",
+						"positionKey": "_ABILITY_Player_Electric_ElementalArt_AttackPos_3",					
+					},
+				},			
+			],					
+		},
+	},
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Player_Electric_ElementalArt_SetGadget_4",
+			"onAbilityStart":
+			[
+				{
+					"$type": "CreateGadget",
+					"gadgetID": 41044111,
+					"campID":1001,
+					"campTargetType":"Enemy",
+					"born":
+					{
+						"$type": "ConfigBornByGlobalValue",
+						"positionKey": "_ABILITY_Player_Electric_ElementalArt_AttackPos_4",					
+					},
+				},		
+			],					
+		},
+	},
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Player_Electric_ElementalArt_SetGadget_5",
+			"onAbilityStart":
+			[
+				{
+					"$type": "CreateGadget",
+					"gadgetID": 41044111,
+					"campID":1001,
+					"campTargetType":"Enemy",
+					"born":
+					{
+						"$type": "ConfigBornByGlobalValue",
+						"positionKey": "_ABILITY_Player_Electric_ElementalArt_AttackPos_5",					
+					},
+				},		
+			],					
+		},
+	},
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Player_Electric_ElementalArt_SetGadget_6",
+			"onAbilityStart":
+			[
+				{
+					"$type": "CreateGadget",
+					"gadgetID": 41044111,
+					"campID":1001,
+					"campTargetType":"Enemy",
+					"born":
+					{
+						"$type": "ConfigBornByGlobalValue",
+						"positionKey": "_ABILITY_Player_Electric_ElementalArt_AttackPos_6",					
+					},
+				},		
+			],					
+		},
+	},
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Player_Electric_ElementalBurst_SetGadget",
+			"onAbilityStart":
+			[
+				{
+					"$type": "CreateGadget",
+					"gadgetID": 41044111,
+					"campID":1001,
+					"campTargetType":"Enemy",
+					"born":
+					{
+						"$type": "ConfigBornByGlobalValue",
+						"positionKey": "_ABILITY_Player_Electric_ElementBurst_Pos",					
+					},
+				},						
+			],		
+		},
+	},	
+
+////////////////////////////////////////////////////////////////
+//
+//  ElementalArt_Bullet 元素战技短按子弹
+//
+////////////////////////////////////////////////////////////////
+	
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Player_Electric_ElementalArt_Bullet",
+			"onAdded":
+			[
+				{
+					"$type":"AttachEffect",
+					"effectPattern":"Eff_Player_Electric_ElementalArt_Magatama_Bullet", //Placeholder
+				},
+			],
+			"onAbilityStart":
+			[		
+				{
+					"$type":"TriggerAttackEvent",	//伤害事件：元素战技能短按
+					"targetType":"Enemy",
+					"attackEvent":
+					{
+						"attackPattern" :
+						{
+							"$type" : "ConfigAttackSphere",
+							"triggerType": "TriggerNoRepeat",
+							"radius": 1,							
+							"born":
+							{
+								"$type": "ConfigBornByCollisionPoint",
+							},
+						},
+						"attackInfo":
+						{
+							"canBeModifiedBy": "OriginOwner",
+							"attackTag": "Elemental_Art",
+							"attackProperty":
+							{
+								"damagePercentage": 1.0,
+								"strikeType": "Pierce",
+								"attackType":"Melee",
+								"elementType":"Electric",
+								"elementDurability":25,
+								"enBreak" : 50,
+							},
+							"hitPattern" :
+							{
+								"onHitEffectName": "Eff_Player_Electric_ElementalArt_Bullet_Hit_Whitebox", //Placeholder
+								"hitImpulseType":"LV3",
+								"reboundRatio": 0,
+								"hitHaltTime": 0.0,
+								"hitHaltTimeScale": 0.01,
+								"muteHitText":false,
+							},
+							"forceCameraShake": false,
+							"cameraShake":
+							{
+								"shakeRange": 0.12,
+								"shakeTime": 0.1,
+							},
+						},
+					},
+				},	
+
+
+
+				{
+					"$type": "KillSelf",					
+				}				
+			],
+
+			// "onKill":
+			// [
+			// 	{
+			// 		"$type": "SetGlobalPos",
+			// 		"target": "OriginOwner",
+			// 		"key": "_ABILITY_Player_Electric_ElementalArt_AttackPos_1",	//以当前位置通知主角创建子弹
+			// 		"born":
+			// 		{
+			// 			"$type": "ConfigBornBySelf",
+			// 		},
+			// 		"setTarget": true,
+			// 		"doOffStage": true,
+			// 	},
+			// 	{
+			// 		"$type":"TriggerAbility",            //通知刻晴创建子弹,保证owner是刻晴才能查到children。（子弹的子弹不是刻晴的children）
+			// 		"target":"OriginOwner",
+			// 		"abilityID":"Avatar_Player_Electric_ElementalArt_SetGadget",
+			// 		"abilityName":"Avatar_Player_Electric_ElementalArt_SetGadget",//只写id可能会报错，补上2个。和菲谢尔一致。
+			// 		"doOffStage": true,
+			// 	},	
+			// ],
+		},
+	},	
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Player_Electric_ElementalArt_Bullet_1",
+			"onAdded":
+			[
+				{
+					"$type":"AttachEffect",
+					"effectPattern":"Eff_Player_Electric_ElementalArt_Magatama_Bullet", //Placeholder
+				},
+			],
+			"onAbilityStart":
+			[		
+				{
+					"$type": "Predicated",
+					"target": "Target",
+					"targetPredicates":
+					[
+						{
+							"$type": "ByEntityTypes",
+							"entityTypes": ["MonsterEquip"],
+						},
+					],
+					"successActions":
+					[
+						{
+							"$type":"DamageByAttackValue",	//伤害事件：元素战技能短按
+							"target":"Target",
+							"attackInfo":
+							{
+								"canBeModifiedBy": "OriginOwner",
+								"attackTag": "Elemental_Art",
+								"attackProperty":
+								{
+									"damagePercentage": 1.0,
+									"strikeType": "Pierce",
+									"attackType":"Melee",
+									"elementType":"Electric",
+									"elementDurability":25,
+									"enBreak" : 50,
+								},
+								"hitPattern" :
+								{
+									"onHitEffectName": "Eff_Player_Electric_ElementalArt_Bullet_Hit_Whitebox", //Placeholder
+									"hitImpulseType":"LV3",
+									"reboundRatio": 0,
+									"hitHaltTime": 0.0,
+									"hitHaltTimeScale": 0.01,
+									"muteHitText":false,
+								},
+								"forceCameraShake": false,
+								"cameraShake":
+								{
+									"shakeRange": 0.12,
+									"shakeTime": 0.1,
+								},
+							},						
+						}
+					],
+					"failActions":
+					[
+						{
+							"$type":"TriggerAttackEvent",	//伤害事件：元素战技能短按
+							"targetType":"Enemy",
+							"attackEvent":
+							{
+					        	"attackPattern":
+								{
+									"$type" : "ConfigAttackSphere",
+									"triggerType" : "TriggerNoRepeat",
+									// "filterByFrame" : true,
+									"radius" : 0.8,
+									"born":
+									{
+										"$type": "ConfigBornByCollisionPoint",
+										"offset" :
+										{
+											"x": 0.0,
+											"y": 0.0,
+											"z": 0.0,
+										},
+									},
+					        	},
+								"attackInfo":
+								{
+									"attackTag": "Elemental_Art",
+									"attackProperty":
+									{
+										"damagePercentage": 1.0,
+										"strikeType": "Pierce",
+										"attackType":"Melee",
+										"elementType":"Electric",
+										"elementDurability":25,
+										"enBreak" : 50,
+									},
+									"hitPattern" :
+									{
+										"onHitEffectName": "Eff_Player_Electric_ElementalArt_Bullet_Hit_Whitebox", //Placeholder
+										"hitImpulseType":"LV3",
+										"retreatType":"ByHitDirection",
+										"reboundRatio": 0,
+										"hitHaltTime": 0.0,
+										"hitHaltTimeScale": 0.01,
+										"muteHitText":false,
+									},
+									"forceCameraShake": false,
+									"cameraShake":
+									{
+										"shakeRange": 0.12,
+										"shakeTime": 0.1,
+									},
+								},
+							},							
+						}
+					],					
+				},
+
+				{
+					"$type" : "AddGlobalValue",
+					"target": "OriginOwner",
+					"key" : "_ABILITY_Counter",
+					"value" : 1,
+					"useLimitRange" : true,
+					"maxValue" : 4,
+					"minValue" : 0,
+				},		
+				{
+					"$type" : "ApplyModifier",
+					"modifierName" : "UNIQUE_Magatama_Trigger",
+					"target" : "Target",
+					"predicates":
+					[
+						{
+							"$type" : "ByEntityTypes",
+							"entityTypes" : ["Monster"],
+						},
+						{
+							"$type":"ByTargetGlobalValue",
+							"target":"OriginOwner",
+							"key":"_ABILITY_Counter",
+							"value":3,
+							"compareType":"LessAndEqual"
+						}						
+					],
+				},						
+				// {
+				// 	"$type": "Predicated",
+				// 	"target" : "OriginOwner",
+				// 	"targetPredicates":
+				// 	[
+				// 		{
+				// 			"$type":"ByTargetGlobalValue",
+				// 			"key":"_ABILITY_Counter",
+				// 			"value":3,
+				// 			"compareType":"LessAndEqual"
+				// 		}
+				// 	],
+				// 	"successActions":
+				// 	[
+				// 		{
+				// 			"$type" : "ApplyModifier",
+				// 			"modifierName" : "UNIQUE_Magatama_Trigger",
+				// 			"target" : "Target",
+				// 			"predicates":
+				// 			[
+				// 				{
+				// 					"$type" : "ByEntityTypes",
+				// 					"entityTypes" : ["Monster"],
+				// 				},
+				// 			],
+				// 		},	
+				// 	],
+				// 	"failActions":
+				// 	[
+				// 	]
+				// },			
+				// {
+				// 	"$type" : "ApplyModifier",
+				// 	"modifierName" : "UNIQUE_Magatama_Trigger",
+				// 	"target" : "Target",
+				// 	"predicates":
+				// 	[
+				// 		{
+				// 			"$type" : "ByEntityTypes",
+				// 			"entityTypes" : ["Monster"],
+				// 		},
+				// 	],
+				// },										
+			],
+			"modifiers":
+			{
+				"UNIQUE_Magatama_Trigger":
+				{
+					"duration":0.5,
+					"isUnique":true,
+					"stacking" : "Unique",
+					"onAdded":
+					[
+						{
+							"$type": "TriggerBullet",
+							"bulletID": 41044141,
+							"propOwnerIs":"Applier",
+							"born":
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName" : "RootNode",
+								"offset":
+								{
+									"x": 0.0,
+									"y": 0.0,
+									"z": 0.0,
+								},
+								"direction":
+								{
+									"$type": "ConfigDirectionByEntity",
+									"randomAngleHor":60,
+									"angleOffset":
+									{
+										"x": 0.0,
+										"y": 1.0,
+										"z": 0.0,
+									},
+								},
+							},
+						},
+					],					
+				},
+			},			
+			"onKill":
+			[
+				// {
+				// 	"$type": "SetGlobalPos",
+				// 	"target": "OriginOwner",
+				// 	"key": "_ABILITY_Player_Electric_ElementalArt_AttackPos_1",	//以当前位置通知主角创建子弹
+				// 	"born":
+				// 	{
+				// 		"$type": "ConfigBornBySelf",
+				// 	},
+				// 	"setTarget": true,
+				// 	"doOffStage": true,
+				// },
+				// {
+				// 	"$type":"TriggerAbility",            //通知刻晴创建子弹,保证owner是刻晴才能查到children。（子弹的子弹不是刻晴的children）
+				// 	"target":"OriginOwner",
+				// 	"abilityID":"Avatar_Player_Electric_ElementalArt_SetGadget_1",
+				// 	"abilityName":"Avatar_Player_Electric_ElementalArt_SetGadget_1",//只写id可能会报错，补上2个。和菲谢尔一致。
+				// 	"doOffStage": true,
+				// },	
+				{
+					"$type":"FireEffect",
+					"effectPattern":"Eff_Player_Electric_ElementalArt_Magatama_Die",
+				},				
+			],
+		
+		},
+	},	
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Player_Electric_ElementalArt_Bullet_2",
+			"onAdded":
+			[
+				{
+					"$type":"AttachEffect",
+					"effectPattern":"Eff_Player_Electric_ElementalArt_Magatama_Bullet", //Placeholder
+				},
+			],
+			"onAbilityStart":
+			[		
+				{
+					"$type":"TriggerAttackEvent",	//伤害事件：元素战技能短按
+					"targetType":"Enemy",
+					"attackEvent":
+					{
+			        	"attackPattern":
+						{
+							"$type" : "ConfigAttackSphere",
+							"triggerType" : "TriggerNoRepeat",
+							"filterByFrame" : true,
+							"radius" : 0.8,
+							"born":
+							{
+								"$type": "ConfigBornByCollisionPoint",
+								"offset" :
+								{
+									"x": 0.0,
+									"y": 0.0,
+									"z": 0.0,
+								},
+							},
+			        	},
+						"attackInfo":
+						{
+							"attackTag": "Elemental_Art",
+							"attackProperty":
+							{
+								"damagePercentage": 1.0,
+								"strikeType": "Pierce",
+								"attackType":"Melee",
+								"elementType":"Electric",
+								"elementDurability":25,
+								"enBreak" : 50,
+							},
+							"hitPattern" :
+							{
+								"onHitEffectName": "Eff_Player_Electric_ElementalArt_Bullet_Hit_Whitebox", //Placeholder
+								"hitImpulseType":"LV3",
+								"reboundRatio": 0,
+								"hitHaltTime": 0.0,
+								"hitHaltTimeScale": 0.01,
+								"muteHitText":false,
+							},
+							"forceCameraShake": false,
+							"cameraShake":
+							{
+								"shakeRange": 0.12,
+								"shakeTime": 0.1,
+							},
+						},
+					},
+				},					
+			],
+			"onKill":
+			[
+				{
+					"$type": "SetGlobalPos",
+					"target": "OriginOwner",
+					"key": "_ABILITY_Player_Electric_ElementalArt_AttackPos_2",	//以当前位置通知主角创建子弹
+					"born":
+					{
+						"$type": "ConfigBornBySelf",
+					},
+					"setTarget": true,
+					"doOffStage": true,
+				},
+				{
+					"$type":"TriggerAbility",            //通知刻晴创建子弹,保证owner是刻晴才能查到children。（子弹的子弹不是刻晴的children）
+					"target":"OriginOwner",
+					"abilityID":"Avatar_Player_Electric_ElementalArt_SetGadget_2",
+					"abilityName":"Avatar_Player_Electric_ElementalArt_SetGadget_2",//只写id可能会报错，补上2个。和菲谢尔一致。
+					"doOffStage": true,
+				},	
+			],
+		},
+	},	
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Player_Electric_ElementalArt_Bullet_3",
+			"onAdded":
+			[
+				{
+					"$type":"AttachEffect",
+					"effectPattern":"Eff_Player_Electric_ElementalArt_Magatama_Bullet", //Placeholder
+				},
+			],
+			"onAbilityStart":
+			[		
+				{
+					"$type":"TriggerAttackEvent",	//伤害事件：元素战技能短按
+					"targetType":"Enemy",
+					"attackEvent":
+					{
+			        	"attackPattern":
+						{
+							"$type" : "ConfigAttackSphere",
+							"triggerType" : "TriggerNoRepeat",
+							"filterByFrame" : true,
+							"radius" : 0.8,
+							"born":
+							{
+								"$type": "ConfigBornByCollisionPoint",
+								"offset" :
+								{
+									"x": 0.0,
+									"y": 0.0,
+									"z": 0.0,
+								},
+							},
+			        	},
+						"attackInfo":
+						{
+							"attackTag": "Elemental_Art",
+							"attackProperty":
+							{
+								"damagePercentage": 1.0,
+								"strikeType": "Pierce",
+								"attackType":"Melee",
+								"elementType":"Electric",
+								"elementDurability":25,
+								"enBreak" : 50,
+							},
+							"hitPattern" :
+							{
+								"onHitEffectName": "Eff_Player_Electric_ElementalArt_Bullet_Hit_Whitebox", //Placeholder
+								"hitImpulseType":"LV3",
+								"reboundRatio": 0,
+								"hitHaltTime": 0.0,
+								"hitHaltTimeScale": 0.01,
+								"muteHitText":false,
+							},
+							"forceCameraShake": false,
+							"cameraShake":
+							{
+								"shakeRange": 0.12,
+								"shakeTime": 0.1,
+							},
+						},
+					},
+				},					
+			],
+			"onKill":
+			[
+				{
+					"$type": "SetGlobalPos",
+					"target": "OriginOwner",
+					"key": "_ABILITY_Player_Electric_ElementalArt_AttackPos_3",	//以当前位置通知主角创建子弹
+					"born":
+					{
+						"$type": "ConfigBornBySelf",
+					},
+					"setTarget": true,
+					"doOffStage": true,
+				},
+				{
+					"$type":"TriggerAbility",            //通知刻晴创建子弹,保证owner是刻晴才能查到children。（子弹的子弹不是刻晴的children）
+					"target":"OriginOwner",
+					"abilityID":"Avatar_Player_Electric_ElementalArt_SetGadget_3",
+					"abilityName":"Avatar_Player_Electric_ElementalArt_SetGadget_3",//只写id可能会报错，补上2个。和菲谢尔一致。
+					"doOffStage": true,
+				},	
+			],
+		},
+	},	
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Player_Electric_ElementalArt_Bullet_4",
+			"onAdded":
+			[
+				{
+					"$type":"AttachEffect",
+					"effectPattern":"Eff_Player_Electric_ElementalArt_Magatama_Bullet", //Placeholder
+				},
+			],
+			"onAbilityStart":
+			[		
+				{
+					"$type":"TriggerAttackEvent",	//伤害事件：元素战技能短按
+					"targetType":"Enemy",
+					"attackEvent":
+					{
+						"attackPattern" :
+						{
+							"$type" : "ConfigAttackBox",
+							"triggerType": "TriggerNoRepeat",
+							"size" :
+							{
+								"x" : 1.0,
+								"y" : 1.0,
+								"z" : 1.0,
+							},							
+							"born":
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName" : "FocusAnchor",
+								"offset" :
+								{
+									"x": 0.0, 
+									"y": 0.0, 
+									"z": 0.0, 
+								}
+							},
+						},
+						"attackInfo":
+						{
+							"attackTag": "Elemental_Art",
+							"attackProperty":
+							{
+								"damagePercentage": 1.0,
+								"strikeType": "Pierce",
+								"attackType":"Melee",
+								"elementType":"Electric",
+								"elementDurability":25,
+								"enBreak" : 50,
+							},
+							"hitPattern" :
+							{
+								"onHitEffectName": "Eff_Player_Electric_ElementalArt_Bullet_Hit_Whitebox", //Placeholder
+								"hitImpulseType":"LV3",
+								"reboundRatio": 0,
+								"hitHaltTime": 0.0,
+								"hitHaltTimeScale": 0.01,
+								"muteHitText":false,
+							},
+							"forceCameraShake": false,
+							"cameraShake":
+							{
+								"shakeRange": 0.12,
+								"shakeTime": 0.1,
+							},
+						},
+					},
+				},					
+			],
+			"onKill":
+			[
+				{
+					"$type": "SetGlobalPos",
+					"target": "OriginOwner",
+					"key": "_ABILITY_Player_Electric_ElementalArt_AttackPos_4",	//以当前位置通知主角创建子弹
+					"born":
+					{
+						"$type": "ConfigBornBySelf",
+					},
+					"setTarget": true,
+					"doOffStage": true,
+				},
+				{
+					"$type":"TriggerAbility",            //通知刻晴创建子弹,保证owner是刻晴才能查到children。（子弹的子弹不是刻晴的children）
+					"target":"OriginOwner",
+					"abilityID":"Avatar_Player_Electric_ElementalArt_SetGadget_4",
+					"abilityName":"Avatar_Player_Electric_ElementalArt_SetGadget_4",//只写id可能会报错，补上2个。和菲谢尔一致。
+					"doOffStage": true,
+				},	
+			],
+		},
+	},	
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Player_Electric_ElementalArt_Bullet_5",
+			"onAdded":
+			[
+				{
+					"$type":"AttachEffect",
+					"effectPattern":"Eff_Player_Electric_ElementalArt_Magatama_Bullet", //Placeholder
+				},
+			],
+			"onAbilityStart":
+			[		
+				{
+					"$type":"TriggerAttackEvent",	//伤害事件：元素战技能短按
+					"targetType":"Enemy",
+					"attackEvent":
+					{
+						"attackPattern" :
+						{
+							"$type" : "ConfigAttackBox",
+							"triggerType": "TriggerNoRepeat",
+							"size" :
+							{
+								"x" : 1.0,
+								"y" : 1.0,
+								"z" : 1.0,
+							},							
+							"born":
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName" : "FocusAnchor",
+								"offset" :
+								{
+									"x": 0.0, 
+									"y": 0.0, 
+									"z": 0.0, 
+								}
+							},
+						},
+						"attackInfo":
+						{
+							"attackTag": "Elemental_Art",
+							"attackProperty":
+							{
+								"damagePercentage": 1.0,
+								"strikeType": "Pierce",
+								"attackType":"Melee",
+								"elementType":"Electric",
+								"elementDurability":25,
+								"enBreak" : 50,
+							},
+							"hitPattern" :
+							{
+								"onHitEffectName": "Eff_Player_Electric_ElementalArt_Bullet_Hit_Whitebox", //Placeholder
+								"hitImpulseType":"LV3",
+								"reboundRatio": 0,
+								"hitHaltTime": 0.0,
+								"hitHaltTimeScale": 0.01,
+								"muteHitText":false,
+							},
+							"forceCameraShake": false,
+							"cameraShake":
+							{
+								"shakeRange": 0.12,
+								"shakeTime": 0.1,
+							},
+						},
+					},
+				},					
+			],
+			"onKill":
+			[
+				{
+					"$type": "SetGlobalPos",
+					"target": "OriginOwner",
+					"key": "_ABILITY_Player_Electric_ElementalArt_AttackPos_5",	//以当前位置通知主角创建子弹
+					"born":
+					{
+						"$type": "ConfigBornBySelf",
+					},
+					"setTarget": true,
+					"doOffStage": true,
+				},
+				{
+					"$type":"TriggerAbility",            //通知刻晴创建子弹,保证owner是刻晴才能查到children。（子弹的子弹不是刻晴的children）
+					"target":"OriginOwner",
+					"abilityID":"Avatar_Player_Electric_ElementalArt_SetGadget_5",
+					"abilityName":"Avatar_Player_Electric_ElementalArt_SetGadget_5",//只写id可能会报错，补上2个。和菲谢尔一致。
+					"doOffStage": true,
+				},	
+			],
+		},
+	},					
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Player_Electric_ElementalArt_Bullet_6",
+			"onAdded":
+			[
+				{
+					"$type":"AttachEffect",
+					"effectPattern":"Eff_Player_Electric_ElementalArt_Magatama_Bullet", //Placeholder
+				},
+			],
+			"onAbilityStart":
+			[		
+				{
+					"$type":"TriggerAttackEvent",	//伤害事件：元素战技能短按
+					"targetType":"Enemy",
+					"attackEvent":
+					{
+						"attackPattern" :
+						{
+							"$type" : "ConfigAttackBox",
+							"triggerType": "TriggerNoRepeat",
+							"size" :
+							{
+								"x" : 1.0,
+								"y" : 1.0,
+								"z" : 1.0,
+							},							
+							"born":
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName" : "FocusAnchor",
+								"offset" :
+								{
+									"x": 0.0, 
+									"y": 0.0, 
+									"z": 0.0, 
+								}
+							},
+						},
+						"attackInfo":
+						{
+							"attackTag": "Elemental_Art",
+							"attackProperty":
+							{
+								"damagePercentage": 1.0,
+								"strikeType": "Pierce",
+								"attackType":"Melee",
+								"elementType":"Electric",
+								"elementDurability":25,
+								"enBreak" : 50,
+							},
+							"hitPattern" :
+							{
+								"onHitEffectName": "Eff_Player_Electric_ElementalArt_Bullet_Hit_Whitebox", //Placeholder
+								"hitImpulseType":"LV3",
+								"reboundRatio": 0,
+								"hitHaltTime": 0.0,
+								"hitHaltTimeScale": 0.01,
+								"muteHitText":false,
+							},
+							"forceCameraShake": false,
+							"cameraShake":
+							{
+								"shakeRange": 0.12,
+								"shakeTime": 0.1,
+							},
+						},
+					},
+				},					
+			],
+			"onKill":
+			[
+				{
+					"$type": "SetGlobalPos",
+					"target": "OriginOwner",
+					"key": "_ABILITY_Player_Electric_ElementalArt_AttackPos_6",	//以当前位置通知主角创建子弹
+					"born":
+					{
+						"$type": "ConfigBornBySelf",
+					},
+					"setTarget": true,
+					"doOffStage": true,
+				},
+				{
+					"$type":"TriggerAbility",            //通知刻晴创建子弹,保证owner是刻晴才能查到children。（子弹的子弹不是刻晴的children）
+					"target":"OriginOwner",
+					"abilityID":"Avatar_Player_Electric_ElementalArt_SetGadget_6",
+					"abilityName":"Avatar_Player_Electric_ElementalArt_SetGadget_6",//只写id可能会报错，补上2个。和菲谢尔一致。
+					"doOffStage": true,
+				},	
+			],
+		},
+	},	
+
+////////////////////////////////////////////////////////////////
+//
+//  ElementalArt_Gadget 创生物
+//
+////////////////////////////////////////////////////////////////
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Player_Electric_ElementalArt_Gadget",  //标记
+			"onAdded":
+			[
+				{
+					"$type":"AttachEffect",
+					"effectPattern":"Eff_Player_Electric_ElementalArt_Magatama", //Placeholder
+				},	
+				{
+					"$type" : "AddGlobalValue",
+					"target": "OriginOwner",
+					"doOffStage" : true,
+					"key" : "_ABILITY_Magatama_Count",
+					"value" : 1,
+					"useLimitRange" : true,
+					"maxValue" : 4,
+					"minValue" : 0,
+				},
+				{
+					"$type": "ApplyModifier",
+					"modifierName":"Timer",
+					"doOffStage": true,
+				},									
+			],
+			"onAbilityStart":
+			[
+				// {
+				// 	"$type": "SetSelfAttackTarget",
+				// 	"target": "Target",
+				// 	"doOffStage": true,
+				// },				
+				// {
+				// 	"$type": "ApplyModifier",
+				// 	"modifierName":"Bullet",							
+				// },									
+				// {
+				// 	"$type": "ApplyModifier",
+				// 	"modifierName":"Kill",
+				// 	"doOffStage": true,
+				// },	
+				{
+					"$type":"FireEffect",
+					"effectPattern":"Eff_Player_Electric_ElementalArt_Magatama_Die",//Placeholder
+				},		
+				// {
+				// 	"$type":"FireEffect",
+				// 	"effectPattern":"Eff_Player_Electric_ElementalBurst_Thunder_Whitebox",//Placeholder
+				// 	"born":
+				// 	{
+				// 		"$type": "ConfigBornBySelf",
+				// 		"offset":
+				// 		{
+				// 			"x":0,
+				// 			"y":0,
+				// 			"z":0,
+				// 		},
+				// 		"onGround":true,
+				// 	},					
+				// },												
+				{
+					"$type": "TriggerBullet",
+					"bulletID": 41044121,
+					"trackTarget":"CurLocalAvatar",
+					"doOffStage": true,
+					"turnToTargetImmediately": true,
+					"born":
+					{
+						"$type": "ConfigBornBySelf",
+						"direction":
+						{
+							"$type": "ConfigDirectionByAttackTarget",
+						},	
+					},				
+				},
+				// {
+				// 	"$type":"TriggerAttackEvent",
+				// 	"targetType":"Enemy",
+				// 	"attackEvent":
+				// 	{
+				// 		"attackPattern" :
+				// 		{
+				// 			// "$type" : "ConfigAttackCircle",
+				// 			"$type" : "ConfigAttackSphere",
+				// 			"triggerType": "TriggerNoRepeat",
+				// 			// "fanAngle": 360.0,
+				// 			"radius": 2,
+				// 			"checkHitScene": true,
+				// 			"born":
+				// 			{
+				// 				"$type": "ConfigBornBySelf",
+				// 				"offset" :
+				// 				{
+				// 					"x": 0.0, // + means up, - means down
+				// 					"y": 0.0, // + means left, - means right
+				// 					"z": 0.0, // + means forward, - means backward
+				// 				}
+				// 			},
+				// 			"checkHitLayerType": "Both",
+				// 		},
+				// 		"attackInfo":
+				// 		{
+				// 			"canBeModifiedBy" : "OriginOwner",
+				// 			"attackTag": "Elemental_Art",
+				// 			"attackProperty":
+				// 			{
+				// 				"damagePercentage": 0.2,
+				// 				"strikeType": "Default",
+				// 				"elementType":"Electric",
+				// 				"elementDurability":25,
+				// 				"enBreak" : 50,
+				// 			},
+				// 			"hitPattern" :
+				// 			{
+				// 				"onHitEffectName": "Eff_Player_Electric_ElementalArt_Charge_Strike_Hit", //Placeholder
+				// 				"hitImpulseType":"LV1",
+				// 				"reboundRatio": 0,
+				// 				"hitHaltTime": 0.0,
+				// 				"hitHaltTimeScale": 0.01,
+				// 				"muteHitText":false,
+				// 			},
+				// 			"forceCameraShake": false,
+				// 			"cameraShake":
+				// 			{
+				// 				"shakeRange": 0.12,
+				// 				"shakeTime": 0.1,
+				// 			},
+				// 		},
+				// 	},
+				// },
+				{
+					"$type": "ApplyModifier",		//掉球检测
+					"modifierName": "Kill",					
+				}												
+			],				
+			"onKill":
+			[	
+				{
+					"$type" : "AddGlobalValue",
+					"target": "OriginOwner",
+					"doOffStage" : true,
+					"key" : "_ABILITY_Magatama_Count",
+					"value" : -1,
+					"useLimitRange" : true,
+					"maxValue" : 4,
+					"minValue" : 0,
+				},		
+									
+			],
+			"modifiers":
+			{
+				"Timer":
+				{
+					"duration":1.8,
+					"onRemoved":
+					[
+						{
+							"$type":"TriggerAbility",         
+							"target":"Self",
+							"abilityID":"Player_Electric_ElementalArt_Gadget",
+							"abilityName":"Player_Electric_ElementalArt_Gadget",							
+						},													
+					]				
+				},
+				"Kill":
+				{
+					"duration":0.05,
+					"onRemoved":
+					[
+						{
+							"$type":"KillSelf",
+						},
+					]
+
+				},		
+
+				"Bullet":
+				{
+					"duration":0.01,
+					"onRemoved":
+					[
+						{
+							"$type": "Predicated",
+							"targetPredicates":
+							[
+								{
+									"$type": "ByHasAttackTarget",
+								},
+							],
+							"successActions":
+							[
+								{
+									"$type": "TriggerBullet",
+									"bulletID": 41044121,
+									"trackTarget":"SelfAttackTarget",
+									"doOffStage": true,
+									"turnToTargetImmediately": true,
+									"born":
+									{
+										"$type": "ConfigBornBySelf",
+										"direction":
+										{
+											"$type": "ConfigDirectionByAttackTarget",
+										},	
+									},				
+								},	
+							],						
+						},	
+					]
+
+				},														
+				"Explosion_Timer":
+				{
+					"duration":0.2,
+					"onRemoved":
+					[
+						{
+							"$type": "ApplyModifier",
+							"modifierName":"Explosion",							
+						},
+					]
+
+				},									
+				"Explosion":
+				{
+					"thinkInterval":0.2, 
+					"onThinkInterval":
+					[
+						{
+							"$type": "Predicated",
+							"otherTargets":
+							{
+								"$type": "SelectTargetsByShape",
+								"shapeName": "CircleR1.5",
+								"centerBasedOn": "Self",
+								"campTargetType": "All",
+								"campBasedOn": "Self",
+							},
+							"targetPredicates":
+							[
+								{
+									"$type" : "ByEntityTypes",
+									"entityTypes" : ["Monster"],
+								},
+							],
+							"successActions":
+							[
+								{
+									"$type":"TriggerAttackEvent",
+									"targetType":"Enemy",
+									"attackEvent":
+									{
+										"attackPattern" :
+										{
+											// "$type" : "ConfigAttackCircle",
+											"$type" : "ConfigAttackSphere",
+											"triggerType": "TriggerNoRepeat",
+											// "fanAngle": 360.0,
+											"radius": 2,
+											"checkHitScene": true,
+											"born":
+											{
+												"$type": "ConfigBornBySelf",
+												"offset" :
+												{
+													"x": 0.0, // + means up, - means down
+													"y": 0.0, // + means left, - means right
+													"z": 0.0, // + means forward, - means backward
+												}
+											},
+											"checkHitLayerType": "Both",
+										},
+										"attackInfo":
+										{
+											"canBeModifiedBy" : "OriginOwner",
+											"attackTag": "Elemental_Art",
+											"attackProperty":
+											{
+												"damagePercentage": 1,
+												"strikeType": "Default",
+												"elementType":"Electric",
+												"elementDurability":25,
+												"enBreak" : 50,
+											},
+											"hitPattern" :
+											{
+												"onHitEffectName": "Eff_Avatar_Keqing_ElementalArt_Hit", //Placeholder
+												"hitImpulseType":"LV3",
+												"reboundRatio": 0,
+												"hitHaltTime": 0.0,
+												"hitHaltTimeScale": 0.01,
+												"muteHitText":false,
+											},
+											"forceCameraShake": false,
+											"cameraShake":
+											{
+												"shakeRange": 0.12,
+												"shakeTime": 0.1,
+											},
+										},
+									},
+								},
+								{
+									"$type":"KillSelf",
+								},								
+							],
+						},
+					],
+				},
+
+			},
+		},
+	},
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Player_Electric_ElementalArt_Gadget_Empty",  //标记
+			"onAdded":
+			[
+				{
+					"$type":"AttachEffect",
+					"effectPattern":"Eff_Player_Electric_ElementalArt_Magatama_Empty", //Placeholder
+				},	
+				{
+					"$type": "ApplyModifier",
+					"modifierName":"Timer",
+					"doOffStage": true,
+				},									
+			],
+			"onAbilityStart":
+			[
+				{
+					"$type":"FireEffect",
+					"effectPattern":"Eff_Player_Electric_ElementalArt_Magatama_Die",//Placeholder
+				},													
+				{
+					"$type":"TriggerAttackEvent",
+					"targetType":"Enemy",
+					"attackEvent":
+					{
+						"attackPattern" :
+						{
+							// "$type" : "ConfigAttackCircle",
+							"$type" : "ConfigAttackSphere",
+							"triggerType": "TriggerNoRepeat",
+							// "fanAngle": 360.0,
+							"radius": 2,
+							"checkHitScene": true,
+							"born":
+							{
+								"$type": "ConfigBornBySelf",
+								"offset" :
+								{
+									"x": 0.0, // + means up, - means down
+									"y": 0.0, // + means left, - means right
+									"z": 0.0, // + means forward, - means backward
+								}
+							},
+							"checkHitLayerType": "Both",
+						},
+						"attackInfo":
+						{
+							"canBeModifiedBy" : "OriginOwner",
+							"attackTag": "Elemental_Art",
+							"attackProperty":
+							{
+								"damagePercentage": 0.1,
+								"strikeType": "Default",
+								"elementType":"Electric",
+								"elementDurability":25,
+								"enBreak" : 50,
+							},
+							"hitPattern" :
+							{
+								"onHitEffectName": "Eff_Player_Electric_ElementalArt_Charge_Strike_Hit", //Placeholder
+								"hitImpulseType":"LV1",
+								"reboundRatio": 0,
+								"hitHaltTime": 0.0,
+								"hitHaltTimeScale": 0.01,
+								"muteHitText":false,
+							},
+							"forceCameraShake": false,
+							"cameraShake":
+							{
+								"shakeRange": 0.12,
+								"shakeTime": 0.1,
+							},
+						},
+					},
+				},
+				{
+					"$type": "ApplyModifier",		//掉球检测
+					"modifierName": "Kill",					
+				}												
+			],				
+			"modifiers":
+			{
+				"Timer":
+				{
+					"duration":1.8,
+					"onRemoved":
+					[
+						{
+							"$type":"TriggerAbility",         
+							"target":"Self",
+							"abilityID":"Player_Electric_ElementalArt_Gadget_Empty",
+							"abilityName":"Player_Electric_ElementalArt_Gadget_Empty",							
+						},													
+					]				
+				},
+				"Kill":
+				{
+					"duration":0.05,
+					"onRemoved":
+					[
+						{
+							"$type":"KillSelf",
+						},
+					]
+
+				},		
+			},
+		},
+	},
+
+////////////////////////////////////////////////////////////////
+//
+//  ElementalArt_Gadget_Bullet 创生物子弹
+//
+////////////////////////////////////////////////////////////////
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Player_Electric_ElementalArt_Gadget_Bullet",
+			"onAdded":
+			[
+				{
+					"$type":"AttachEffect",
+					"effectPattern":"Eff_Player_Electric_ElementalArt_Magatama_Bullet", //Placeholder
+				},
+			],
+			"onAbilityStart":
+			[			
+				{
+					"$type" : "Predicated",
+					"target" : "Target",
+					"targetPredicates":
+					[
+						{
+							"$type" : "ByEntityTypes",
+							"entityTypes" : ["Avatar"],
+						},
+					],
+					"successActions":
+					[
+						{
+							"$type":"ApplyModifier",
+							"target":"CurLocalAvatar",
+							"modifierName":"ReviveEffect",
+						},
+						{
+							"$type": "KillSelf",						
+						},							
+					],
+				},					
+				{
+					"$type":"TriggerAttackEvent",
+					"targetType":"Enemy",
+					"attackEvent":
+					{
+						"attackPattern" :
+						{
+							// "$type" : "ConfigAttackCircle",
+							"$type" : "ConfigAttackSphere",
+							"triggerType": "TriggerNoRepeat",
+							// "fanAngle": 360.0,
+							"radius": 1.0,
+							"checkHitScene": true,
+							"born":
+							{
+								"$type": "ConfigBornBySelf",
+								"offset" :
+								{
+									"x": 0.0, // + means up, - means down
+									"y": 0.0, // + means left, - means right
+									"z": 0.0, // + means forward, - means backward
+								}
+							},
+							"checkHitLayerType": "Both",
+						},
+						"attackInfo":
+						{
+							"canBeModifiedBy" : "OriginOwner",
+							"attackTag": "Elemental_Art",
+							"attackProperty":
+							{
+								"damagePercentage": 0.2,
+								"strikeType": "Default",
+								"elementType":"Electric",
+								"elementDurability":25,
+								"enBreak" : 50,
+							},
+							"hitPattern" :
+							{
+								"onHitEffectName": "Eff_Player_Electric_ElementalArt_Charge_Strike_Hit", //Placeholder
+								"hitImpulseType":"LV3",
+								"reboundRatio": 0,
+								"hitHaltTime": 0.0,
+								"hitHaltTimeScale": 0.01,
+								"muteHitText":false,
+							},
+							"forceCameraShake": false,
+							"cameraShake":
+							{
+								"shakeRange": 0.12,
+								"shakeTime": 0.1,
+							},
+						},
+					},
+				},
+			],
+			"modifiers":
+			{
+				"ReviveEffect":
+				{
+					"duration":0.1,
+					"onAdded":
+					[
+						{
+							"$type":"FireEffect",
+							"effectPattern":"Eff_Avatar_Pendant_Ready_Electric",//Placeholder
+						},			
+						{
+							"$type": "ReviveElemEnergy",	//天赋回能
+							"value": 3,
+						},									
+					],
+				}
+			}
+		},
+	},	
+
+{
+	"Default" :
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Player_Electric_ElementalArt_Magatama_Trigger",
+		"onAdded":
+		[
+			{
+				"$type":"AttachEffect",
+				"effectPattern":"Eff_Element_Crystal_Elect_Trail",
+			},
+		],
+		"onAbilityStart" :
+		[
+			{
+				"$type": "CreateGadget",
+				"gadgetID": 41044131,
+				"campID": 1001,
+				"campTargetType": "All",
+				"born":
+				{
+					"$type": "ConfigBornByCollisionPoint",
+					"offset" :
+					{
+						"x": 0.0,
+						"y": 0.0,
+						"z": 0.0,
+					},
+					"direction":
+					{
+						"$type": "ConfigDirectionByWorld",
+						"eularAngles":
+						{
+							"x" : 0.1,
+							"y" : 0.1,
+							"z" : 0.1,
+						},
+					},
+					"onGround":true,
+				},
+			},
+		],
+		"modifiers" :
+		{
+		},
+		"abilitySpecials":
+		{
+
+		},
+	},
+},
+
+{
+	"Default" :
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Player_Electric_ElementalArt_Magatama_Pickable",
+		"onAdded" :
+		[
+			{
+				"$type":"AttachModifier",
+				"modifierName":"Fx",
+			},
+			{
+				"$type":"AttachModifier",
+				"modifierName":"Life_Timer",//这件事儿待定
+			},
+
+		],
+		"onKill":
+		[		
+			{
+				"$type":"FireEffect",
+				"effectPattern":"Eff_Player_Electric_ElementalArt_Magatama_Die",
+			},
+		],
+		"onAbilityStart":
+		[
+
+		],
+		"onFieldEnter":
+		[			
+			// {
+			// 	"$type": "ApplyModifier",
+			// 	"modifierName": "EnergyEfficiency",
+			// 	"target":"Target",
+			// 	"predicates":
+			// 	[
+			// 		{
+			// 			"$type":"ByEntityTypes",
+			// 			"target":"Target",
+			// 			"entityTypes":["Avatar"],
+			// 		},
+			// 	],
+			// },	
+			{
+				"$type": "RemoveUniqueModifier",
+				"modifierName": "UNIQUE_Counter",
+				"target":"Target",
+				"predicates":
+				[
+					{
+						"$type":"ByEntityTypes",
+						"target":"Target",
+						"entityTypes":["Avatar"],
+					},
+				],
+			},				
+	
+			{
+				"$type": "ApplyModifier",
+				"modifierName": "UNIQUE_Counter",
+				"target":"Target",
+				"predicates":
+				[
+					{
+						"$type":"ByEntityTypes",
+						"target":"Target",
+						"entityTypes":["Avatar"],
+					},
+				],
+			},	
+			{
+				"$type": "ApplyModifier",
+				"modifierName": "Count_Add",
+				"target":"Target",
+				"predicates":
+				[
+					{
+						"$type":"ByEntityTypes",
+						"target":"Target",
+						"entityTypes":["Avatar"],
+					},
+				],
+			},										
+			{
+				"$type":"KillSelf",
+				"duration":0.15,
+			},
+		],
+		"modifiers" :
+		{
+			"Blank":
+			{
+
+			},
+			"Count_1":
+			{
+				"isUnique":true,
+				"isLimitedProperties": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AttachEffect",
+						"effectPattern" : "Eff_Avatar_Boy_Claymore_Razor_ClawMark_Sign_1",
+					},
+				],
+				"properties" :
+				{
+					"Actor_ChargeEfficiencyDelta" : 0.2,
+				},
+				// "onRemoved":
+				// [
+    //                 {
+    //                     "$type": "AddGlobalValue",
+    //                     "key": "_ABILITY_Player_Electric_ElementalArt_ElemEfficiency_Level",
+    //                     "value": 0,
+    //                     "useLimitRange": true,
+    //                     "maxValue": 0,
+    //                     "minValue": 0,
+    //                 },										
+				// ],
+			},
+			"Count_2":
+			{
+				"isUnique":true,
+				"isLimitedProperties": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AttachEffect",
+						"effectPattern" : "Eff_Avatar_Boy_Claymore_Razor_ClawMark_Sign_1",
+					},
+					{
+						"$type" : "AttachEffect",
+						"effectPattern" : "Eff_Avatar_Boy_Claymore_Razor_ClawMark_Sign_2",
+					},
+				],
+				"properties" :
+				{
+					"Actor_ChargeEfficiencyDelta" : 0.4,
+				},			
+				// "onRemoved":
+				// [
+    //                 {
+    //                     "$type": "AddGlobalValue",
+    //                     "key": "_ABILITY_Player_Electric_ElementalArt_ElemEfficiency_Level",
+    //                     "value": 0,
+    //                     "useLimitRange": true,
+    //                     "maxValue": 0,
+    //                     "minValue": 0,
+    //                 },										
+				// ],		
+			},
+			"Count_3":
+			{
+				"isUnique":true,
+				"isLimitedProperties": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AttachEffect",
+						"effectPattern" : "Eff_Avatar_Boy_Claymore_Razor_ClawMark_Sign_1",
+					},
+					{
+						"$type" : "AttachEffect",
+						"effectPattern" : "Eff_Avatar_Boy_Claymore_Razor_ClawMark_Sign_2",
+					},
+					{
+						"$type" : "AttachEffect",
+						"effectPattern" : "Eff_Avatar_Boy_Claymore_Razor_ClawMark_Sign_3",
+					},
+				],				
+				"properties" :
+				{
+					"Actor_ChargeEfficiencyDelta" : 0.6,
+				},
+				// "onRemoved":
+				// [
+    //                 {
+    //                     "$type": "AddGlobalValue",
+    //                     "key": "_ABILITY_Player_Electric_ElementalArt_ElemEfficiency_Level",
+    //                     "value": 0,
+    //                     "useLimitRange": true,
+    //                     "maxValue": 0,
+    //                     "minValue": 0,
+    //                 },										
+				// ],			
+			},			
+			// "Add_Test":
+			// {
+			// 	"duration": 0.2,
+			// 	"stacking": "Multiple",
+			// 	"onAdded":
+			// 	[
+   //                  {
+   //                      "$type": "AddGlobalValue",
+   //                      "key": "_ABILITY_Player_Electric_ElementalArt_ElemEfficiency_Level",
+   //                      "value": 1,
+   //                      "useLimitRange": true,
+   //                      "maxValue": 3,
+   //                      "minValue": 0,
+   //                  },
+			// 	],				
+
+			// 	// "onRemoved":
+			// 	// [
+   //  //                 {
+   //  //                     "$type": "AddGlobalValue",
+   //  //                     "key": "_ABILITY_Player_Electric_ElementalArt_ElemEfficiency_Level",
+   //  //                     "value": 0,
+   //  //                     "useLimitRange": true,
+   //  //                     "maxValue": 0,
+   //  //                     "minValue": 0,
+   //  //                 },										
+			// 	// ],					
+			// },
+			"Count_Add":
+			{ 
+				"duration": 6.0,
+				// "stacking" : "MultipleAllRefresh",
+				// "stackingOption" :
+				// {
+				// 	"maxModifierNumForMultipleType" : 3,
+				// },		
+				"stacking" : "Multiple",				
+				"onAdded" :
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"doOffStage" : true,
+						"key" : "_ABILITY_Player_Electric_ElementalArt_ElemEfficiency_Level",
+						"value" : 1,
+						"useLimitRange" : true,
+						"maxValue" : 3,
+						"minValue" : 0,
+					},
+				],
+				"onRemoved" :
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"doOffStage" : true,
+						"key" : "_ABILITY_Player_Electric_ElementalArt_ElemEfficiency_Level",
+						"value" : -1,
+						"useLimitRange" : true,
+						"maxValue" : 3,
+						"minValue" : 0,
+					},
+				],						
+			},
+			"UNIQUE_Counter":
+			{ 
+				"isUnique":true,
+				"duration": 6.5,					
+				"modifierMixins":
+				[
+					{
+						"$type": "AttachModifierToSelfGlobalValueMixin",
+						"globalValueKey": "_ABILITY_Player_Electric_ElementalArt_ElemEfficiency_Level",
+						"valueSteps": [-0.5, 0.5, 1.5, 2.5, 3.5],	
+						"removeAppliedModifier": true,
+						"modifierNameSteps": ["Blank","Count_1", "Count_2", "Count_3"],
+					},					
+				],
+			},			
+			// "EnergyEfficiency":
+			// {
+			// 	"duration": 8.0,
+			// 	"stacking" : "MultipleAllRefresh",
+			// 	"stackingOption" :
+			// 	{
+			// 		"maxModifierNumForMultipleType" : 3,
+			// 	},		
+			// 	"isLimitedProperties" : true,
+			// 	"state": "AttackUp",
+			// 	"properties" :
+			// 	{
+			// 		"Actor_ChargeEfficiencyDelta" : 0.2,
+			// 	},						
+			// },
+			"Fx":
+			{
+				"onAdded":
+				[
+					{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_Player_Electric_ElementalArt_Magatama",
+					},
+				],
+			},
+			"Life_Timer":
+			{
+				"duration":15,
+				"onRemoved":
+				[
+					{
+						"$type":"KillSelf",
+					},
+				],
+			},
+		},
+		"abilitySpecials":
+		{
+		},
+	},
+},
+
+
+////////////////////////////////////////////////////////////////
+//
+//  Talent：ElementalArt_SprintEnhanceDamage 冲刺加元素战技短按伤害
+//
+////////////////////////////////////////////////////////////////
+
+	{
+		"Default": 
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Player_Electric_ElementalArt_SprintEnhanceDamage",  //talent 2
+			"abilityMixins":
+			[
+				{
+					"$type":"AttachToStateIDMixin",
+					"stateIDs":["SprintBS"],
+					"modifierName":"Player_Electric_ElementalArt_SprintEnhanceDamage_Handler"
+				},
+			],
+			"modifiers":
+			{
+				"Player_Electric_ElementalArt_SprintEnhanceDamage_Handler":
+				{
+					"duration": 0.2,
+					"onAdded":
+					[
+						{
+							"$type":"ApplyModifier",
+							"modifierName":"Player_Electric_ElementalArt_SprintEnhanceDamage",
+						},						
+					]
+				},
+				"Player_Electric_ElementalArt_SprintEnhanceDamage":
+				{
+					"duration": 3.0,
+					"stacking": "Refresh",					
+					"modifierMixins":
+					[
+						{
+							"$type":"AttachToStateIDMixin",
+							"stateIDs":["Player_Electric_ElementalArt_Click_Strike"],
+							"modifierName":"UNIQUE_Player_Electric_ElementalArt_SprintEnhanceDamage_Damage"
+						},							
+					]
+				},
+
+				"UNIQUE_Player_Electric_ElementalArt_SprintEnhanceDamage_Damage":
+				{
+					"isUnique": true,
+					"modifierMixins":
+					[
+						{
+							"$type":"ModifyDamageMixin",
+							"attackTags": ["Elemental_Art"],
+							"damagePercentageRatio": 0.2,
+						},						
+					],				
+				}
+			}
+		},
+	},
+
+
+
+
+
+]

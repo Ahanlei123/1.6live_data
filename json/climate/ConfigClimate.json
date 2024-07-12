@@ -1,0 +1,105 @@
+{
+//common里填写的是所有气候公用的参数。
+	"common":
+	{
+		"length": 100, //表示气候量表的最大值。
+		"thresholdRatio": 1.0, //表示量表比例大于等于这个值时，进入“高额状态（开始掉血）”
+		"uiWarningRatio": 0.7, //表示量表比例大于等于这个值时，低温条开始闪红
+		"debuffs": //表示气候量表处于不同阶段下的debuff调用，每个climateType对应2个，分别表示低额和高额时的debuff。没有填写的climateType就不加载
+		{
+			"Cold":
+			[
+				300001, //使用ServerBuff的逻辑挂接效果，分别表示进入区域、达到高额状态时需要挂接的BUFF。离开区域时二者都要移除，脱离高额状态时需要移除第二个BUFF。
+				300002, 
+			],
+		},
+		"areaBuffs": //表示气候量表处于不同阶段下的debuff调用，每个climateType对应2个，分别表示低额和高额时的debuff。没有填写的climateType就不加载
+		{
+			"Cold":
+			[
+				300003, //使用ServerBuff的逻辑挂接效果，进入区域时会一直挂载在玩家身上
+			],
+		},
+		"miscs": //杂项
+		{
+			"dampingTime": 1, //消退粘滞时间，单位为秒。表示短时间内既没有被行为影响，也没有收到气候区域影响后，气候量表就开始消退。
+			"fadeSpeed": 5, //量表消退速度，默认值为5点/秒，表示按这个速度退回零点。消退速度尽可能平滑，参考体力值。
+		},
+		"uiLenWeakIntensity" : 0.35,//当气候量表的百分比达到uiWarningRatio时，屏幕滤镜的强度（1是气候量表满时屏幕滤镜的强度）。
+		"uiLenLerpSpeed" : 1.0,//屏幕滤镜为了平滑状态变化而使用的插值时长。
+	},
+//以下为供策划调用的模板
+	"templates":
+	{
+		"Full_Params_HeroCourse": //表格中填写这个配置名称
+		{
+			"$type": "ConfigClimateInfo",
+			"climateType": "HeroCourse", //枚举项
+			"temperatureOptions": //所有会影响气候量表变化的环境效果参数。
+			{
+				"speed": 0.0, //默认为5点/秒，表示处于该区域时，气候量表的变化速度。同时受到多个模板规则下的该参数影响时，请报错（一般这种情况，策划已经把区域配错了，直接报error吧）
+			},
+			"climateUIInfo": //与温度类型对应的相关UI资源配置
+			{
+				"climateInfoBtnIcon": "ART/UI/Atlas/ButtonIcon/UI_BtnIcon_Climate_Foggy", //小地图旁气候按键的Icon图标路径
+				"climateDialogTitle": "UI_GUIDE_SeaMistCLIMATE_TITLE", //小地图旁气候dialog的文字描述title (TextMap里配置)
+				"climateDialogDesc": "UI_GUIDE_SeaMistCLIMATE_DESC", //小地图旁气候dialog的文字描述desc (TextMap里配置)
+				"climateDialogLeftIcon": "ART/UI/Atlas/ElementIcons/UI_Icon_Climate_Foggy", //小地图旁气候dialog的左侧图标值
+				"climateDialogLeftBg": "ART/UI/Atlas/ClimatePic/UI_Img_Climate_Foggy", //小地图旁气候dialog的背景图标
+				
+				"showClimateMeter": "false", //是否显示屏幕下方的温度条
+				"screenEffectIndex":1,
+
+				"climateInfoShowWithMeterType": "true", //根据气候值类型来展示
+			},
+		},
+		"Full_Params_SeaMist": //表格中填写这个配置名称
+		{
+			"$type": "ConfigClimateInfo",
+			"climateType": "SeaMist", //枚举项，目前只有Cold。
+			"temperatureOptions": //所有会影响气候量表变化的环境效果参数。
+			{
+				"speed": 0.0, //默认为5点/秒，表示处于该区域时，气候量表的变化速度。同时受到多个模板规则下的该参数影响时，请报错（一般这种情况，策划已经把区域配错了，直接报error吧）
+			},
+			"climateUIInfo": //与温度类型对应的相关UI资源配置
+			{
+				"climateInfoBtnIcon": "ART/UI/Atlas/ButtonIcon/UI_BtnIcon_Climate_Foggy", //小地图旁气候按键的Icon图标路径
+				"climateDialogTitle": "UI_GUIDE_SeaMistCLIMATE_TITLE", //小地图旁气候dialog的文字描述title (TextMap里配置)
+				"climateDialogDesc": "UI_GUIDE_SeaMistCLIMATE_DESC", //小地图旁气候dialog的文字描述desc (TextMap里配置)
+				"climateDialogLeftIcon": "ART/UI/Atlas/ElementIcons/UI_Icon_Climate_Foggy", //小地图旁气候dialog的左侧图标值
+				"climateDialogLeftBg": "ART/UI/Atlas/ClimatePic/UI_Img_Climate_Foggy", //小地图旁气候dialog的背景图标
+				
+				"showClimateMeter": "false", //是否显示屏幕下方的温度条
+				"screenEffectIndex":1,
+
+				"climateInfoShowWithMeterType": "true", //根据气候值类型来展示
+				"uiLowWarningRatio":0.35,
+				"uiLenLowIntensity":0.35,
+				"uiMiddleWarningRatio":0.7,
+				"uiLenMiddleIntensity":1.0,
+			},
+		},
+		"Full_Params_Example_Cold": //表格中填写这个配置名称
+		{
+			"$type": "ConfigClimateInfo",
+			"climateType": "Cold", //枚举项，目前只有Cold。
+			"temperatureOptions": //所有会影响气候量表变化的环境效果参数。
+			{
+				"speed": 1.0, //默认为5点/秒，表示处于该区域时，气候量表的变化速度。同时受到多个模板规则下的该参数影响时，请报错（一般这种情况，策划已经把区域配错了，直接报error吧）
+			},
+			"climateUIInfo": //与温度类型对应的相关UI资源配置
+			{
+				"climateInfoBtnIcon": "ART/UI/Atlas/BuffElement/UI_Buff_Element_Frost", //小地图旁气候按键的Icon图标路径
+				"climateDialogTitle": "UI_GUIDE_COLDCLIMATE_TITLE", //小地图旁气候dialog的文字描述title (TextMap里配置)
+				"climateDialogDesc": "UI_GUIDE_COLDCLIMATE_DESC", //小地图旁气候dialog的文字描述desc (TextMap里配置)
+				"climateDialogLeftIcon": "ART/UI/Atlas/ElementIcons/UI_Icon_Element_Ice", //小地图旁气候dialog的左侧图标值
+				"climateDialogLeftBg": "ART/UI/Atlas/ClimatePic/UI_Img_Climate_Cold", //小地图旁气候dialog的背景图标
+				"showClimateMeter": "true", //是否显示屏幕下方的温度条
+				"climateMeterColorIndex": "0", //温度条对应的填充颜色index (对应挂载在InLevelMainPage/GrpMainPage/GameInfo/ClimateBar/ClimateBar上的ClimateFillColors)
+				"screenEffectIndex": "0", //屏幕特效ScreenEffectProfile_UEfuction (请去unity中查找）对应的index
+
+				"climateInfoShowWithMeterType": "false", //根据气候区域类型来展示
+			},
+		},
+	},
+}

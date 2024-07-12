@@ -1,0 +1,1849 @@
+{
+
+////////////////////////////////////////////////////////////////
+//
+//  Player_Electric_ElementalBurst_Bullet
+//
+////////////////////////////////////////////////////////////////
+	"Player_Electric_ElementalBurst_Bullet_1":
+	{
+		"$type": "ConfigGadget",		
+		"common":
+		{
+			"effectAttachShape":
+			{
+				"$type": "ConfigEffectAttachBox",
+				"emitFrom": "Volume",
+				"scaleX": 1,
+				"scaleY": 1,
+				"scaleZ": 1.0,
+			},
+			"mass": 50,
+		},
+		"timer":
+		{
+			"lifeInfinite" : false,
+			"lifeTime": 11.8,
+		},
+		"combat":
+		{
+			"property":
+			{
+				"useCreatorProperty": true,
+				"isGhostToAllied": true,
+				"isGhostToEnemy": true,
+				"isInvincible": true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit":
+			{
+				"hitBloodEffect": "",
+				"muteAllHit": false,
+				"muteAllHitEffect": true,
+				"muteAllHitText": true,
+			},		
+			// "die":
+			// {
+			// 	"dieDisappearEffect":"Eff_Player_Electric_ElementalArt_Magatama_Die",
+			// },			
+		},
+		"move":
+		{
+			"$type": "ConfigFollowMove",
+			"target": "LocalAvatar",
+			"attachPoint": "RootNode",
+			"followRotation": false,
+			"offset":
+			{
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0,
+			},
+			"forward":
+			{
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0,
+			},
+			"velocityForce":
+			{
+				"muteAll": true,
+			},
+		},
+		// "gadget":
+		// {
+		// 	"$type": "ConfigBulletPattern",
+		// 	// "collision":
+		// 	// {
+		// 	// 	"targetType": "Enemy",
+		// 	// 	"triggerType": "TriggerAlways",
+		// 	// 	"triggerCD": 0.5,
+		// 	// 	"ignoreScene": true,
+		// 	// },
+		// 	"triggerActions":
+		// 	[
+		// 		{
+		// 			"$type": "ConfigGadgetTriggerAbility",			//撞怪时创生冰刺agdget以产生伤害
+		// 			"abilityName": "Avatar_Player_Electric_ElementalBurst_Bullet",
+		// 		},
+		// 	],
+		// 	"triggerLifeOverActions":
+		// 	[
+		// 		{
+		// 			"$type": "ConfigGadgetTriggerAbility",			//撞怪时创生冰刺agdget以产生伤害
+		// 			"abilityName": "Avatar_Player_Electric_ElementalBurst_Attack",
+		// 		},				
+		// 	],
+		// },
+		"abilities":
+		[
+			{
+				"abilityID": "Avatar_Player_Electric_ElementalBurst_Bullet",
+				"abilityName": "Avatar_Player_Electric_ElementalBurst_Bullet"
+			},
+			{
+				"abilityID": "Avatar_Player_Electric_ElementalBurst_Attack",
+				"abilityName": "Avatar_Player_Electric_ElementalBurst_Attack"
+			},			
+		],
+	},
+
+	"Player_Electric_ElementalBurst_Bullet_2":
+	{
+		"$type": "ConfigGadget",		
+		"common":
+		{
+			"effectAttachShape":
+			{
+				"$type": "ConfigEffectAttachBox",
+				"emitFrom": "Volume",
+				"scaleX": 1,
+				"scaleY": 1,
+				"scaleZ": 1.0,
+			},
+			"mass": 50,
+		},
+		"timer":
+		{
+			"lifeTime": 10.0,
+		},
+		"combat":
+		{
+			"property":
+			{
+				"useCreatorProperty": true,
+				"isGhostToAllied": true,
+				"isGhostToEnemy": true,
+				"isInvincible": true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit":
+			{
+				"hitBloodEffect": "",
+				"muteAllHit": false,
+				"muteAllHitEffect": true,
+				"muteAllHitText": true,
+			},			
+		},
+		"move":
+		{
+			"$type": "ConfigFollowMove",
+			"target": "LocalAvatar",
+			"attachPoint": "RootNode",
+			"followRotation": false,
+			"offset":
+			{
+				"x": -1,
+				"y": 0.6,
+				"z": -0.4,
+			},
+			"forward":
+			{
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0,
+			},
+
+			"velocityForce":
+			{
+				"muteAll": true,
+			},
+		},
+		// "gadget":
+		// {
+		// 	"$type": "ConfigBulletPattern",
+		// 	"collision":
+		// 	{
+		// 		"targetType": "Enemy",
+		// 		"triggerType": "TriggerAlways",
+		// 		"triggerCD": 0.5,
+		// 		"ignoreScene": true,
+		// 	},
+		// 	"triggerActions":
+		// 	[
+		// 		{
+		// 			"$type": "ConfigGadgetTriggerAbility",			//撞怪时创生冰刺agdget以产生伤害
+		// 			"abilityName": "Avatar_Player_Electric_ElementalBurst_Bullet",
+		// 		},
+		// 	],
+		// 	"triggerLifeOverActions":
+		// 	[
+		// 		{
+		// 			"$type": "ConfigGadgetTriggerAbility",			//撞怪时创生冰刺agdget以产生伤害
+		// 			"abilityName": "Avatar_Player_Electric_ElementalBurst_Attack",
+		// 		},				
+		// 	],
+		// },
+		"abilities":
+		[
+			{
+				"abilityID": "Avatar_Player_Electric_ElementalBurst_Bullet",
+				"abilityName": "Avatar_Player_Electric_ElementalBurst_Bullet"
+			},
+			{
+				"abilityID": "Avatar_Player_Electric_ElementalBurst_Attack",
+				"abilityName": "Avatar_Player_Electric_ElementalBurst_Attack"
+			},			
+		],
+	},
+
+	"Player_Electric_ElementalBurst_Bullet_3":
+	{
+		"$type": "ConfigGadget",		
+		"common":
+		{
+			"effectAttachShape":
+			{
+				"$type": "ConfigEffectAttachBox",
+				"emitFrom": "Volume",
+				"scaleX": 1,
+				"scaleY": 1,
+				"scaleZ": 1.0,
+			},
+			"mass": 50,
+		},
+		"timer":
+		{
+			"lifeTime": 10.0,
+		},
+		"combat":
+		{
+			"property":
+			{
+				"useCreatorProperty": true,
+				"isGhostToAllied": true,
+				"isGhostToEnemy": true,
+				"isInvincible": true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit":
+			{
+				"hitBloodEffect": "",
+				"muteAllHit": false,
+				"muteAllHitEffect": true,
+				"muteAllHitText": true,
+			},			
+		},
+		"move":
+		{
+			"$type": "ConfigFollowMove",
+			"target": "LocalAvatar",
+			"attachPoint": "RootNode",
+			"followRotation": false,
+			"offset":
+			{
+				"x": 0.6,
+				"y": 1.0,
+				"z": -0.4,
+			},
+			"forward":
+			{
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0,
+			},
+			"velocityForce":
+			{
+				"muteAll": true,
+			},
+		},
+		// "gadget":
+		// {
+		// 	"$type": "ConfigBulletPattern",
+		// 	"collision":
+		// 	{
+		// 		"targetType": "Enemy",
+		// 		"triggerType": "TriggerAlways",
+		// 		"triggerCD": 0.5,
+		// 		"ignoreScene": true,
+		// 	},
+		// 	"triggerActions":
+		// 	[
+		// 		{
+		// 			"$type": "ConfigGadgetTriggerAbility",			//撞怪时创生冰刺agdget以产生伤害
+		// 			"abilityName": "Avatar_Player_Electric_ElementalBurst_Bullet",
+		// 		},
+		// 	],
+		// 	"triggerLifeOverActions":
+		// 	[
+		// 		{
+		// 			"$type": "ConfigGadgetTriggerAbility",			//撞怪时创生冰刺agdget以产生伤害
+		// 			"abilityName": "Avatar_Player_Electric_ElementalBurst_AttackWithGadget",
+		// 		},				
+		// 	],
+		// },
+		"abilities":
+		[
+			{
+				"abilityID": "Avatar_Player_Electric_ElementalBurst_Bullet",
+				"abilityName": "Avatar_Player_Electric_ElementalBurst_Bullet"
+			},
+			{
+				"abilityID": "Avatar_Player_Electric_ElementalBurst_AttackWithGadget",
+				"abilityName": "Avatar_Player_Electric_ElementalBurst_AttackWithGadget"
+			},						
+		],
+	},
+
+	"Player_Electric_ElementalBurst_Bullet_4":
+	{
+		"$type": "ConfigGadget",		
+		"common":
+		{
+			"effectAttachShape":
+			{
+				"$type": "ConfigEffectAttachBox",
+				"emitFrom": "Volume",
+				"scaleX": 1,
+				"scaleY": 1,
+				"scaleZ": 1.0,
+			},
+			"mass": 50,
+		},
+		"timer":
+		{
+			"lifeTime": 10.0,
+		},
+		"combat":
+		{
+			"property":
+			{
+				"useCreatorProperty": true,
+				"isGhostToAllied": true,
+				"isGhostToEnemy": true,
+				"isInvincible": true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit":
+			{
+				"hitBloodEffect": "",
+				"muteAllHit": false,
+				"muteAllHitEffect": true,
+				"muteAllHitText": true,
+			},			
+		},
+		"move":
+		{
+			"$type": "ConfigFollowMove",
+			"target": "LocalAvatar",
+			"attachPoint": "RootNode",
+			"followRotation": false,
+			"offset":
+			{
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0,
+			},
+			"forward":
+			{
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0,
+			},
+			"velocityForce":
+			{
+				"muteAll": true,
+			},
+		},
+		// "gadget":
+		// {
+		// 	"$type": "ConfigBulletPattern",
+		// 	"collision":
+		// 	{
+		// 		"targetType": "Enemy",
+		// 		"triggerType": "TriggerAlways",
+		// 		"triggerCD": 0.5,
+		// 		"ignoreScene": true,
+		// 	},
+		// 	"triggerActions":
+		// 	[
+		// 		{
+		// 			"$type": "ConfigGadgetTriggerAbility",			//撞怪时创生冰刺agdget以产生伤害
+		// 			"abilityName": "Avatar_Player_Electric_ElementalBurst_Bullet",
+		// 		},
+		// 	],
+		// 	"triggerLifeOverActions":
+		// 	[
+		// 		{
+		// 			"$type": "ConfigGadgetTriggerAbility",			//撞怪时创生冰刺agdget以产生伤害
+		// 			"abilityName": "Avatar_Player_Electric_ElementalBurst_Attack",
+		// 		},				
+		// 	],
+		// },
+		"abilities":
+		[
+			{
+				"abilityID": "Avatar_Player_Electric_ElementalBurst_Bullet",
+				"abilityName": "Avatar_Player_Electric_ElementalBurst_Bullet"
+			},
+			{
+				"abilityID": "Avatar_Player_Electric_ElementalBurst_Attack",
+				"abilityName": "Avatar_Player_Electric_ElementalBurst_Attack"
+			},			
+		],
+	},	
+
+	"Player_Electric_ElementalBurst_Bullet_5":
+	{
+		"$type": "ConfigGadget",		
+		"common":
+		{
+			"effectAttachShape":
+			{
+				"$type": "ConfigEffectAttachBox",
+				"emitFrom": "Volume",
+				"scaleX": 1,
+				"scaleY": 1,
+				"scaleZ": 1.0,
+			},
+			"mass": 50,
+		},
+		"timer":
+		{
+			"lifeTime": 10.0,
+		},
+		"combat":
+		{
+			"property":
+			{
+				"useCreatorProperty": true,
+				"isGhostToAllied": true,
+				"isGhostToEnemy": true,
+				"isInvincible": true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit":
+			{
+				"hitBloodEffect": "",
+				"muteAllHit": false,
+				"muteAllHitEffect": true,
+				"muteAllHitText": true,
+			},			
+		},
+		"move":
+		{
+			"$type": "ConfigFollowMove",
+			"target": "LocalAvatar",
+			"attachPoint": "RootNode",
+			"followRotation": false,
+			"offset":
+			{
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0,
+			},
+			"forward":
+			{
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0,
+			},
+			"velocityForce":
+			{
+				"muteAll": true,
+			},
+		},
+		// "gadget":
+		// {
+		// 	"$type": "ConfigBulletPattern",
+		// 	"collision":
+		// 	{
+		// 		"targetType": "Enemy",
+		// 		"triggerType": "TriggerAlways",
+		// 		"triggerCD": 0.5,
+		// 		"ignoreScene": true,
+		// 	},
+		// 	"triggerActions":
+		// 	[
+		// 		{
+		// 			"$type": "ConfigGadgetTriggerAbility",			//撞怪时创生冰刺agdget以产生伤害
+		// 			"abilityName": "Avatar_Player_Electric_ElementalBurst_Bullet",
+		// 		},
+		// 	],
+		// 	"triggerLifeOverActions":
+		// 	[
+		// 		{
+		// 			"$type": "ConfigGadgetTriggerAbility",			//撞怪时创生冰刺agdget以产生伤害
+		// 			"abilityName": "Avatar_Player_Electric_ElementalBurst_Attack",
+		// 		},				
+		// 	],
+		// },
+		"abilities":
+		[
+			{
+				"abilityID": "Avatar_Player_Electric_ElementalBurst_Bullet",
+				"abilityName": "Avatar_Player_Electric_ElementalBurst_Bullet"
+			},
+			{
+				"abilityID": "Avatar_Player_Electric_ElementalBurst_Attack",
+				"abilityName": "Avatar_Player_Electric_ElementalBurst_Attack"
+			},			
+		],
+	},	
+
+	"Player_Electric_ElementalBurst_Bullet_6":
+	{
+		"$type": "ConfigGadget",		
+		"common":
+		{
+			"effectAttachShape":
+			{
+				"$type": "ConfigEffectAttachBox",
+				"emitFrom": "Volume",
+				"scaleX": 1,
+				"scaleY": 1,
+				"scaleZ": 1.0,
+			},
+			"mass": 50,
+		},
+		"timer":
+		{
+			"lifeTime": 10.0,
+		},
+		"combat":
+		{
+			"property":
+			{
+				"useCreatorProperty": true,
+				"isGhostToAllied": true,
+				"isGhostToEnemy": true,
+				"isInvincible": true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit":
+			{
+				"hitBloodEffect": "",
+				"muteAllHit": false,
+				"muteAllHitEffect": true,
+				"muteAllHitText": true,
+			},			
+		},
+		"move":
+		{
+			"$type": "ConfigFollowMove",
+			"target": "LocalAvatar",
+			"attachPoint": "RootNode",
+			"followRotation": false,
+			"offset":
+			{
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0,
+			},
+			"forward":
+			{
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0,
+			},
+			"velocityForce":
+			{
+				"muteAll": true,
+			},
+		},
+		// "gadget":
+		// {
+		// 	"$type": "ConfigBulletPattern",
+		// 	"collision":
+		// 	{
+		// 		"targetType": "Enemy",
+		// 		"triggerType": "TriggerAlways",
+		// 		"triggerCD": 0.5,
+		// 		"ignoreScene": true,
+		// 	},
+		// 	"triggerActions":
+		// 	[
+		// 		{
+		// 			"$type": "ConfigGadgetTriggerAbility",			//撞怪时创生冰刺agdget以产生伤害
+		// 			"abilityName": "Avatar_Player_Electric_ElementalBurst_Bullet",
+		// 		},
+		// 	],
+		// 	"triggerLifeOverActions":
+		// 	[
+		// 		{
+		// 			"$type": "ConfigGadgetTriggerAbility",			//撞怪时创生冰刺agdget以产生伤害
+		// 			"abilityName": "Avatar_Player_Electric_ElementalBurst_AttackWithGadget",
+		// 		},							
+		// 	],
+		// },
+		"abilities":
+		[
+			{
+				"abilityID": "Avatar_Player_Electric_ElementalBurst_Bullet",
+				"abilityName": "Avatar_Player_Electric_ElementalBurst_Bullet"
+			},
+			{
+				"abilityID": "Avatar_Player_Electric_ElementalBurst_AttackWithGadget",
+				"abilityName": "Avatar_Player_Electric_ElementalBurst_AttackWithGadget"
+			},						
+		],
+	},	
+
+////////////////////////////////////////////////////////////////
+//
+//  Player_Electric_ElementalArt_Bullet
+//
+////////////////////////////////////////////////////////////////	
+
+	"Player_Electric_ElementalArt_Bullet" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1,
+			},
+			// "affectedByWorld": true,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true,
+				"canTriggerBullet" : false,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn":true,
+				"lockType":"Gadget_Lv1",
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : true,
+				"muteAllHitEffect" : true,
+				"muteAllHitText" : true,
+			},
+		},
+		// 子弹线性移动
+		// "move" :
+		// {
+		// 	"$type": "ConfigLinerBulletMove",
+		// 	"speed": 60,
+		// 	// "delay" : 0.07,
+		// 	"stickToGround":
+		// 	{
+		// 		"$type" : "ConfigMoveStickToGround",
+		// 		"heightToGround" : 0.8,
+		// 		"flexibleRange" : 0.8,
+		// 		"maxStepHeight" : 1.5,
+		// 		"maxSlopeAngle" : 40,
+		// 		"isStickToWater" : true,
+		// 		"unstickWhenDownSlide": "Keep",
+		// 		"unstickWhenUpSlide": "Keep",
+		// 	},			
+		// 	"canBornInWater": true,
+		// },
+		"move" :
+		{
+			"$type" : "ConfigTrackBulletMove",
+			// "speed" : 40.0,
+			"speed":15,
+			"minSpeed" : 15.0,
+			"maxSpeed":20,
+			"acceleration" : 50,
+			"traceOnYAxis" : true,
+			// "anglerVelocityRawNum":600,"stickToGround":
+			"anglerVelocity":810,
+			// "updateAngle":
+			// {
+		 //    	"$type": "ConfigBulletMoveAngleByVelocity",
+		 //    	"traceLerpCoef": 360,
+		 //    },			
+			// "stickToGround":
+			// {
+			// 	"$type" : "ConfigMoveStickToGround",
+			// 	"heightToGround" : 0.45,
+			// 	"flexibleRange" : 1.6,
+			// 	"maxStepHeight" : 3,
+			// 	"maxSlopeAngle" : 45,
+			// 	"isStickToWater" : true,
+			// 	"unstickWhenDownSlide": "Keep",
+			// 	"unstickWhenUpSlide": "Keep",
+			// },	
+			// // 	// "updateAngle":
+			// // 	// {
+			// // 	// 	"$type": "ConfigBulletMoveAngleByVelocity", //这个会导致特效抬头，不要配。
+			// // 	// },
+			// },
+		},
+		// "move" :
+		// {
+		// 	"$type": "ConfigLinerBulletMove",
+		// 	"speed": 50,
+		// 	// "delay" : 0.07,
+		// 	"stickToGround":
+		// 	{
+		// 		"$type" : "ConfigMoveStickToGround",
+		// 		"heightToGround" : 0.8,
+		// 		"flexibleRange" : 0.8,
+		// 		"maxStepHeight" : 1.5,
+		// 		"maxSlopeAngle" : 40,
+		// 		"isStickToWater" : true,
+		// 		"unstickWhenDownSlide": "Keep",
+		// 		"unstickWhenUpSlide": "Keep",
+		// 	},			
+		// 	"canBornInWater": true,
+		// },
+		// 生命周期管理
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 1,			//存在时间
+		},
+		//子弹参数
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerOnce",
+				"ignoreScene" : false,
+			},
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Player_Electric_ElementalArt_Bullet",
+				},
+			],
+			"fireAISoundEvent" : true,
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Player_Electric_ElementalArt_Bullet",
+				"abilityName" : "Player_Electric_ElementalArt_Bullet"
+			},		
+		],
+	},
+
+////////////////////////////////////////////////////////////////
+//
+//  Player_Electric_ElementalArt_Bullet !!!
+//
+////////////////////////////////////////////////////////////////	
+
+	"Player_Electric_ElementalArt_Bullet_1" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1,
+			},
+			// "affectedByWorld": true,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true,
+				"canTriggerBullet" : false,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn":true,
+				"lockType":"Gadget_Lv1",
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : true,
+				"muteAllHitEffect" : true,
+				"muteAllHitText" : true,
+			},
+		},
+		// 子弹线性移动
+		"move" :
+		{
+			"$type": "ConfigLinerBulletMove",
+			"speed": 40,
+			// "delay" : 0.07,
+			"stickToGround":
+			{
+				"$type" : "ConfigMoveStickToGround",
+				"heightToGround" : 0.8,
+				"flexibleRange" : 0.8,
+				"maxStepHeight" : 1.5,
+				"maxSlopeAngle" : 40,
+				"isStickToWater" : true,
+				"unstickWhenDownSlide": "Keep",
+				"unstickWhenUpSlide": "Keep",
+			},	
+			"canBornInWater": true,
+		},
+		// "move" :
+		// {
+		// 	// "$type" : "ConfigItanoCircusBulletMove",
+		// 	// "speed" : 20.0,
+		// 	// "delay":0.2,			
+		// 	// "acceleration": 10,
+		// 	// "maxSpeed" : 30,
+		// 	// "minSpeed" : 20,
+		// 	// "guidanceSpeedChange": true,
+		// 	// "itanoCircusStartAngler": 180,
+		// 	// "guidanceDelay": 0.15,
+		// 	// "anglerVelocity": 360.0,
+		// 	// "guidanceDuration": 100.0,
+		// 	// "guidanceMinAnglerVelocity": 5.0,
+		// 	// "canBornInWater": true,
+		// 	"$type" : "ConfigTrackBulletMove",
+		// 	"speed":20,
+		// 	"minSpeed" : 10.0,
+		// 	"maxSpeed":20,
+		// 	"acceleration" : 50,
+		// 	"traceOnYAxis" : true,
+		// 	"anglerVelocity":360,
+		// 	"canBornInWater":true,
+		// 	"updateAngle":
+		// 	{
+		//     	"$type": "ConfigBulletMoveAngleByVelocity",
+		//     	"traceLerpCoef": 60,
+		//     },
+		// },	
+		// 生命周期管理
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 0.3,			//存在时间
+		},
+		//子弹参数
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerAlways",
+				"triggerCD" : 1.0,
+				"ignoreScene" : true,
+			},
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Player_Electric_ElementalArt_Bullet_1",
+				},
+			],
+			"fireAISoundEvent" : true,
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Player_Electric_ElementalArt_Bullet_1",
+				"abilityName" : "Player_Electric_ElementalArt_Bullet_1"
+			},		
+		],
+	},
+
+	"Player_Electric_ElementalArt_Bullet_2" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1,
+			},
+			"affectedByWorld": true,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true,
+				"canTriggerBullet" : false,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn":true,
+				"lockType":"Gadget_Lv1",
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : true,
+				"muteAllHitEffect" : true,
+				"muteAllHitText" : true,
+			},
+		},
+		// 子弹线性移动
+		// "move" :
+		// {
+		// 	"$type": "ConfigLinerBulletMove",
+		// 	"speed": 50,
+		// 	// "delay" : 0.07,
+		// 	// "stickToGround":
+		// 	// {
+		// 	// 	"$type" : "ConfigMoveStickToGround",
+		// 	// 	"heightToGround" : 0.8,
+		// 	// 	"flexibleRange" : 0.8,
+		// 	// 	"maxStepHeight" : 1.5,
+		// 	// 	"maxSlopeAngle" : 40,
+		// 	// 	"isStickToWater" : true,
+		// 	// 	"unstickWhenDownSlide": "Keep",
+		// 	// 	"unstickWhenUpSlide": "Keep",
+		// 	// },			
+		// 	"canBornInWater": true,
+		// },
+		"move" :
+		{
+			// "$type" : "ConfigItanoCircusBulletMove",
+			// "speed" : 20.0,
+			// "delay":0.2,			
+			// "acceleration": 10,
+			// "maxSpeed" : 30,
+			// "minSpeed" : 20,
+			// "guidanceSpeedChange": true,
+			// "itanoCircusStartAngler": 180,
+			// "guidanceDelay": 0.15,
+			// "anglerVelocity": 360.0,
+			// "guidanceDuration": 100.0,
+			// "guidanceMinAnglerVelocity": 5.0,
+			// "canBornInWater": true,
+			"$type" : "ConfigTrackBulletMove",
+			"speed":20,
+			"minSpeed" : 10.0,
+			"maxSpeed":20,
+			"acceleration" : 50,
+			"traceOnYAxis" : true,
+			"anglerVelocity":360,
+			"canBornInWater":true,
+			"updateAngle":
+			{
+		    	"$type": "ConfigBulletMoveAngleByVelocity",
+		    	"traceLerpCoef": 60,
+		    },
+		},				
+		// 生命周期管理
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 2,			//存在时间
+		},
+		//子弹参数
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerNoRepeat",
+				"ignoreScene" : true,
+			},
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Player_Electric_ElementalArt_Bullet_2",
+				},
+			],
+			"fireAISoundEvent" : true,
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Player_Electric_ElementalArt_Bullet_2",
+				"abilityName" : "Player_Electric_ElementalArt_Bullet_2"
+			},		
+		],
+	},
+
+	"Player_Electric_ElementalArt_Bullet_3" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1,
+			},
+			"affectedByWorld": true,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true,
+				"canTriggerBullet" : false,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn":true,
+				"lockType":"Gadget_Lv1",
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : true,
+				"muteAllHitEffect" : true,
+				"muteAllHitText" : true,
+			},
+		},
+		// 子弹线性移动
+		// "move" :
+		// {
+		// 	"$type": "ConfigLinerBulletMove",
+		// 	"speed": 50,
+		// 	// "delay" : 0.07,
+		// 	// "stickToGround":
+		// 	// {
+		// 	// 	"$type" : "ConfigMoveStickToGround",
+		// 	// 	"heightToGround" : 0.8,
+		// 	// 	"flexibleRange" : 0.8,
+		// 	// 	"maxStepHeight" : 1.5,
+		// 	// 	"maxSlopeAngle" : 40,
+		// 	// 	"isStickToWater" : true,
+		// 	// 	"unstickWhenDownSlide": "Keep",
+		// 	// 	"unstickWhenUpSlide": "Keep",
+		// 	// },			
+		// 	"canBornInWater": true,
+		// },
+		"move" :
+		{
+			// "$type" : "ConfigItanoCircusBulletMove",
+			// "speed" : 20.0,
+			// "delay":0.2,			
+			// "acceleration": 10,
+			// "maxSpeed" : 30,
+			// "minSpeed" : 20,
+			// "guidanceSpeedChange": true,
+			// "itanoCircusStartAngler": 180,
+			// "guidanceDelay": 0.15,
+			// "anglerVelocity": 360.0,
+			// "guidanceDuration": 100.0,
+			// "guidanceMinAnglerVelocity": 5.0,
+			// "canBornInWater": true,
+			"$type" : "ConfigTrackBulletMove",
+			"speed":20,
+			"minSpeed" : 10.0,
+			"maxSpeed":20,
+			"acceleration" : 50,
+			"traceOnYAxis" : true,
+			"anglerVelocity":360,
+			"canBornInWater":true,
+			"updateAngle":
+			{
+		    	"$type": "ConfigBulletMoveAngleByVelocity",
+		    	"traceLerpCoef": 60,
+		    },
+		},				
+		// 生命周期管理
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 2,			//存在时间
+		},
+		//子弹参数
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerNoRepeat",
+				"ignoreScene" : true,
+			},
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Player_Electric_ElementalArt_Bullet_3",
+				},
+			],
+			"fireAISoundEvent" : true,
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Player_Electric_ElementalArt_Bullet_3",
+				"abilityName" : "Player_Electric_ElementalArt_Bullet_3"
+			},		
+		],
+	},
+
+	"Player_Electric_ElementalArt_Bullet_4" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1,
+			},
+			// "affectedByWorld": true,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true,
+				"canTriggerBullet" : false,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn":true,
+				"lockType":"Gadget_Lv1",
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : true,
+				"muteAllHitEffect" : true,
+				"muteAllHitText" : true,
+			},
+		},
+		// 子弹线性移动
+		"move" :
+		{
+			"$type": "ConfigLinerBulletMove",
+			"speed": 20,
+			// "delay" : 0.07,
+			"stickToGround":
+			{
+				"$type" : "ConfigMoveStickToGround",
+				"heightToGround" : 0.8,
+				"flexibleRange" : 0.8,
+				"maxStepHeight" : 1.5,
+				"maxSlopeAngle" : 40,
+				"isStickToWater" : true,
+				"unstickWhenDownSlide": "Keep",
+				"unstickWhenUpSlide": "Keep",
+			},			
+			"canBornInWater": true,
+		},
+		// 生命周期管理
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 0.15,			//存在时间
+		},
+		//子弹参数
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerNoRepeat",
+				"ignoreScene" : true,
+			},
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Player_Electric_ElementalArt_Bullet_4",
+				},
+			],
+			"fireAISoundEvent" : true,
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Player_Electric_ElementalArt_Bullet_4",
+				"abilityName" : "Player_Electric_ElementalArt_Bullet_4"
+			},		
+		],
+	},
+
+	"Player_Electric_ElementalArt_Bullet_5" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1,
+			},
+			// "affectedByWorld": true,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true,
+				"canTriggerBullet" : false,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn":true,
+				"lockType":"Gadget_Lv1",
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : true,
+				"muteAllHitEffect" : true,
+				"muteAllHitText" : true,
+			},
+		},
+		// 子弹线性移动
+		"move" :
+		{
+			"$type": "ConfigLinerBulletMove",
+			"speed": 20,
+			// "delay" : 0.07,
+			"stickToGround":
+			{
+				"$type" : "ConfigMoveStickToGround",
+				"heightToGround" : 0.8,
+				"flexibleRange" : 0.8,
+				"maxStepHeight" : 1.5,
+				"maxSlopeAngle" : 40,
+				"isStickToWater" : true,
+				"unstickWhenDownSlide": "Keep",
+				"unstickWhenUpSlide": "Keep",
+			},			
+			"canBornInWater": true,
+		},
+		// 生命周期管理
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 0.15,			//存在时间
+		},
+		//子弹参数
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerNoRepeat",
+				"ignoreScene" : true,
+			},
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Player_Electric_ElementalArt_Bullet_5",
+				},
+			],
+			"fireAISoundEvent" : true,
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Player_Electric_ElementalArt_Bullet_5",
+				"abilityName" : "Player_Electric_ElementalArt_Bullet_5"
+			},		
+		],
+	},
+
+	"Player_Electric_ElementalArt_Bullet_6" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1,
+			},
+			// "affectedByWorld": true,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true,
+				"canTriggerBullet" : false,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn":true,
+				"lockType":"Gadget_Lv1",
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : true,
+				"muteAllHitEffect" : true,
+				"muteAllHitText" : true,
+			},
+		},
+		// 子弹线性移动
+		"move" :
+		{
+			"$type": "ConfigLinerBulletMove",
+			"speed": 20,
+			// "delay" : 0.07,
+			"stickToGround":
+			{
+				"$type" : "ConfigMoveStickToGround",
+				"heightToGround" : 0.8,
+				"flexibleRange" : 0.8,
+				"maxStepHeight" : 1.5,
+				"maxSlopeAngle" : 40,
+				"isStickToWater" : true,
+				"unstickWhenDownSlide": "Keep",
+				"unstickWhenUpSlide": "Keep",
+			},			
+			"canBornInWater": true,
+		},
+		// 生命周期管理
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 0.15,			//存在时间
+		},
+		//子弹参数
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerNoRepeat",
+				"ignoreScene" : true,
+			},
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Player_Electric_ElementalArt_Bullet_6",
+				},
+			],
+			"fireAISoundEvent" : true,
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Player_Electric_ElementalArt_Bullet_6",
+				"abilityName" : "Player_Electric_ElementalArt_Bullet_6"
+			},		
+		],
+	},			
+
+////////////////////////////////////////////////////////////////
+//
+//  Player_Electric_ElementalArt_Gadget
+//
+////////////////////////////////////////////////////////////////	
+
+	"Player_Electric_ElementalArt_Gadget" ://初始贴地不是子弹控制的，而是create时控制的。
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1.0,
+			},
+			"affectedByWorld": true,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true,
+				"canTriggerBullet" : false,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn":true,
+				"lockType":"Gadget_Lv1",
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : true,
+				"muteAllHitEffect" : true,
+				"muteAllHitText" : true,
+			},
+		},
+		// "move":
+		// {
+		// 	"$type": "ConfigFollowMove",
+		// 	"target": "LocalAvatar",
+		// 	"attachPoint": "RootNode",
+		// 	"followRotation": false,
+		// 	"offset":
+		// 	{
+		// 		"x": 0.0,
+		// 		"y": 0.0,
+		// 		"z": 0.0,
+		// 	},
+		// 	"forward":
+		// 	{
+		// 		"x": 0.0,
+		// 		"y": 0.0,
+		// 		"z": 0.0,
+		// 	},
+		// 	"velocityForce":
+		// 	{
+		// 		"muteAll": true,
+		// 	},
+		// },		
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 3,			//存在时间
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Player_Electric_ElementalArt_Gadget",
+				"abilityName" : "Player_Electric_ElementalArt_Gadget"
+			},					
+		],
+	},
+
+////////////////////////////////////////////////////////////////
+//
+//  Player_Electric_ElementalArt_Gadget_Empty
+//
+////////////////////////////////////////////////////////////////	
+
+	"Player_Electric_ElementalArt_Gadget_Empty" ://初始贴地不是子弹控制的，而是create时控制的。
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1.0,
+			},
+			"affectedByWorld": true,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true,
+				"canTriggerBullet" : false,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn":true,
+				"lockType":"Gadget_Lv1",
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : true,
+				"muteAllHitEffect" : true,
+				"muteAllHitText" : true,
+			},
+		},
+		// "move":
+		// {
+		// 	"$type": "ConfigFollowMove",
+		// 	"target": "LocalAvatar",
+		// 	"attachPoint": "RootNode",
+		// 	"followRotation": false,
+		// 	"offset":
+		// 	{
+		// 		"x": 0.0,
+		// 		"y": 0.0,
+		// 		"z": 0.0,
+		// 	},
+		// 	"forward":
+		// 	{
+		// 		"x": 0.0,
+		// 		"y": 0.0,
+		// 		"z": 0.0,
+		// 	},
+		// 	"velocityForce":
+		// 	{
+		// 		"muteAll": true,
+		// 	},
+		// },		
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 3,			//存在时间
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Player_Electric_ElementalArt_Gadget_Empty",
+				"abilityName" : "Player_Electric_ElementalArt_Gadget_Empty"
+			},					
+		],
+	},
+
+////////////////////////////////////////////////////////////////
+//
+//  Player_Electric_ElementalArt_Gadget_Bullet
+//
+////////////////////////////////////////////////////////////////	
+
+	"Player_Electric_ElementalArt_Gadget_Bullet" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1,
+			},
+			"affectedByWorld": true,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true,
+				"canTriggerBullet" : false,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn":true,
+				"lockType":"Gadget_Lv1",
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : true,
+				"muteAllHitEffect" : true,
+				"muteAllHitText" : true,
+			},
+		},
+		// 子弹线性移动
+		"move" :
+		{
+			"$type" : "ConfigTrackBulletMove",
+			// "delay" : 0.1,
+			// "speed" : 40.0,
+			"speed" : 30.0,
+			"traceOnYAxis" : true,
+			// "anglerVelocityRawNum":600,"stickToGround":
+			"anglerVelocity":3600,
+			// "stickToGround":
+			// {
+			// 	"$type" : "ConfigMoveStickToGround",
+			// 	"heightToGround" : 0.45,
+			// 	"flexibleRange" : 1.6,
+			// 	"maxStepHeight" : 3,
+			// 	"maxSlopeAngle" : 45,
+			// 	"isStickToWater" : true,
+			// 	"unstickWhenDownSlide": "Keep",
+			// 	"unstickWhenUpSlide": "Keep",
+			// },	
+			// // 	// "updateAngle":
+			// // 	// {
+			// // 	// 	"$type": "ConfigBulletMoveAngleByVelocity", //这个会导致特效抬头，不要配。
+			// // 	// },
+			// },
+		},
+		// 生命周期管理
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 0.8,			//存在时间
+		},
+		// 子弹参数
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "All",
+				"triggerType" : "TriggerNoRepeat",
+				"ignoreScene" : true,
+			},
+
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Player_Electric_ElementalArt_Gadget_Bullet",
+				},
+       //          {
+       //              "$type": "ConfigGadgetDamageByAttackValue",
+                    
+       //              // "target":"Caster",
+       //              "targetType": "Enemy",
+       //              "attackInfo":
+       //              {
+       //                  "canBeModifiedBy": "OriginOwner",
+       //                  "attackTag": "IceBlades",
+       //                  "attackProperty":
+       //                  {
+       //                      "damagePercentage": 0.5,
+       //                      "strikeType": "Default",
+       //                      "elementDurability": 25,
+       //                      "elementType": "Electric",
+       //                      "attackType": "Default",
+       //                      "enBreak": 36,
+       //                  },
+       //                  "hitPattern":
+       //                  {
+       //                      "onHitEffectName": "default",
+							// "hitImpulseType":"LV3",
+       //                      "reboundRatio": 0,
+       //                      "canBeDefenceHalt": false,
+       //                      "hitHaltTime": 0.0,
+       //                      "hitHaltTimeScale": 0.05,
+       //                      "muteHitText": false
+       //                  },
+       //                  "forceCameraShake": false,
+       //              },
+       //          },					
+			],
+			//  "triggerLifeOverActions" :
+			// [
+			// 	{
+			// 		"$type" : "ConfigGadgetTriggerAbility",
+			// 		"abilityName" : "Player_Electric_ElementalArt_Gadget_Bullet",
+			// 	},
+			// ],
+			"fireAISoundEvent" : true,
+			"killByOther" : false,
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Player_Electric_ElementalArt_Gadget_Bullet",
+				"abilityName" : "Player_Electric_ElementalArt_Gadget_Bullet"
+			},
+		
+		],
+	},
+
+	"Player_Electric_ElementalArt_Magatama_Trigger" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1.0,
+				"scaleY" : 1.0,
+				"scaleZ" : 0.4,
+			},
+			"affectedByWorld": true,
+			"checkInSurface": true,
+			"mass": 5.0,
+		},
+		//战斗参数
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty": true,
+				"HP" : 99999,
+				"attack" : 0,
+				"defense" : 0,
+				//"isInvincible":true,
+				"isLockHP": true,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : false,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+				"lockType": "Gadget_Lv1",
+				"overrideRange": -1,
+	            "overrideNormalPri": -1,
+	            "overrideCombatPri": -1,
+			},
+		},
+		"move" :
+		{
+			"$type" : "ConfigParabolaBulletMove",
+			"speed" : 12,
+			"angleOffHor": 70,
+			"acceleration":-10,
+			"gravityOfAcceleration" : 70,
+			"updateAngle" : 
+			{
+				"$type": "ConfigBulletMoveAngleByVelocity",
+			},
+			"correction" : 
+			{
+				"$type":"ConfigParabolaBulletMoveCorrection",
+				"deviation": 2.0,
+				"fixAngleOfVer": 0.0,
+				"minSpeed": 4.0,
+				"maxSpeed": 12.0,
+			},
+		},
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 5.0,			//存在时间
+		},
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "None",
+				"triggerType" : "TriggerOnce",
+				"bornWithTriggerEnabled":false,
+			},
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Player_Electric_ElementalArt_Magatama_Trigger",
+				},
+			],
+			"triggerLifeOverActions" :
+			[
+			],
+			"killByOther" : false,
+			"enableCollisionDelay":0.1,
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Player_Electric_ElementalArt_Magatama_Trigger",
+				"abilityName" : "Player_Electric_ElementalArt_Magatama_Trigger"
+			},
+		],
+	},
+
+	"Player_Electric_ElementalArt_Magatama_Pickable" :
+	{
+		"$type" : "ConfigGadget",
+		"field" :
+		{
+			"concernType" : "AllAvatars",
+			"shape" : "CircleR2",		//形状，不填为collider
+			"startCheckTime":0.3,
+			"checkInterval" : 0.1,		//触发间隔
+			"triggerInfinite" : true,	//是否永远触发
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime":30,
+			"overwriteCampType" : true,
+			"campType": "All",
+			"useCollider":false,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty": true,
+				"HP" : 99999,
+				"attack" : 0,
+				"defense" : 0,
+				//"isInvincible":true,
+				"isLockHP": true,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : false,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+				"lockType": "Gadget_Lv1",
+				"overrideRange": -1,
+	            "overrideNormalPri": -1,
+	            "overrideCombatPri": -1,
+			},
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Player_Electric_ElementalArt_Magatama_Pickable",	
+				"abilityName" : "Player_Electric_ElementalArt_Magatama_Pickable",
+			},
+		],
+	},
+
+}

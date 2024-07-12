@@ -1,0 +1,192 @@
+[
+///////////////////////////////////////////////////////////////
+//
+// 普攻和重击
+//
+////////////////////////////////////////////////////////////////
+    {
+        "Default":
+        {
+            "$type": "ConfigAbility",
+            "abilityName": "Avatar_Sayu_ExtraAttack",
+            "abilityMixins":
+            [
+                {
+                    "$type": "ButtonHoldChargeMixin",
+                    "skillID": 10531,
+                    "chargeTime": 0.25,
+                    "secondChargeTime": "%ExtraAttack_Claymore_MaxTime",
+                    "OnBeginUncharged":
+                    [
+                        {
+                          "$type": "SetAnimatorTrigger",
+                          "triggerID": "DoSkill",
+                        },
+                        {
+                          "$type": "SetAnimatorInt",
+                          "intID": "SkillID",
+                          "value": 1,
+                        },
+                        {
+                          "$type": "ResetAnimatorTrigger",
+                          "triggerID": "EndHoldTrigger",
+                        },
+                        {
+                          "$type":"RemoveModifier",
+                          "modifierName":"SetTrigger",
+                        },
+                    ],
+                    "OnReleaseUncharged":
+                    [
+                    ],
+                    "OnBeginCharged":
+                    [
+                        {
+                          "$type": "SetAnimatorTrigger",
+                          "triggerID": "DoSkill",
+                        },
+                        {
+                          "$type": "SetAnimatorInt",
+                          "intID": "SkillID",
+                          "value": 6,
+                        },
+                    ],
+                    "OnReleaseCharged":
+                    [
+                        {
+                          "$type": "SetAnimatorTrigger",
+                          "triggerID": "EndHoldTrigger",
+                        },
+                        {
+                          "$type": "ApplyModifier",
+                          "modifierName": "SetTrigger",
+                        },
+                    ],
+                    "OnBeginSecondCharged":
+                    [
+                        {
+                          "$type": "SetAnimatorTrigger",
+                          "triggerID": "EndHoldTrigger",
+                        },
+                    ],
+                    "chargeStateIDs":
+                    [
+                        "Attack01_BS", "Attack01", "Attack02", "Attack03", "Attack04", "ExtraAttack", "ExtraAttack1"
+                    ],
+                },
+                {
+                  "$type": "AvatarSteerByCameraMixin",
+                  "stateIDs": [ "ExtraAttack1" ],
+                  "angularSpeed": 360,
+                },
+                {
+                  "$type": "AttachToStateIDMixin",
+                  "stateIDs": [ "ExtraAttack", "ExtraAttack1", "ExtraAttack2", "ExtraAttack3" ],
+                  "modifierName": "Camera"
+                },
+
+                {
+                  "$type": "AttachToStateIDMixin",
+                  "stateIDs": [ "ExtraAttack1", ],
+                  "modifierName": "Cost"
+                },
+            ],
+            "modifiers":
+            {
+                "SetTrigger":
+                {
+                    "duration": 1,
+                    "onRemoved":
+                    [
+                        {
+                          "$type": "SetAnimatorTrigger",
+                          "triggerID": "EndHoldTrigger",
+                        },
+                    ],
+                },
+                "Camera":
+                {
+                    "onRemoved":
+                    [
+                        {
+                          "$type": "AvatarExitCameraShot",
+                          "doOffStage": true,
+                        },
+
+                    ],
+                    "onAvatarOut":
+                    [
+                        {
+                          "$type": "AvatarExitCameraShot",
+                          "doOffStage": true,
+                        },
+                    ],
+                },
+                "Cost":
+                {
+                    "modifierMixins":
+                    [
+                        {
+                            "$type": "CostStaminaMixin",
+                            "costStaminaDelta": "%ExtraAttack_Claymore_Stamina_Cost",
+                            "onStaminaEmpty":
+                            [
+                                {
+                                  "$type": "SetAnimatorTrigger",
+                                  "triggerID": "EndHoldTrigger",
+                                },
+                            ],
+                        },
+                    ],
+                },
+            },
+            "abilitySpecials":
+            {
+                "ExtraAttack_Claymore_Stamina_Cost": 1,
+                "ExtraAttack_Claymore_MaxTime": 3,
+            },  
+        },
+    },
+
+    //普攻的一些ability控制
+    {
+        "Default":
+        {
+            "$type": "ConfigAbility",
+            "abilityName": "Avatar_Sayu_NormalAttack_Handler",
+            "abilityMixins":
+            [
+                {
+                    "$type": "AttachToNormalizedTimeMixin",
+                    "stateID": "Attack04",
+                    "modifierName": "Avatar_Sayu_NormalAttack_Hide",
+                    "normalizeStart": 0.03, 
+                    "normalizeEnd": 0.20,
+                },
+            ],
+            "modifiers":
+            {
+                "Avatar_Sayu_NormalAttack_Hide":   //隐身， 但是不穿怪
+                {
+                    "onAdded":
+                    [
+                        {
+                            "$type": "TriggerSetVisible",
+                            "visible": false,
+                            "doOffStage":true,
+                        },
+                    ],
+                    "onRemoved":
+                    [
+                        {
+                            "$type": "TriggerSetVisible",
+                            "visible": true,
+                            "doOffStage":true,
+                        },
+                    ],
+                },
+            },
+        },
+    },
+
+]

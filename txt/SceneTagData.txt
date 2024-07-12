@@ -1,0 +1,9 @@
+ID	SceneTagName	场景ID	默认是否生效	条件1类型	条件1参数1	条件1参数2	条件2类型	条件2参数1	条件2参数2
+101	Hdj	3		1	1001				
+102	JadeChamber	3	1	2	10008	1			
+103	JadeChamber	3		2	10009	1			
+104	Hdj	3		4	2002		5	1110311	
+105	Fhj	3		4	2003		5	39604	
+106	SummerTime	4		4	2005		5	4001103	
+108	SummerTime_High	4							
+109	SummerTime_Low	4							

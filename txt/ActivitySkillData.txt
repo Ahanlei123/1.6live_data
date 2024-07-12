@@ -1,0 +1,5 @@
+ActivitySkillID	目标类型	AbilityName	技能能量键值	能量最小值	能量上限	技能冷却时间	技能引导时间	引导KEY	引导完成OPENSTATE
+20003	2	SceneObj_Aster_PlayEntity_Esay	AVATAR_ASTER_SCORE	100	200	5	5	GuideAsterios,GuideAsterPC,GuideAsterPS	63
+20004	2	SceneObj_Aster_PlayEntity_Normal	AVATAR_ASTER_SCORE	100	200	5	5	GuideAsterios,GuideAsterPC,GuideAsterPS	63
+20005	2	SceneObj_Aster_PlayEntity_Hard	AVATAR_ASTER_SCORE	150	300	5	5	GuideAsterios,GuideAsterPC,GuideAsterPS	63
+20006	2	SceneObj_Aster_PlayEntity_Single	AVATAR_ASTER_SCORE	200	400	5	5	GuideAsterios,GuideAsterPC,GuideAsterPS	63

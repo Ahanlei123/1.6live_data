@@ -1,0 +1,8 @@
+RadarType	描述	半径	随机偏移半径	区域半径	特效	图标	音效
+1	风元素结晶雷达提示	80			Eff_UI_Mark_WindCrystal	UI_MarkWindCrystal	Play_ui_feedback_windCrystal_appear
+2	矿石雷达提示	160				UI_MarkPoint_Ore	
+3	采集物雷达提示	160				UI_MarkPoint_LocalItem	
+4	小陨石雷达提示	160	20	30	Eff_UI_Mark_WindCrystal	UI_MarkPoint_LocalItem	Play_ui_feedback_windCrystal_appear
+5	绯红玉髓雷达提示	80			Eff_UI_Mark_WindCrystal	UI_MarkPoint_DulinsEssence	Play_ui_feedback_windCrystal_appear
+6	躲猫猫能量球雷达提示	160				UI_MarkPoint_EnergyBall	
+7	回声海螺雷达提示	160			Eff_UI_Mark_WindCrystal	UI_MarkPoint_EchoShell	Play_ui_feedback_windCrystal_appear

@@ -1,0 +1,982 @@
+[
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+/// 
+///    送外卖活动   
+///    禁止沾染任何元素
+/// 
+//////////////////////////////////////////////////////////////////////////////////////////////
+    {
+        "Default":
+        {
+            "$type":"ConfigAbility",
+            "abilityName":"Activity_Delivering_Apply_NoTouchElement",
+            "onAbilityStart":
+            [
+                {
+                    "$type":"AttachModifier",
+                    "modifierName":"UNIQUE_Activity_Delivering_NoTouchElement_Team_CheckHandler",
+                    "target":"Team",
+                    "doOffStage":true,
+                },
+            ],
+            "modifiers":
+            {
+                "UNIQUE_Activity_Delivering_NoTouchElement_Team_CheckHandler":
+                {
+                    "isUnique":true,
+                    "stacking":"Unique",
+                    "duration":120,
+                    "modifierMixins":
+                    [
+                        {
+                            "$type":"CurLocalAvatarMixin",
+                            "modifierName":"UNIQUE_Activity_Delivering_NoTouchElement_CheckHandler",
+                        },
+                    ],
+                },
+                "UNIQUE_Activity_Delivering_NoTouchElement_CheckHandler":
+                {
+                    "isUnique":true,
+                    "stacking":"Unique",
+                    "duration":120,
+                    "thinkInterval":1.0,
+                    "onThinkInterval":
+                    [
+                        {
+                            "$type":"Predicated",
+                            "target":"Self",
+                            "targetPredicates":
+                            [
+                                {
+                                    "$type":"ByAny",
+                                    "predicates":
+                                    [
+                                        {
+                                            "$type":"ByHasElement",
+                                            "element":"Fire",
+                                        },
+                                        {
+                                            "$type":"ByHasElement",
+                                            "element":"Water",
+                                        },
+                                        {
+                                            "$type":"ByHasElement",
+                                            "element":"Grass",
+                                        },
+                                        {
+                                            "$type":"ByHasElement",
+                                            "element":"Electric",
+                                        },
+                                        {
+                                            "$type":"ByHasElement",
+                                            "element":"Ice",
+                                        },
+                                        {
+                                            "$type":"ByHasElement",
+                                            "element":"Frozen",
+                                        },
+                                        {
+                                            "$type":"ByHasElement",
+                                            "element":"Wind",
+                                        },
+                                        {
+                                            "$type":"ByHasElement",
+                                            "element":"Rock",
+                                        },
+                                    ],
+                                },
+                            ],
+                            "successActions":
+                            [
+                                {
+                                    "$type":"CallLuaTask",
+                                    "targetAlias":"41121",
+                                    "valueString":"DeliveringActivity_TouchElementFail",
+                                },
+                                {
+                                    //加个特效 测试表现
+                                    "$type":"FireEffect",
+                                    "effectPattern":"Eff_Weapon_TriggerRed",
+                                },
+                            ],
+                        },
+                    ],
+                },
+            },
+        },
+    },
+    {
+        "Default":
+        {
+            "$type":"ConfigAbility",
+            "abilityName":"Activity_Delivering_Remove_NoTouchElement",
+            "onAbilityStart":
+            [             
+                {
+                    "$type":"RemoveUniqueModifier",
+                    "modifierName":"UNIQUE_Activity_Delivering_NoTouchElement_Team_CheckHandler",
+                    "target":"Team",
+                    "doOffStage":true,
+                },
+            ],
+        },
+    },
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+/// 
+///    送外卖活动   
+///    禁止攀爬
+/// 
+//////////////////////////////////////////////////////////////////////////////////////////////
+    {
+        "Default":
+        {
+            "$type":"ConfigAbility",
+            "abilityName":"Activity_Delivering_Apply_NoClimbing",
+            "onAbilityStart":
+            [
+                {
+                    "$type":"AttachModifier",
+                    "modifierName":"UNIQUE_Activity_Delivering_NoClimbing_Team_CheckHandler",
+                    "target":"Team",
+                    "doOffStage":true,
+                },
+            ],
+            "modifiers":
+            {
+                "UNIQUE_Activity_Delivering_NoClimbing_Team_CheckHandler":
+                {
+                    "isUnique":true,
+                    "stacking":"Unique",
+                    "duration":120,
+                    "modifierMixins":
+                    [
+                        {
+                            "$type":"CurLocalAvatarMixin",
+                            "modifierName":"UNIQUE_Activity_Delivering_NoClimbing_CheckHandler",
+                        },
+                    ],
+                },
+                "UNIQUE_Activity_Delivering_NoClimbing_CheckHandler":
+                {
+                    "isUnique":true,
+                    "stacking":"Unique",
+                    "duration":120,
+                    "modifierMixins":
+                    [
+                        {
+                            "$type":"AttachToStateIDMixin",
+                            "stateIDs":["Climb", "ClimbTransient", "Ladder"],
+                            "modifierName":"Activity_Delivering_NoClimbing_Handler",
+                        },
+                    ],
+                },
+                "Activity_Delivering_NoClimbing_Handler":
+                {
+                    "stacking":"Unique",
+                    "duration":1.0,
+                    "onAdded":
+                    [
+                        {
+                            "$type":"CallLuaTask",
+                            "targetAlias":"41121",
+                            "valueString":"DeliveringActivity_ClimbFail",
+                        },
+                        {
+                            //加个特效 测试表现
+                            "$type":"FireEffect",
+                            "effectPattern":"Eff_Weapon_TriggerRed",
+                        },
+                    ],
+                },
+            },
+        },
+    },
+    {
+        "Default":
+        {
+            "$type":"ConfigAbility",
+            "abilityName":"Activity_Delivering_Remove_NoClimbing",
+            "onAbilityStart":
+            [
+                {
+                    "$type":"RemoveUniqueModifier",
+                    "modifierName":"UNIQUE_Activity_Delivering_NoClimbing_Team_CheckHandler",
+                    "target":"Team",
+                    "doOffStage":true,
+                },
+            ],
+        },
+    },
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+/// 
+///    送外卖活动   
+///    禁止加速冲刺
+/// 
+//////////////////////////////////////////////////////////////////////////////////////////////
+    {
+        "Default":
+        {
+            "$type":"ConfigAbility",
+            "abilityName":"Activity_Delivering_Apply_NoSprint",
+            "onAbilityStart":
+            [
+                {
+                    "$type":"AttachModifier",
+                    "modifierName":"UNIQUE_Activity_Delivering_NoSprint_Team_CheckHandler",
+                    "target":"Team",
+                    "doOffStage":true,
+                },
+            ],
+            "modifiers":
+            {
+                "UNIQUE_Activity_Delivering_NoSprint_Team_CheckHandler":
+                {
+                    "isUnique":true,
+                    "stacking":"Unique",
+                    "duration":120,
+                    "modifierMixins":
+                    [
+                        {
+                            "$type":"CurLocalAvatarMixin",
+                            "modifierName":"UNIQUE_Activity_Delivering_NoSprint_CheckHandler",
+                        },
+                    ],
+                },
+                "UNIQUE_Activity_Delivering_NoSprint_CheckHandler":
+                {
+                    "isUnique":true,
+                    "stacking":"Unique",
+                    "duration":120,
+                    "modifierMixins":
+                    [
+                        {
+                            "$type":"AttachToStateIDMixin",
+                            "stateIDs":["Sprint","SprintBS"],
+                            "modifierName":"Activity_Delivering_NoSprint_Handler",
+                        },
+                    ],
+                },
+                "Activity_Delivering_NoSprint_Handler":
+                {
+                    "stacking":"Unique",
+                    "duration":1.0,
+                    "onAdded":
+                    [
+                        {
+                            "$type":"CallLuaTask",
+                            "targetAlias":"41121",
+                            "valueString":"DeliveringActivity_SprintFail",
+                        },
+                        {
+                            //加个特效 测试表现
+                            "$type":"FireEffect",
+                            "effectPattern":"Eff_Weapon_TriggerRed",
+                        },
+                    ],
+                },
+            },
+        },
+    },
+    {
+        "Default":
+        {
+            "$type":"ConfigAbility",
+            "abilityName":"Activity_Delivering_Remove_NoSprint",
+            "onAbilityStart":
+            [
+                {
+                    "$type":"RemoveUniqueModifier",
+                    "modifierName":"UNIQUE_Activity_Delivering_NoSprint_Team_CheckHandler",
+                    "target":"Team",
+                    "doOffStage":true,
+                },
+            ],
+        },
+    },
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+/// 
+///    送外卖活动   
+///    禁止飞行
+/// 
+//////////////////////////////////////////////////////////////////////////////////////////////
+    {
+        "Default":
+        {
+            "$type":"ConfigAbility",
+            "abilityName":"Activity_Delivering_Apply_NoFly",
+            "onAbilityStart":
+            [
+                {
+                    "$type":"AttachModifier",
+                    "modifierName":"UNIQUE_Activity_Delivering_NoFly_Team_CheckHandler",
+                    "target":"Team",
+                    "doOffStage":true,
+                },
+            ],
+            "modifiers":
+            {
+                "UNIQUE_Activity_Delivering_NoFly_Team_CheckHandler":
+                {
+                    "isUnique":true,
+                    "stacking":"Unique",
+                    "duration":120,
+                    "modifierMixins":
+                    [
+                        {
+                            "$type":"CurLocalAvatarMixin",
+                            "modifierName":"UNIQUE_Activity_Delivering_NoFly_CheckHandler",
+                        },
+                    ],
+                },
+                "UNIQUE_Activity_Delivering_NoFly_CheckHandler":
+                {
+                    "isUnique":true,
+                    "stacking":"Unique",
+                    "duration":120,
+                    "modifierMixins":
+                    [
+                        {
+                            "$type":"AttachToStateIDMixin",
+                            "stateIDs":["Fly"],
+                            "modifierName":"Activity_Delivering_NoFly_Handler",
+                        },
+                    ],
+                },
+                "Activity_Delivering_NoFly_Handler":
+                {
+                    "stacking":"Unique",
+                    "duration":1.0,
+                    "onAdded":
+                    [
+                        {
+                            "$type":"CallLuaTask",
+                            "targetAlias":"41121",
+                            "valueString":"DeliveringActivity_FlyFail",
+                        },
+                        {
+                            //加个特效 测试表现
+                            "$type":"FireEffect",
+                            "effectPattern":"Eff_Weapon_TriggerRed",
+                        },
+                    ],
+                },
+            },
+        },
+    },
+    {
+        "Default":
+        {
+            "$type":"ConfigAbility",
+            "abilityName":"Activity_Delivering_Remove_NoFly",
+            "onAbilityStart":
+            [
+                {
+                    "$type":"RemoveUniqueModifier",
+                    "modifierName":"UNIQUE_Activity_Delivering_NoFly_Team_CheckHandler",
+                    "target":"Team",
+                    "doOffStage":true,
+                },
+            ],
+        },
+    },
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+/// 
+///    送外卖活动   
+///    禁止受到任何伤害（包含坠落伤害）
+/// 
+//////////////////////////////////////////////////////////////////////////////////////////////
+    {
+        "Default":
+        {
+            "$type":"ConfigAbility",
+            "abilityName":"Activity_Delivering_Apply_NoDamage",
+            "onAbilityStart":
+            [
+                {
+                    "$type":"AttachModifier",
+                    "modifierName":"UNIQUE_Activity_Delivering_NoDamage_Team_CheckHandler",
+                    "target":"Team",
+                    "doOffStage":true,
+                },
+            ],
+            "modifiers":
+            {
+                "UNIQUE_Activity_Delivering_NoDamage_Team_CheckHandler":
+                {
+                    "isUnique":true,
+                    "stacking":"Unique",
+                    "duration":120,
+                    "modifierMixins":
+                    [
+                        {
+                            "$type":"CurLocalAvatarMixin",
+                            "modifierName":"UNIQUE_Activity_Delivering_NoDamage_CheckHandler",
+                        },
+                    ],
+                },
+                "UNIQUE_Activity_Delivering_NoDamage_CheckHandler":
+                {
+                    "isUnique":true,
+                    "stacking":"Unique",
+                    "duration":120,
+                    "onBeingHit":
+                    [
+                        {
+                            "$type":"Predicated",
+                            "target":"Self",
+                            "targetPredicates":
+                            [
+                                {
+                                    "$type":"ByHitDamage",
+                                    "damage":0,
+                                    "logic":"Greater",
+                                },
+                            ],
+                            "successActions":
+                            [
+                                {
+                                    "$type":"ApplyModifier",
+                                    "modifierName":"Activity_Delivering_NoDamage_Handler",
+                                    "doOffStage":true,
+                                },
+                            ],
+                        },
+                    ],
+                    "modifierMixins":
+                    [
+                        {
+                            "$type": "AttachToAnimatorStateIDMixin",
+                            "stateIDs": [ "DropDown","FallOnGroundLit","FallOnGround","FallToGroundRun","FallToGroundRunHard","FallToGroundSprint"],
+                            "modifierName": "Activity_Delivering_NoDamage_ValueHandler",
+                        },
+                        {
+                            "$type":"DoActionByEventMixin",
+                            "type":"Current",
+                            "onEvent":"HP",
+                            "predicates":
+                            [
+                                {
+                                    "$type":"ByTargetGlobalValue",
+                                    "key":"_ABILITY_Activity_Delivering_NoDamage_Mark",
+                                    "value":1,
+                                    "compareType":"Equal",
+                                },
+                            ],
+                            "actions":
+                            [
+                                {
+                                    "$type":"ApplyModifier",
+                                    "modifierName":"Activity_Delivering_NoDamage_Handler",
+                                    "doOffStage":true,
+                                },
+                            ],
+                        },
+                    ],
+                },
+                "Activity_Delivering_NoDamage_ValueHandler":
+                {
+                    "onAdded":
+                    [
+                        {
+                            "$type":"AddGlobalValue",
+                            "key":"_ABILITY_Activity_Delivering_NoDamage_Mark",
+                            "useLimitRange":true,
+                            "maxValue":1,
+                            "minValue":1,
+                        },
+                    ],
+                    "onRemoved":
+                    [
+                        {
+                            "$type":"AddGlobalValue",
+                            "key":"_ABILITY_Activity_Delivering_NoDamage_Mark",
+                            "useLimitRange":true,
+                            "maxValue":0,
+                            "minValue":0,
+                        },
+                    ],
+                },
+                "Activity_Delivering_NoDamage_Handler":
+                {
+                    "stacking":"Unique",
+                    "duration":1.0,
+                    "onAdded":
+                    [
+                        {
+                            "$type":"CallLuaTask",
+                            "targetAlias":"41121",
+                            "valueString":"DeliveringActivity_DamageFail",
+                        },
+                        {
+                            //加个特效 测试表现
+                            "$type":"FireEffect",
+                            "effectPattern":"Eff_Weapon_TriggerRed",
+                        },
+                    ],
+                },
+            },
+        },
+    },
+    {
+        "Default":
+        {
+            "$type":"ConfigAbility",
+            "abilityName":"Activity_Delivering_Remove_NoDamage",
+            "onAbilityStart":
+            [
+                {
+                    "$type":"RemoveUniqueModifier",
+                    "modifierName":"UNIQUE_Activity_Delivering_NoDamage_Team_CheckHandler",
+                    "target":"Team",
+                    "doOffStage":true,
+                },
+            ],
+        },
+    },
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+/// 
+///    陨石大作战   
+///    神之眼共鸣
+/// 
+//////////////////////////////////////////////////////////////////////////////////////////////
+    {
+        "Default": 
+        {
+            "$type": "ConfigAbility",
+            "abilityName": "Activity_Aerolite_VisionResonance",
+            "onAdded": 
+            [
+                {
+                    "$type": "AttachModifier",
+                    "modifierName": "VisionResonance_Player_Check",
+                    "target": "Self",
+                },
+            ],
+            "modifiers": 
+            {
+                "VisionResonance_Player_Check": 
+                {
+                    "thinkInterval": "%AS_Think_Timer",
+                    "onThinkInterval": 
+                    [
+                        {
+                            "$type": "ApplyModifier",
+                            "otherTargets":
+                            {
+                                "$type": "SelectTargetsByShape",
+                                "shapeName": "CircleR30",
+                                "centerBasedOn": "Self",
+                                "campTargetType": "AllExceptSelf",
+                                "campBasedOn": "Self",
+                            },
+                            "modifierName": "UNIQUE_Activity_Aerolite_VisionResonance_AttachEffect",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetPositionToSelfPosition",
+                                    "compareType": "XZ",
+                                    "value": "%AS_Disatnce_Lv03",
+                                    "logic": "LesserOrEqual",
+                                },
+                                {
+                                    "$type" : "ByEntityTypes",
+                                    "entityTypes" : ["Avatar"],
+                                },
+                                {
+                                    "$type": "ByNot",
+                                    "predicates": 
+                                    [
+                                        {
+                                            "$type": "ByAny",
+                                            "predicates": 
+                                            [
+                                                {
+                                                    "$type": "ByHasFeatureTag",
+                                                    "featureTagIDs": [1011],
+                                                },
+                                                {
+                                                    "$type": "ByHasFeatureTag",
+                                                    "featureTagIDs": [1012],
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                "UNIQUE_Activity_Aerolite_VisionResonance_AttachEffect": 
+                {
+                    "duration":"%AS_Think_Timer+0.3",
+                    "isUnique": true,
+                    "stacking":"Refresh",
+                    "onAdded": 
+                    [
+                        {
+                            "$type": "AttachEffect",
+                            "effectPattern": "Eff_Avatar_Pendant_Aster_Flash",
+                            "born": 
+                            {
+                                "$type": "ConfigBornByAttachPoint",
+                                "attachPointName" : "PRIVATE_Pendant",
+                                "offset": 
+                                {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0,
+                                },
+                            },
+                        },
+                    ],
+                    "thinkInterval": "%AS_Think_Timer",
+                    "onThinkInterval": 
+                    [
+                        {
+                            "$type": "Predicated",
+                            "target": "Applier",
+                            "targetPredicates": 
+                            [
+                                {
+                                    "$type": "ByTargetPositionToSelfPosition",
+                                    "compareType": "XZ",
+                                    "value": "%AS_Disatnce_Lv01",
+                                    "logic": "LesserOrEqual",
+                                },
+                            ],
+                            "successActions": 
+                            [
+                                {
+                                    "$type": "ApplyModifier",
+                                    "target": "Self",
+                                    "modifierName": "SwitchEffect_Lv01",
+                                },
+                            ],
+                            "failActions": 
+                            [
+                                {
+                                    "$type": "Predicated",
+                                    "target": "Applier",
+                                    "targetPredicates": 
+                                    [
+                                        {
+                                            "$type": "ByTargetPositionToSelfPosition",
+                                            "compareType": "XZ",
+                                            "value": "%AS_Disatnce_Lv02",
+                                            "logic": "LesserOrEqual",
+                                        },
+                                    ],
+                                    "successActions": 
+                                    [
+                                        {
+                                            "$type": "ApplyModifier",
+                                            "target": "Self",
+                                            "modifierName": "SwitchEffect_Lv02",
+                                        },
+                                    ],
+                                    "failActions": 
+                                    [
+                                        {
+                                            "$type": "Predicated",
+                                            "target": "Applier",
+                                            "targetPredicates": 
+                                            [
+                                                {
+                                                    "$type": "ByTargetPositionToSelfPosition",
+                                                    "compareType": "XZ",
+                                                    "value": "%AS_Disatnce_Lv03",
+                                                    "logic": "LesserOrEqual",
+                                                },
+                                            ],
+                                            "successActions": 
+                                            [
+                                                {
+                                                    "$type": "ApplyModifier",
+                                                    "target": "Self",
+                                                    "modifierName": "SwitchEffect_Lv03",
+                                                },
+                                            ],
+                                            // "failActions": 
+                                            // [
+                                            //     {
+                                            //         "$type": "ApplyModifier",
+                                            //         "target": "Self",
+                                            //         "modifierName": "SwitchEffect_Disappear",
+                                            //     },
+                                            // ],
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                    "onRemoved": 
+                    [
+                        {
+                            "$type": "ApplyModifier",
+                            "target": "Self",
+                            "modifierName": "SwitchEffect_Disappear",
+                        },                     
+                    ],
+                },
+                "SwitchEffect_Lv01": 
+                {
+                    "duration":0.1,
+                    "stacking":"Refresh",
+                    "onAdded": 
+                    [
+                        {
+                            "$type": "SendEffectTrigger",
+                            "parameter": "Eff_Ani_Avatar_Pendant_Aster_Flash_Fast",
+                            "effectPattern": "Eff_Avatar_Pendant_Aster_Flash",
+                        },
+                    ],
+                },
+                "SwitchEffect_Lv02": 
+                {
+                    "duration":0.1,
+                    "onAdded": 
+                    [
+                        {
+                            "$type": "SendEffectTrigger",
+                            "parameter": "Eff_Ani_Avatar_Pendant_Aster_Flash_Normal",
+                            "effectPattern": "Eff_Avatar_Pendant_Aster_Flash",
+                        },
+                    ],
+                },
+                "SwitchEffect_Lv03": 
+                {
+                    "duration":0.1,
+                    "onAdded": 
+                    [
+                        {
+                            "$type": "SendEffectTrigger",
+                            "parameter": "Eff_Ani_Avatar_Pendant_Aster_Flash_Slow",
+                            "effectPattern": "Eff_Avatar_Pendant_Aster_Flash",
+                        },
+                    ],
+                },
+                "SwitchEffect_Disappear": 
+                {
+                    "duration":1,
+                    "stacking": "Multiple",
+                    "onAdded": 
+                    [
+                        {
+                            "$type": "AttachEffect",
+                            "effectPattern": "Eff_Avatar_Pendant_Aster_Flash",
+                            "born": 
+                            {
+                                "$type": "ConfigBornByAttachPoint",
+                                "attachPointName" : "PRIVATE_Pendant",
+                                "offset": 
+                                {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0,
+                                },
+                            },
+                        },
+                        // {
+                        //     "$type": "ApplyModifier",
+                        //     "target": "Self",
+                        //     "modifierName": "SwitchEffect_Disappear",
+                        // },
+                        {
+                            "$type": "SendEffectTrigger",
+                            "parameter": "Eff_Ani_Avatar_Pendant_Aster_Flash_Disappear",
+                            "effectPattern": "Eff_Avatar_Pendant_Aster_Flash",
+                        },
+                    ],
+                },
+            },
+            "abilitySpecials": 
+            {
+                "AS_Disatnce_Lv01": 5,
+                "AS_Disatnce_Lv02": 10,
+                "AS_Disatnce_Lv03": 20,
+
+                "AS_Think_Timer": 1,
+            },
+        },
+    },
+
+    {
+        "Default":
+        {
+            "$type": "ConfigAbility",
+            "abilityName": "ActivityAbility_Aster_SpecialAvatarDamageUp_100",
+            "onAdded":
+            [
+                {
+                    "$type": "AttachModifier",
+                    "modifierName": "UNIQUE_ActivityAbility_Aster_SpecialAvatarDamageUp_100",
+                    "target": "Self",
+                    "doOffStage": true,
+                },
+            ],
+            "modifiers":
+            {
+                "UNIQUE_ActivityAbility_Aster_SpecialAvatarDamageUp_100":
+                {
+                    "isUnique": true,
+                    "modifierMixins":
+                    [
+                        {
+                            "$type": "ModifyDamageMixin",
+                            "ignoreEventInfo": true,
+                            "damagePercentageRatio": 1,
+                            "predicates": [
+                             {
+                               "$type": "ByTargetGlobalValue",
+                               "key": "_MONSTERAFFIX_AssignedAvatarVulnerable_High_ForAster",
+                               "value": 1,
+                               "compareType": "Equal",
+                             },
+                            ],
+                        },
+                    ],
+                },
+            },
+        },
+    }, //ActivityAbility_Aster_SpecialAvatarDamageUp_100-----熄星活动角色伤害提升100%
+
+    {
+        "Default":
+        {
+            "$type": "ConfigAbility",
+            "abilityName": "ActivityAbility_Aster_SpecialAvatarDamageUp_60",
+            "onAdded":
+            [
+                {
+                    "$type": "AttachModifier",
+                    "modifierName": "UNIQUE_ActivityAbility_Aster_SpecialAvatarDamageUp_60",
+                    "target": "Self",
+                    "doOffStage": true,
+                },
+            ],
+            "modifiers":
+            {
+                "UNIQUE_ActivityAbility_Aster_SpecialAvatarDamageUp_60":
+                {
+                    "isUnique": true,
+                    "modifierMixins":
+                    [
+                        {
+                            "$type": "ModifyDamageMixin",
+                            "ignoreEventInfo": true,
+                            "damagePercentageRatio": 0.6,
+                            "predicates": [
+                             {
+                               "$type": "ByTargetGlobalValue",
+                               "key": "_MONSTERAFFIX_AssignedAvatarVulnerable_Mid_ForAster",
+                               "value": 1,
+                               "compareType": "Equal",
+                             },
+                            ],
+                        },
+                    ],
+                },
+            },
+        },
+    }, //ActivityAbility_Aster_SpecialAvatarDamageUp_60-----熄星活动角色伤害提升60%
+
+    {
+        "Default":
+        {
+            "$type": "ConfigAbility",
+            "abilityName": "ActivityAbility_Aster_SpecialAvatarDamageUp_30",
+            "onAdded":
+            [
+                {
+                    "$type": "AttachModifier",
+                    "modifierName": "UNIQUE_ActivityAbility_Aster_SpecialAvatarDamageUp_30",
+                    "target": "Self",
+                    "doOffStage": true,
+                },
+            ],
+            "modifiers":
+            {
+                "UNIQUE_ActivityAbility_Aster_SpecialAvatarDamageUp_30":
+                {
+                    "isUnique": true,
+                    "modifierMixins":
+                    [
+                        {
+                            "$type": "ModifyDamageMixin",
+                            "ignoreEventInfo": true,
+                            "damagePercentageRatio": 0.3,
+                            "predicates": [
+                             {
+                               "$type": "ByTargetGlobalValue",
+                               "key": "_MONSTERAFFIX_AssignedAvatarVulnerable_Low_ForAster",
+                               "value": 1,
+                               "compareType": "Equal",
+                             },
+                            ],
+                        },
+                    ],
+                },
+            },
+        },
+    }, //ActivityAbility_Aster_SpecialAvatarDamageUp_30-----熄星活动角色伤害提升30%
+
+    {
+        "Default":
+        {
+            "$type": "ConfigAbility",
+            "abilityName": "ActivityAbility_TowerDefence_AvatarDebuff",
+            "onAdded":
+            [
+                {
+                    "$type": "AttachModifier",
+                    "modifierName": "UNIQUE_ActivityAbility_TowerDefence_AvatarDebuff",
+                    "target": "Self",
+                    "doOffStage": true,
+                },
+            ],
+            "modifiers":
+            {
+                "UNIQUE_ActivityAbility_TowerDefence_AvatarDebuff":
+                {
+                    "isUnique": true,
+                    "modifierMixins":
+                    [
+                        {
+                            "$type": "ModifyDamageMixin",
+                            "ignoreEventInfo": true,
+                            "damagePercentageRatio": -10,
+                        },
+                        {
+                            "$type": "ReviveElemEnergyMixin",
+                            "type": "Both",
+                            "period": 0.3, //每x秒回复一次能量
+                            "baseEnergy": -100, //每次回y点能量
+                        },
+                    ],
+                    "properties": 
+                    {
+                        "Actor_ElemReactSwirlFireDelta": -10,
+                        "Actor_ElemReactSwirlIceDelta": -10,
+                        "Actor_ElemReactSwirlWaterDelta": -10,
+                        "Actor_ElemReactSwirlElectricDelta": -10,
+                        "Actor_ElemReactSConductDelta": -10,
+                        "Actor_ElemReactSteamDelta": -10,
+                        "Actor_ElemReactMeltDelta": -10,
+                        "Actor_ElemReactElectricDelta": -10,
+                        "Actor_ElemReactBurnDelta": -10,
+                        "Actor_ElemReactFreezeDelta": -10,
+                        "Actor_ElemReactExplodeDelta": -10,
+                    },
+                },
+            },
+        },
+    }, //ActivityAbility_TowerDefence_AvatarDebuff
+
+]

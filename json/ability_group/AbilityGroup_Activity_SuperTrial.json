@@ -1,0 +1,71 @@
+{
+
+  "ActivityAbility_SuperTrial_RandomRoomRevive": {
+    "abilityGroupSourceType": "ABILITY_GROUP_SOURCE_ACTIVITY",
+    "abilityGroupTargetType": "ABILITY_GROUP_TARGET_AVATAR",
+    "targetAbilities": [
+      {
+        "abilityID": "ActivityAbility_SuperTrial_RandomRoomRevive",
+        "abilityName": "ActivityAbility_SuperTrial_RandomRoomRevive"
+      }
+    ]
+  },
+
+
+  "ActivityAbility_SuperTrial_RandomRoomAttackUp": {
+    "abilityGroupSourceType": "ABILITY_GROUP_SOURCE_ACTIVITY",
+    "abilityGroupTargetType": "ABILITY_GROUP_TARGET_AVATAR",
+    "targetAbilities": [
+      {
+        "abilityID": "ActivityAbility_SuperTrial_RandomRoomAttackUp",
+        "abilityName": "ActivityAbility_SuperTrial_RandomRoomAttackUp"
+      }
+    ]
+  },
+
+  "ActivityAbility_SuperTrial_RandomRoomSpeedUp": {
+    "abilityGroupSourceType": "ABILITY_GROUP_SOURCE_ACTIVITY",
+    "abilityGroupTargetType": "ABILITY_GROUP_TARGET_AVATAR",
+    "targetAbilities": [
+      {
+        "abilityID": "ActivityAbility_SuperTrial_RandomRoomSpeedUp",
+        "abilityName": "ActivityAbility_SuperTrial_RandomRoomSpeedUp"
+      }
+    ]
+  },
+
+  "ActivityAbility_SuperTrial_RandomRoomRevive_Copy": {
+    "abilityGroupSourceType": "ABILITY_GROUP_SOURCE_ACTIVITY",
+    "abilityGroupTargetType": "ABILITY_GROUP_TARGET_AVATAR",
+    "targetAbilities": [
+      {
+        "abilityID": "ActivityAbility_SuperTrial_RandomRoomRevive_Copy",
+        "abilityName": "ActivityAbility_SuperTrial_RandomRoomRevive_Copy"
+      }
+    ]
+  },
+
+
+  "ActivityAbility_SuperTrial_RandomRoomAttackUp_Copy": {
+    "abilityGroupSourceType": "ABILITY_GROUP_SOURCE_ACTIVITY",
+    "abilityGroupTargetType": "ABILITY_GROUP_TARGET_AVATAR",
+    "targetAbilities": [
+      {
+        "abilityID": "ActivityAbility_SuperTrial_RandomRoomAttackUp_Copy",
+        "abilityName": "ActivityAbility_SuperTrial_RandomRoomAttackUp_Copy"
+      }
+    ]
+  },
+
+  "ActivityAbility_SuperTrial_RandomRoomSpeedUp_Copy": {
+    "abilityGroupSourceType": "ABILITY_GROUP_SOURCE_ACTIVITY",
+    "abilityGroupTargetType": "ABILITY_GROUP_TARGET_AVATAR",
+    "targetAbilities": [
+      {
+        "abilityID": "ActivityAbility_SuperTrial_RandomRoomSpeedUp_Copy",
+        "abilityName": "ActivityAbility_SuperTrial_RandomRoomSpeedUp_Copy"
+      }
+    ]
+  },
+
+}

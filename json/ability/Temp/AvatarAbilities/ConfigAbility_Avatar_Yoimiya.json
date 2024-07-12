@@ -1,0 +1,3036 @@
+[
+
+	////////////////////////////////////////////////////////////////
+	//
+	//  Avatar_Yoimiya_PressShoot  普攻蓄力逻辑。 (引自甘雨)
+	//
+	////////////////////////////////////////////////////////////////
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Yoimiya_PressShoot",
+			"abilityMixins":
+			[
+				{
+					"$type": "ButtonHoldChargeMixin",
+					"skillID": 10491,
+					"chargeTime": 0.2,
+					"OnBeginUncharged":
+					[
+						{
+							"$type": "SetAnimatorTrigger",
+							"triggerID": "DoSkill",
+						},
+						{
+							"$type": "SetAnimatorInt",
+							"intID": "SkillID",
+							"value": 100,
+						},
+					],
+					"OnReleaseUncharged":
+					[
+						{
+							"$type": "SetCameraLockTime",
+							"lockTime": 0.3,
+						},
+						{
+							"$type": "SetAnimatorTrigger",
+							"triggerID": "DoSkill",
+						},
+						{
+							"$type": "SetAnimatorInt",
+							"intID": "SkillID",
+							"value": 1,
+						},
+					],
+					"OnBeginCharged":
+					[
+						{
+							"$type": "SetAnimatorTrigger",
+							"triggerID": "DoSkill",
+						},
+						{
+							"$type": "SetAnimatorInt",
+							"intID": "SkillID",
+							"value": 101,
+						},
+					],
+					"OnReleaseCharged":
+					[
+						{
+							"$type": "SetAnimatorTrigger",
+							"triggerID": "DoSkill",
+						},
+						{
+							"$type": "SetAnimatorInt",
+							"intID": "SkillID",
+							"value": 1,
+						},
+					],
+					"chargeStateIDs": [ "ShootBS","Shoot", "FastAim", "FastAimShoot" ],
+				},
+				{
+					"$type": "AttachToStateIDMixin",
+					"stateIDs": ["FastAim", "FastAimShoot"],
+					"modifierName": "KeepFastAiming",
+				},
+				{
+					//当快速瞄准射击结束时，会设置FastAimShootFinish，使得动画从FastAim状态出来，同时会通过FastAimShooting防止在射击过程中点击了瞄准按钮直接退出
+					"$type": "AttachToStateIDMixin",
+					"stateIDs": ["FastAimShoot"],
+					"modifierName": "SetFastAimShooting",
+				},
+				{
+					"$type": "AttachToStateIDMixin",
+					"stateIDs": ["ShootBS", "FastAim", "FastAimShoot"],
+					"modifierName": "SetNeedAimEndStates",
+				},
+			],
+			"modifiers":
+			{
+				"KeepFastAiming":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "SetAnimatorBool",
+							"boolID": "FastAiming",
+							"value": true,
+						},
+						{
+							"$type": "AvatarEnterFocus",
+							"cameraFollowLower":
+							{
+								"x": 0.755,
+								"y": 0.17,
+								"z": -1.9
+							},
+							"cameraFollowUpper":
+							{
+								"x": 0.755,
+								"y": 0.37,
+								"z": -1.6
+							},
+							"cameraFastFocusMode": true,
+							"faceToTarget": true,
+							"faceToTargetAngleThreshold": 360,
+							"assistance":
+							{
+								"ps4":
+								{
+									"useFocusSticky": true,
+									"useGyro": false,
+								},
+								"ps5":
+								{
+									"useFocusSticky": true,
+									"useGyro": false,
+								},								
+								"other":
+								{
+									"useFocusSticky": true,
+									"useGyro": true,
+								},
+							},
+							"canMove": true,
+							"vcam_fov": 30,
+						},
+					],
+					"onRemoved":
+					[
+						{
+							"$type": "SetAnimatorBool",
+							"boolID": "FastAiming",
+							"value": false,
+						},
+						{
+							"$type": "AvatarExitFocus",
+							"keepRotation": true,
+						},
+					],
+				},
+				"SetFastAimShooting":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "SetAnimatorBool",
+							"boolID": "FastAimShooting",
+							"value": true,
+						},
+					],
+					"onRemoved":
+					[
+						{
+							"$type": "SetAnimatorBool",
+							"boolID": "FastAimShooting",
+							"value": false,
+						},
+						{
+							"$type": "SetAnimatorTrigger",
+							"triggerID": "AimEnd",
+							"predicates":
+							[
+								{
+									"$type": "ByAnimatorBool",
+									"parameter": "FastAiming",
+									"value": true
+								},
+							]
+						},
+					]
+				},
+				"SetNeedAimEndStates":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "SetAnimatorBool",
+							"boolID": "InStatesNeedAimEnd",
+							"value": true,
+						},
+					],
+					"onRemoved":
+					[
+						{
+							"$type": "SetAnimatorBool",
+							"boolID": "InStatesNeedAimEnd",
+							"value": false,
+						},
+					]
+				},
+			},
+		},
+	},
+	////////////////////////////////////////////////////////////////
+	//
+	//  Avatar_Yoimiya_ShootArrow 普攻发射bullet的ability（复制自甘雨）
+	//
+	////////////////////////////////////////////////////////////////
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Yoimiya_ShootArrow_01",
+			"onAbilityStart":
+			[
+				{
+					"$type": "TriggerBullet",
+					"bulletID": 41049001,
+					"born":
+					{
+						"$type": "ConfigBornByAttachPoint",
+						"attachPointName": "WeaponL",
+						"offset":
+						{
+							"x": 0.0,
+							"y": 0.0,
+							"z": 0.0,
+						},
+						"direction":
+						{
+							"$type": "ConfigDirectionByAttachPoint",
+							"attachPointName": "FocusAnchor",
+							"attachPointTargetType": "Self",
+						},
+					},
+				},
+				{
+					"$type":  "FireEffect",
+					"effectPattern":  "Eff_Avatar_Yoimiya_ShootArrow_Small",
+					"born":
+					{
+						"$type":  "ConfigBornByAttachPoint",
+						"attachPointName":  "WeaponL",
+						"offset":  {
+							"x":  0.0,
+							"y":  0.0,
+							"z":  0.0,
+						},
+					},
+				},
+			],
+		},
+	},
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Yoimiya_ShootArrow_02",
+			"onAbilityStart":
+			[
+				{
+					"$type": "TriggerBullet",
+					"bulletID": 41049002,
+					"born":
+					{
+						"$type": "ConfigBornByAttachPoint",
+						"attachPointName": "WeaponL",
+						"offset":
+						{
+							"x": 0.0,
+							"y": 0.0,
+							"z": 0.0,
+						},
+						"direction":
+						{
+							"$type": "ConfigDirectionByAttachPoint",
+							"attachPointName": "FocusAnchor",
+							"attachPointTargetType": "Self",
+						},
+					},
+				},
+				{
+					"$type":  "FireEffect",
+					"effectPattern":  "Eff_Avatar_Yoimiya_ShootArrow_Small",
+					"born":
+					{
+						"$type":  "ConfigBornByAttachPoint",
+						"attachPointName":  "WeaponL",
+						"offset":  {
+							"x":  0.0,
+							"y":  0.0,
+							"z":  0.0,
+						},
+					},
+				},
+			],
+		},
+	},
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Yoimiya_ShootArrow_03",
+			"onAbilityStart":
+			[
+				{
+					"$type": "TriggerBullet",
+					"bulletID": 41049003,
+					"born":
+					{
+						"$type": "ConfigBornByAttachPoint",
+						"attachPointName": "WeaponL",
+						"offset":
+						{
+							"x": 0.0,
+							"y": 0.0,
+							"z": 0.0,
+						},
+						"direction":
+						{
+							"$type": "ConfigDirectionByAttachPoint",
+							"attachPointName": "FocusAnchor",
+							"attachPointTargetType": "Self",
+						},
+					},
+				},
+				{
+					"$type":  "FireEffect",
+					"effectPattern":  "Eff_Avatar_Yoimiya_ShootArrow_Big",
+					"born":
+					{
+						"$type":  "ConfigBornByAttachPoint",
+						"attachPointName":  "WeaponL",
+						"offset":  
+						{
+							"x":  0.0,
+							"y":  0.0,
+							"z":  0.0,
+						},
+					},
+				},
+			],
+		},
+	},
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Yoimiya_ShootArrow_04",
+			"onAbilityStart":
+			[
+				{
+					"$type": "TriggerBullet",
+					"bulletID": 41049004,
+					"born":
+					{
+						"$type": "ConfigBornByAttachPoint",
+						"attachPointName": "WeaponL",
+						"offset":
+						{
+							"x": 0.0,
+							"y": 0.0,
+							"z": 0.0,
+						},
+						"direction":
+						{
+							"$type": "ConfigDirectionByAttachPoint",
+							"attachPointName": "FocusAnchor",
+							"attachPointTargetType": "Self",
+						},
+					},
+				},
+				{
+					"$type":  "FireEffect",
+					"effectPattern":  "Eff_Avatar_Yoimiya_ShootArrow_Small",
+					"born":
+					{
+						"$type":  "ConfigBornByAttachPoint",
+						"attachPointName":  "WeaponL",
+						"offset":  
+						{
+							"x":  0.0,
+							"y":  0.0,
+							"z":  0.0,
+						},
+					},
+				},
+			],
+		},
+	},
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Yoimiya_ShootArrow_05",
+			"onAbilityStart":
+			[
+				{
+					"$type": "TriggerBullet",
+					"bulletID": 41049005,
+					"born":
+					{
+						"$type": "ConfigBornByAttachPoint",
+						"attachPointName": "WeaponL",
+						"offset":
+						{
+							"x": 0.0,
+							"y": 0.0,
+							"z": 0.0,
+						},
+						"direction":
+						{
+							"$type": "ConfigDirectionByAttachPoint",
+							"attachPointName": "FocusAnchor",
+							"attachPointTargetType": "Self",
+						},
+					},
+				},
+				{
+					"$type":  "FireEffect",
+					"effectPattern":  "Eff_Avatar_Yoimiya_ShootArrow_Big",
+					"born":
+					{
+						"$type":  "ConfigBornByAttachPoint",
+						"attachPointName":  "WeaponL",
+						"offset":  
+						{
+							"x":  0.0,
+							"y":  0.0,
+							"z":  0.0,
+						},
+					},
+				},
+			],
+		},
+	},
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Yoimiya_ShootArrow_06",
+			"onAbilityStart":
+			[
+				{
+					"$type": "TriggerBullet",
+					"bulletID": 41049006,
+					"born":
+					{
+						"$type": "ConfigBornByAttachPoint",
+						"attachPointName": "WeaponL",
+						"offset":
+						{
+							"x": 0.0,
+							"y": 0.0,
+							"z": 0.0,
+						},
+						"direction":
+						{
+							"$type": "ConfigDirectionByAttachPoint",
+							"attachPointName": "FocusAnchor",
+							"attachPointTargetType": "Self",
+						},
+					},
+				},
+			],
+		},
+	},
+
+	////////////////////////////////////////////////////////////////
+	//
+	//  Avatar_Yoimiya_ShootAimingArrow_Charge  特效表现相关，包括瞄准是持续播放箭模型特效。
+	//
+	////////////////////////////////////////////////////////////////
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Yoimiya_ShootAimingArrow_Charge",
+			"abilityMixins":
+			[
+				{
+					"$type": "AttachToStateIDMixin",
+					"stateIDs": ["Aim","FastAim"],
+					"modifierName": "Yoimiya_Arrow_FX",
+				},
+				{
+					"$type": "AttachToStateIDMixin",
+					"stateIDs": ["Aim", "FastAim"],
+					"modifierName": "ShootAimingArrow_ChargeMark",
+				},
+				{
+					"$type": "AttachToStateIDMixin",
+					"stateIDs": ["FastAim", "FastAimShoot", "Aim", "AimShoot"],
+					"modifierName": "ShowAimingEffect",
+				},
+			],
+			"onAbilityStart":
+			[
+				{
+					"$type": "RemoveModifier",
+					"modifierName": "Aiming_Arrow_Glow_WithoutElement_Loop",	//射完了记得清一下标记及相关特效
+				},
+				{
+					"$type": "RemoveModifier",
+					"modifierName": "Aiming_Arrow_Glow_Loop",	//射完了记得清一下标记及相关特效
+				},
+				{
+					"$type": "SetGlobalValue",	//射完了记得清一下标记及相关特效
+					"key": "_Enchanted_Time",
+					"value": 0,
+				},
+			],
+			"modifiers":
+			{
+				"Yoimiya_Arrow_FX":
+				{
+					"onAdded":
+					[
+						{
+							"$type":"AttachEffect",
+							"effectPattern":"Eff_Bow_Arrow",
+						},
+					]
+				},
+				"ShootAimingArrow_ChargeMark":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "SetGlobalValue",	//射完了记得清一下标记及相关特效
+							"key": "_Enchanted_Time",
+							"value": 0,
+						},
+					],
+					"thinkInterval": 0.3,
+					"onThinkInterval":
+					[
+						{
+							"$type": "AddGlobalValue",
+							"key": "_Enchanted_Time",
+							"value": 1,
+							"useLimitRange": true,
+							"maxValue": 10,
+							"minValue": 0,
+						},
+					],
+				},
+				"ShowAimingEffect":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "AttachModifier",
+							"modifierName": "Aiming_Arrow_Glow_WithoutElement_Loop",
+						},
+					],
+					"thinkInterval": 0.1,
+					"onThinkInterval":
+					[
+						{
+							"$type": "AttachModifier",
+							"modifierName": "Aiming_Arrow_Glow_WithoutElement_Loop",
+							"predicates":
+							[
+								{
+									"$type": "ByTargetGlobalValue",
+									"key": "_Enchanted_Time",
+									"value": 1,
+									"compareType": "MoreThanAndEqual",
+								},
+							]
+						},
+						{
+							"$type":"AttachModifier",
+							"modifierName":"Aiming_Arrow_Glow_Loop",
+							"predicates":
+							[
+								{
+									"$type": "ByTargetGlobalValue",
+									"key": "_Enchanted_Time",
+									"value": 4,
+									"compareType": "MoreThanAndEqual",
+								},
+							]
+						},
+					],
+					"onRemoved":
+					[
+						{
+							"$type": "SetGlobalValue",
+							"key": "_Enchanted_Time",
+							"value": 0,
+						},
+					],
+				},
+				"Aiming_Arrow_Glow_WithoutElement_Loop":
+				{
+					"stacking": "Unique",
+					"onAdded":
+					[
+						{
+							"$type": "AttachEffect",
+							"effectPattern": "Eff_Avatar_Yoimiya_FireArrow_Glow_Once_01",
+						},
+						{
+							"$type": "AttachEffect",
+							"effectPattern": "Eff_Avatar_Yoimiya_FireArrow_Glow_Loop_01",
+						},
+					]
+				},
+				"Aiming_Arrow_Glow_Loop":
+				{
+					"stacking": "Unique",
+					"onAdded":
+					[
+						{
+							"$type": "AttachEffect",
+							"effectPattern": "Eff_Avatar_Yoimiya_FireArrow_Glow_Once_02",
+						},
+						{
+							"$type": "AttachEffect",
+							"effectPattern": "Eff_Avatar_Yoimiya_FireArrow_Glow_Loop_02",
+						},
+					]
+				},
+			},
+		},
+	},
+	////////////////////////////////////////////////////////////////
+	//
+	//  Avatar_Yoimiya_AimPressShoot  瞄准模式下攻击逻辑
+	//
+	////////////////////////////////////////////////////////////////
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Yoimiya_AimPressShoot",
+			"abilityMixins":
+			[
+				{
+					"$type": "ButtonHoldChargeMixin",
+					"skillID": 10494,
+					"chargeTime": 0,
+					"OnReleaseCharged":
+					[
+						{
+							"$type": "SetAnimatorTrigger",
+							"triggerID": "DoSkill",
+						},
+						{
+							"$type": "SetAnimatorInt",
+							"intID": "SkillID",
+							"value": 1,
+						},
+					],
+					"chargeStateIDs": [ "Aim", "AimShoot" ],
+				},
+				{
+					"$type": "AttachToStateIDMixin",
+					"stateIDs": ["Aim", "AimShoot"],
+					"modifierName": "KeepAiming",
+				},
+				{
+					// 通过AimShooting防止在射击过程中点击了瞄准按钮直接退出
+					"$type": "AttachToStateIDMixin",
+					"stateIDs": ["AimShoot"],
+					"modifierName": "SetAimShooting",
+				},
+				{
+					"$type": "AttachToStateIDMixin",
+					"stateIDs": ["Aim", "AimShoot"],
+					"modifierName": "SetNeedAimEndStates",
+				},
+			],
+			"modifiers":
+			{
+				"KeepAiming":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "SetAnimatorBool",
+							"boolID": "Aiming",
+							"value": true,
+						},
+						{
+							"$type": "AvatarEnterFocus",
+							"cameraFollowLower":
+							{
+								"x": 0.755,
+								"y": 0.17,
+								"z": -1.9
+							},
+							"cameraFollowUpper":
+							{
+								"x": 0.755,
+								"y": 0.37,
+								"z": -1.6
+							},
+							"cameraFastFocusMode": true,
+							"faceToTarget": true,
+							"faceToTargetAngleThreshold": 360,
+							"assistance":
+							{
+								"ps4":
+								{
+									"useFocusSticky": true,
+									"useGyro": false,
+								},
+								"ps5":
+								{
+									"useFocusSticky": true,
+									"useGyro": false,
+								},								
+								"other":
+								{
+									"useFocusSticky": true,
+									"useGyro": true,
+								},
+							},
+							"canMove": true,
+							"vcam_fov": 30,
+						},
+					],
+					"onRemoved":
+					[
+						{
+							"$type": "SetAnimatorBool",
+							"boolID": "Aiming",
+							"value": false,
+						},
+						{
+							"$type": "AvatarExitFocus",
+							"keepRotation": true,
+						},
+					],
+				},
+				"SetAimShooting":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "SetAnimatorBool",
+							"boolID": "AimShooting",
+							"value": true,
+						},
+					],
+					"onRemoved":
+					[
+						{
+							"$type": "SetAnimatorBool",
+							"boolID": "AimShooting",
+							"value": false,
+						},
+					]
+				},
+				"SetNeedAimEndStates":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "SetAnimatorBool",
+							"boolID": "InStatesNeedAimEnd",
+							"value": true,
+						},
+					],
+					"onRemoved":
+					[
+						{
+							"$type": "SetAnimatorBool",
+							"boolID": "InStatesNeedAimEnd",
+							"value": false,
+						},
+					]
+				}
+			},
+		},
+	},
+	////////////////////////////////////////////////////////////////
+	//
+	//  Avatar_Yoimiya_ShootArrow_Aiming  瞄准动作下 发射bullet的ability
+	//
+	////////////////////////////////////////////////////////////////
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Yoimiya_ShootArrow_Aiming",
+			"onAbilityStart":
+			[
+				{
+					"$type": "TriggerBullet",
+					"bulletID": 41049007,
+					"born":
+					{
+						"$type": "ConfigBornByAttachPoint",
+						"attachPointName": "WeaponL",
+						"offset":
+						{
+							"x": 0.0,
+							"y": 0.0,
+							"z": 0.0,
+						},
+						"direction":
+						{
+							"$type": "ConfigDirectionByAttachPoint",
+							"attachPointName": "FocusAnchor",
+							"attachPointTargetType": "Self",
+						}
+					},
+					"predicates":
+					[
+						{
+							"$type": "ByTargetGlobalValue",
+							"key": "_Enchanted_Time",
+							"value": 3,
+							"compareType": "LessAndEqual",
+						},
+					]
+				},
+				{
+					"$type": "TriggerBullet",
+					"bulletID": 41049008,
+					"born":
+					{
+						"$type": "ConfigBornByAttachPoint",
+						"attachPointName": "WeaponL",
+						"offset":
+						{
+							"x": 0.0,
+							"y": 0.0,
+							"z": 0.0,
+						},
+						"direction":
+						{
+							"$type": "ConfigDirectionByAttachPoint",
+							"attachPointName": "FocusAnchor",
+							"attachPointTargetType": "Self",
+						}
+					},
+					"predicates":
+					[
+						{
+							"$type": "ByTargetGlobalValue",
+							"key": "_Enchanted_Time",
+							"value": 4,
+							"compareType": "MoreThanAndEqual",
+						},
+						{
+							"$type": "ByTargetGlobalValue",
+							"key": "_Enchanted_Time",
+							"value": 7,
+							"compareType": "LessAndEqual",
+						},
+					]
+				},
+				{
+					"$type": "TriggerBullet",
+					"bulletID": 41049009,
+					"born":
+					{
+						"$type": "ConfigBornByAttachPoint",
+						"attachPointName": "WeaponL",
+						"offset":
+						{
+							"x": 0.0,
+							"y": 0.0,
+							"z": 0.0,
+						},
+						"direction":
+						{
+							"$type": "ConfigDirectionByAttachPoint",
+							"attachPointName": "FocusAnchor",
+							"attachPointTargetType": "Self",
+						}
+					},
+					"predicates":
+					[
+						{
+							"$type": "ByTargetGlobalValue",
+							"key": "_Enchanted_Time",
+							"value": 8,
+							"compareType": "MoreThanAndEqual",
+						},
+					],
+				},
+				{
+					"$type": "ActCameraShake",
+		        	"cameraShake":
+		        	{
+		        		"shakeType": "Center",
+						"shakeRange": 0.2,
+						"shakeTime": 0.12,
+						"shakeDistance": 30,
+						"extension":
+						{
+							"baseOnCamera": true,
+						},
+		        	},
+					"predicates":
+					[
+						{
+							"$type": "ByTargetGlobalValue",
+							"key": "_Enchanted_Time",
+							"value": 4,
+							"compareType": "MoreThanAndEqual",
+						},
+					]
+				},
+				{
+					"$type": "FireEffect",
+					"effectPattern": "Eff_Avatar_Yoimiya_Aimshoot_NoFire",
+					"born":
+					{
+						"$type": "ConfigBornByAttachPoint",
+						"attachPointName": "WeaponR",
+						"offset":
+						{
+							"x": 0.0, // + means up, - means down
+							"y": 0.0, // + means left, - means right
+							"z": 0.9, // + means forward, - means backward
+						}
+					},
+					"predicates":
+					[
+						{
+							"$type": "ByTargetGlobalValue",
+							"key": "_Enchanted_Time",
+							"value": 3,
+							"compareType": "LessAndEqual",
+						},
+					]
+				},
+				{
+					"$type": "FireEffect",
+					"effectPattern": "Eff_Avatar_Yoimiya_Aimshoot_WithFire",
+					"born":
+					{
+						"$type": "ConfigBornByAttachPoint",
+						"attachPointName": "WeaponR",
+						"offset":
+						{
+							"x": 0.0, // + means up, - means down
+							"y": 0.0, // + means left, - means right
+							"z": 0.9, // + means forward, - means backward
+						}
+					},
+					"predicates":
+					[
+						{
+							"$type": "ByTargetGlobalValue",
+							"key": "_Enchanted_Time",
+							"value": 4,
+							"compareType": "MoreThanAndEqual",
+						},
+						{
+							"$type": "ByTargetGlobalValue",
+							"key": "_Enchanted_Time",
+							"value": 7,
+							"compareType": "LessAndEqual",
+						},
+					]
+				},
+				{
+					"$type": "FireEffect",
+					"effectPattern": "Eff_Avatar_Yoimiya_Aimshoot_BombArrow",
+					"born":
+					{
+						"$type": "ConfigBornByAttachPoint",
+						"attachPointName": "WeaponR",
+						"offset":
+						{
+							"x": 0.0, // + means up, - means down
+							"y": 0.0, // + means left, - means right
+							"z": 0.9, // + means forward, - means backward
+						}
+					},
+					"predicates":
+					[
+						{
+							"$type" : "ByAny",
+							"predicates" :
+							[
+								{
+									"$type": "ByTargetGlobalValue",
+									"key": "_Enchanted_Time",
+									"value": 8,
+									"compareType": "MoreThanAndEqual",
+								},
+							],
+						},
+					]
+				},
+			],
+		},
+	},
+
+/////////////////////////下面是弓箭gdaget的ability///////////////////////////
+
+
+////////////普攻中的轻型箭和重型箭///////
+	{
+		"Default": 
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Bullet_Yoimiya_Arrow_Material_Small",
+			"onAdded": 
+			[
+				{
+					"$type": "FireEffect",
+					"effectPattern": "Eff_Avatar_Yoimiya_Arrow_Small",
+				},
+			],
+			"onAbilityStart": 	//箭头命中敌人，或不同场景时的特效，可以在collision的时候trigger，这样不像安柏那样超多Ability，可以少写一个。
+			[
+				{
+					"$type": "FireHitEffect",
+					"hitScene":
+					{
+						"defaultEffect": "Eff_Arrow_Hit_Earth",
+						"surfaceEffect":
+						{
+							"Water": "Eff_Arrow_Hit_Water",
+						}
+					},
+				},
+			],
+		},
+	}, 
+	{
+		"Default": 
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Bullet_Yoimiya_Arrow_Material_Big",
+			"onAdded":
+			[
+				{
+					"$type": "FireEffect",
+					"effectPattern": "Eff_Avatar_Yoimiya_Arrow_Big",
+				},
+			],
+			"onAbilityStart": 	//箭头命中敌人，或不同场景时的特效，可以在collision的时候trigger，这样不像安柏那样超多Ability，可以少写一个。
+			[
+				{
+					"$type": "FireHitEffect",
+					"hitScene":
+					{
+						"defaultEffect": "Eff_Arrow_Hit_Earth",
+						"surfaceEffect":
+						{
+							"Water": "Eff_Arrow_Hit_Water",
+						}
+					},
+				},
+			],
+		},
+	}, 
+
+
+/////////////蓄力未完成箭////////////////
+	{
+		"Default": 
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Bullet_Yoimiya_Arrow_NoFire_Material",
+			"onAdded": 
+			[
+				{
+					"$type": "AttachEffect",
+					"effectPattern": "Eff_Avatar_Yoimiya_Arrow_Big", //稍微大一点的箭效果
+				},
+			],
+			"onAbilityStart": 
+			[
+				{
+					"$type": "FireHitEffect",
+					"hitScene": 
+					{
+						"defaultEffect": "Eff_Arrow_Hit_Earth",
+						"surfaceEffect": 
+						{
+							"Water": "Eff_Arrow_Hit_Water"
+						}
+					},
+				},
+				{
+					"$type": "TriggerAttackEvent",
+					"targetType": "Enemy",
+					"attackEvent": 
+					{
+						"attackPattern": 
+						{
+							"$type": "ConfigAttackBox",
+							"triggerType": "TriggerNoRepeat",
+							"size": 
+							{
+								"x": 0.1,
+								"y": 0.1,
+								"z": 1.0,
+							},
+							"born": 
+							{
+								"$type": "ConfigBornByCollisionPoint",
+								"offset": 
+								{
+									"x": 0.0, // + means up, - means down
+									"y": 0.0, // + means left, - means right
+									"z": -0.5, // + means forward, - means backward
+								}
+							},
+							"checkHitLayerType": "Both",
+						},
+						"attackInfo": 
+						{
+							"canBeModifiedBy": "OriginOwner",
+							"attackTag": "ExtraAttack",
+							"attenuationTag": "ExtraAttack",
+							"attackProperty": 
+							{
+								"damagePercentage": "%NoFireDamage",
+								"strikeType": "Pierce",
+								"enBreak": 10,
+								"enHeadBreak": 30,
+							},
+							"hitPattern": 
+							{
+								"onHitEffectName": "default",
+								"hitImpulseType": "LV2", //Light x200 y0
+								"reboundRatio": 0,
+								"hitHaltTime": 0.0,
+								"hitHaltTimeScale": 0.01,
+								"muteHitText": false,
+							},
+							"canHitHead": true,
+							"hitHeadPattern": 
+							{
+								"onHitEffectName": "Eff_Arrow_Hit_Head",
+								"hitImpulseType": "LV5", //Air 480 y600
+								"reboundRatio": 0,
+								"hitHaltTime": 0.12,
+								"hitHaltTimeScale": 0.01,
+								"muteHitText": false,
+
+							},
+							"bulletWane": 
+							{
+								"waneDelay": 0.7, // 表示从Bullet创生之后这么久，开始套用衰减规则
+								"damageWaneInterval": 0.05, // 伤害衰减周期，每过这么久，进行一次伤害衰减
+								"damageWaneRatio": 0.1, // 每次进行伤害衰减时，按照DamageWaneRatio的比例，在damagePercentage上进行【扣除】，最多扣除到0
+								"hitLevelWaneInterval": 0.1, // 受击等级衰减周期，每过这么久，进行一次受击等级衰减，每次将当前受击等级往下降一级：Air→Heavy→Light→Shake→Mute
+								"hitLevelWaneMin": "Mute", // 受击等级最少衰减为这个等级。如果原本就不高于这个等级，则不予衰减。
+								"damageWaneMinRatio": 0.1,
+								"elementDurabilityWaneInterval": 0.05,
+								"elementDurabilityWaneRatio": 0.1,
+								"elementDurabilityWaneMinRatio": 0.1,
+							},
+						}
+					},
+				},
+			],
+			"abilitySpecials": 
+			{
+				"NoFireDamage": 1,
+			},
+		},
+	}, 
+
+
+//////////////火属性蓄力箭////////////////
+	{
+		"Default": 
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Bullet_Yoimiya_Arrow_WithFire_Material",
+			"onAdded": 
+			[
+				{
+					"$type": "AttachModifier",
+					"modifierName": "FireEffectModifier",
+					"target": "Self",
+				},
+			],
+			"onAbilityStart": 
+			[
+				{
+					"$type":"Predicated",
+					"target":"Self",
+					"targetPredicates":
+					[
+						{
+							"$type": "ByHasElement",
+							"element": "Fire",
+						},
+					],
+					"successActions":
+					[
+						//先处理碰场景特效
+						{ 
+							"$type": "FireHitEffect",
+							"hitScene": 
+							{
+								"defaultEffect": "Eff_Avatar_Yoimiya_Arrow_Bomb_Explode",
+								"surfaceEffect": 
+								{
+									"Water": "Eff_Arrow_Fire_Hit_Water"
+								}
+							},
+						},
+						//然后计算攻击盒，有火没火效果不同。
+						{
+							"$type": "TriggerAttackEvent",
+							"targetType": "Enemy",
+							"attackEvent": 
+							{
+								"attackPattern": 
+								{
+									"$type": "ConfigAttackBox",
+									"triggerType": "TriggerNoRepeat",
+									"size": 
+									{
+										"x": 0.1,
+										"y": 0.1,
+										"z": 1.0,
+									},
+									"born": 
+									{
+										"$type": "ConfigBornByCollisionPoint",
+										"offset": 
+										{
+											"x": 0.0, // + means up, - means down
+											"y": 0.0, // + means left, - means right
+											"z": -0.5, // + means forward, - means backward
+										}
+									},
+									"checkHitLayerType": "Both",
+								},
+								"attackInfo": 
+								{
+									"canBeModifiedBy": "OriginOwner",
+									"attackTag": "ExtraAttack",
+									"attenuationTag": "ExtraAttack",
+									"attackProperty": 
+									{
+										"damagePercentage": "%WithFireDamage",
+										"strikeType": "Pierce",
+										"elementType": "Fire",
+										"elementDurability": 50,
+										"enBreak": 20,
+										"enHeadBreak": 60,
+									},
+									"hitPattern": 
+									{
+										"onHitEffectName": "Eff_Avatar_Yoimiya_Arrow_Bomb_Explode",
+										"hitImpulseType": "LV2", //Light x200 y0
+										"reboundRatio": 0,
+										"hitHaltTime": 0.0,
+										"hitHaltTimeScale": 0.01,
+										"muteHitText": false,
+									},
+									"canHitHead": true,
+									"hitHeadPattern": 
+									{
+										"onHitEffectName": "Eff_Arrow_Hit_Head_Fire",
+										"hitImpulseType": "LV5", //Air 480 y600
+										"reboundRatio": 0,
+										"hitHaltTime": 0.12,
+										"hitHaltTimeScale": 0.01,
+										"muteHitText": false,
+									},
+									"bulletWane": 
+									{
+										"waneDelay": 0.7, // 表示从Bullet创生之后这么久，开始套用衰减规则
+										"damageWaneInterval": 0.05, // 伤害衰减周期，每过这么久，进行一次伤害衰减
+										"damageWaneRatio": 0.1, // 每次进行伤害衰减时，按照DamageWaneRatio的比例，在damagePercentage上进行【扣除】，最多扣除到0
+										"hitLevelWaneInterval": 0.1, // 受击等级衰减周期，每过这么久，进行一次受击等级衰减，每次将当前受击等级往下降一级：Air→Heavy→Light→Shake→Mute
+										"hitLevelWaneMin": "Mute", // 受击等级最少衰减为这个等级。如果原本就不高于这个等级，则不予衰减。
+										"damageWaneMinRatio": 0.1,
+										"elementDurabilityWaneInterval": 0.05,
+										"elementDurabilityWaneRatio": 0.1,
+										"elementDurabilityWaneMinRatio": 0.1,
+									},
+								}
+							},
+						},
+					],
+					"failActions":
+					[
+						{
+							"$type": "FireHitEffect",
+							"hitScene": 
+							{
+								"defaultEffect": "Eff_Arrow_Hit_Earth",
+								"surfaceEffect": 
+								{
+									"Water": "Eff_Arrow_Hit_Water"
+								}
+							},
+						},
+						{
+							"$type": "TriggerAttackEvent",
+							"targetType": "Enemy",
+							"attackEvent": 
+							{
+								"attackPattern": 
+								{
+									"$type": "ConfigAttackBox",
+									"triggerType": "TriggerNoRepeat",
+									"size": {
+										"x": 0.1,
+										"y": 0.1,
+										"z": 1.0,
+									},
+									"born": 
+									{
+										"$type": "ConfigBornByCollisionPoint",
+										"offset": 
+										{
+											"x": 0.0, // + means up, - means down
+											"y": 0.0, // + means left, - means right
+											"z": -0.5, // + means forward, - means backward
+										}
+									},
+									"checkHitLayerType": "Both",
+								},
+								"attackInfo": 
+								{
+									"canBeModifiedBy": "OriginOwner",
+									"attackTag": "ExtraAttack",
+									"attenuationTag": "ExtraAttack",
+									"attackProperty": 
+									{
+										"damagePercentage": "%NoFireDamage",
+										"strikeType": "Pierce",
+										"enBreak": 10,
+										"enHeadBreak": 30,
+									},
+									"hitPattern": 
+									{
+										"onHitEffectName": "default",
+										"hitImpulseType": "LV2", //Light x200 y0
+										"reboundRatio": 0,
+										"hitHaltTime": 0.0,
+										"hitHaltTimeScale": 0.01,
+										"muteHitText": false,
+									},
+									"canHitHead": true,
+									"hitHeadPattern": 
+									{
+										"onHitEffectName": "Eff_Arrow_Hit_Head",
+										"hitImpulseType": "LV5", //Air 480 y600
+										"reboundRatio": 0,
+										"hitHaltTime": 0.12,
+										"hitHaltTimeScale": 0.01,
+										"muteHitText": false,
+									},
+									"bulletWane": 
+									{
+										"waneDelay": 0.7, // 表示从Bullet创生之后这么久，开始套用衰减规则
+										"damageWaneInterval": 0.05, // 伤害衰减周期，每过这么久，进行一次伤害衰减
+										"damageWaneRatio": 0.1, // 每次进行伤害衰减时，按照DamageWaneRatio的比例，在damagePercentage上进行【扣除】，最多扣除到0
+										"hitLevelWaneInterval": 0.1, // 受击等级衰减周期，每过这么久，进行一次受击等级衰减，每次将当前受击等级往下降一级：Air→Heavy→Light→Shake→Mute
+										"hitLevelWaneMin": "Mute", // 受击等级最少衰减为这个等级。如果原本就不高于这个等级，则不予衰减。
+										"damageWaneMinRatio": 0.1,
+										"elementDurabilityWaneInterval": 0.05,
+										"elementDurabilityWaneRatio": 0.1,
+										"elementDurabilityWaneMinRatio": 0.1,
+									},
+								},
+							},
+						},
+					],
+				},
+				
+			],
+			"modifiers": 
+			{
+				"FireEffectModifier": 
+				{
+					"elementType": "Fire",
+					"elementDurability": 40,
+					"onAdded": 
+					[
+						{
+							"$type": "AttachEffect",
+							"effectPattern": "Eff_Avatar_Yoimiya_Arrow_Fire_Particle",
+						},
+						{
+							"$type": "AttachEffect",
+							"effectPattern": "Eff_Avatar_Yoimiya_Arrow_Fire_Trail",
+						},
+					]
+				},
+			},
+			"abilitySpecials":
+			{
+				"NoFireDamage": 1,
+				"WithFireDamage": 2,
+			},
+		},
+	}, 
+
+//////////////火属性爆炸箭////////////////
+	{
+		"Default": 
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Bullet_Yoimiya_Arrow_WithBomb_Material",
+			"onAdded": 
+			[
+				{
+					"$type": "AttachModifier",
+					"modifierName": "FireEffectModifier",
+					"target": "Self",
+				},
+			],
+			"onAbilityStart": 
+			[
+				{//改写了下逻辑，不然会没法阅读。
+					"$type":"Predicated",
+					"target":"Self",
+					"targetPredicates":
+					[
+						{
+							"$type": "ByHasElement", //有火没火处理不同
+							"element": "Fire",
+						},
+					],
+					"successActions":
+					[//先处理碰场景特效
+						{ 
+							"$type": "FireHitEffect",
+							"hitScene": 
+							{
+								"defaultEffect": "Eff_Avatar_Yoimiya_Arrow_Fire_OnHitting",
+								"surfaceEffect": 
+								{
+									"Water": "Eff_Arrow_Fire_Hit_Water"
+								},
+							},
+						},
+						//然后计算攻击盒，
+						{
+							"$type": "TriggerAttackEvent",
+							"targetType": "Enemy",
+							"attackEvent": 
+							{
+								"attackPattern": 
+								{
+									"$type": "ConfigAttackSphere",
+									"triggerType": "TriggerNoRepeat",
+									"radius":3,
+									"born": 
+									{
+										"$type": "ConfigBornByCollisionPoint",
+										"offset": 
+										{
+											"x": 0.0, // + means up, - means down
+											"y": 0.0, // + means left, - means right
+											"z": 0, // + means forward, - means backward
+										}
+									},
+									"massiveAttackRatio":0.5,
+									"checkHitLayerType": "Both",
+								},
+								"attackInfo": 
+								{
+									"canBeModifiedBy": "OriginOwner",
+									"attackTag": "ExtraAttack",
+									"attenuationTag": "ExtraAttack",
+									"attackProperty": 
+									{
+										"damagePercentage": "%WithBombDamage",
+										"strikeType": "Pierce",
+										"elementType": "Fire",
+										"elementDurability": 50,
+										"enBreak": 20,
+										"enHeadBreak": 60,
+									},
+									"hitPattern": 
+									{
+										"onHitEffectName": "Eff_Avatar_Yoimiya_Arrow_Fire_OnHitting",
+										"hitImpulseType": "LV5", //480 600 击飞
+										"reboundRatio": 0,
+										"hitHaltTime": 0.0,
+										"hitHaltTimeScale": 0.01,
+										"muteHitText": false,
+									},
+									"canHitHead": true,
+									"hitHeadPattern": 
+									{
+										"onHitEffectName": "Eff_Arrow_Hit_Head_Fire",
+										"hitImpulseType": "LV5", //Air 480 y600
+										"reboundRatio": 0,
+										"hitHaltTime": 0.12,
+										"hitHaltTimeScale": 0.01,
+										"muteHitText": false,
+									},
+									"bulletWane": 
+									{
+										"waneDelay": 0.7, // 表示从Bullet创生之后这么久，开始套用衰减规则
+										"damageWaneInterval": 0.05, // 伤害衰减周期，每过这么久，进行一次伤害衰减
+										"damageWaneRatio": 0.1, // 每次进行伤害衰减时，按照DamageWaneRatio的比例，在damagePercentage上进行【扣除】，最多扣除到0
+										"hitLevelWaneInterval": 0.1, // 受击等级衰减周期，每过这么久，进行一次受击等级衰减，每次将当前受击等级往下降一级：Air→Heavy→Light→Shake→Mute
+										"hitLevelWaneMin": "Mute", // 受击等级最少衰减为这个等级。如果原本就不高于这个等级，则不予衰减。
+										"damageWaneMinRatio": 0.1,
+										"elementDurabilityWaneInterval": 0.05,
+										"elementDurabilityWaneRatio": 0.1,
+										"elementDurabilityWaneMinRatio": 0.1,
+									},
+								}
+							},
+						},
+					],
+					"failActions":
+					[
+						{
+							"$type": "FireHitEffect",
+							"hitScene": 
+							{
+								"defaultEffect": "Eff_Arrow_Hit_Earth",
+								"surfaceEffect": 
+								{
+									"Water": "Eff_Arrow_Hit_Water"
+								}
+							},
+						},
+						{
+							"$type": "TriggerAttackEvent",
+							"targetType": "Enemy",
+							"attackEvent": 
+							{
+								"attackPattern": 
+								{
+									"$type": "ConfigAttackBox",
+									"triggerType": "TriggerNoRepeat",
+									"size": {
+										"x": 0.1,
+										"y": 0.1,
+										"z": 1.0,
+									},
+									"born": 
+									{
+										"$type": "ConfigBornByCollisionPoint",
+										"offset": 
+										{
+											"x": 0.0, // + means up, - means down
+											"y": 0.0, // + means left, - means right
+											"z": -0.5, // + means forward, - means backward
+										}
+									},
+									"checkHitLayerType": "Both",
+								},
+								"attackInfo": 
+								{
+									"canBeModifiedBy": "OriginOwner",
+									"attackTag": "ExtraAttack",
+									"attenuationTag": "ExtraAttack",
+									"attackProperty": 
+									{
+										"damagePercentage": "%NoFireDamage",
+										"strikeType": "Pierce",
+										"enBreak": 10,
+										"enHeadBreak": 30,
+									},
+									"hitPattern": 
+									{
+										"onHitEffectName": "default",
+										"hitImpulseType": "LV2", //Light x200 y0
+										"reboundRatio": 0,
+										"hitHaltTime": 0.0,
+										"hitHaltTimeScale": 0.01,
+										"muteHitText": false,
+									},
+									"canHitHead": true,
+									"hitHeadPattern": 
+									{
+										"onHitEffectName": "Eff_Arrow_Hit_Head",
+										"hitImpulseType": "LV5", //Air 480 y600
+										"reboundRatio": 0,
+										"hitHaltTime": 0.12,
+										"hitHaltTimeScale": 0.01,
+										"muteHitText": false,
+									},
+									"bulletWane": 
+									{
+										"waneDelay": 0.7, // 表示从Bullet创生之后这么久，开始套用衰减规则
+										"damageWaneInterval": 0.05, // 伤害衰减周期，每过这么久，进行一次伤害衰减
+										"damageWaneRatio": 0.1, // 每次进行伤害衰减时，按照DamageWaneRatio的比例，在damagePercentage上进行【扣除】，最多扣除到0
+										"hitLevelWaneInterval": 0.1, // 受击等级衰减周期，每过这么久，进行一次受击等级衰减，每次将当前受击等级往下降一级：Air→Heavy→Light→Shake→Mute
+										"hitLevelWaneMin": "Mute", // 受击等级最少衰减为这个等级。如果原本就不高于这个等级，则不予衰减。
+										"damageWaneMinRatio": 0.1,
+										"elementDurabilityWaneInterval": 0.05,
+										"elementDurabilityWaneRatio": 0.1,
+										"elementDurabilityWaneMinRatio": 0.1,
+									},
+								},
+							},
+						},
+					],
+				},
+			],
+			"modifiers": 
+			{
+				"FireEffectModifier": 
+				{
+					"elementType": "Fire",
+					"elementDurability": 40,
+					"onAdded": 
+					[
+						{
+							"$type": "AttachEffect",
+							"effectPattern": "Eff_Avatar_Yoimiya_Arrow_Fire_Particle",
+						},
+						{
+							"$type": "AttachEffect",
+							"effectPattern": "Eff_Avatar_Yoimiya_Arrow_Fire_Trail",
+						},
+					]
+				},
+			},
+			"abilitySpecials":
+			{
+				"NoFireDamage": 1,
+				"WithBombDamage": 3,
+			},
+		},
+	}, 
+	////////////////////////////////////////////////////////////////
+	//
+	//  Avatar_Yoimiya_ElementalArt
+	//
+	////////////////////////////////////////////////////////////////
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Yoimiya_ElementalArt",
+			"onAbilityStart":
+			[
+				{
+					"$type": "AvatarSkillStart",
+					"skillID": 10492,
+					"cdRatio": 1,
+				},
+				{
+					"$type": "TriggerBullet",
+					"bulletID": 41049010,
+					"born":
+					{
+						"$type": "ConfigBornByAttachPoint",
+						"attachPointName" : "RootNode",
+						"offset" :
+						{
+							"x": 0.0,
+							"y": 0.0,
+							"z": 0.0,
+						},
+					},
+				},
+				{
+					"$type": "AttachModifier",
+					"modifierName": "FireRing_Warm",
+				},
+				{
+					"$type": "AttachModifier",
+					"modifierName":"FireBall_Shoot_Handler",
+				},
+			],
+			"modifiers":
+			{
+				"FireRing_Warm":
+				{
+					"duration": 10,
+					"thinkInterval" : 1,
+					"onThinkInterval":
+					[
+						{
+							"$type":"ApplyModifier",
+							"modifierName":"UNIQUE_Yoimiya_FireRing_FireBuff",
+							"otherTargets":
+							{
+								"$type": "SelectTargetsByShape",
+								"shapeName": "CircleR3",
+								"centerBasedOn": "Self",
+								"campTargetType": "SelfCamp", //包括自己
+								"campBasedOn": "Self",
+							},
+							"predicates":
+							[
+								{
+									"$type" : "ByEntityTypes",
+									"entityTypes" : ["Avatar"],
+								},
+							],
+						},
+					],
+				},
+				"UNIQUE_Yoimiya_FireRing_FireBuff":
+				{
+					"isUnique": true,
+					"duration": 1.2,
+					"state": "ElementFire",
+					"elementType": "Fire",
+					"elementDurability": 25,
+				},
+				"FireBall_Shoot_Handler":
+				{
+					"duration":10,
+					// "thinkInterval":1,
+					// "onThinkInterval":
+					// [
+					// 		{
+					// 		"$type":"AddGlobalValue",
+					// 		"key": "_ABILITY_Avatar_Yoimiya_FireBall_Num",
+				    //  	"value": 1,
+				    //  	"useLimitRange": true,
+				    //  	"maxValue": 5,
+				    //  	"minValue": 0,
+					// 		},
+					// ],
+					"modifierMixins":
+					[
+						{
+							"$type":"AttachToStateIDMixin",
+							"stateIDs":["Attack01","Attack02","Attack_03","Attack04","Attack05",],
+							"modifierName":"ShootBall",
+						},
+					],
+				},
+				"ShootBall":
+				{
+					"duration":0.1,
+					"onRemoved":
+					[
+						{
+							"$type":"TriggerBullet",
+							"bulletID": 41049001,
+							// "born":
+							// {
+							// 	"$type": "ConfigBornByAttachPoint",
+							// 	"attachPointName": "WeaponL",
+							// 	"offset":
+							// 	{
+							// 		"x": 0.0,
+							// 		"y": 0.0,
+							// 		"z": 0.0,
+							// 	},
+							// 	"direction":
+							// 	{
+							// 		"$type": "ConfigDirectionByAttachPoint",
+							// 		"attachPointName": "FocusAnchor",
+							// 		"attachPointTargetType": "Self",
+							// 	},
+							// },
+							"trackTarget":"SelfAttackTarget",
+						},
+						{
+							"$type":"AddGlobalValue",
+							"key" : "_ABILITY_Avatar_Yoimiya_FireBall_Num",
+							"value" : -1,
+							"useLimitRange" : true,
+							"maxValue" : 5,
+							"minValue" : 0,
+							"otherTargets" :
+							{
+								"$type":"SelectTargetsByChildren",
+								"configID" :41049010,
+								"sortType": "Default",
+							},
+						},
+					],
+				},
+			},
+		},
+	},
+
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Bullet_Yoimiya_ElementalArt_Material",
+			"onAdded":
+			[
+				{
+					"$type":"FireEffect",
+					"effectPattern":"Eff_Weapon_Blast_R30",
+				},
+			],
+			"abilityMixins":
+			[
+				{
+					"$type":"AttachModifierToSelfGlobalValueMixin",
+					"globalValueKey":"_ABILITY_Avatar_Yoimiya_FireBall_Num",
+					"defaultGlobalValueOnCreate":5,
+					"addAction":"ResetGlobalValue",
+					"valueSteps":[-0.5,0.5,1.5,2.5,3.5,4.5,5.5],
+					"modifierNameSteps":["blank","Eff1","Eff2","Eff3","Eff4","Eff5",],
+				},
+			],
+			"modifiers":
+			{
+				"blank":
+				{},
+				"Eff1":
+				{
+					"onAdded":
+					[
+						{
+							"$type":"AttachEffect",
+							"effectPattern":"Eff_Weapon_Kunwu_Stack_01",
+						},
+					],
+				},
+				"Eff2":
+				{
+					"onAdded":
+					[
+						{
+							"$type":"AttachEffect",
+							"effectPattern":"Eff_Weapon_Kunwu_Stack_02",
+						},
+					],
+				},
+				"Eff3":
+				{
+					"onAdded":
+					[
+						{
+							"$type":"AttachEffect",
+							"effectPattern":"Eff_Weapon_Kunwu_Stack_03",
+						},
+					],
+				},
+				"Eff4":
+				{
+					"onAdded":
+					[
+						{
+							"$type":"AttachEffect",
+							"effectPattern":"Eff_Weapon_Kunwu_Stack_04",
+						},
+					],
+				},
+				"Eff5":
+				{
+					"onAdded":
+					[
+						{
+							"$type":"AttachEffect",
+							"effectPattern":"Eff_Weapon_Kunwu_Stack_05",
+						},
+					],
+				},
+			},
+		},
+	},
+
+
+	////////////////////////////////////////////////////////////////
+	//
+	//  Avatar_Yoimiya_ElementalBurst
+	//
+	////////////////////////////////////////////////////////////////
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Yoimiya_ElementalBurst",
+			"onAbilityStart":
+			[
+				{
+					"$type": "AvatarSkillStart",
+					"skillID": 10495,
+					"cdRatio": 1,
+				},
+				{
+					"$type":"FireEffect",
+					"effectPattern":"Eff_Avatar_Yoimiya_ArrowRain_Up",
+				},
+				{
+					"$type":"Predicated",
+					"target":"SelfAttackTarget",
+					"targetPredicates":
+					[
+						{
+							"$type":"ByHasAttackTarget",
+							"target":"Self",
+						},
+					],
+					"successActions":
+					[
+						{
+		                    "$type":"CreateGadget",
+		                    "target":"SelfAttackTarget",
+		                    "gadgetID":41049015,
+		                    "campID":1001,
+		                    "campTargetType":"Enemy",
+		                    "born":
+		                    {
+		                        "$type":"ConfigBornByTarget",
+		                        "offset":
+		                        {
+		                            "x" : 0,
+		                            "y" : 0,
+		                            "z" : 0
+		                        },
+		                        "onGround":true,
+		                    },
+		                },
+					],
+					"failActions":
+					[
+						{
+		                    "$type":"CreateGadget",
+		                    "target":"Self",
+		                    "gadgetID":41049015,
+		                    "campID":1001,
+		                    "campTargetType":"Enemy",
+		                    "born":
+		                    {
+		                        "$type":"ConfigBornByTarget",
+		                        "offset":
+		                        {
+		                            "x" : 0,
+		                            "y" : 0,
+		                            "z" : 5
+		                        },
+		                        "onGround":true,
+		                    },
+		                },
+					],
+
+				},
+			],
+		},
+	},
+
+	{
+
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Gadget_Yoimiya_ElementalBurst_Materrial",
+			"onAdded":
+			[
+				{
+					"$type":"AttachEffect",
+					"effectPattern":"Eff_Avatar_Yoimiya_ArrowRain_Down",
+				},
+				{
+					"$type":"AttachEffect",
+					"effectPattern":"Eff_Avatar_Yoimiya_AlertCircle_Big",
+				},
+				{
+					"$type":"AttachEffect",
+					"effectPattern":"Eff_Ganyu_UnbreakableIce_Dummy",
+				},
+				{
+					"$type":"ApplyModifier",
+					"modifierName":"Timer1",
+				},
+				{
+					"$type":"ApplyModifier",
+					"modifierName":"Timer2",
+				},
+				{
+					"$type":"ApplyModifier",
+					"modifierName":"Timer3",
+				},
+			],
+			"modifiers":
+			{
+				"Timer1":
+				{
+					"duration":2,
+					"onRemoved":
+					[
+						{
+							"$type":"FireEffect",
+							"effectPattern":"Eff_Avatar_Yoimiya_Hanabi_1",
+							"born":
+							{
+								"$type":"ConfigBornBySelf",
+								"offset":
+                                {
+                                    "x" : 0.0,
+                                    "y" : 4,
+                                    "z" : 0.0,
+                                },
+							},
+						},
+                        {
+                            "$type" : "TriggerAttackEvent",
+                            "targetType" : "Enemy",
+                            "attackEvent":
+                            {
+                                "attackPattern" :
+                                {
+                                    "$type" : "ConfigAttackSphere",
+                                    "triggerType" : "TriggerNoRepeat",
+                                    "radius":6.5,
+                                    "born":
+                                    {
+                                        "$type": "ConfigBornByTarget",
+                                        "offset":
+                                        {
+                                            "x" : 0.0,
+                                            "y" : 4,
+                                            "z" : 0.0,
+                                        },
+                                    },
+                                },
+                                "attackInfo":
+                                {
+                                    "attackTag":"Elemental_Burst",
+                                    "attenuation":"Elemental_Burst",
+                                    "canBeModifiedBy":"OriginOwner",
+                                    "attackProperty":
+                                    {
+                                        "damagePercentage": "%Interval_Damage",
+                                        "strikeType":"Default",//用blunt会导致破岩非常强。这部分就应该用Default
+                                        "attackType":"Range",
+                                        "elementType":"Fire",
+                                        "elementDurability":50,
+                                        "enBreak":150,
+                                    },
+                                    "hitPattern":
+                                    {
+                                        "onHitEffectName": "default",
+                                        "hitImpulseType":"LV4",
+                                        "retreatType": "ByHitDirection",
+                                        "reboundRatio": 0,
+                                        "hitHaltTime": 0.0,
+                                        "canBeDefenceHalt": false,
+                                        "hitHaltTimeScale": 0.01,
+                                        "muteHitText": false
+                                    },
+                                },
+                            },
+                        },
+					],
+				},
+				"Timer2":
+				{
+					"duration":3.2,
+					"onRemoved":
+					[
+						{
+							"$type":"FireEffect",
+							"effectPattern":"Eff_Avatar_Yoimiya_Hanabi_2",
+							"born":
+							{
+								"$type":"ConfigBornBySelf",
+								"offset":
+                                {
+                                    "x" : 0.0,
+                                    "y" : 4,
+                                    "z" : 0.0,
+                                },
+							},
+						},
+                        {
+                            "$type" : "TriggerAttackEvent",
+                            "targetType" : "Enemy",
+                            "attackEvent":
+                            {
+                                "attackPattern" :
+                                {
+                                    "$type" : "ConfigAttackSphere",
+                                    "triggerType" : "TriggerNoRepeat",
+                                    "radius":6.5,
+                                    "born":
+                                    {
+                                        "$type": "ConfigBornByTarget",
+                                        "offset":
+                                        {
+                                            "x" : 0.0,
+                                            "y" : 4,
+                                            "z" : 0.0,
+                                        },
+                                    },
+                                },
+                                "attackInfo":
+                                {
+                                    "attackTag":"Elemental_Burst",
+                                    "attenuation":"Elemental_Burst",
+                                    "canBeModifiedBy":"OriginOwner",
+                                    "attackProperty":
+                                    {
+                                        "damagePercentage": "%Interval_Damage",
+                                        "strikeType":"Default",//用blunt会导致破岩非常强。这部分就应该用Default
+                                        "attackType":"Range",
+                                        "elementType":"Fire",
+                                        "elementDurability":50,
+                                        "enBreak":150,
+                                    },
+                                    "hitPattern":
+                                    {
+                                        "onHitEffectName": "default",
+                                        "hitImpulseType":"LV4",
+                                        "retreatType": "ByHitDirection",
+                                        "reboundRatio": 0,
+                                        "hitHaltTime": 0.0,
+                                        "canBeDefenceHalt": false,
+                                        "hitHaltTimeScale": 0.01,
+                                        "muteHitText": false
+                                    },
+                                },
+                            },
+                        },
+					],
+				},
+				"Timer3":
+				{
+					"duration":4.4,
+					"onRemoved":
+					[
+						{
+							"$type":"FireEffect",
+							"effectPattern":"Eff_Avatar_Yoimiya_Hanabi_3",
+							"born":
+							{
+								"$type":"ConfigBornBySelf",
+								"offset":
+                                {
+                                    "x" : 0.0,
+                                    "y" : 4,
+                                    "z" : 0.0,
+                                },
+							},
+						},
+                        {
+                            "$type" : "TriggerAttackEvent",
+                            "targetType" : "Enemy",
+                            "attackEvent":
+                            {
+                                "attackPattern" :
+                                {
+                                    "$type" : "ConfigAttackSphere",
+                                    "triggerType" : "TriggerNoRepeat",
+                                    "radius":6.5,
+                                    "born":
+                                    {
+                                        "$type": "ConfigBornByTarget",
+                                        "offset":
+                                        {
+                                            "x" : 0.0,
+                                            "y" : 4,
+                                            "z" : 0.0,
+                                        },
+                                    },
+                                },
+                                "attackInfo":
+                                {
+                                    "attackTag":"Elemental_Burst",
+                                    "attenuation":"Elemental_Burst",
+                                    "canBeModifiedBy":"OriginOwner",
+                                    "attackProperty":
+                                    {
+                                        "damagePercentage": "%Interval_Damage",
+                                        "strikeType":"Default",//用blunt会导致破岩非常强。这部分就应该用Default
+                                        "attackType":"Range",
+                                        "elementType":"Fire",
+                                        "elementDurability":50,
+                                        "enBreak":150,
+                                    },
+                                    "hitPattern":
+                                    {
+                                        "onHitEffectName": "default",
+                                        "hitImpulseType":"LV7",//x=0,y=800,防止炸远无法追击
+                                        "retreatType": "ByHitDirection",
+                                        "reboundRatio": 0,
+                                        "hitHaltTime": 0.0,
+                                        "canBeDefenceHalt": false,
+                                        "hitHaltTimeScale": 0.01,
+                                        "muteHitText": false
+                                    },
+                                },
+                            },
+                        },
+					],
+				},
+			},
+			"abilitySpecials":
+			{
+				"Interval_Damage":1.2,
+			},
+		},
+	},
+
+
+
+	////////////////////////////////////////////////////////////////
+	//
+	//  Avatar_Yoimiya_NormalAttack_Handler  //挂gadget上。
+	//
+	////////////////////////////////////////////////////////////////
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Bullet_Yoimiya_NormalAttack_Handler", 
+			"abilityMixins":
+			[
+				{
+					"$type": "ModifyDamageMixin",             //这个挂在gadget上反而是正确的，不然角色死亡丢失伤害。
+					"animEventNames": ["Arrow_ATK01"],
+					"damagePercentage": "%NormalAttack_01",
+				},
+				{
+					"$type": "ModifyDamageMixin",
+					"animEventNames": ["Arrow_ATK02"],
+					"damagePercentage": "%NormalAttack_02",
+				},
+				{
+					"$type": "ModifyDamageMixin",
+					"animEventNames": ["Arrow_ATK03"],
+					"damagePercentage": "%NormalAttack_03",
+				},
+				{
+					"$type": "ModifyDamageMixin",
+					"animEventNames": ["Arrow_ATK04"],
+					"damagePercentage": "%NormalAttack_04",
+				},
+				{
+					"$type": "ModifyDamageMixin",
+					"animEventNames": ["Arrow_ATK05"],
+					"damagePercentage": "%NormalAttack_05",
+				},
+				{
+					"$type": "ModifyDamageMixin",
+					"animEventNames": ["Arrow_ATK06"],
+					"damagePercentage": "%NormalAttack_06",
+				},
+
+
+				///////////////测试用，记得删除
+				{
+					"$type": "ModifyDamageMixin",             //这个挂在gadget上反而是正确的，不然角色死亡丢失伤害。
+					"animEventNames": ["Arrow_ATK01"],
+					"damagePercentageRatio": 1,
+					"predicates":
+					[
+						{
+							"$type":"ByTargetForwardAndSelfPosition",
+                            "target":"Target",
+                            "value": 90,//先测试
+                            "logic": "GreaterOrEqual",							
+						},
+					],
+				},
+				{
+					"$type": "ModifyDamageMixin",
+					"animEventNames": ["Arrow_ATK02"],
+					"damagePercentageRatio": 1,
+					"predicates":
+					[
+						{
+							"$type":"ByTargetForwardAndSelfPosition",
+                            "target":"Target",
+                            "value": 90,//先测试
+                            "logic": "GreaterOrEqual",							
+						},
+					],
+				},
+				{
+					"$type": "ModifyDamageMixin",
+					"animEventNames": ["Arrow_ATK03"],
+					"damagePercentageRatio": 1,
+					"predicates":
+					[
+						{
+							"$type":"ByTargetForwardAndSelfPosition",
+                            "target":"Target",
+                            "value": 90,//先测试
+                            "logic": "GreaterOrEqual",							
+						},
+					],
+				},
+				{
+					"$type": "ModifyDamageMixin",
+					"animEventNames": ["Arrow_ATK04"],
+					"damagePercentageRatio": 1,
+					"predicates":
+					[
+						{
+							"$type":"ByTargetForwardAndSelfPosition",
+                            "target":"Target",
+                            "value": 90,//先测试
+                            "logic": "GreaterOrEqual",							
+						},
+					],
+				},
+				{
+					"$type": "ModifyDamageMixin",
+					"animEventNames": ["Arrow_ATK05"],
+					"damagePercentageRatio": 1,
+					"predicates":
+					[
+						{
+							"$type":"ByTargetForwardAndSelfPosition",
+                            "target":"Target",
+                            "value": 90,//先测试
+                            "logic": "GreaterOrEqual",							
+						},
+					],
+				},
+				{
+					"$type": "ModifyDamageMixin",
+					"animEventNames": ["Arrow_ATK06"],
+					"damagePercentageRatio": 1,
+					"predicates":
+					[
+						{
+							"$type":"ByTargetForwardAndSelfPosition",
+                            "target":"Target",
+                            "value": 90,//先测试
+                            "logic": "GreaterOrEqual",							
+						},
+					],
+				},
+
+
+			],
+			"abilitySpecials":
+			{
+				"NormalAttack_01": 0,
+				"NormalAttack_02": 0,
+				"NormalAttack_03": 0,
+				"NormalAttack_04": 0,
+				"NormalAttack_05": 0,
+				"NormalAttack_06": 0,
+			},
+		},
+	},
+	////////////////////////////////////////////////////////////////
+	//
+	//  空中攻击  （引自安柏）
+	//
+	////////////////////////////////////////////////////////////////
+	{
+		"Default": 
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Yoimiya_FallingAnthem",
+			"abilityMixins": 
+			[
+				{
+					"$type": "AvatarChangeSkillMixin",
+					"jumpSkillID": 5049010,
+					"flySkillID": 5049010,
+				},
+				{
+					"$type": "AttachToStateIDMixin",
+					"stateIDs": [
+						"FallingAnthem_BS"
+					],
+					"modifierName": "FallingAnthem_BS_Material",
+				},
+				{
+					"$type": "AttachToStateIDMixin",
+					"stateIDs": [
+						"FallingAnthem_Loop"
+					],
+					"modifierName": "FallingAnthem_Loop_Normal",
+				},
+				{
+					"$type": "AttachToAnimatorStateIDMixin",
+					"stateIDs": [
+						"FallingAnthem_BS_2",
+						"FallingAnthem_Loop",
+						"FallingAnthem_Loop_Low",
+					],
+					"modifierName": "FallingAnthem_LoopDamage",
+				},
+				{
+					"$type": "AttachToStateIDMixin",
+					"stateIDs": [
+						"FallingAnthem_BS"
+					],
+					"modifierName": "FallingAnthem_BS_VelocityForce_Initialize",
+				},
+				{
+					"$type": "AttachToStateIDMixin",
+					"stateIDs": [
+						"FallingAnthem_BS",
+						"FallingAnthem_Loop",
+						"FallingAnthem_AS_1",
+						"FallingAnthem_AS_2"
+					],
+					"modifierName": "FallingAnthem_Height_Detect",
+				},
+				{
+					"$type": "AttachToStateIDMixin",
+					"stateIDs": [
+						"FallingAnthem_BS",
+						"FallingAnthem_Loop",
+                        "FallingAnthem_AS_1",
+                        "FallingAnthem_AS_2"
+					],
+					"modifierName": "FallingAnthem_FallingDamageImmune_01",
+				},
+				{
+					"$type": "AttachToStateIDMixin",
+					"stateIDs": [
+						"FallingAnthem_BS",
+						"FallingAnthem_Loop"
+					],
+					"modifierName": "Inertia",
+				},
+				{
+					"$type": "AttachToStateIDMixin",
+					"stateIDs": [
+						"FallingAnthem_BS",
+						"FallingAnthem_Loop",
+						"FallingAnthem_AS_1",
+						"FallingAnthem_AS_2"
+					],
+					"modifierName": "FallingAnthem_OverHead_Camera",
+				},
+				{
+					"$type": "AttachToStateIDMixin",
+					"stateIDs": [
+						"FallingAnthem_BS"
+					],
+					"modifierName": "FallingAnthem_ClearVelocityForce",
+				},
+				{
+					"$type": "AttachToStateIDMixin",
+					"stateIDs": [
+						"FallingAnthem_BS",
+						"FallingAnthem_Loop",
+					],
+					"modifierName": "FallingAnthem_AttachEffect_BS_01", //气流效果
+				},
+			],
+			"onAdded": [
+			],
+			"onAbilityStart": [
+				//普通状态第一段
+				{
+					"$type": "TriggerAttackEvent",
+					"targetType": "Enemy",
+					"attackEvent": {
+						"attackPattern": {
+							"$type": "ConfigAttackCircle",
+							"triggerType": "TriggerNoRepeat",
+							"scale": 1.0,
+							"height": 2.0,
+							"centerYOffset": 0.0,
+							"offsetZ": 0.0,
+							"fanAngle": 360.0,
+							"radius": 3.0,
+							"followRootNodeY": false,
+							"followTransformY": false,
+							"offsetAngle": 0.0,
+							"born": {
+								"$type": "ConfigBornByTarget",
+								"offset": {
+									"x": 0.0,
+									"y": -0.5,
+									"z": 0.0,
+								},
+							},
+						},
+						"attackInfo": {
+							"attackTag": "FallingAttack",
+							"attackProperty": {
+								"damagePercentage": "%FallingAnthem_Normal_Rank_1_Damage",
+								"strikeType": "Pierce",
+								"attackType": "Melee",
+								"elementType": "None",
+								"enBreak": 50,
+							},
+							"hitPattern": {
+								"onHitEffectName": "none",
+								"hitImpulseType": "LV2", //Light x200 y0
+								"retreatType": "ByAttacker",
+								"reboundRatio": 0,
+								"canBeDefenceHalt": false,
+								"hitHaltTime": 0,
+								"hitHaltTimeScale": 0.1,
+								"muteHitText": false
+							},
+							/*
+                          "forceCameraShake": true,
+
+                          "cameraShake":
+                          {
+                              "shakeType": "CustomVector",
+                          "shakeRange": 0.3,
+                          "shakeTime": 0.12,
+                          "shakeDistance": 30,
+                          "shakeDir":
+                            {
+                              "x": 0,
+                              "y": 1,
+                              "z": 0,
+                            },
+                          },
+
+                          "cameraShake":
+                          {
+                              "shakeType": "CustomVector",
+                              "shakeRange": 0.08,
+                              "shakeTime": 0.06,
+                              "shakeDistance": 15,
+                              "shakeDir":
+                              {
+                                  "x": 0,
+                                  "y": 1,
+                                  "z": 0,
+                              },
+                              "extension":
+                              {
+                                  "baseCycle": 0.24,
+                                  "cycleDamping": 0,
+                                  "rangeAttenuation": 0.3,
+                              },
+                          },
+                          */
+						},
+					},
+					"predicates": [
+						{
+							"$type": "ByTargetGlobalValue",
+							"key": "_ABILITY_FallingAnthem_UseCamera",
+							"forceByCaster": true,
+							"value": 0,
+							"compareType": "NoneOrEqual",
+						},
+					],
+				},
+				//普通状态第二段
+				{
+					"$type": "TriggerAttackEvent",
+					"targetType": "Enemy",
+					"attackEvent": {
+						"attackPattern": {
+							"$type": "ConfigAttackCircle",
+							"triggerType": "TriggerNoRepeat",
+							"scale": 1.0,
+							"height": 2.0,
+							"centerYOffset": 0.0,
+							"offsetZ": 0.0,
+							"fanAngle": 360.0,
+							"radius": 3.5,
+							"followRootNodeY": false,
+							"followTransformY": false,
+							"offsetAngle": 0.0,
+							"born": {
+								"$type": "ConfigBornByTarget",
+								"offset": {
+									"x": 0.0,
+									"y": -0.5,
+									"z": 0.0,
+								},
+							},
+						},
+						"attackInfo": {
+							"attackTag": "FallingAttack",
+							"attackProperty": {
+								"damagePercentage": "%FallingAnthem_Normal_Rank_2_Damage",
+								"strikeType": "Pierce",
+								"attackType": "Melee",
+								"elementType": "None",
+								"enBreak": 100,
+							},
+							"hitPattern": {
+								"onHitEffectName": "none",
+								"hitImpulseType": "LV3", //Heavy x200 y0
+								"retreatType": "ByAttacker",
+								"reboundRatio": 0,
+								"canBeDefenceHalt": false,
+								"hitHaltTime": 0,
+								"hitHaltTimeScale": 0.1,
+								"muteHitText": false
+							},
+							/*
+                          "forceCameraShake": false,
+                          "cameraShake":
+                          {
+                              "shakeType": "CustomVector",
+                              "shakeRange": 0.08,
+                              "shakeTime": 0.06,
+                              "shakeDistance": 15,
+                              "shakeDir":
+                              {
+                                  "x": 0,
+                                  "y": 1,
+                                  "z": 1,
+                              },
+                              "extension":
+                              {
+                                  "baseCycle": 0.4,
+                                  "cycleDamping": 0,
+                                  "rangeAttenuation": 0.3,
+                              },
+                          },
+                          */
+						},
+					},
+					"predicates": [
+						{
+							"$type": "ByTargetGlobalValue",
+							"key": "_ABILITY_FallingAnthem_UseCamera",
+							"forceByCaster": true,
+							"value": 1,
+							"compareType": "Equal",
+						},
+					],
+				},
+				//普通状态第一段
+				{
+					"$type": "FireEffect",
+					"effectPattern": "Eff_Avatar_Bow_FallAnthem_Strike_01",
+					"predicates": [
+						{
+							"$type": "ByTargetGlobalValue",
+							"key": "_ABILITY_FallingAnthem_UseCamera",
+							"forceByCaster": true,
+							"value": 0,
+							"compareType": "NoneOrEqual",
+						},
+					],
+				},
+				//普通状态第二段
+				{
+					"$type": "FireEffect",
+					"effectPattern": "Eff_Avatar_Bow_FallAnthem_Strike_02",
+					"predicates": [
+						{
+							"$type": "ByTargetGlobalValue",
+							"key": "_ABILITY_FallingAnthem_UseCamera",
+							"forceByCaster": true,
+							"value": 1,
+							"compareType": "Equal",
+						},
+					],
+				},
+			],
+			"modifiers": {
+				"FallingAnthem_AttachEffect_BS_01": {
+					"onAdded": [
+						{
+							"$type": "AttachEffect",
+							"effectPattern": "Eff_Avatar_Bow_FallAnthem_BS_01",
+						},
+					],
+				},
+				"FallingAnthem_BS_Material": {
+					"onAdded": [
+						{
+							"$type": "FireEffect",
+							"effectPattern": "Eff_Avatar_Bow_FallAnthem_BS",
+						},
+					],
+					"onRemoved": [
+						{
+							"$type": "ActCameraRadialBlur",
+							"cameraRadialBlur": {
+								"power": 0.3,
+								"blurTime": 0.3,
+								"fadeTime": 0.15,
+							},
+						},
+					],
+				},
+				"FallingAnthem_BS_VelocityForce_Initialize": {
+					"properties": {
+						"Actor_AddGravityScale": -2,
+					},
+					"onAdded": [
+						{
+							"$type": "RemoveVelocityForce",
+							"forces": [
+								"RushMoveType"
+							],
+						},
+					],
+				},
+				"FallingAnthem_LoopDamage": {
+					"thinkInterval": 0.3,
+					"onThinkInterval": [
+						{
+							"$type": "TriggerAttackEvent",
+							"targetType": "Enemy",
+							"attackEvent": {
+								"attackPattern": {
+									"$type": "ConfigAttackSphere",
+									"triggerType": "TriggerNoRepeat",
+									"radius": 1.0,
+									"born": {
+										"$type": "ConfigBornBySelf",
+										"offset": {
+											"x": 0.0,
+											"y": 0.0,
+											"z": 0.0
+										}
+									}
+								},
+								"attackInfo": {
+									"attackTag": "FallingAttack",
+									"attackProperty": {
+										"damagePercentage": "%FallingAnthem_Normal_Loop_Damage",
+										"strikeType": "Pierce",
+										"attackType": "Melee",
+										"enBreak": 10,
+									},
+									"hitPattern": {
+										"onHitEffectName": "default",
+										"hitImpulseType": "LV2", //Light x200 y0
+										"reboundRatio": 0,
+										"canBeDefenceHalt": false,
+										"hitHaltTime": 0,
+										"hitHaltTimeScale": 0.02,
+										"muteHitText": false
+									},
+								},
+							},
+						},
+					],
+				},
+				"FallingAnthem_FallingDamageImmune_01": {
+					"onAdded": [
+						{
+							"$type": "ClearGlobalValue",
+							"key": "_ABILITY_FallingAttack_Altitude",
+						},
+						{
+							"$type": "AddGlobalValue",
+							"key": "_ABILITY_FallingAttack_Altitude",
+							"value": "%FallingAnthem_FallingDamageRatio_Lv0",
+							"useLimitRange": true,
+							"maxValue": "%FallingAnthem_FallingDamageRatio_Lv0",
+							"minValue": "%FallingAnthem_FallingDamageRatio_Lv0",
+							"predicates": [
+								{
+									"$type": "ByTargetAltitude",
+									"value": "%FallingAnthem_Altitude_Lv0",
+									"logic": "LesserOrEqual",
+								},
+							],
+						}, //==================================================================================
+						{
+							"$type": "AddGlobalValue",
+							"key": "_ABILITY_FallingAttack_Altitude",
+							"value": "%FallingAnthem_FallingDamageRatio_Lv1",
+							"useLimitRange": true,
+							"maxValue": "%FallingAnthem_FallingDamageRatio_Lv1",
+							"minValue": "%FallingAnthem_FallingDamageRatio_Lv1",
+							"predicates": [
+								{
+									"$type": "ByTargetAltitude",
+									"value": "%FallingAnthem_Altitude_Lv1",
+									"logic": "LesserOrEqual",
+								},
+								{
+									"$type": "ByTargetAltitude",
+									"value": "%FallingAnthem_Altitude_Lv0",
+									"logic": "Greater",
+								},
+							],
+						}, //==================================================================================
+						{
+							"$type": "AddGlobalValue",
+							"key": "_ABILITY_FallingAttack_Altitude",
+							"value": "%FallingAnthem_FallingDamageRatio_Lv2",
+							"useLimitRange": true,
+							"maxValue": "%FallingAnthem_FallingDamageRatio_Lv2",
+							"minValue": "%FallingAnthem_FallingDamageRatio_Lv2",
+							"predicates": [
+								{
+									"$type": "ByTargetAltitude",
+									"value": "%FallingAnthem_Altitude_Lv2",
+									"logic": "LesserOrEqual",
+								},
+								{
+									"$type": "ByTargetAltitude",
+									"value": "%FallingAnthem_Altitude_Lv1",
+									"logic": "Greater",
+								},
+							],
+						}, //==================================================================================
+						{
+							"$type": "AddGlobalValue",
+							"key": "_ABILITY_FallingAttack_Altitude",
+							"value": "%FallingAnthem_FallingDamageRatio_Lv3",
+							"useLimitRange": true,
+							"maxValue": "%FallingAnthem_FallingDamageRatio_Lv3",
+							"minValue": "%FallingAnthem_FallingDamageRatio_Lv3",
+							"predicates": [
+								{
+									"$type": "ByTargetAltitude",
+									"value": "%FallingAnthem_Altitude_Lv3",
+									"logic": "LesserOrEqual",
+								},
+								{
+									"$type": "ByTargetAltitude",
+									"value": "%FallingAnthem_Altitude_Lv2",
+									"logic": "Greater",
+								},
+							],
+						}, //==================================================================================
+						{
+							"$type": "AddGlobalValue",
+							"key": "_ABILITY_FallingAttack_Altitude",
+							"value": "%FallingAnthem_FallingDamageRatio_Lv4",
+							"useLimitRange": true,
+							"maxValue": "%FallingAnthem_FallingDamageRatio_Lv4",
+							"minValue": "%FallingAnthem_FallingDamageRatio_Lv4",
+							"predicates": [
+								{
+									"$type": "ByTargetAltitude",
+									"value": "%FallingAnthem_Altitude_Lv3",
+									"logic": "Greater",
+								},
+							],
+						}, //==================================================================================
+
+						{
+							"$type": "AttachModifier",
+							"modifierName": "FallingAnthem_FallingDamageImmune_02",
+						},
+					],
+				},
+				"FallingAnthem_FallingDamageImmune_02": {
+					"onAdded": [
+						{
+							"$type": "SetGlobalValueToOverrideMap",
+							"globalValueKey": "_ABILITY_FallingAttack_Altitude",
+							"overrideMapKey": "FallingAnthem_FallingDamageRatio",
+						},
+						{
+							"$type": "AttachModifier",
+							"modifierName": "FallingAnthem_FallingDamageImmune_03",
+						},
+					],
+				},
+				"FallingAnthem_FallingDamageImmune_03": {
+
+					"properties": {
+						"Actor_FallingDamageRatio": "%FallingAnthem_FallingDamageRatio",
+					},
+				},
+				"FallingAnthem_Loop_Normal":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "AttachEffect",
+							"effectPattern": "Eff_Avatar_Bow_FallAnthem_Loop_02",
+							"predicates":
+							[
+								{
+									"$type": "ByTargetGlobalValue",
+									"key": "_ABILITY_FallingAnthem_UseCamera",
+									"forceByCaster": true,
+									"value": 1,
+									"compareType": "Equal",
+								},
+							],
+						},
+					],
+				},
+				//水平惯性继承
+				"Inertia": {
+					"modifierMixins": [
+						{
+							"$type": "ApplyInertiaVelocityMixin",
+							"damping": 0,
+							"useXZ": false,
+							"useY": false,
+						},
+					],
+				},
+				"FallingAnthem_Height_Detect": {
+					"onAdded": [
+						{
+							"$type": "AddGlobalValue",
+							"key": "_ABILITY_FallingAnthem_UseCamera",
+							"value": 0,
+							"useLimitRange": true,
+							"maxValue": 0,
+							"minValue": 0,
+							"predicates": [
+								{
+									"$type": "ByTargetAltitude",
+									"value": 2.4,
+									"logic": "LesserOrEqual",
+								},
+							],
+						},
+						{
+							"$type": "AddGlobalValue",
+							"key": "_ABILITY_FallingAnthem_UseCamera",
+							"value": 5,
+							"useLimitRange": true,
+							"maxValue": 1,
+							"minValue": 0,
+							"predicates": [
+								{
+									"$type": "ByTargetAltitude",
+									"value": 2.4,
+									"logic": "Greater",
+								},
+							],
+						},
+						{
+							"$type": "SetAnimatorFloat",
+							"floatID": "FallingAnthem_UseCamera",
+							"value": 0,
+							"predicates": [
+								{
+									"$type": "ByTargetAltitude",
+									"value": 2.4,
+									"logic": "LesserOrEqual",
+								},
+							],
+						},
+						{
+							"$type": "SetAnimatorFloat",
+							"floatID": "FallingAnthem_UseCamera",
+							"value": 1,
+							"predicates": [
+								{
+									"$type": "ByTargetAltitude",
+									"value": 2.4,
+									"logic": "Greater",
+								},
+							],
+						},
+					],
+					"onRemoved": [
+						{
+							"$type": "SetAnimatorFloat",
+							"floatID": "FallingAnthem_UseCamera",
+							"value": 0,
+						},
+						{
+							"$type": "AddGlobalValue",
+							"key": "_ABILITY_FallingAnthem_UseCamera",
+							"value": 0,
+							"useLimitRange": true,
+							"maxValue": 0,
+							"minValue": 0,
+						},
+					],
+				},
+				"FallingAnthem_OverHead_Camera": {
+					"onAdded": [
+						{
+							"$type": "AvatarCameraParam",
+							"lockParam": false,
+							"cameraParam": {
+								"forceRadius": 4.5,
+								"forceRadiusDuration": 0.2,
+								"shouldKeepForceRadius": true,
+							},
+							"predicates": [
+								{
+									"$type": "ByAnimatorFloat",
+									"parameter": "FallingAnthem_UseCamera",
+									"value": 1,
+									"logic": "Equal",
+								},
+							],
+						},
+					],
+				},
+				"FallingAnthem_OverHead_Camera_Remover": {
+					"onAdded": [
+						{
+							"doOffStage": true,
+							"$type": "AvatarExitCameraShot",
+						},
+					],
+				},
+				"FallingAnthem_Landed_Camera": {
+					"onAdded": [
+						{
+							"$type": "AvatarCameraParam",
+							"lockParam": false,
+							"cameraParam": {
+								"forceRadius": 6.0,
+								"forceRadiusDuration": 0.1,
+								"shouldKeepForceRadius": true,
+							},
+							"predicates": [
+								{
+									"$type": "ByAnimatorFloat",
+									"parameter": "FallingAnthem_UseCamera",
+									"value": 1,
+									"logic": "Equal",
+								},
+							],
+						},
+					],
+				},
+				"FallingAnthem_ClearVelocityForce": {
+					"onAdded": [
+						{
+							"$type": "RemoveVelocityForce",
+							"forces": [
+								"RushMoveType",
+								"InertiaType"
+							],
+						},
+					],
+				},
+			},
+			"abilitySpecials": {
+				"FallingAnthem_Normal_Loop_Damage": 0,
+				"FallingAnthem_Normal_Rank_1_Damage": 0,
+				"FallingAnthem_Normal_Rank_2_Damage": 0,
+
+				"FallingAnthem_Altitude_Lv0": 20,
+				"FallingAnthem_Altitude_Lv1": 40,
+				"FallingAnthem_Altitude_Lv2": 60,
+				"FallingAnthem_Altitude_Lv3": 100,
+				"FallingAnthem_Altitude_Lv4": 200,
+
+				"FallingAnthem_FallingDamageRatio_Lv0": -1,
+				"FallingAnthem_FallingDamageRatio_Lv1": -1,
+				"FallingAnthem_FallingDamageRatio_Lv2": -0.9,
+				"FallingAnthem_FallingDamageRatio_Lv3": -0.8,
+				"FallingAnthem_FallingDamageRatio_Lv4": -0.6,
+
+				"FallingAnthem_FallingDamageRatio": 0,
+			},
+		},
+	},
+]

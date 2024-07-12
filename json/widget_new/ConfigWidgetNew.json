@@ -1,0 +1,336 @@
+{
+    "$type": "ConfigMainWidgetToy",
+    "gadgetConfigMap": 
+    {
+        // 家园壶
+        "70500025": 
+        {
+            "maxCountInScene": 1,
+            "maxCountByPlayer": 1,
+            "isCombatDestroy": true,
+            "combatDestroyDistance": 40,
+            "isDistanceDestroy": true,
+            "distanceDestroyDistance": 80,
+            "isHasCollision": true,
+            "collisionIncludeNpc": true,
+            "collisionIncludeWater": true,
+            "distanceToAvatar": 1,
+            "radius": 0.5,
+            "createHeight": 1.2,
+            "createRot" : {
+                "x" : 0,
+                "y" : 90,
+                "z" : 0
+              } 
+        }
+    },
+    "cdGroupConfigMap":
+    {
+        // 神瞳探测器
+        "1":{"isUnderTimeScale": false,"coolDownSuccess": 300,"coolDownFail": 5},
+        // 宝箱探测器
+        "2":{"isUnderTimeScale": false,"coolDownSuccess": 30,"coolDownFail": 5},
+        // 寻宝精灵 纯水精灵
+        "3":{"isUnderTimeScale": false,"coolDownSuccess": 2},
+        // 藏宝图探测器
+        "5":{"isUnderTimeScale": false,"coolDownSuccess": 30,"coolDownFail": 5},
+        // Photo
+        "6":{"isUnderTimeScale": false,"coolDownSuccess": 3},
+        //暖源
+        "7":{"isUnderTimeScale": false,"coolDownSuccess": 120},
+        // 气球
+        "8":{"isUnderTimeScale": false,"coolDownSuccess": 5},
+        // 风种子收集器
+        "9":{"isUnderTimeScale": false,"coolDownSuccess": 100},
+        // AnchorPoint 
+        "10":{"isUnderTimeScale": false,"coolDownSuccess": 60},
+        // Bonfire 
+        "11":{"isUnderTimeScale": false,"coolDownSuccess": 300},
+        // 提瓦特琴
+        "12":{"isUnderTimeScale": false,"coolDownSuccess": 2},
+        // 奇迹炼金釜（奇迹方块）
+        "13":{"isUnderTimeScale": false,"coolDownSuccess": 5,"coolDownFail": 5},
+        // 便当盒
+        "14":{"isUnderTimeScale": false,"coolDownSuccess": 5},
+        // 家园壶
+        "15":{"isUnderTimeScale": false,"coolDownSuccess": 5},
+        // 切技能道具
+        "16":{"isUnderTimeScale": false,"coolDownSuccess": 2},
+        // 船回血道具
+        "17":{"isUnderTimeScale": false,"coolDownSuccess": 90,"coolDownFail": 5},
+        // 羽球炸弹需要长cd
+        "18":{"isUnderTimeScale": false,"coolDownSuccess": 7},
+    },
+    "widgetConfigMap": 
+    {
+        // AnchorPoint 
+        "220005":
+        {
+            "$type": "ConfigWidgetToyAnchorPoint",
+            "isConsumeMaterial": true,
+            "cdGroup": 10,
+            "maxCountInScene": 1
+        },
+        // Bonfire 
+        "220006":
+        {
+            "$type": "ConfigWidgetToyBonfire",
+            "isConsumeMaterial": true,
+            "cdGroup": 11,
+            "distanceToAvatar": 1,
+            "radius": 0.5
+        },
+        // 宝箱探测器（璃月）
+        "220003": 
+        {
+            "$type": "ConfigWidgetToyClintDetector",
+            "tags" : ["ActionPanel"],
+			"isConsumeMaterial": false,
+			"cdGroup": 2,
+			"gadgetId": 70500009,
+			"allowCityId": 2,
+			"hintGroup": 1,
+			"distanceToAvatar": 1,
+			"height": 1
+		},
+		// 宝箱探测器(蒙德）
+        "220009": 
+        {
+            "$type": "ConfigWidgetToyClintDetector",
+            "tags" : ["ActionPanel"],
+			"isConsumeMaterial": false,
+			"cdGroup": 2,
+			"gadgetId": 70500008,
+			"allowCityId": 1,
+			"hintGroup": 2,
+			"distanceToAvatar": 1,
+			"height": 1
+        },
+        // 寻宝精灵 三色
+        "220014": 
+        {
+            "$type": "ConfigWidgetToyAttachAvatar",
+            "tags" : ["FlyAttach"],
+            "isConsumeMaterial": false,
+            "cdGroup":3,
+            "useGadgetId":70500019 
+		},
+        "220015": 
+        {
+            "$type": "ConfigWidgetToyAttachAvatar",
+            "tags" : ["FlyAttach"],
+            "isConsumeMaterial": false,
+            "cdGroup":3,
+			"useGadgetId": 70500015
+		},
+        "220016": 
+        {
+            "$type": "ConfigWidgetToyAttachAvatar",
+            "tags" : ["FlyAttach"],
+            "isConsumeMaterial": false,
+            "cdGroup":3,
+			"useGadgetId": 70500018 
+        },
+        // 截图小道具
+        "220018": 
+        {
+            "$type": "ConfigWidgetToyTakePhoto",
+            "tags" : ["ActionPanel"],
+            "cdGroup":6,
+            "isConsumeMaterial": false,
+            "hasCameraEffect": false
+        },
+        // 扫五福活动，修复的相机。改成截图小道具类型了
+        "220020": 
+        {
+            "$type": "ConfigWidgetToyTakePhoto",
+            "tags" : ["ActionPanel"],
+            "cdGroup":6,
+			"isConsumeMaterial": false,
+			"hasCameraEffect": true,
+			"cameraScreenEffect": "PostEffect_Scene_PhotoFilter_Blessing",
+			"mainCameraEffect": "ART/Effect/UI/UI/Eff_UI_BlessingPhoto_MainCamera_Particle",
+        },
+        // 扫五福活动，坏掉的相机
+        "220019": 
+        {
+            "$type": "ConfigWidgetToyBlessingCamera",
+            "tags" : ["ActionPanel"],
+            "cdGroup":6,
+            "isConsumeMaterial": false,
+			"isFixed": false
+		},
+        //暖源
+        "220017": 
+        {
+            "$type": "ConfigWidgetToyGadgetBuilder",
+            "tags" : ["ActionPanel"],
+            "cdGroup":7,
+            "isConsumeMaterial":true,
+			"checkCollision":false,
+			"lastingTime": 6,
+      		"maxCountInScene":5,
+      		"maxCountByPlayer":1,
+      		"gadgetId":70500014,      		
+        },
+        // 气球
+        "220024": 
+        {
+            "$type": "ConfigWidgetToyGadgetBuilder",
+            "tags" : ["ActionPanel"],
+            "cdGroup":8,
+            "isConsumeMaterial":false,
+            "checkCollision":false,
+			"lastingTime": 21,
+      		"maxCountInScene":10,
+      		"maxCountByPlayer":4,
+      		"gadgetId":70500022,
+      		"distanceToAvatar":3,
+      		"heightToAvatar":2,      		
+        },
+        // 风种子收集器
+        "220004": 
+        {
+            "$type": "ConfigWidgetToyClintCollector",
+            "tags" : ["ActionPanel"],
+            "cdGroup":9,
+            "isConsumeMaterial":false,
+			"rechargePoints": 1,
+			"maxPoints": 5,
+			"isAllowedInDungeon": true,
+			"isAllowedInRoom": false,
+			"targetType": "WindSeed",
+			"elementType": "Wind",
+			"effectGadgetId": 70500012,
+			"useGadgetId": 70500005
+        },
+        // 纯水精灵-宠物
+        "220023": 
+        {
+            "$type": "ConfigWidgetToyAbilityGroupGenerator",
+            "tags" : ["FlyAttach"],
+            "cdGroup":3,
+		    "abilityGroupName": "DynamicAbility_Toys_Endora"
+        },
+        // 风神瞳搜集器
+        "220001": 
+        {
+            "$type": "ConfigWidgetToyOneoffGatherPointDetector",
+            "tags" : ["ActionPanel"],
+            "isConsumeMaterial": true,
+            "cdGroup":1
+		},
+		// 岩神瞳收集器
+        "220002": 
+        {
+            "$type": "ConfigWidgetToyOneoffGatherPointDetector",
+            "tags" : ["ActionPanel"],
+            "isConsumeMaterial": true,
+            "cdGroup":1
+        },
+        //藏宝图探测器
+        "220013": 
+        {
+            "$type": "ConfigWidgetToyTreasureMapDetector",
+            "tags" : ["ActionPanel","FlyAttach"],
+            "isConsumeMaterial": false,
+            "isShowRedpoint": true,
+            "cdGroup":5
+        },
+        // 提瓦特琴
+        "220025": 
+        {
+            "$type": "ConfigWidgetToyOpenPage",
+            "tags" : ["ActionPanel"],
+            "isConsumeMaterial": false,
+            "cdGroup":12,
+            "isShowRedpoint": true,
+            "pageName": "InLevelMusicPage"   
+        },
+        // 纯水精灵-活动
+        "220022": 
+        {
+			"$type": "ConfigWidgetToyWaterSprite",
+			"tags" : ["ActionPanel","FlyAttach"],
+            "isConsumeMaterial": false,
+            "cdGroup":5,
+            "isShowRedpoint": true,
+			"abilityTriggerName":"ActivityAbility_Endora_SwtichSkill",
+			"abilityTriggerNameSecond":"ActivityAbility_Endora_RemoveSkill"
+        },
+        // 奇迹炼金釜（奇迹方块）
+        "220021": 
+        {
+			"$type": "ConfigWidgetToyMiracleRing",
+            "isConsumeMaterial": false,
+            "cdGroup": 13,
+        },
+        // 便当盒
+        "220008": 
+        {
+            "$type": "ConfigWidgetToyLunchBox",
+            "tags" : ["ActionPanel"],
+            "isConsumeMaterial": false,
+            "cdGroup": 14,
+        },
+        // 家园壶
+        "220026":
+        {
+            "$type": "ConfigWidgetToyAdeptiAbode",
+            "isConsumeMaterial": false,
+            "cdGroup": 15,
+            "gadgetId": 70500025,
+            "isSeverGadget": true,
+            "isSeverGadgetCoverCreate": true,
+            "abilityName": "SceneObj_Area_Common_Property_Ani_Prop_AdeptiAbode_01_Ability",
+            "effectLastTime": 2
+        },
+		// 羽球球拍测试
+		"220027": 
+        {
+            "$type": "ConfigWidgetUseAttachAbilityGroup",
+            "tags" : ["ActionPanel", "FlyAttach"],
+            "isConsumeMaterial": false,
+            "cdGroup": 16,
+            "abilityGroupNameSecond": "ActivityAbility_LudiHarpastum_Serve"
+        },
+        "220028": 
+        {
+            "$type": "ConfigWidgetAddBuff",
+            "buffId": 600202,
+            "isConsumeMaterial": false,
+            "cdGroup": 17,
+        },
+        // 羽球炸弹1
+        "220029": 
+        {
+            "$type": "ConfigWidgetUseAttachAbilityGroup",
+            "tags" : ["ActionPanel", "FlyAttach"],
+            "isConsumeMaterial": true,
+            "cdGroup": 18,
+            "abilityGroupNameSecond": "ActivityAbility_LudiHarpastum_BombTypeA",
+            "isUpdateCDAfterAbilityTrigger":true
+        },
+        // 羽球炸弹2
+        "220030": 
+        {
+            "$type": "ConfigWidgetUseAttachAbilityGroup",
+            "tags" : ["ActionPanel", "FlyAttach"],
+            "isConsumeMaterial": true,
+            "cdGroup": 18,
+            "abilityGroupNameSecond": "ActivityAbility_LudiHarpastum_BombTypeB",
+            "isUpdateCDAfterAbilityTrigger":true
+        },
+        // 羽球炸弹3
+        "220031": 
+        {
+            "$type": "ConfigWidgetUseAttachAbilityGroup",
+            "tags" : ["ActionPanel", "FlyAttach"],
+            "isConsumeMaterial": true,
+            "cdGroup": 18,
+            "abilityGroupNameSecond": "ActivityAbility_LudiHarpastum_BombTypeC",
+            "isUpdateCDAfterAbilityTrigger":true
+        }
+        
+    }
+}

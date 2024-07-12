@@ -1,0 +1,4195 @@
+[
+////////////////////////////////////////////////////////////////
+//
+//  Born
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_Born",
+		"onAdded": 
+		[
+			{
+				"$type": "EnablePartControl",
+				"partRootNames": ["LaserControl"],
+				"enable": false,
+			},
+			{
+				"$type": "EnablePartControl",
+				"partRootNames": ["HemiLaserControl"],
+				"enable": false,
+			},
+			{
+				"$type" : "AddGlobalValue",
+				"key" : "_MONSTER_Konungmathr_None_EyeCore_Protected",
+				"value" : -1.0,
+				"useLimitRange" : true,
+				"maxValue" : 1.0,
+				"minValue" : 0.0,
+			},
+			{
+				"$type" : "AddGlobalValue",
+				"key" : "_MONSTER_Konungmathr_None_FootCore_Protected",
+				"value" : -1.0,
+				"useLimitRange" : true,
+				"maxValue" : 1.0,
+				"minValue" : 0.0,
+			},
+			{
+				"$type" : "ApplyModifier",
+				"modifierName"  : "Monster_Konungmathr_None_BornState_Set",
+				"predicates":
+				[
+					{
+						"$type": "ByAnimatorFloat",
+						"parameter": "PoseID",
+						"value": 100.0,
+						"logic": "Equal",
+					},
+				],
+			},
+			{
+				"$type": "TriggerAbility",
+				"abilityName": "Monster_Konungmathr_None_PowerOff",
+				"predicates":
+				[
+					{
+						"$type": "ByAnimatorFloat",
+						"parameter": "PoseID",
+						"value": 101.0,
+						"logic": "Equal",
+					},
+				],
+			},
+		],
+		"modifiers":
+		{
+			"Monster_Konungmathr_None_BornState_Set":
+			{
+				"duration": 0.5,
+				"onAdded":
+				[
+					// {
+					// 	"$type": "TriggerAbility",
+					// 	"abilityName": "Monster_Konungmathr_None_CoreState",
+					// }
+				],
+				"onRemoved":
+				[
+					{
+						"$type": "TriggerAbility",
+						"abilityName": "Monster_Konungmathr_None_CoreState",
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  PowerOff
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Konungmathr_None_PowerOff",
+		"onAbilityStart":
+		[
+			{
+				"$type": "ApplyModifier",
+				"modifierName": "UNIQUE_Monster_Konungmathr_None_PowerOff",
+				"target": "Self",
+			},
+		],
+		"modifiers":
+		{
+			"UNIQUE_Monster_Konungmathr_None_PowerOff":
+			{
+				"isUnique": true,
+				"properties":
+				{
+					"Entity_MassRatio": 1000,
+					"Entity_WeightRatio": 5,
+					"Actor_EndureDelta": 0,
+				},
+				"onAdded":
+				[
+					{
+						"$type": "AttachModifier",
+						"modifierName": "PowerOff_Invincible",
+					},
+					{
+						"$type": "AttachModifier",
+						"modifierName": "PowerOff_IsGhostToAllied",
+					},
+					{
+						"$type": "AttachModifier",
+						"modifierName": "PowerOff_IsGhostToEnemy",
+					},
+					{
+						"$type": "AttachModifier",
+						"modifierName": "PowerOff_MuteTaunt",
+					},
+					{
+						"$type": "HideUIBillBoard",
+						"hide": true,
+					},
+					{
+						"$type": "SetPoseBool",
+						"boolID": "PowerOff",
+						"value": true,
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type": "HideUIBillBoard",
+						"hide": false,
+					},
+					{
+						"$type": "SetPoseBool",
+						"boolID": "PowerOff",
+						"value": false,
+					},
+				],
+			},
+			"PowerOff_Invincible":
+			{
+				"state": "Invincible",
+			},
+			"PowerOff_IsGhostToAllied":
+			{
+				"state": "IsGhostToAllied",
+			},
+			"PowerOff_IsGhostToEnemy":
+			{
+				"state": "IsGhostToEnemy",
+			},
+			"PowerOff_MuteTaunt":
+			{
+				"state": "MuteTaunt",
+			},
+		},
+	},
+},
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_PowerOff_WakeUp",
+		"onAbilityStart": 
+		[
+			{
+				"$type": "SetAnimatorTrigger",
+				"triggerID": "WakeUpTrigger",
+			},
+		],
+	},
+},
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_PowerOff_Remove",
+		"abilityMixins": 
+		[
+			{
+				"$type": "AttachToStateIDMixin",
+				"stateIDs": ["PowerOff_WakeUp", "PowerOff_Warning"],
+				"modifierName": "Monster_Konungmathr_None_StartUp",
+			},
+		],
+		"modifiers":
+		{
+			"Monster_Konungmathr_None_StartUp":
+			{
+				"onAdded":
+				[
+					{
+						"$type": "RemoveUniqueModifier",
+						"modifierName": "UNIQUE_Monster_Konungmathr_None_PowerOff",
+					},
+					{
+						"$type": "TriggerAbility",
+						"abilityName": "Monster_Konungmathr_None_CoreState",
+						"target": "Self",
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  CoreState
+//
+////////////////////////////////////////////////////////////////
+//核心相关逻辑处理
+//分为头部、脚部。
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_CoreState",
+		"abilityMixins": 
+		[
+			//眼部核心失效后状态
+			{
+				"$type": "AttachToPoseIDMixin",
+				"poseIDs": [202, 204, 206],
+				"modifierName": "Monster_Konungmathr_None_EyeDisable_State",
+			},
+			//脚部核心失效后状态
+			{
+				"$type": "AttachToPoseIDMixin",
+				"poseIDs": [203, 204, 206],
+				"modifierName": "Monster_Konungmathr_None_FootDisable_State",
+			},
+			//双核心瘫痪倒计时
+			{
+				"$type": "DoActionByPoseIDMixin",
+				"poseIDs": [204, 206],
+				"enterActions":
+				[
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "UNIQUE_Konungmathr_None_BothDisable_CountDown",
+					},
+				],
+			},
+		],
+		"onAbilityStart":
+		[
+			{
+				"$type" : "ApplyModifier",
+				"modifierName"  : "UNIQUE_Monster_Konungmathr_None_EyeCore",
+			},
+			{
+				"$type" : "ApplyModifier",
+				"modifierName"  : "UNIQUE_Monster_Konungmathr_None_FootCore",
+			},
+			{
+				"$type" : "ApplyModifier",
+				"modifierName"  : "UNIQUE_Monster_Konungmathr_EyeCore_StateEffect",
+			},
+			{
+				"$type" : "ApplyModifier",
+				"modifierName"  : "UNIQUE_Monster_Konungmathr_FootCore_StateEffect",
+			},
+		],
+		"modifiers":
+		{
+			"Monster_Konungmathr_None_EyeDisable_State":
+			{
+				"onAdded":
+				[
+					// {
+					// 	"$type" : "AttachEffect",
+					// 	"effectPattern"  : "Eff_Monster_Konungmathr_EyeDisableStart",
+					// },
+					{
+						"$type" : "RemoveUniqueModifier",
+						"modifierName"  : "UNIQUE_Monster_Konungmathr_None_EyeActive",
+					},
+				],
+				"onRemoved":
+				[
+					//激活眼部核心
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "UNIQUE_Monster_Konungmathr_None_EyeCore",
+					},
+				],
+			},
+			"Monster_Konungmathr_None_FootDisable_State":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "AttachEffect",
+						"effectPattern"  : "Eff_Monster_Konungmathr_HemiWeak",
+					},
+					{
+						"$type" : "RemoveUniqueModifier",
+						"modifierName"  : "UNIQUE_Monster_Konungmathr_None_FootActive",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"ReTriggerAISkillInitialCD",
+						"skillIDs":[111],
+					},
+					//激活脚部核心
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "UNIQUE_Monster_Konungmathr_None_FootCore",
+					},
+				],
+			},
+			"UNIQUE_Konungmathr_None_BothDisable_CountDown":
+			{
+				"isUnique": true,
+				"duration": 20.0,
+				"onAdded": 
+				[
+					{
+						"$type": "SetPoseBool",
+						"boolID": "BothDisable",
+						"value": true,
+					},
+					{
+						"$type" : "AttachEffect",
+						"effectPattern"  : "Eff_Monster_Konungmathr_BothDisableStart",
+					},
+					{
+						"$type" : "ResetAnimatorTrigger",
+						"triggerID"  : "EndTurnFront",
+					},
+					{
+						"$type":"DoWatcherSystemAction",
+						"inThreatListOnly":true,
+						"watcherId": 82073,
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTER_AutoMatron_WeakTag",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "SetAnimatorTrigger",
+						"triggerID"  : "EndTurnFront",
+						// "predicates":
+						// [
+						// 	{
+						// 		"$type" : "ByAny",
+						// 		"predicates"  : 
+						// 		[
+						// 			{
+						// 				"$type" : "ByAnimatorFloat",
+						// 				"value"  : 205,
+						// 				"parameter"  : "PoseID",
+						// 				"logic"  : "Equal",
+						// 			},
+						// 			{
+						// 				"$type" : "ByAnimatorFloat",
+						// 				"value"  : 206,
+						// 				"parameter"  : "PoseID",
+						// 				"logic"  : "Equal",
+						// 			},
+						// 		],
+						// 	},
+						// ],
+					},
+					{
+						"$type":"SetAISkillCDAvailableNow",
+						"skillIDs":[261]
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -1,
+						"key"  : "_MONSTER_AutoMatron_WeakTag",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+			//眼部核心相关逻辑
+			"UNIQUE_Monster_Konungmathr_None_EyeCore":
+			{
+				"isUnique": true,
+				"elementType": "None",
+				"elementDurability": "%WeaknessDurability",
+				"onBeingHit":
+				[
+					{
+						"$type": "Predicated",
+						"targetPredicates": 
+						[
+							{
+								"$type": "ByHitBoxName",
+								"hitBoxNames": ["HeadBox"],
+							},
+							{
+								"$type": "ByHitEnBreak",
+								"enBreak": 1.0,
+								"logic": "GreaterOrEqual",
+							},
+							{
+								"$type": "ByTargetGlobalValue",
+								"key": "_MONSTER_Konungmathr_None_EyeCore_Protected",
+								"value": 0.0,
+								"compareType": "Equal",
+							},
+							{
+								"$type": "ByTargetGlobalValue",
+								"key": "_MONSTER_Konungmathr_None_EyeCore_Active",
+								"value": 1.0,
+								"compareType": "Equal",
+							},
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_MONSTER_Konungmathr_EyeCore_HitCountDown",
+								"value"  : 50,
+								"compareType"  : "MoreThan",
+							},
+							{
+								"$type" : "ByTargetHPRatio",
+								"target" : "Caster",
+								"HPRatio"  : 0,
+								"logic"  : "Greater",
+							},
+						],
+						"successActions":
+						[
+							{
+								"$type" : "TriggerAbility",
+								"abilityName"  : "Monster_Konungmathr_None_EyeCore_Protected_Long",
+							},
+						],
+					},
+					{
+						"$type": "Predicated",
+						"targetPredicates": 
+						[
+							{
+								"$type": "ByHitBoxName",
+								"hitBoxNames": ["HeadBox"],
+							},
+							{
+								"$type": "ByHitEnBreak",
+								"enBreak": 1.0,
+								"logic": "GreaterOrEqual",
+							},
+							{
+								"$type": "ByTargetGlobalValue",
+								"key": "_MONSTER_Konungmathr_None_EyeCore_Protected",
+								"value": 0.0,
+								"compareType": "Equal",
+							},
+							{
+								"$type": "ByTargetGlobalValue",
+								"key": "_MONSTER_Konungmathr_None_EyeCore_Active",
+								"value": 1.0,
+								"compareType": "Equal",
+							},
+						],
+						"successActions":
+						[
+							{
+								"$type": "SetAnimatorTrigger",
+								"triggerID": "BreakTrigger",
+								"target": "Self",
+								"predicates":
+								[
+									{
+										"$type" : "ByNot",
+										"predicates"  : 
+										[
+											{
+												"$type": "ByAnimatorInt",
+												"parameter": "SkillID",
+												"value": 111,
+												"logic": "Equal",
+											},
+										],
+									},
+								],
+							},
+							{
+								"$type" : "TriggerAbility",
+								"abilityName"  : "Monster_Konungmathr_None_FootCore_Protected_Short",
+							},
+							{
+								"$type": "FireEffect",
+								"effectPattern": "Eff_Monster_Konungmathr_EyeBeHit",
+								"born":
+								{
+									"$type": "ConfigBornByAttachPoint",
+									"attachPointName": "EyeCore",
+								},
+							},
+							{
+								"$type" : "AddGlobalValue",
+								"target": "Self",
+								"value"  : -50,
+								"key"  : "_MONSTER_Konungmathr_EyeCore_HitCountDown",
+								"useLimitRange"  : true,
+								"maxValue"  : "%WeaknessDurability",
+								"minValue"  : 0,
+							},
+							{
+								"$type": "AddElementDurability",
+								"modifierName": "UNIQUE_Monster_Konungmathr_None_EyeCore",
+								"value": -50.0,
+								"useLimitRange": true,
+								"minValue": 0.0,
+								"maxValue": 9999.0,
+							},
+						],
+					},
+				],
+				"onAdded":
+				[
+					{
+						"$type": "EnableHitBoxByName",
+						"hitBoxNames": ["HeadBox"],
+						"setEnable": true,
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : "%WeaknessDurability",
+						"key"  : "_MONSTER_Konungmathr_EyeCore_HitCountDown",
+						"useLimitRange"  : true,
+						"maxValue": "%WeaknessDurability",
+						"minValue"  : 0,
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type": "EnableHitBoxByName",
+						"hitBoxNames": ["HeadBox"],
+						"setEnable": false,
+					},
+					{
+						"$type" : "SendEffectTrigger",
+						"parameter"  : "DisableStartTrigger",
+						"effectPattern"  : "Eff_Monster_Konungmathr_Eye_CoreState",
+					},
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_EyeDisable_CountDown",
+					},
+					{
+						"$type" : "FireEffect",
+						"effectPattern"  : "Eff_Monster_Konungmathr_HemiWeak_EyeDisable",
+						"predicates"  : 
+						[
+							{
+								"$type" : "ByAnimatorFloat",
+								"value"  : 203,
+								"parameter"  : "PoseID",
+								"logic"  : "GreaterOrEqual",
+							},
+						],
+					},
+				],
+			},
+			//脚部核心相关逻辑
+			"UNIQUE_Monster_Konungmathr_None_FootCore":
+			{
+				"isUnique": true,
+				"elementType": "None",
+				"elementDurability": "%WeaknessDurability",
+				"onBeingHit":
+				[
+					{
+						"$type": "Predicated",
+						"targetPredicates": 
+						[
+							{
+								"$type": "ByHitBoxName",
+								"hitBoxNames": ["LeftFootBox","RightFootBox"],
+							},
+							{
+								"$type": "ByHitEnBreak",
+								"enBreak": 1.0,
+								"logic": "GreaterOrEqual",
+							},
+							{
+								"$type": "ByTargetGlobalValue",
+								"key": "_MONSTER_Konungmathr_None_FootCore_Protected",
+								"value": 0.0,
+								"compareType": "Equal",
+							},
+							{
+								"$type": "ByTargetGlobalValue",
+								"key": "_MONSTER_Konungmathr_None_FootCore_Active",
+								"value": 1,
+								"compareType": "Equal",
+							},
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_MONSTER_Konungmathr_FootCore_HitCountDown",
+								"value"  : 50,
+								"compareType"  : "MoreThan",
+							},
+							{
+								"$type" : "ByTargetHPRatio",
+								"target" : "Caster",
+								"HPRatio"  : 0,
+								"logic"  : "Greater",
+							},
+						],
+						"successActions":
+						[
+							{
+								"$type": "SetAnimatorTrigger",
+								"triggerID": "BreakTrigger",
+								"target": "Self",
+							},
+							{
+								"$type" : "TriggerAbility",
+								"abilityName"  : "Monster_Konungmathr_None_FootCore_Protected_Long",
+							},
+						],
+					},
+					{
+						"$type": "Predicated",
+						"targetPredicates": 
+						[
+							{
+								"$type": "ByHitBoxName",
+								"hitBoxNames": ["LeftFootBox","RightFootBox"],
+							},
+							{
+								"$type": "ByHitEnBreak",
+								"enBreak": 1.0,
+								"logic": "GreaterOrEqual",
+							},
+							{
+								"$type": "ByTargetGlobalValue",
+								"key": "_MONSTER_Konungmathr_None_FootCore_Protected",
+								"value": 0.0,
+								"compareType": "Equal",
+							},
+							{
+								"$type": "ByTargetGlobalValue",
+								"key": "_MONSTER_Konungmathr_None_FootCore_Active",
+								"value": 1,
+								"compareType": "Equal",
+							},
+						],
+						"successActions":
+						[
+							{
+								"$type": "FireEffect",
+								"effectPattern": "Eff_Monster_Konungmathr_FootBeHit",
+								"born":
+								{
+									"$type": "ConfigBornByAttachPoint",
+									"attachPointName": "LeftFootCore",
+								},
+							},
+							{
+								"$type": "FireEffect",
+								"effectPattern": "Eff_Monster_Konungmathr_FootBeHit",
+								"born":
+								{
+									"$type": "ConfigBornByAttachPoint",
+									"attachPointName": "RightFootCore",
+								},
+							},
+							{
+								"$type" : "TriggerAbility",
+								"abilityName"  : "Monster_Konungmathr_None_EyeCore_Protected_Short",
+							},
+							{
+								"$type" : "AddGlobalValue",
+								"value"  : -50,
+								"key"  : "_MONSTER_Konungmathr_FootCore_HitCountDown",
+								"useLimitRange"  : true,
+								"maxValue"  : "%WeaknessDurability",
+								"minValue"  : 0,
+							},
+							{
+								"$type": "AddElementDurability",
+								"modifierName": "UNIQUE_Monster_Konungmathr_None_FootCore",
+								"value": -50.0,
+								"useLimitRange": true,
+								"minValue": 0.0,
+								"maxValue": 9999.0,
+							},	
+						],
+					},
+				],
+				"onAdded":
+				[
+					{
+						"$type": "EnableHitBoxByName",
+						"hitBoxNames": ["LeftFootBox"],
+						"setEnable": true,
+					},
+					{
+						"$type": "EnableHitBoxByName",
+						"hitBoxNames": ["RightFootBox"],
+						"setEnable": true,
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : "%WeaknessDurability",
+						"key"  : "_MONSTER_Konungmathr_FootCore_HitCountDown",
+						"useLimitRange"  : true,
+						"maxValue": "%WeaknessDurability",
+						"minValue"  : 0,
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type": "EnableHitBoxByName",
+						"hitBoxNames": ["LeftFootBox"],
+						"setEnable": false,
+					},
+					{
+						"$type": "EnableHitBoxByName",
+						"hitBoxNames": ["RightFootBox"],
+						"setEnable": false,
+					},
+					{
+						"$type" : "SendEffectTrigger",
+						"parameter"  : "DisableStartTrigger",
+						"effectPattern"  : "Eff_Monster_Konungmathr_LeftFoot_CoreState",
+					},
+					{
+						"$type" : "SendEffectTrigger",
+						"parameter"  : "DisableStartTrigger",
+						"effectPattern"  : "Eff_Monster_Konungmathr_RightFoot_CoreState",
+					},
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_FootDisable_CountDown",
+					},
+					{
+						"$type": "SetAnimatorTrigger",
+						"triggerID": "WeakStartTrigger",
+					},
+				],
+			},
+			"UNIQUE_Monster_Konungmathr_EyeCore_StateEffect":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AttachEffect",
+						"effectPattern"  : "Eff_Monster_Konungmathr_Eye_CoreState",
+					},
+				],
+			},
+			"UNIQUE_Monster_Konungmathr_FootCore_StateEffect":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AttachEffect",
+						"effectPattern"  : "Eff_Monster_Konungmathr_LeftFoot_CoreState",
+					},
+					{
+						"$type" : "AttachEffect",
+						"effectPattern"  : "Eff_Monster_Konungmathr_RightFoot_CoreState",
+					},
+				],
+			},
+		},
+		"abilitySpecials":
+		{
+			"WeaknessDurability": 100.0,
+		},
+	},
+},
+//眼部核心激活,即部分技能前后摇时触发
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_EyeActive",
+		"onAbilityStart":
+		[
+			{
+				"$type" : "ApplyModifier",
+				"modifierName"  : "UNIQUE_Monster_Konungmathr_None_EyeActive",
+			},
+		],
+		"modifiers":
+		{
+			"UNIQUE_Monster_Konungmathr_None_EyeActive":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTER_Konungmathr_None_EyeCore_Active",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+					{
+						"$type" : "SendEffectTrigger",
+						"parameter"  : "ActiveTrigger",
+						"effectPattern"  : "Eff_Monster_Konungmathr_Eye_CoreState",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "Predicated",
+						"target"  : "Self",
+						"targetPredicates"  : 
+						[
+							//眼部核心未瘫痪恢复该状态
+							{
+								"$type" : "ByAny",
+								"predicates"  : 
+								[
+									{
+										"$type": "ByAnimatorFloat",
+										"parameter": "PoseID",
+										"value": 202.0,
+										"logic": "Equal",
+									},
+									{
+										"$type": "ByAnimatorFloat",
+										"parameter": "PoseID",
+										"value": 204.0,
+										"logic": "Equal",
+									},
+									{
+										"$type": "ByAnimatorFloat",
+										"parameter": "PoseID",
+										"value": 206.0,
+										"logic": "Equal",
+									},
+								],
+							},
+						],
+						"successActions"  : 
+						[
+							{
+								"$type" : "AddGlobalValue",
+								"value"  : -1,
+								"key"  : "_MONSTER_Konungmathr_None_EyeCore_Active",
+								"useLimitRange"  : true,
+								"maxValue"  : 1,
+								"minValue"  : 0,
+							},
+						],
+						"failActions"  : 
+						[
+							{
+								"$type" : "ApplyModifier",
+								"modifierName"  : "UNIQUE_Monster_Konungmathr_None_EyeActive_Latency",
+							},
+						],
+					},			
+				],
+			},
+			"UNIQUE_Monster_Konungmathr_None_EyeActive_Latency":
+			{
+				"isUnique": true,
+				"duration": 0.5,
+				"onRemoved":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -1,
+						"key"  : "_MONSTER_Konungmathr_None_EyeCore_Active",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+					{
+						"$type" : "SendEffectTrigger",
+						"parameter"  : "OffTrigger",
+						"effectPattern"  : "Eff_Monster_Konungmathr_Eye_CoreState",
+						"predicates":
+						[
+							//眼部核心未瘫痪恢复该状态
+							{
+								"$type" : "ByAny",
+								"predicates"  : 
+								[
+									{
+										"$type": "ByAnimatorFloat",
+										"parameter": "PoseID",
+										"value": 201.0,
+										"logic": "Equal",
+									},
+									{
+										"$type": "ByAnimatorFloat",
+										"parameter": "PoseID",
+										"value": 203.0,
+										"logic": "Equal",
+									},
+									{
+										"$type": "ByAnimatorFloat",
+										"parameter": "PoseID",
+										"value": 205.0,
+										"logic": "Equal",
+									},
+									{
+										"$type": "ByAnimatorFloat",
+										"parameter": "PoseID",
+										"value": 207.0,
+										"logic": "Equal",
+									},
+								],
+							},
+						],
+					},
+				],
+			},
+		},
+	},
+},
+//眼部核心关闭,与激活成对出现。
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_EyeOff",
+		"onAbilityStart":
+		[
+			{
+				"$type" : "RemoveUniqueModifier",
+				"modifierName"  : "UNIQUE_Monster_Konungmathr_None_EyeActive",
+			},
+		],
+	},
+},
+//脚部核心激活,即部分技能前后摇时触发
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_FootActive",
+		"onAbilityStart":
+		[
+			{
+				"$type" : "ApplyModifier",
+				"modifierName"  : "UNIQUE_Monster_Konungmathr_None_FootActive",
+			},
+		],
+		"modifiers":
+		{
+			"UNIQUE_Monster_Konungmathr_None_FootActive":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTER_Konungmathr_None_FootCore_Active",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+					{
+						"$type" : "SendEffectTrigger",
+						"parameter"  : "ActiveTrigger",
+						"effectPattern"  : "Eff_Monster_Konungmathr_LeftFoot_CoreState",
+					},
+					{
+						"$type" : "SendEffectTrigger",
+						"parameter"  : "ActiveTrigger",
+						"effectPattern"  : "Eff_Monster_Konungmathr_RightFoot_CoreState",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "Predicated",
+						"target"  : "Self",
+						"targetPredicates"  : 
+						[
+							{
+								"$type": "ByAnimatorFloat",
+								"parameter": "PoseID",
+								"value": 203.0,
+								"logic": "GreaterOrEqual",
+							},
+						],
+						"successActions"  : 
+						[
+							{
+								"$type" : "AddGlobalValue",
+								"value"  : -1,
+								"key"  : "_MONSTER_Konungmathr_None_FootCore_Active",
+								"useLimitRange"  : true,
+								"maxValue"  : 1,
+								"minValue"  : 0,
+							},
+						],
+						"failActions"  : 
+						[
+							{
+								"$type" : "ApplyModifier",
+								"modifierName"  : "UNIQUE_Monster_Konungmathr_None_FootActive_Latency",
+							},
+						],
+					},					
+				],
+			},
+			"UNIQUE_Monster_Konungmathr_None_FootActive_Latency":
+			{
+				"isUnique": true,
+				"duration": 0.5,
+				"onRemoved":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -1,
+						"key"  : "_MONSTER_Konungmathr_None_FootCore_Active",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+					{
+						"$type" : "SendEffectTrigger",
+						"parameter"  : "OffTrigger",
+						"effectPattern"  : "Eff_Monster_Konungmathr_LeftFoot_CoreState",
+						"predicates":
+						[
+							//脚部核心未瘫痪恢复该状态
+							{
+								"$type": "ByAnimatorFloat",
+								"parameter": "PoseID",
+								"value": 203.0,
+								"logic": "Lesser",
+							},
+						],
+					},
+					{
+						"$type" : "SendEffectTrigger",
+						"parameter"  : "OffTrigger",
+						"effectPattern"  : "Eff_Monster_Konungmathr_RightFoot_CoreState",
+						"predicates":
+						[
+							//脚部核心未瘫痪恢复该状态
+							{
+								"$type": "ByAnimatorFloat",
+								"parameter": "PoseID",
+								"value": 203.0,
+								"logic": "Lesser",
+							},
+						],
+					},
+				],
+			},
+		},
+	},
+},
+//脚部核心关闭,与激活成对出现。
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_FootOff",
+		"onAbilityStart":
+		[
+			{
+				"$type" : "RemoveUniqueModifier",
+				"modifierName"  : "UNIQUE_Monster_Konungmathr_None_FootActive",
+			},
+		],
+	},
+},
+//眼部核心瘫痪状态倒计时
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_EyeDisable_CountDown",
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachModifierToSelfGlobalValueMixin",
+				"globalValueKey":"_MONSTER_Konungmathr_None_EyeDisableState",
+				"valueSteps":[-1,0.5,1.5],
+				"defaultGlobalValueOnCreate": 1,
+				"modifierNameSteps":["IntoEyeDisable","OutEyeDisable"],
+			},
+		],
+		"onAbilityStart": 
+		[
+			{
+				"$type": "ApplyModifier",
+				"modifierName": "UNIQUE_Konungmathr_None_EyeDisable_CountDown",
+				"target": "Self",
+			},
+		],
+		"modifiers":
+		{
+			"UNIQUE_Konungmathr_None_EyeDisable_CountDown":
+			{
+				"isUnique": true,
+				"duration": 20.0,
+				"onAdded": 
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -1,
+						"key"  : "_MONSTER_Konungmathr_None_EyeDisableState",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTER_Konungmathr_None_EyeDisableState",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+					{
+						"$type" : "SendEffectTrigger",
+						"parameter"  : "ReturnToBornTrigger",
+						"effectPattern"  : "Eff_Monster_Konungmathr_Eye_CoreState",
+					},
+				],
+			},
+			"IntoEyeDisable":
+			{
+				"onAdded": 
+				[
+					{
+						"$type": "SetPoseBool",
+						"boolID": "EyeDisable",
+						"value": true,
+					},
+				],
+			},
+			"OutEyeDisable":
+			{
+				"onAdded": 
+				[
+					{
+						"$type": "SetPoseBool",
+						"boolID": "EyeDisable",
+						"value": false,
+					},
+				],
+			},
+		},
+	},
+},
+//脚部核心瘫痪状态倒计时
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_FootDisable_CountDown",
+		"onAbilityStart": 
+		[
+			{
+				"$type": "ApplyModifier",
+				"modifierName": "UNIQUE_Konungmathr_None_FootDisable_CountDown",
+				"target": "Self",
+			},
+		],
+		"modifiers":
+		{
+			"UNIQUE_Konungmathr_None_FootDisable_CountDown":
+			{
+				"isUnique": true,
+				"duration": 20.0,
+				"onAdded": 
+				[
+					{
+						"$type": "SetPoseBool",
+						"boolID": "FootDisable",
+						"value": true,
+					},
+					{
+						"$type" : "ResetAnimatorTrigger",
+						"triggerID"  : "EndTurnFront",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "SetAnimatorTrigger",
+						"triggerID"  : "EndTurnFront",
+						"predicates":
+						[
+							{
+								"$type" : "ByAnimatorFloat",
+								"value"  : 205,
+								"parameter"  : "PoseID",
+								"logic"  : "Equal",
+							},
+						],
+					},
+					{
+						"$type":"SetAISkillCDAvailableNow",
+						"skillIDs":[111],
+					},
+				],
+			},
+		},
+	},
+},
+//眼部核心护盾
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_EyeCore_Protected_Long",
+		"onAbilityStart": 
+		[
+			{
+				"$type" : "ApplyModifier",
+				"modifierName"  : "UNIQUE_Monster_Konungmathr_None_EyeCore_Protected_Long",
+			},
+		],
+		"modifiers":
+		{
+			"UNIQUE_Monster_Konungmathr_None_EyeCore_Protected_Long":
+			{
+				"isUnique": true,
+				"duration": "%WeakProtectTime",
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"key" : "_MONSTER_Konungmathr_None_EyeCore_Protected",
+						"value" : 1.0,
+						"useLimitRange" : true,
+						"maxValue" : 1.0,
+						"minValue" : 0.0,
+					},
+					{
+						"$type": "ApplyModifier",
+						"modifierName": "EyeCore_ProtectEffect",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"key" : "_MONSTER_Konungmathr_None_EyeCore_Protected",
+						"value" : -1.0,
+						"useLimitRange" : true,
+						"maxValue" : 1.0,
+						"minValue" : 0.0,
+					},
+				],
+			},
+			"EyeCore_ProtectEffect":
+			{
+				"duration": "%WeakProtectTime+%WeakProtectTimeDelta",
+				"onAdded":
+				[
+					{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_Monster_Konungmathr_EyeShield",
+					},
+				],
+			},
+		},
+		"abilitySpecials":
+		{
+			"WeakProtectTime": 7.5,
+			"WeakProtectTimeDelta": 1.5,
+		},
+	},
+},
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_EyeCore_Protected_Short",
+		"onAbilityStart": 
+		[
+			{
+				"$type" : "ApplyModifier",
+				"modifierName"  : "UNIQUE_Monster_Konungmathr_None_EyeCore_Protected_Short",
+			},
+		],
+		"modifiers":
+		{
+			"UNIQUE_Monster_Konungmathr_None_EyeCore_Protected_Short":
+			{
+				"isUnique": true,
+				"duration": "%WeakProtectTime",
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"key" : "_MONSTER_Konungmathr_None_EyeCore_Protected",
+						"value" : 1.0,
+						"useLimitRange" : true,
+						"maxValue" : 1.0,
+						"minValue" : 0.0,
+					},
+					{
+						"$type": "ApplyModifier",
+						"modifierName": "EyeCore_ProtectEffect",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"key" : "_MONSTER_Konungmathr_None_EyeCore_Protected",
+						"value" : -1.0,
+						"useLimitRange" : true,
+						"maxValue" : 1.0,
+						"minValue" : 0.0,
+					},
+				],
+			},
+			"EyeCore_ProtectEffect":
+			{
+				"duration": "%WeakProtectTime+%WeakProtectTimeDelta",
+				"onAdded":
+				[
+					{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_Monster_Konungmathr_EyeShield",
+					},
+				],
+			},
+		},
+		"abilitySpecials":
+		{
+			"WeakProtectTime": 2.5,
+			"WeakProtectTimeDelta": 0.5,
+		},
+	},
+},
+//脚部核心护盾
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_FootCore_Protected_Long",
+		"onAbilityStart": 
+		[
+			{
+				"$type" : "ApplyModifier",
+				"modifierName"  : "UNIQUE_Monster_Konungmathr_None_FootCore_Protected_Long",
+			},
+		],
+		"modifiers":
+		{
+			"UNIQUE_Monster_Konungmathr_None_FootCore_Protected_Long":
+			{
+				"isUnique": true,
+				"duration": "%WeakProtectTime",
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"key" : "_MONSTER_Konungmathr_None_FootCore_Protected",
+						"value" : 1.0,
+						"useLimitRange" : true,
+						"maxValue" : 1.0,
+						"minValue" : 0.0,
+					},
+					{
+						"$type": "ApplyModifier",
+						"modifierName": "FootCore_ProtectEffect",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"key" : "_MONSTER_Konungmathr_None_FootCore_Protected",
+						"value" : -1.0,
+						"useLimitRange" : true,
+						"maxValue" : 1.0,
+						"minValue" : 0.0,
+					},
+				],
+			},
+			"FootCore_ProtectEffect":
+			{
+				"duration": "%WeakProtectTime+%WeakProtectTimeDelta",
+				"onAdded":
+				[
+					{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_Monster_Konungmathr_LeftFootShield",
+					},
+					{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_Monster_Konungmathr_RightFootShield",
+					},
+				],
+			},
+		},
+		"abilitySpecials":
+		{
+			"WeakProtectTime": 7.5,
+			"WeakProtectTimeDelta": 1.5,
+		},
+	},
+},
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_FootCore_Protected_Short",
+		"onAbilityStart": 
+		[
+			{
+				"$type" : "ApplyModifier",
+				"modifierName"  : "UNIQUE_Monster_Konungmathr_None_FootCore_Protected_Short",
+			},
+		],
+		"modifiers":
+		{
+			"UNIQUE_Monster_Konungmathr_None_FootCore_Protected_Short":
+			{
+				"isUnique": true,
+				"duration": "%WeakProtectTime",
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"key" : "_MONSTER_Konungmathr_None_FootCore_Protected",
+						"value" : 1.0,
+						"useLimitRange" : true,
+						"maxValue" : 1.0,
+						"minValue" : 0.0,
+					},
+					{
+						"$type": "ApplyModifier",
+						"modifierName": "FootCore_ProtectEffect",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"key" : "_MONSTER_Konungmathr_None_FootCore_Protected",
+						"value" : -1.0,
+						"useLimitRange" : true,
+						"maxValue" : 1.0,
+						"minValue" : 0.0,
+					},
+				],
+			},
+			"FootCore_ProtectEffect":
+			{
+				"duration": "%WeakProtectTime+%WeakProtectTimeDelta",
+				"onAdded":
+				[
+					{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_Monster_Konungmathr_LeftFootShield",
+					},
+					{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_Monster_Konungmathr_RightFootShield",
+					},
+				],
+			},
+		},
+		"abilitySpecials":
+		{
+			"WeakProtectTime": 2.5,
+			"WeakProtectTimeDelta": 0.5,
+		},
+	},
+},
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_Weak_Ground",
+		"onAbilityStart": 
+		[
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Konungmathr_WeakDust",
+			},
+			{
+				"$type": "ActCameraShake",
+				"cameraShake":
+				{
+					"shakeType": "CustomVector",
+					"shakeRange": 0.20,
+					"shakeTime": 0.15,
+					"shakeDistance": 25.0,
+					"shakeDir":
+					{
+						"x":0, 
+						"y":-1,
+						"z":0,
+					},
+				},
+			},
+		],
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  StampTwice
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_StampTwice",
+		"abilityMixins":
+		[
+			{
+				"$type" : "AttachToNormalizedTimeMixin",
+				"stateID"  : "StampTwice",
+				"modifierName"  : "Monster_Konungmathr_None_StampTwice_FootActive",
+				"normalizeStart"  : 0.3,
+				"normalizeEnd"  : 0.8,
+			},
+		],
+		"modifiers":
+		{
+			"Monster_Konungmathr_None_StampTwice_FootActive":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_FootActive",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_FootOff",
+					},
+				],
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  DashAtk
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_DashAtk",
+		"abilityMixins": 
+		[
+			{
+				"$type": "AttachToStateIDMixin",
+				"stateIDs": ["DashAtk_Move"],
+				"modifierName": "Monster_Konungmathr_None_DashState",
+			},
+			{
+				"$type" : "AttachToNormalizedTimeMixin",
+				"stateID"  : "DashAtk_AS",
+				"modifierName"  : "Monster_Konungmathr_None_DashAtk_FootActive",
+				"normalizeStart"  : 0,
+				"normalizeEnd"  : 1,
+			},
+			{
+				"$type" : "AttachToNormalizedTimeMixin",
+				"stateID"  : "DashAtk_BS",
+				"modifierName"  : "Monster_Konungmathr_None_DashAtk_FootActive",
+				"normalizeStart"  : 0,
+				"normalizeEnd"  : 1,
+			},
+		],
+		"modifiers":
+		{
+			"Monster_Konungmathr_None_DashState":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "AttachEffect",
+						"effectPattern"  : "Eff_Monster_Konungmathr_Dashing",
+					},
+				],
+			},
+			"Monster_Konungmathr_None_DashAtk_FootActive":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_FootActive",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_FootOff",
+					},
+				],
+			},
+		},
+	},
+},
+
+
+////////////////////////////////////////////////////////////////
+//
+//  Whirl
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_Whirl",
+		"abilityMixins": 
+		[
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["Whirl_BS", "Whirl_Loop", "Whirl_AS"],
+				"startNormalizedTime" : 0.8,
+				"endNormalizedTime" : 0.25,
+				"angularSpeed" : 90,
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "AttachToStateIDMixin",
+				"stateIDs": ["Whirl_BS", "Whirl_Loop"],
+				"modifierName": "Monster_Konungmathr_None_Whirl_State",
+			},
+			{
+				"$type" : "AttachToNormalizedTimeMixin",
+				"stateID"  : "Whirl_AS",
+				"modifierName"  : "Monster_Konungmathr_None_Whirl_FootActive",
+				"normalizeStart"  : 0.3,
+				"normalizeEnd"  : 1,
+			},
+			{
+				"$type" : "AttachToNormalizedTimeMixin",
+				"stateID"  : "Whirl_BS",
+				"modifierName"  : "Monster_Konungmathr_None_Whirl_FootActive",
+				"normalizeStart"  : 0.0,
+				"normalizeEnd"  : 0.8,
+			},
+		],
+		"onAbilityStart":
+		[
+			{
+				"$type": "ApplyModifier",
+				"modifierName": "Monster_Konungmathr_None_Whirl_Effect_StateCheck",
+				"target": "Self",
+			},
+		],
+		"modifiers":
+		{
+			"Monster_Konungmathr_None_Whirl_Effect_StateCheck":
+			{
+				"modifierMixins":
+				[
+					{
+						"$type": "AttachToAbilityStateMixin",
+						"abilityStates": ["ElementFrozen", "ElementPetrifaction"],
+						"reject": true,
+						"modifierName": "Monster_Konungmathr_None_Whirl_Effect",
+					},
+				],
+			},
+			"Monster_Konungmathr_None_Whirl_Effect":
+			{
+				"thinkInterval": 0.2,
+				"onThinkInterval":
+				[
+					{
+						"$type" : "ActCameraShake",
+						"cameraShake":
+						{
+							"shakeType": "CustomVector",
+							"shakeRange": 0.16,
+							"shakeTime": 0.2,
+							"shakeDistance": 20.0,
+							"shakeDir":
+							{
+								"x": 0,
+								"y": 1,
+								"z": 0,
+							},
+							"extension":
+							{
+								"baseCycle": 0.2,
+								"cycleDamping": 0,
+								"rangeAttenuation": 1,
+							},
+						},
+					}
+				],
+				"onAdded":
+				[
+					{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_Monster_Konungmathr_WhirlLoop",
+					},
+				],
+			},
+			"Monster_Konungmathr_None_Whirl_State":
+			{
+				"onRemoved":
+				[
+					{
+						"$type": "RemoveModifier",
+						"modifierName": "Monster_Konungmathr_None_Whirl_Effect_StateCheck",
+					},
+				],
+			},
+			"Monster_Konungmathr_None_Whirl_FootActive":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_FootActive",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_FootOff",
+					},
+				],
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  Swipe&Laser
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_Swipe_Arm_01",
+		"onAbilityStart": 
+		[
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Konungmathr_Arm",
+				"born":
+				{
+					"$type": "ConfigBornByAttachPoint",
+					"attachPointName": "ArmL02",
+				},
+			},
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Konungmathr_Arm",
+				"born":
+				{
+					"$type": "ConfigBornByAttachPoint",
+					"attachPointName": "ArmR02",
+				},
+			},
+		],
+	},
+},
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_Swipe_Arm_02",
+		"onAbilityStart": 
+		[
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Konungmathr_Arm",
+				"born":
+				{
+					"$type": "ConfigBornByAttachPoint",
+					"attachPointName": "ArmL03",
+				},
+			},
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Konungmathr_Arm",
+				"born":
+				{
+					"$type": "ConfigBornByAttachPoint",
+					"attachPointName": "ArmR03",
+				},
+			},
+		],
+	},
+},
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_Swipe_Arm_03",
+		"onAbilityStart": 
+		[
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Konungmathr_Arm",
+				"born":
+				{
+					"$type": "ConfigBornByAttachPoint",
+					"attachPointName": "ArmL04",
+				},
+			},
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Konungmathr_Arm",
+				"born":
+				{
+					"$type": "ConfigBornByAttachPoint",
+					"attachPointName": "ArmR04",
+				},
+			},
+		],
+	},
+},
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_Swipe_Arm_04",
+		"onAbilityStart": 
+		[
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Konungmathr_Arm",
+				"born":
+				{
+					"$type": "ConfigBornByAttachPoint",
+					"attachPointName": "ArmL05",
+				},
+			},
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Konungmathr_Arm",
+				"born":
+				{
+					"$type": "ConfigBornByAttachPoint",
+					"attachPointName": "ArmR05",
+				},
+			},
+		],
+	},
+},
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_SwipeAndLaser",
+		"abilityMixins":
+		[
+			{
+				"$type" : "AttachToNormalizedTimeMixin",
+				"stateID"  : "SwipeAndLaser",
+				"modifierName"  : "Monster_Konungmathr_None_SwipeAndLaser_EyeState",
+				"normalizeStart"  : 0.1,
+				"normalizeEnd"  : 0.9,
+			},
+			{
+				"$type" : "AttachToNormalizedTimeMixin",
+				"stateID"  : "SwipeAndLaser",
+				"modifierName"  : "Monster_Konungmathr_None_SwipeAndLaser_LaserState",
+				"normalizeStart"  : 0.588,
+				"normalizeEnd"  : 0.8,
+			},
+		],
+		"modifiers":
+		{
+			"Monster_Konungmathr_None_SwipeAndLaser_LaserState":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "AttachEffect",
+						"effectPattern"  : "Eff_Monster_Konungmathr_Laser_Loop",
+						"born": 
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "EyeCore",
+							"direction":
+							{
+								"$type": "ConfigDirectionByAttachPoint",
+								"attachPointName":"EyeCore",
+								"attachPointTargetType":"Self",
+							},
+						},
+					},
+					// {
+					// 	"$type" : "FireEffect",
+					// 	"effectPattern"  : "Eff_Monster_Konungmathr_Laser_Land",
+					// },
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "Monster_Konungmathr_Laser_LoopEnd",
+					},
+					{
+						"$type": "TriggerBullet",
+						"bulletID": 42304025,
+						"campID": 4001,
+						"lifeByOwnerIsAlive": false,
+						"born": 
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "SwipeLaserDirection",
+							"offset": 
+							{
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+							},
+							"direction":
+							{
+								"$type": "ConfigDirectionByAttachPoint",
+								"attachPointName":"SwipeLaserDirection",
+								"attachPointTargetType":"Self",
+							},
+						},
+					},
+				],
+				"thinkInterval": 0.1,
+				"onThinkInterval":
+				[
+					{
+						"$type": "TriggerBullet",
+						"bulletID": 42304025,
+						"campID": 4001,
+						"lifeByOwnerIsAlive": false,
+						"born": 
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "SwipeLaserDirection",
+							"offset": 
+							{
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+							},
+							"direction":
+							{
+								"$type": "ConfigDirectionByAttachPoint",
+								"attachPointName":"SwipeLaserDirection",
+								"attachPointTargetType":"Self",
+							},
+						},
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "SendEffectTrigger",
+						"parameter"  : "LaserEnd",
+						"effectPattern"  : "Eff_Monster_Konungmathr_Laser_Loop",
+					},
+				],
+			},
+			"Monster_Konungmathr_Laser_LoopEnd":
+			{
+				"duration": 0.20,
+				"onRemoved":
+				[
+					{
+						"$type" : "SendEffectTrigger",
+						"parameter"  : "LaserEnd",
+						"effectPattern"  : "Eff_Monster_Konungmathr_Laser_Loop",
+					},
+				],
+			},
+			"Monster_Konungmathr_None_SwipeAndLaser_EyeState":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_EyeActive",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_EyeOff",
+					},
+				],
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  TracingLaser
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_TracingLaser",
+		"abilityMixins": 
+		[
+			{
+				"$type":"DoActionByStateIDMixin",
+				"stateIDs":["TracingLaser_BS", "TracingLaser_HemiFront_BS", "TracingLaser_HemiBack_BS"],
+				"enterActions":
+				[
+					{
+						"$type": "ResetAIAttackTarget",
+					},
+					// {
+					// 	"$type" : "TriggerBullet",
+					// 	"bulletID"  : 42304018,
+					// 	"campID": 4001,
+					// 	"trackTarget"  : "SelfAttackTarget",
+					// },
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "Monster_Konungmathr_None_TracingLaser_TeamSearcher",
+						"target"  : "SelfAttackTarget",
+					},
+				],
+			},
+			{
+				"$type" : "AttachToAnimatorStateIDMixin",
+				"stateIDs"  : ["TracingLaser_Loop"],
+				"modifierName"  : "Monster_Konungmathr_None_TracingLaser_LoopTime",
+			},
+			{
+				"$type" : "AttachToAnimatorStateIDMixin",
+				"stateIDs"  : ["TracingLaser_BS", "TracingLaser_Loop", "TracingLaser_AS"],
+				"modifierName"  : "Monster_Konungmathr_None_TracingLaser_EyeState",
+			},
+			{
+				"$type" : "AttachToAnimatorStateIDMixin",
+				"stateIDs"  : ["TracingLaser_HemiFront_Loop"],
+				"modifierName"  : "Monster_Konungmathr_None_TracingLaser_HemiFront_LoopTime",
+			},
+			{
+				"$type" : "AttachToAnimatorStateIDMixin",
+				"stateIDs"  : ["TracingLaser_HemiFront_BS", "TracingLaser_HemiFront_Loop", "TracingLaser_HemiFront_AS"],
+				"modifierName"  : "Monster_Konungmathr_None_TracingLaser_EyeState",
+			},
+			{
+				"$type" : "AttachToAnimatorStateIDMixin",
+				"stateIDs"  : ["TracingLaser_HemiBack_Loop"],
+				"modifierName"  : "Monster_Konungmathr_None_TracingLaser_HemiBack_LoopTime",
+			},
+			{
+				"$type" : "AttachToAnimatorStateIDMixin",
+				"stateIDs"  : ["TracingLaser_HemiBack_BS", "TracingLaser_HemiBack_Loop", "TracingLaser_HemiBack_AS"],
+				"modifierName"  : "Monster_Konungmathr_None_TracingLaser_EyeState",
+			},
+		],
+		"modifiers":
+		{
+			"Monster_Konungmathr_None_TracingLaser_TeamSearcher":
+			{
+				"duration": 0.1,
+				"onAdded":
+				[
+					{
+						"$type" : "TriggerBullet",
+						"bulletID"  : 42304018,
+						"campID": 4001,
+						"trackTarget"  : "Team",
+						"doOffStage": true,
+					},
+				],
+			},
+			// "UNIQUE_Monster_Konungmathr_None_TracingLaser_Team":
+			// {
+			// 	"isUnique": true,
+			// 	"duration": 0.5,
+			// 	"onAdded":
+			// 	[
+			// 		{
+			// 			"$type" : "TriggerBullet",
+			// 			"bulletID"  : 42304018,
+			// 			"campID": 4001,
+			// 			"trackTarget"  : "Self",
+			// 		},
+			// 	],
+			// },
+			"Monster_Konungmathr_None_TracingLaser_HeadControl":
+			{
+				"thinkInterval": 0.4,
+				"onThinkInterval":
+				[
+					{
+						"$type": "TriggerBullet",
+						"bulletID": 42304017,
+						"campID": 4001,
+						"lifeByOwnerIsAlive": false,
+						"born": 
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "LaserControl",
+							"offset": 
+							{
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+							},
+							"direction":
+							{
+								"$type": "ConfigDirectionByAttachPoint",
+								"attachPointName":"LaserControl",
+								"attachPointTargetType":"Self",
+							},
+						},
+						"predicates":
+						[
+							{
+								"$type" : "ByAnimatorInt",
+								"value"  : 241,
+								"parameter"  : "SkillID",
+								"logic"  : "Equal",
+							},
+						],
+					},
+					{
+						"$type": "TriggerBullet",
+						"bulletID": 42304017,
+						"campID": 4001,
+						"lifeByOwnerIsAlive": false,
+						"born": 
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "HemiLaserControl",
+							"offset": 
+							{
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+							},
+							"direction":
+							{
+								"$type": "ConfigDirectionByAttachPoint",
+								"attachPointName":"HemiLaserControl",
+								"attachPointTargetType":"Self",
+							},
+						},
+						"predicates":
+						[
+							{
+								"$type" : "ByAny",
+								"predicates"  : 
+								[
+									{
+										"$type" : "ByAnimatorInt",
+										"value"  : 242,
+										"parameter"  : "SkillID",
+										"logic"  : "Equal",
+									},
+									{
+										"$type" : "ByAnimatorInt",
+										"value"  : 243,
+										"parameter"  : "SkillID",
+										"logic"  : "Equal",
+									},
+								],
+							},
+						],
+					},
+					{
+						"$type" : "Predicated",
+						"otherTargets":
+						{
+							"$type": "SelectTargetsByShape",
+							"shapeName": "CircleR50",
+							"centerBasedOn": "Self",
+							"campTargetType": "All",
+							"campBasedOn": "Self",
+							"sortType": "Nearest",
+							"entityTypePriority":["Gadget"],
+						},
+						"targetPredicates"  : 
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_MONSTER_Konungmathr_None_TracingLaser_ChasingTarget",
+								"value"  : 1,
+								"compareType"  : "Equal",
+							},
+						],
+						"successActions"  : 
+						[
+							{
+								"$type": "SetAnimatorTrigger",
+								"triggerID" : "LaserEndTrigger",
+								"target"  : "Self",
+								"predicates" : 
+								[
+									{
+										"$type": "ByTargetPositionToSelfPosition",
+										"target": "Target",
+										"compareType": "XYZ",
+										"value": 25,
+										"logic": "GreaterOrEqual",
+									},
+								],
+							},
+						],
+					},
+					// {
+					// 	"$type" : "SetSelfAttackTarget",
+					// 	"otherTargets":
+					// 	{
+					// 		"$type": "SelectTargetsByShape",
+					// 		"shapeName": "CircleR50",
+					// 		"centerBasedOn": "Self",
+					// 		"campTargetType": "All",
+					// 		"campBasedOn": "Self",
+					// 		"sortType": "Nearest",
+					// 		"entityTypePriority":["Gadget"],
+					// 	},
+					// 	"predicates"  : 
+					// 	[
+					// 		{
+					// 			"$type" : "ByTargetGlobalValue",
+					// 			"key"  : "_MONSTER_Konungmathr_None_TracingLaser_ChasingTarget",
+					// 			"value"  : 1,
+					// 			"compareType"  : "Equal",
+					// 		},
+					// 	],
+					// },
+					// {
+					// 	"$type": "SetAnimatorTrigger",
+					// 	"triggerID" : "LaserEndTrigger",
+					// 	"target"  : "Self",
+					// 	"predicates" : 
+					// 	[
+					// 		{
+					// 			"$type": "ByTargetPositionToSelfPosition",
+					// 			"target": "SelfAttackTarget",
+					// 			"compareType": "XYZ",
+					// 			"value": 25,
+					// 			"logic": "GreaterOrEqual",
+					// 		},
+					// 	],
+					// },
+				],		
+				"onAdded":
+				[
+					{
+						"$type" : "Predicated",
+						"targetPredicates"  : 
+						[
+							{
+								"$type" : "ByAnimatorInt",
+								"value"  : 241,
+								"parameter"  : "SkillID",
+								"logic"  : "Equal",
+							},
+						],
+						"successActions"  : 
+						[
+							{
+								"$type": "EnablePartControl",
+								"partRootNames": ["LaserControl"],
+								"enable": true,
+							},
+							{
+								"$type" : "Predicated",
+								"otherTargets":
+								{
+									"$type": "SelectTargetsByShape",
+									"shapeName": "CircleR50",
+									"centerBasedOn": "Self",
+									"campTargetType": "All",
+									"campBasedOn": "Self",
+									"sortType": "Nearest",
+									"entityTypePriority":["Gadget"],
+								},
+								"targetPredicates"  : 
+								[
+									{
+										"$type" : "ByTargetGlobalValue",
+										"key"  : "_MONSTER_Konungmathr_None_TracingLaser_ChasingTarget",
+										"value"  : 1,
+										"compareType"  : "Equal",
+									},
+								],
+								"successActions"  : 
+								[
+									// {
+									// 	"$type" : "SetSelfAttackTarget",
+									// 	"turnToTargetImmediately"  : false,
+									// 	"target"  : "Target",
+									// },
+									{
+										"$type": "SetPartControlTarget",
+										"target": "Target",
+										"partRootNames": ["LaserControl"],
+									},
+								],
+							},
+							{
+								"$type": "TriggerBullet",
+								"bulletID": 42304017,
+								"campID": 4001,
+								"lifeByOwnerIsAlive": false,
+								"born": 
+								{
+									"$type": "ConfigBornByAttachPoint",
+									"attachPointName" : "LaserControl",
+									"offset": 
+									{
+										"x": 0.0,
+										"y": 0.0,
+										"z": 0.0,
+									},
+									"direction":
+									{
+										"$type": "ConfigDirectionByAttachPoint",
+										"attachPointName":"LaserControl",
+										"attachPointTargetType":"Self",
+									},
+								},
+							},
+						],
+						"failActions"  : 
+						[
+							{
+								"$type": "EnablePartControl",
+								"partRootNames": ["HemiLaserControl"],
+								"enable": true,
+							},
+							{
+								"$type" : "Predicated",
+								"otherTargets":
+								{
+									"$type": "SelectTargetsByShape",
+									"shapeName": "CircleR50",
+									"centerBasedOn": "Self",
+									"campTargetType": "All",
+									"campBasedOn": "Self",
+									"sortType": "Nearest",
+									"entityTypePriority":["Gadget"],
+								},
+								"targetPredicates"  : 
+								[
+									{
+										"$type" : "ByTargetGlobalValue",
+										"key"  : "_MONSTER_Konungmathr_None_TracingLaser_ChasingTarget",
+										"value"  : 1,
+										"compareType"  : "Equal",
+									},
+								],
+								"successActions"  : 
+								[
+									// {
+									// 	"$type" : "SetSelfAttackTarget",
+									// 	"turnToTargetImmediately"  : false,
+									// 	"target"  : "Target",
+									// },
+									{
+										"$type": "SetPartControlTarget",
+										"target": "Target",
+										"partRootNames": ["HemiLaserControl"],
+									},	
+								],
+							},
+							{
+								"$type": "TriggerBullet",
+								"bulletID": 42304017,
+								"campID": 4001,
+								"lifeByOwnerIsAlive": false,
+								"born": 
+								{
+									"$type": "ConfigBornByAttachPoint",
+									"attachPointName" : "HemiLaserControl",
+									"offset": 
+									{
+										"x": 0.0,
+										"y": 0.0,
+										"z": 0.0,
+									},
+									"direction":
+									{
+										"$type": "ConfigDirectionByAttachPoint",
+										"attachPointName":"HemiLaserControl",
+										"attachPointTargetType":"Self",
+									},
+								},
+							},
+						],
+					},
+					{
+						"$type" : "SetAnimatorBool",
+						"boolID"  : "LaserTracing",
+						"value"  : true,
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type": "EnablePartControl",
+						"partRootNames": ["LaserControl"],
+						"enable": false,
+					},
+					{
+						"$type": "EnablePartControl",
+						"partRootNames": ["HemiLaserControl"],
+						"enable": false,
+					},
+					{
+						"$type" : "SetAnimatorBool",
+						"boolID"  : "LaserTracing",
+						"value"  : false,
+					},
+				],
+			},
+			"Monster_Konungmathr_None_TracingLaser_LoopTime":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "AttachEffect",
+						"effectPattern"  : "Eff_Monster_Konungmathr_TracingLaser_Loop",
+						"born": 
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "LaserControl",
+						},
+					},
+					{
+						"$type" : "AttachModifier",
+						"modifierName"  : "Monster_Konungmathr_None_TracingLaser_HeadControl",
+					},
+				],
+			},
+			"Monster_Konungmathr_None_TracingLaser_HemiFront_LoopTime":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "AttachEffect",
+						"effectPattern"  : "Eff_Monster_Konungmathr_HemiTracingLaser_Loop",
+						"born": 
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "HemiLaserControl",
+						},
+					},
+					{
+						"$type" : "AttachModifier",
+						"modifierName"  : "Monster_Konungmathr_None_TracingLaser_HeadControl",
+					},
+				],
+			},
+			"Monster_Konungmathr_None_TracingLaser_HemiBack_LoopTime":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "AttachEffect",
+						"effectPattern"  : "Eff_Monster_Konungmathr_HemiTracingLaser_Loop",
+						"born": 
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "HemiLaserControl",
+						},
+					},
+					{
+						"$type" : "AttachModifier",
+						"modifierName"  : "Monster_Konungmathr_None_TracingLaser_HeadControl",
+					},
+				],
+			},
+			"Monster_Konungmathr_None_TracingLaser_EyeState":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_EyeActive",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_EyeOff",
+					},
+				],
+			},
+		},
+	},
+},
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_TracingLaser_ChasingTarget",
+		"onAdded":
+		[
+			{
+				"$type" : "AddGlobalValue",
+				"value"  : 1,
+				"key"  : "_MONSTER_Konungmathr_None_TracingLaser_ChasingTarget",
+				"useLimitRange"  : true,
+				"maxValue"  : 1,
+				"minValue"  : 0,
+			},
+		],
+	},
+},
+{
+		"Default" : 
+		{
+			"$type" : "ConfigAbility",
+			"abilityName" : "Monster_Konungmathr_None_LaserDamage",
+			"onAbilityStart": 
+			[
+				{
+					"$type" : "TriggerAttackEvent",
+					"targetType" : "Enemy",
+					"attackEvent":
+					{
+						"attackPattern" :
+						{
+							"$type" : "ConfigAttackSphere",
+							"triggerType" : "TriggerNoRepeat",
+							"radius" : 0.5,
+							"born":
+							{
+								"$type": "ConfigBornByCollisionPoint",
+							},
+						},
+						"attackInfo":
+						{
+							"attenuationTag": "Monster_Konungmathr_Attenuation_2",
+							"attenuationGroup":"Monster_Konungmathr_Attenuation_2",
+							"attackProperty":
+							{
+								"damagePercentage": 0.4,
+								"strikeType": "None",
+								"enbreak": 20,
+							},
+							"hitPattern" :
+							{
+								"hitImpulseType":"LV1",
+								"reboundRatio" : 0,
+								"hitHaltTime" : 0.0,
+								"hitHaltTimeScale" : 0.05,
+								"muteHitText" : false,
+							},
+						},
+					},
+					"predicates":
+					[
+						{
+							"$type" : "ByAny",
+							"predicates"  : 
+							[
+								{
+									"$type" : "ByAnimatorInt",
+									"target": "Owner",
+									"value"  : 241,
+									"parameter"  : "SkillID",
+									"logic"  : "Equal",
+								},
+								{
+									"$type" : "ByAnimatorInt",
+									"target": "Owner",
+									"value"  : 242,
+									"parameter"  : "SkillID",
+									"logic"  : "Equal",
+								},
+								{
+									"$type" : "ByAnimatorInt",
+									"target": "Owner",
+									"value"  : 243,
+									"parameter"  : "SkillID",
+									"logic"  : "Equal",
+								},
+							],
+						},
+					],
+				},
+				{
+					"$type" : "TriggerAttackEvent",
+					"targetType" : "Enemy",
+					"attackEvent":
+					{
+						"attackPattern" :
+						{
+							"$type" : "ConfigAttackSphere",
+							"triggerType" : "TriggerNoRepeat",
+							"radius" : 0.3,
+							"born":
+							{
+								"$type": "ConfigBornByCollisionPoint",
+							},
+						},
+						"attackInfo":
+						{
+							"attenuationTag": "Monster_Konungmathr_Attenuation_2",
+							"attenuationGroup":"Monster_Konungmathr_Attenuation_2",
+							"attackProperty":
+							{
+								"damagePercentage": 0.8,
+								"strikeType": "None",
+								"enbreak":20,
+							},
+							"hitPattern" :
+							{
+								"hitImpulseType":"LV4",
+								"reboundRatio" : 0,
+								"hitHaltTime" : 0.0,
+								"hitHaltTimeScale" : 0.05,
+								"muteHitText" : false,
+							},
+						},
+					},
+					"predicates":
+					[
+						{
+							"$type" : "ByAnimatorInt",
+							"target": "Owner",
+							"value"  : 231,
+							"parameter"  : "SkillID",
+							"logic"  : "Equal",
+						},
+					],
+				},
+				{
+					"$type" : "KillSelf",					
+					"predicates":
+					[
+						{
+							"$type" : "ByNot",
+							"predicates"  : 
+							[
+								{
+									"$type":"ByAttackNotHitScene",
+									"checkWaterLayer": true,
+									"attackPattern":
+									{
+										"$type" : "ConfigAttackSphere",
+										"triggerType" : "TriggerNoRepeat",
+										"radius": 0.75,
+										"born":
+										{
+											"$type": "ConfigBornByCollisionPoint",
+										},
+									},
+								},
+							],
+						},
+					],
+				},
+			],
+		},
+	},
+
+////////////////////////////////////////////////////////////////
+//
+//  EnergyBall
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_EnergyBall",
+		"abilityMixins":
+		[
+			{
+				"$type" : "AttachToNormalizedTimeMixin",
+				"stateID"  : "EnergyBall",
+				"modifierName"  : "Monster_Konungmathr_None_EnergyBall_EyeState",
+				"normalizeStart"  : 0.2,
+				"normalizeEnd"  : 0.7,
+			},
+		],
+		"onAbilityStart":
+		[
+			{
+				"$type" : "AddGlobalValue",
+				"value"  : -9,
+				"key"  : "_MONSTER_Konungmathr_None_EnergyBall_Small_Follow_TempCounter",
+				"useLimitRange"  : true,
+				"maxValue"  : 3,
+				"minValue"  : 0,
+			},
+			{
+				"$type" : "TriggerBullet",
+				"bulletID"  : 42304019,
+				"born": 
+				{
+					"$type": "ConfigBornByAttachPoint",
+					"attachPointName" : "LaserControl",
+					"target": "Self",
+					"direction":
+					{
+						"$type": "ConfigDirectionByAttachPoint",
+						"attachPointName":"LaserControl",
+						"attachPointTargetType":"Self",
+					},
+				},
+				"lifeByOwnerIsAlive"  : true,
+			},
+			{
+				"$type": "ResetAIAttackTarget",
+			},
+			{
+				"$type" : "TriggerBullet",
+				"bulletID"  : 42304022,
+				"born":
+				{
+					"$type": "ConfigBornByTarget",
+					"offset":
+					{
+						"x": 3.0,
+						"y": 0.0,
+						"z": 0.0,
+					},
+				},
+				"lifeByOwnerIsAlive"  : true,
+				// "trackTarget"  : "SelfAttackTarget",
+				"target"  : "SelfAttackTarget",
+			},
+			{
+				"$type" : "TriggerBullet",
+				"bulletID"  : 42304023,
+				"born":
+				{
+					"$type": "ConfigBornByTarget",
+					"offset":
+					{
+						"x": -1.5,
+						"y": 0.0,
+						"z": 2.6,
+					},
+				},
+				"lifeByOwnerIsAlive"  : true,
+				// "trackTarget"  : "SelfAttackTarget",
+				"target"  : "SelfAttackTarget",
+			},
+			{
+				"$type" : "TriggerBullet",
+				"bulletID"  : 42304024,
+				"born":
+				{
+					"$type": "ConfigBornByTarget",
+					"offset":
+					{
+						"x": -1.5,
+						"y": 0.0,
+						"z": -2.6,
+					},
+				},
+				"lifeByOwnerIsAlive"  : true,
+				// "trackTarget"  : "SelfAttackTarget",
+				"target"  : "SelfAttackTarget",
+			},
+		],
+		"modifiers":
+		{
+			"Monster_Konungmathr_None_EnergyBall_EyeState":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_EyeActive",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_EyeOff",
+					},
+				],
+			},
+		},
+	},
+},
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_EnergyBall_Big",
+		"onAdded":
+		[
+			{
+				"$type" : "AttachModifier",
+				"modifierName"  : "Monster_Konungmathr_EnergyBall_Big_Effect",
+			},
+			{
+				"$type" : "ApplyModifier",
+				"modifierName"  : "Monster_Konungmathr_None_EnergyBall_Big_ForceEnd",
+			},
+		],
+		"onKill":
+		[
+			{
+				"$type" : "RemoveModifier",
+				"modifierName"  : "Monster_Konungmathr_EnergyBall_Big_Effect",
+			},
+		],
+		"modifiers":
+		{
+			"Monster_Konungmathr_EnergyBall_Big_Effect":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "AttachEffect",
+						"effectPattern"  : "Eff_Monster_Konungmathr_EnergyBall_Big",
+					},
+				],
+			},
+			"Monster_Konungmathr_None_EnergyBall_Big_ForceEnd":
+			{
+				"duration": 1.2,
+				"onRemoved":
+				[
+					{
+						"$type" : "SetSelfAttackTarget",
+						"otherTargets":
+						{
+							"$type": "SelectTargetsByShape",
+							"shapeName": "CircleR50",
+							"centerBasedOn": "Self",
+							"campTargetType": "SelfCamp",
+							"campBasedOn": "Self",
+							"sortType": "Nearest",
+						},
+						"predicates"  : 
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_MONSTER_Konungmathr_None_EnergyBall_Small_Follow_Counter",
+								"value"  : 1,
+								"compareType"  : "Equal",
+							},
+						],
+					},
+					{
+						"$type" : "TriggerBullet",
+						"bulletID"  : 42304020,
+						"trackTarget"  : "SelfAttackTarget",
+						"born": 
+						{
+							"$type": "ConfigBornBySelf",
+							"offset": 
+							{
+								"x": 0.0,
+								"y": 1.2,
+								"z": 0.0,
+							},
+						},
+						"lifeByOwnerIsAlive"  : true,
+					},
+					{
+						"$type" : "SetSelfAttackTarget",
+						"otherTargets":
+						{
+							"$type": "SelectTargetsByShape",
+							"shapeName": "CircleR50",
+							"centerBasedOn": "Self",
+							"campTargetType": "SelfCamp",
+							"campBasedOn": "Self",
+							"sortType": "Nearest",
+						},
+						"predicates"  : 
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_MONSTER_Konungmathr_None_EnergyBall_Small_Follow_Counter",
+								"value"  : 2,
+								"compareType"  : "Equal",
+							},
+						],
+					},
+					{
+						"$type" : "TriggerBullet",
+						"bulletID"  : 42304020,
+						"trackTarget"  : "SelfAttackTarget",
+						"born": 
+						{
+							"$type": "ConfigBornBySelf",
+							"offset": 
+							{
+								"x": -1.04,
+								"y": -0.6,
+								"z": 0,
+							},
+						},
+						"lifeByOwnerIsAlive"  : true,
+					},
+					{
+						"$type" : "SetSelfAttackTarget",
+						"otherTargets":
+						{
+							"$type": "SelectTargetsByShape",
+							"shapeName": "CircleR50",
+							"centerBasedOn": "Self",
+							"campTargetType": "SelfCamp",
+							"campBasedOn": "Self",
+							"sortType": "Nearest",
+						},
+						"predicates"  : 
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_MONSTER_Konungmathr_None_EnergyBall_Small_Follow_Counter",
+								"value"  : 3,
+								"compareType"  : "Equal",
+							},
+						],
+					},
+					{
+						"$type" : "TriggerBullet",
+						"bulletID"  : 42304020,
+						"trackTarget"  : "SelfAttackTarget",
+						"born": 
+						{
+							"$type": "ConfigBornBySelf",
+							"offset": 
+							{
+								"x": 1.04,
+								"y": -0.6,
+								"z": 0.0,
+							},
+						},
+						"lifeByOwnerIsAlive"  : true,
+					},
+					{
+						"$type" : "FireEffect",
+						"effectPattern"  : "Eff_Monster_Konungmathr_EnergyBall_Split",
+					},
+					{
+						"$type" : "RemoveModifier",
+						"modifierName"  : "Monster_Konungmathr_EnergyBall_Big_Effect",
+					},
+				],
+			},
+		},
+		"abilitySpecials":
+		{
+			"Distance_Tag": 0.0,
+		},
+	},
+},
+//实际子弹追的位置
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_EnergyBall_Small_Follow",
+		"onAdded":
+		[
+			{
+				"$type" : "AddGlobalValue",
+				"value"  : 1,
+				"key"  : "_MONSTER_Konungmathr_None_EnergyBall_Small_Follow_TempCounter",
+				"useLimitRange"  : true,
+				"maxValue"  : 3,
+				"minValue"  : 0,
+				"target"  : "Owner",
+			},
+			{
+				"$type":"SetGlobalValueToOverrideMap",
+				"globalValueKey":"_MONSTER_Konungmathr_None_EnergyBall_Small_Follow_TempCounter",
+				"isFromOwner": true,
+				"overrideMapKey":"Counter_Temp",
+			},
+			{
+				"$type" : "AddGlobalValue",
+				"value"  : "%Counter_Temp",
+				"key"  : "_MONSTER_Konungmathr_None_EnergyBall_Small_Follow_Counter",
+			},
+		],
+		"abilitySpecials":
+		{
+			"Counter_Temp": 0.0,
+		},
+	},
+},
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_EnergyBall_Small",
+		"onAdded":
+		[
+			{
+				"$type" : "AttachModifier",
+				"modifierName"  : "Monster_Konungmathr_None_EnergyBall_Small",
+			},
+		],
+		"onAbilityStart":
+		[
+			{
+				"$type" : "CreateGadget",
+				"gadgetID"  : 42304021,
+				"campID"  : 4001,
+				"ownerIsTarget"  : false,
+				"lifeByOwnerIsAlive"  : true,
+				"campTargetType"  : "Alliance",
+				"born": 
+				{
+					"$type": "ConfigBornBySelf",
+					"offset": 
+					{
+						"x": 0.0,
+						"y": 0.0,
+						"z": 0.0,
+					},
+					"onGround": true,
+					"alongGround": true,
+				},
+			},
+			{
+				"$type": "TriggerAttackEvent",
+				"targetType": "Enemy",
+				"attackEvent": 
+				{
+					"attackPattern": 
+					{
+						"$type": "ConfigAttackCircle",
+						"triggerType": "TriggerNoRepeat",
+						"height": 1.0,
+						"fanAngle": 360.0,
+						"detectDirection": "CenterToSide",
+						"radius": 2.2,
+						"born": 
+						{
+							"$type": "ConfigBornBySelf",
+							"offset": 
+							{
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+							}
+						},
+					},
+					"attackInfo": 
+					{
+						"attenuationTag": "Monster_Konungmathr_Attenuation_1",
+						"attenuationGroup":"Monster_Konungmathr_Attenuation_1",
+						"attackProperty": 
+						{
+							"damagePercentage": 0.16,
+							"strikeType": "Default",
+							"attackType": "Range",
+							"elementType": "None",
+						},
+						"hitPattern": 
+						{
+							//TODO 看受击特效要不要换一下
+							"onHitEffectName": "default",
+							"hitImpulseType":"LV0",
+							"hitHaltTime": 0.0,
+							"hitHaltTimeScale": 0.0,
+							"muteHitText": false,
+							"retreatType": "ByHitDirection",
+						},
+					},
+				},
+			},
+		],
+		"modifiers":
+		{
+			"Monster_Konungmathr_None_EnergyBall_Small":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "AttachEffect",
+						"effectPattern"  : "Eff_Monster_Konungmathr_EnergyBall_Small",
+					},
+				],
+			},
+		},
+		"abilitySpecials":
+		{
+			"Counter_Temp": 0.0,
+		},
+	},
+},
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_EnergyBall_Small_Land",
+		"onAdded":
+		[
+			{
+				"$type" : "AttachModifier",
+				"modifierName"  : "Monster_Konungmathr_None_EnergyBall_Small_Land",
+			},
+		],
+		"onKill":
+		[
+			{
+				"$type" : "FireEffect",
+				"effectPattern"  : "Eff_Monster_Konungmathr_EnergyBall_Small_LandAS",
+			},
+			{
+				"$type" : "RemoveModifier",
+				"modifierName"  : "Monster_Konungmathr_None_EnergyBall_Small_Land",
+			},
+		],
+		"modifiers":
+		{
+			"Monster_Konungmathr_None_EnergyBall_Small_Land":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "AttachEffect",
+						"effectPattern"  : "Eff_Monster_Konungmathr_EnergyBall_Small_Land",
+					},
+				],
+				"thinkInterval": 0.2,
+				"onThinkInterval":
+				[
+					{
+						"$type": "TriggerAttackEvent",
+						"targetType": "Enemy",
+						"attackEvent": 
+						{
+							"attackPattern": 
+							{
+								"$type": "ConfigAttackCircle",
+								"triggerType": "TriggerNoRepeat",
+								"height": 1.0,
+								"fanAngle": 360.0,
+								"detectDirection": "CenterToSide",
+								"radius": 1.8,
+								"born": 
+								{
+									"$type": "ConfigBornBySelf",
+									"offset": 
+									{
+										"x": 0.0,
+										"y": 0.0,
+										"z": 0.0,
+									}
+								},
+							},
+							"attackInfo": 
+							{
+								"attenuationTag": "Monster_Konungmathr_Attenuation_1",
+								"attenuationGroup":"Monster_Konungmathr_Attenuation_1",
+								"attackProperty": 
+								{
+									"damagePercentage": 0.16,
+									"strikeType": "Default",
+									"attackType": "Range",
+									"elementType": "None",
+								},
+								"hitPattern": 
+								{
+									//TODO 看受击特效要不要换一下
+									"onHitEffectName": "default",
+									"hitImpulseType":"LV0",
+									"hitHaltTime": 0.0,
+									"hitHaltTimeScale": 0.0,
+									"muteHitText": false,
+									"retreatType": "ByHitDirection",
+								},
+							},
+						},
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  Reload
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_Reload",
+		"abilityMixins":
+		[
+			{
+				"$type" : "AttachToNormalizedTimeMixin",
+				"stateID"  : "ReloadAS",
+				"modifierName"  : "Monster_Konungmathr_None_Reload_LaserEffect",
+				"normalizeStart"  : 0.26,
+				"normalizeEnd"  : 0.423,
+			},
+			{
+				"$type" : "AttachToAnimatorStateIDMixin",
+				"stateIDs"  : ["ReloadBS"],
+				"modifierName"  : "Monster_Konungmathr_None_Reload_PoseSet",
+			},
+			{
+				"$type" : "AttachToStateIDMixin",
+				"stateIDs"  : ["Reload"],
+				"modifierName"  : "Monster_Konungmathr_None_Reload_CoreState",
+			},
+		],
+		"modifiers":
+		{
+			"Monster_Konungmathr_None_Reload_LaserEffect":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "AttachEffect",
+						"effectPattern"  : "Eff_Monster_Konungmathr_ReloadLaser_Loop",
+						"born": 
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "ReloadLaserControl",
+						},
+					},
+				],
+			},
+			"Monster_Konungmathr_None_Reload_PoseSet":
+			{
+				"onRemoved":
+				[
+					{
+						"$type": "SetPoseBool",
+						"boolID": "BothDisable",
+						"value": false,
+					},
+					{
+						"$type": "SetPoseBool",
+						"boolID": "FootDisable",
+						"value": false,
+					},
+					{
+						"$type": "SetPoseBool",
+						"boolID": "EyeDisable",
+						"value": false,
+					},
+				],
+			},
+			"Monster_Konungmathr_None_Reload_CoreState":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_FootActive",
+					},
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_EyeActive",
+					},
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_FootCore_Protected_Long",
+					},
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_EyeCore_Protected_Long",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_FootOff",
+					},
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_EyeOff",
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  Weak_End
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_WeakEnd",
+		"abilityMixins":
+		[
+			{
+				"$type" : "AttachToAnimatorStateIDMixin",
+				"stateIDs"  : ["Weak_EndBS"],
+				"modifierName"  : "Monster_Konungmathr_None_WeakEnd_State",
+			},
+			{
+				"$type" : "AttachToAnimatorStateIDMixin",
+				"stateIDs"  : ["Weak_EndBS", "Weak_EndAS"],
+				"modifierName"  : "Monster_Konungmathr_None_WeakEnd_CoreState",
+			},
+		],
+		"modifiers":
+		{
+			"Monster_Konungmathr_None_WeakEnd_State":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_FootActive",
+					},
+					{
+						"$type": "SetPoseBool",
+						"boolID": "FootDisable",
+						"value": false,
+					},
+				],
+				// "onRemoved":
+				// [
+				// 	{
+				// 		"$type": "SetPoseBool",
+				// 		"boolID": "FootDisable",
+				// 		"value": false,
+				// 	},
+				// ],
+			},
+			"Monster_Konungmathr_None_WeakEnd_CoreState":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_FootCore_Protected_Long",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_FootOff",
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  HemiTurn
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_HemiTurn",
+		"abilityMixins":
+		[
+			{
+				"$type":"DoActionByStateIDMixin",
+				"stateIDs":["HemiTurnFront", "HemiTurnBack"],
+				"enterActions":
+				[
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "Monster_Konungmathr_None_TurnState",
+					},
+				],
+			},
+			// {
+			// 	"$type" : "AttachToAnimatorStateIDMixin",
+			// 	"stateIDs"  : ["HemiTurnFront", "HemiTurnBack"],
+			// 	"modifierName"  : "Monster_Konungmathr_None_TurnState",
+			// },
+		],
+		"modifiers":
+		{
+			"Monster_Konungmathr_None_TurnState":
+			{
+				"duration": 0.5,
+				"onAdded":
+				[
+					{
+						"$type" : "SetPoseBool",
+						"boolID"  : "TurnState",
+						"value"  : true,
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "SetPoseBool",
+						"boolID"  : "TurnState",
+						"value"  : false,
+					},
+				],
+			},
+		},
+	},
+},
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_HemiTurnFront",
+		"onAbilityStart":
+		[
+			{
+				"$type":"ReTriggerAISkillInitialCD",
+				"skillIDs":[242],
+				"predicates":
+				[
+					{
+						"$type" : "ByAnimatorBool",
+						"value"  : false,
+						"parameter"  : "LaserTracing",
+						"logic"  : "Equal",
+					},
+				],
+			},
+			{
+				"$type" : "SetPoseBool",
+				"boolID"  : "HemiBack",
+				"value"  : false,
+			},
+		],
+	},
+},
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_HemiTurnBack",
+		"onAbilityStart":
+		[
+			{
+				"$type":"ReTriggerAISkillInitialCD",
+				"skillIDs":[243],
+				"predicates":
+				[
+					{
+						"$type" : "ByAnimatorBool",
+						"value"  : false,
+						"parameter"  : "LaserTracing",
+						"logic"  : "Equal",
+					},
+				],
+			},
+			{
+				"$type" : "SetPoseBool",
+				"boolID"  : "HemiBack",
+				"value"  : true,
+			},
+		],
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  SteerAttack
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_SteerAttack",
+		"abilityMixins": 
+		[
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["Turn"],
+				"startNormalizedTime" : 0.1,
+				"endNormalizedTime" : 0.3,
+				"angularSpeed" : 180,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["Turn"],
+				"startNormalizedTime" : 0.3,
+				"endNormalizedTime" : 0.6,
+				"angularSpeed" : 360,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["Whirl_BS", "Whirl_Loop", "Whirl_AS"],
+				"startNormalizedTime" : 0.8,
+				"endNormalizedTime" : 0.25,
+				"angularSpeed" : 90,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["StampTwice"],
+				"startNormalizedTime" : 0.0,
+				"endNormalizedTime" : 0.21,
+				"angularSpeed" : 120,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["SwipeAndLaser"],
+				"startNormalizedTime" : 0.0,
+				"endNormalizedTime" : 0.14,
+				"angularSpeed" : 120,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["DashAtk_BS"],
+				"startNormalizedTime" : 0.0,
+				"endNormalizedTime" : 0.6,
+				"angularSpeed" : 120,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["TracingLaser_BS"],
+				"startNormalizedTime" : 0.0,
+				"endNormalizedTime" : 1,
+				"angularSpeed" : 120,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["TracingLaser_Loop"],
+				"startNormalizedTime" : 0.01,
+				"endNormalizedTime" : 4,
+				"angularSpeed" : 25,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			// {
+			// 	"$type": "SteerAttackMixin",
+			// 	"steerStateIDs": ["TracingLaser_HemiFront_BS"],
+			// 	"startNormalizedTime" : 0.0,
+			// 	"endNormalizedTime" : 1,
+			// 	"angularSpeed" : 40,
+			// 	"attackTrigger" : "",
+			// 	"attackDistance" : 0,
+			// },
+			// {
+			// 	"$type": "SteerAttackMixin",
+			// 	"steerStateIDs": ["TracingLaser_HemiFront_Loop"],
+			// 	"startNormalizedTime" : 0,
+			// 	"endNormalizedTime" : 4,
+			// 	"angularSpeed" : 25,
+			// 	"attackTrigger" : "",
+			// 	"attackDistance" : 0,
+			// },
+			// {
+			// 	"$type": "SteerAttackMixin",
+			// 	"steerStateIDs": ["TracingLaser_HemiBack_BS"],
+			// 	"startNormalizedTime" : 0.0,
+			// 	"endNormalizedTime" : 1,
+			// 	"angularSpeed" : 40,
+			// 	"attackTrigger" : "",
+			// 	"attackDistance" : 0,
+			// },
+			// {
+			// 	"$type": "SteerAttackMixin",
+			// 	"steerStateIDs": ["TracingLaser_HemiBack_Loop"],
+			// 	"startNormalizedTime" : 0,
+			// 	"endNormalizedTime" : 4,
+			// 	"angularSpeed" : 25,
+			// 	"attackTrigger" : "",
+			// 	"attackDistance" : 0,
+			// },
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["EnergyBall"],
+				"startNormalizedTime" : 0.0,
+				"endNormalizedTime" : 0.4,
+				"angularSpeed" : 120,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+		],
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  Step
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_Step_Left",
+		"onAbilityStart": 
+		[
+			{
+				"$type": "ActCameraShake",
+				"cameraShake":
+				{
+					"shakeType": "CustomVector",
+					"shakeRange": 0.06,
+					"shakeTime": 0.09,
+					"shakeDistance": 20.0,
+					"shakeDir":
+					{
+						"x":0, 
+						"y":-1,
+						"z":0,
+					},
+				},
+				"predicates":
+				[
+					{
+						"$type" : "ByAnimatorInt",
+						"value"  : 0,
+						"parameter"  : "SkillID",
+						"logic"  : "Equal",
+					},
+				],
+			},
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Konungmathr_Step",
+				"born":
+				{
+					"$type": "ConfigBornByAttachPoint",
+					"attachPointName": "LeftFoot",
+				},
+			},
+		],
+	},
+},
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_Step_Right",
+		"onAbilityStart": 
+		[
+			{
+				"$type": "ActCameraShake",
+				"cameraShake":
+				{
+					"shakeType": "CustomVector",
+					"shakeRange": 0.06,
+					"shakeTime": 0.09,
+					"shakeDistance": 20.0,
+					"shakeDir":
+					{
+						"x":0, 
+						"y":-1,
+						"z":0,
+					},
+				},
+				"predicates":
+				[
+					{
+						"$type" : "ByAnimatorInt",
+						"value"  : 0,
+						"parameter"  : "SkillID",
+						"logic"  : "Equal",
+					},
+				],
+			},
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Konungmathr_Step",
+				"born":
+				{
+					"$type": "ConfigBornByAttachPoint",
+					"attachPointName": "RightFoot",
+				},
+			},
+		],
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  Hand
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_Hand_Left",
+		"onAbilityStart": 
+		[
+			{
+				"$type": "ActCameraShake",
+				"cameraShake":
+				{
+					"shakeType": "CustomVector",
+					"shakeRange": 0.06,
+					"shakeTime": 0.09,
+					"shakeDistance": 20.0,
+					"shakeDir":
+					{
+						"x":0, 
+						"y":-1,
+						"z":0,
+					},
+				},
+			},
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Konungmathr_Step",
+				"born":
+				{
+					"$type": "ConfigBornByAttachPoint",
+					"attachPointName": "LeftHand",
+				},
+			},
+		],
+	},
+},
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_Hand_Right",
+		"onAbilityStart": 
+		[
+			{
+				"$type": "ActCameraShake",
+				"cameraShake":
+				{
+					"shakeType": "CustomVector",
+					"shakeRange": 0.06,
+					"shakeTime": 0.09,
+					"shakeDistance": 20.0,
+					"shakeDir":
+					{
+						"x":0, 
+						"y":-1,
+						"z":0,
+					},
+				},
+			},
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Konungmathr_Step",
+				"born":
+				{
+					"$type": "ConfigBornByAttachPoint",
+					"attachPointName": "RightHand",
+				},
+			},
+		],
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  Die
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_Die",
+		"onAbilityStart": 
+		[
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Konungmathr_Die",
+			},
+			{
+				"$type" : "RemoveUniqueModifier",
+				"modifierName"  : "UNIQUE_Monster_Konungmathr_None_EyeCore",
+			},
+			{
+				"$type" : "RemoveUniqueModifier",
+				"modifierName"  : "UNIQUE_Monster_Konungmathr_None_FootCore",
+			},
+			{
+				"$type" : "RemoveUniqueModifier",
+				"modifierName"  : "UNIQUE_Monster_Konungmathr_None_FootCore_Protected_Long",
+			},
+			{
+				"$type" : "RemoveUniqueModifier",
+				"modifierName"  : "UNIQUE_Monster_Konungmathr_None_FootCore_Protected_Short",
+			},
+			{
+				"$type" : "RemoveUniqueModifier",
+				"modifierName"  : "UNIQUE_Monster_Konungmathr_None_EyeCore_Protected_Long",
+			},
+			{
+				"$type" : "RemoveUniqueModifier",
+				"modifierName"  : "UNIQUE_Monster_Konungmathr_None_EyeCore_Protected_Short",
+			},
+		],
+	},
+},
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_Die_Ground",
+		"onAbilityStart": 
+		[
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Konungmathr_DownDust",
+				"born":
+				{
+					"$type": "ConfigBornByTarget",
+					"offset":
+					{
+						"x": 0.0,
+						"y": 0.0,
+						"z": 3.75,
+					},
+				},
+			},
+			{
+				"$type": "ActCameraShake",
+				"cameraShake":
+				{
+					"shakeType": "CustomVector",
+					"shakeRange": 0.36,
+					"shakeTime": 0.36,
+					"shakeDistance": 30.0,
+					"shakeDir":
+					{
+						"x":0, 
+						"y":-1,
+						"z":0,
+					},
+				},
+			},
+			{
+				"$type" : "RemoveUniqueModifier",
+				"modifierName"  : "UNIQUE_Monster_Konungmathr_FootCore_StateEffect",
+			},
+		],
+	},
+},
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_WeakDie_Ground",
+		"onAbilityStart": 
+		[
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Konungmathr_WeakDust",
+				"born":
+				{
+					"$type": "ConfigBornByTarget",
+					"offset":
+					{
+						"x": 0.0,
+						"y": 0.0,
+						"z": 0.0,
+					},
+				},
+			},
+		],
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  ReturnToBorn
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Konungmathr_None_ReturnToBorn",
+		"abilityMixins":
+		[
+			{
+				"$type": "AttachToPoseIDMixin",
+				"poseIDs": [902, 903],
+				"modifierName": "ReturnToBorn_State",
+			},
+			{
+				"$type": "AttachToPoseIDMixin",
+				"poseIDs": [902],
+				"modifierName": "ReturnToBorn_Disappear",
+			},
+			{
+				"$type": "AttachToPoseIDMixin",
+				"poseIDs": [903],
+				"modifierName": "ReturnToBorn_Appear",
+			},
+		],
+		"modifiers":
+		{
+			"ReturnToBorn_Disappear":
+			{
+				"onAdded":
+				[
+					{
+						"$type": "StartDither",
+						"duration": 2.0,
+					},
+				],
+			},
+			"ReturnToBorn_Appear":
+			{
+				"onAdded":
+				[
+					{
+						"$type": "StartDither",
+						"duration": 0.2,
+						"reverse": true,
+					},
+				],
+			},
+			"ReturnToBorn_State":
+			{
+				"onAdded": 
+				[
+					{
+						"$type": "ResetAnimatorTrigger",
+						"triggerID": "WeakStartTrigger",
+					},
+					{
+						"$type": "AttachModifier",
+						"modifierName": "ReturnToBorn_Invincible",
+						"target": "Self",
+					},
+					{
+						"$type": "AttachModifier",
+						"modifierName": "ReturnToBorn_DenyLockOn",
+						"target": "Self",
+					},
+					{
+						"$type": "SetPoseBool",
+						"boolID": "BothDisable",
+						"value": false,
+					},
+					{
+						"$type": "SetPoseBool",
+						"boolID": "FootDisable",
+						"value": false,
+					},
+					{
+						"$type": "SetPoseBool",
+						"boolID": "EyeDisable",
+						"value": false,
+					},
+					{
+						"$type" : "RemoveUniqueModifier",
+						"modifierName"  : "UNIQUE_Monster_Konungmathr_EyeCore_StateEffect",
+					},
+					{
+						"$type" : "RemoveUniqueModifier",
+						"modifierName"  : "UNIQUE_Monster_Konungmathr_FootCore_StateEffect",
+					},
+					{
+						"$type" : "TriggerAbility",
+						"abilityName"  : "Monster_Konungmathr_None_CoreState",
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 100,
+						"key"  : "_MONSTER_Konungmathr_EyeCore_HitCountDown",
+						"useLimitRange"  : true,
+						"maxValue": 100,
+						"minValue"  : 0,
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 100,
+						"key"  : "_MONSTER_Konungmathr_FootCore_HitCountDown",
+						"useLimitRange"  : true,
+						"maxValue": 100,
+						"minValue"  : 0,
+					},
+				],
+				"onRemoved": 
+				[
+					{
+						"$type": "RemoveUniqueModifier",
+						"modifierName": "UNIQUE_WeakTimer",
+					},
+				],
+			},
+			"ReturnToBorn_Invincible" :
+			{
+				"state": "Invincible",
+			},
+			"ReturnToBorn_DenyLockOn" :
+			{
+				"state": "DenyLockOn",
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  GearControl
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_GearControl",
+		"abilityMixins": 
+		[
+			{
+				"$type": "AttachToStateIDMixin",
+				"stateIDs": ["Weak_Start", "BeHit", "NormalIdle_PowerOff", "NormalIdle_WeakLoop", "PowerOff_WakeUp", "Born", "Break"],
+				"modifierName": "GearControl_Stop",
+			},
+			{
+				"$type": "AttachToStateIDMixin",
+				"stateIDs": ["Weak_End", "PowerOff_Warning"],
+				"modifierName": "GearControl_Active",
+			},
+			{
+				"$type": "AttachToStateIDMixin",
+				"stateIDs": 
+				[
+					"StampTwice", "DashAtk_BS", "DashAtk_Move", "DashAtk_AS", "SwipeAndLaser", "Whirl_BS", "Whirl_Loop", 
+					"TracingLaser_BS", "TracingLaser_Loop", "TracingLaser_AS", "TracingLaser_HemiFront_BS", "TracingLaser_HemiFront_Loop", "TracingLaser_HemiFront_AS",
+					"TracingLaser_HemiBack_BS", "TracingLaser_HemiBack_Loop","TracingLaser_HemiFront_AS", "EnergyBall", "Reload"
+				],
+				"modifierName": "GearControl_Skill",
+			},
+			{
+				"$type": "AttachToStateIDMixin",
+				"stateIDs": ["NormalIdle", "Turn", "NormalMove", "Whirl_AS", "Laser_Shoot", "HemiTurnFront", "HemiTurnBack"],
+				"modifierName": "GearControl_Normal",
+			},
+		],
+		"onKill":
+		[
+			{
+				"$type": "SetAnimatorFloat",
+				"floatID": "GearSpeed",
+				"value": 0.5,
+			},
+		],
+		"onAbilityStart":
+		[
+			{
+				"$type": "SetAnimatorFloat",
+				"floatID": "GearSpeed",
+				"value": 0.0,
+			},
+		],
+		"modifiers":
+		{
+			"GearControl_Stop":
+			{
+				"onAdded": 
+				[
+					{
+						"$type": "SetAnimatorFloat",
+						"floatID": "GearSpeed",
+						"value": 0.0,
+					},
+				],
+			},
+			"GearControl_Normal":
+			{
+				"onAdded": 
+				[
+					{
+						"$type": "SetAnimatorFloat",
+						"floatID": "GearSpeed",
+						"value": 1.0,
+					},
+				],
+			},
+			"GearControl_Active":
+			{
+				"onAdded": 
+				[
+					{
+						"$type": "SetAnimatorFloat",
+						"floatID": "GearSpeed",
+						"value": 3.0,
+					},
+				],
+			},
+			"GearControl_Skill":
+			{
+				"onAdded": 
+				[
+					{
+						"$type": "SetAnimatorFloat",
+						"floatID": "GearSpeed",
+						"value": 2.0,
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  HeadControl
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "Monster_Konungmathr_None_HeadControl",
+		"abilityMixins": 
+		[
+			{
+				"$type": "AttachToStateIDMixin",
+				"stateIDs": ["NormalIdle_PowerOff", "PowerOff_WakeUp", "Weak_Start", "BeHit", "Break", "Whirl_BS", "Whirl_Loop", "Whirl_AS"],
+				"modifierName": "HeadControl_Disable",
+			},
+		],
+		"modifiers":
+		{
+			"HeadControl_Disable":
+			{
+				"onAdded": 
+				[
+					{
+						"$type": "EnableHeadControl",
+						"enable": false,
+					},
+				],
+				"onRemoved": 
+				[
+					{
+						"$type": "EnableHeadControl",
+						"enable": true,
+					},
+				],
+			},
+		},
+	},
+},
+]

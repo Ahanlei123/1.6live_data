@@ -1,0 +1,1865 @@
+[
+////////////////////////////////////////////////////////////////
+//
+// 转向
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_01_Steer",
+		"abilityMixins":
+		[
+			{
+				"$type": "SteerAttackTraceMixin",
+				"steerStateIDs": ["Turn"],
+				"startNormalizedTime" : 0,
+				"endNormalizedTime" : 1,
+				"angularSpeed" : 100,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["RushAtk"],
+				"startNormalizedTime" : 0.03,
+				"endNormalizedTime" : 0.25,
+				"angularSpeed" : 360,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["MeleeAtk1"],
+				"startNormalizedTime" : 0.13,
+				"endNormalizedTime" : 0.19,
+				"angularSpeed" : 360,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["MeleeAtk2"],
+				"startNormalizedTime" : 0.14,
+				"endNormalizedTime" : 0.21,
+				"angularSpeed" : 360,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["Provoke"],
+				"startNormalizedTime" : 0,
+				"endNormalizedTime" : 0.15,
+				"angularSpeed" : 360,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackTraceMixin",
+				"steerStateIDs": ["JumpAttack"],
+				"startNormalizedTime" : 0.12,
+				"endNormalizedTime" : 0.18,
+				"angularSpeed" : 640,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackTraceMixin",
+				"steerStateIDs": ["JumpAttack"],
+				"startNormalizedTime" : 0.4,
+				"endNormalizedTime" : 0.42,
+				"angularSpeed" : 500,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["ElementAttack"],
+				"startNormalizedTime" : 0.36,
+				"endNormalizedTime" : 0.43,
+				"angularSpeed" : 300,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["ChargeAttack"],
+				"startNormalizedTime" : 0.08,
+				"endNormalizedTime" : 0.14,
+				"angularSpeed" : 720,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackTraceMixin",
+				"steerStateIDs": ["ChargeAttack"],
+				"startNormalizedTime" : 0.37,
+				"endNormalizedTime" : 0.39,
+				"angularSpeed" : 720,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["DefendBS"],
+				"startNormalizedTime" : 0,
+				"endNormalizedTime" : 0.6,
+				"angularSpeed" : 360,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			}
+		]
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 海乱鬼入战武器显示
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_01_Alert",
+		"onAdded":
+		[
+			{
+				"$type":"SetWeaponAttachPointRealName",
+				"partName":"equip01",
+				"realName":"WeaponW"
+			}
+		],
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachToPoseIDMixin",
+				"poseIDs":[1],
+				"modifierName":"Monster_Samurai_Kairagi_01_WeaponBeforeBattle",
+			},
+			{
+				"$type":"AttachToStateIDMixin",
+				"stateIDs":["BeHit","BeHitThrow","Die","Struggle","NormalIdle"],
+				"modifierName":"Monster_Samurai_Kairagi_01_WeaponShow",
+				"predicates":
+				[
+					{
+						"$type":"ByAnimatorFloat",
+						"parameter":"PoseID",
+						"value":101,
+						"logic":"Equal"
+					}
+				]
+			},
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"Alert",
+				"normalizeStart":0,
+				"normalizeEnd":0.425,
+				"modifierName":"Monster_Samurai_Kairagi_01_AlertWeaponEffect"
+			},
+			{
+				"$type":"AttachToPoseIDMixin",
+				"poseIDs":[101,201,301],
+				"modifierName":"Monster_Samurai_Kairagi_WeaponShowForSure"
+			},
+			{
+				"$type":"AttachToStateIDMixin",
+				"stateIDs":["Alert"],
+				"modifierName":"Monster_Samurai_Kairagi_Alert_SubHurt"
+			},
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"Practice",
+				"normalizeStart":0.109,
+				"normalizeEnd":0.76,
+				"modifierName":"Monster_Samurai_Kairagi_Practice_WeaponShow"
+			},
+		],
+		"onAbilityStart":
+		[
+			
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Kairagi_01_WeaponBeforeBattle":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponW"
+					}
+				],
+				"onReconnect":
+				[
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponW"
+					}
+				],
+				"onChangeAuthority":
+				[
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponW"
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_01_AlertWeaponEffect":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponW"
+					}
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponR"
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_01_WeaponShow":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponR"
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_WeaponShowForSure":
+			{
+				"onReconnect":
+				[
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponR"
+					}
+				],
+				"onChangeAuthority":
+				[
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponR"
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_Alert_SubHurt":
+			{
+				"properties":
+				{
+					"Actor_SubHurtDelta":0.8,
+				}
+			},
+			"Monster_Samurai_Kairagi_Practice_WeaponShow":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponR"
+					}
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponW"
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 地面死亡武器特殊处理
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_01_Die",
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachModifierToHPPercentMixin",
+				"valueSteps":[0.01],
+				"modifierNameSteps":["Samurai_Kairagi_HideWeaponEmpty","Samurai_Kairagi_HideWeapon"]
+			}
+		],
+		"modifiers":
+		{
+			"Samurai_Kairagi_HideWeaponEmpty":
+			{
+
+			},
+			"Samurai_Kairagi_HideWeapon":
+			{
+				"duration":3.2,
+				"onAdded":
+				[
+					{
+						"$type":"TriggerHideWeapon",
+						"partNames":["equip01"],
+						"visible":false
+					},
+					{
+						"$type":"AttachEffect",
+						"effectPattern":"Eff_Monster_Samurai_Kairagi_Weapon_Blade_Thunder"
+					},
+					{
+						"$type":"KillSelf"
+					}
+				]
+			}
+		}
+	}
+},
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_02_Die",
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachModifierToHPPercentMixin",
+				"valueSteps":[0.01],
+				"modifierNameSteps":["Samurai_Kairagi_HideWeaponEmpty","Samurai_Kairagi_HideWeapon"]
+			}
+		],
+		"modifiers":
+		{
+			"Samurai_Kairagi_HideWeaponEmpty":
+			{
+
+			},
+			"Samurai_Kairagi_HideWeapon":
+			{
+				"duration":3.2,
+				"onAdded":
+				[
+					{
+						"$type":"TriggerHideWeapon",
+						"partNames":["equip01"],
+						"visible":false
+					},
+					{
+						"$type":"AttachEffect",
+						"effectPattern":"Eff_Monster_Samurai_Kairagi_Weapon_Blade_Fire"
+					},
+					{
+						"$type":"KillSelf"
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 脱战和表演
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_01_OutOfBattle",
+		"onAdded":
+		[
+
+		],
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachToPoseIDMixin",
+				"poseIDs":[901,902,903],
+				"modifierName":"Monster_Samurai_Kairagi_01_OutOfBattle_Trigger"
+			},
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"OutOfBattle",
+				"normalizeStart":0.708,
+				"normalizeEnd":1,
+				"modifierName":"Monster_Samurai_Kairagi_01_OutOfBattle_HideWeapon"
+			}
+		],
+		"onKill":
+		[
+
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Kairagi_01_OutOfBattle_Trigger":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetAnimatorTrigger",
+						"triggerID":"OutOfBattle"
+					},
+					{
+						"$type":"SetPoseBool",
+						"boolID":"EnhanceState",
+						"value":false
+					},
+					{
+						"$type":"SetGlobalValue",
+						"key":"_MONSTER_KAIRAGI_ANGRY_TIMES",
+						"value":0
+					},
+					{
+						"$type":"SetAISkillCDAvailableNow",
+						"skillIDs":[601]
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_01_OutOfBattle_HideWeapon":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponW"
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 冲刺攻击
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_01_RushAttack",
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"RushAtk",
+				"normalizeStart":0.377,
+				"normalizeEnd":0.48,
+				"modifierName":"Monster_Samurai_Kairagi_01_RushAttack_Move"
+			},
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"RushAtk_Thunder",
+				"normalizeStart":0.377,
+				"normalizeEnd":0.48,
+				"modifierName":"Monster_Samurai_Kairagi_01_RushAttack_Move_Thunder"
+			},
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"ElementCombo_RushAtk_Thunder",
+				"normalizeStart":0.377,
+				"normalizeEnd":0.48,
+				"modifierName":"Monster_Samurai_Kairagi_01_RushAttack_Move_Thunder"
+			},
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"RushAtk_Fire",
+				"normalizeStart":0.377,
+				"normalizeEnd":0.48,
+				"modifierName":"Monster_Samurai_Kairagi_01_RushAttack_Move_Fire"
+			},
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"ElementCombo_RushAtk_Fire_1",
+				"normalizeStart":0.377,
+				"normalizeEnd":0.48,
+				"modifierName":"Monster_Samurai_Kairagi_01_RushAttack_Move_Fire"
+			},
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"ElementCombo_RushAtk_Fire_2",
+				"normalizeStart":0.377,
+				"normalizeEnd":0.48,
+				"modifierName":"Monster_Samurai_Kairagi_01_RushAttack_Move_Fire"
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Kairagi_01_RushAttack_Move":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"FixedMonsterRushMove",
+						"toPos":
+						{
+							"$type":"ConfigBornBySelf",
+							"offset":
+							{
+								"x":0,
+								"y":0,
+								"z":15
+							}
+						},
+						"timeRange":0.25,
+						"maxRange":15,
+						"animatorStateIDs":["RushAtk"]
+					},
+					{
+						"$type":"AttachEffect",
+						"effectPattern":"Eff_Monster_Samurai_Kairagi_RushAtk_Tail"
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_01_RushAttack_Move_Thunder":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"FixedMonsterRushMove",
+						"toPos":
+						{
+							"$type":"ConfigBornBySelf",
+							"offset":
+							{
+								"x":0,
+								"y":0,
+								"z":15
+							}
+						},
+						"timeRange":0.25,
+						"maxRange":15,
+						"animatorStateIDs":["RushAtk_Thunder","ElementCombo_RushAtk_Thunder"]
+					},
+					{
+						"$type":"AttachEffect",
+						"effectPattern":"Eff_Monster_Samurai_Kairagi_RushAtk_Thunder_Tail"
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_01_RushAttack_Move_Fire":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"FixedMonsterRushMove",
+						"toPos":
+						{
+							"$type":"ConfigBornBySelf",
+							"offset":
+							{
+								"x":0,
+								"y":0,
+								"z":15
+							}
+						},
+						"timeRange":0.25,
+						"maxRange":15,
+						"animatorStateIDs":["RushAtk_Fire","ElementCombo_RushAtk_Fire_1","ElementCombo_RushAtk_Fire_2"]
+					},
+					{
+						"$type":"AttachEffect",
+						"effectPattern":"Eff_Monster_Samurai_Kairagi_RushAtk_Fire_Tail"
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 居合突进
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_01_ChargeAttack",
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"ChargeAttack",
+				"normalizeStart":0.375,
+				"normalizeEnd":0.43,
+				"modifierName":"Monster_Samurai_Kairagi_01_ChargeAttack_Trail"
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Kairagi_01_ChargeAttack_Trail":
+			{
+				"onAdded":
+				[
+					
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 武器附魔-雷
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_01_AddElement_Electric",
+		"onAbilityStart":
+		[
+			{
+				"$type":"ApplyModifier",
+				"modifierName":"Monster_Samurai_Kairagi_01_EnhanceElectric"
+			},
+			{
+				"$type":"ApplyModifier",
+				"modifierName":"Monster_Samurai_Kairagi_01_AddElement_ElectricDelay"
+			}
+		],
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachToPoseIDMixin",
+				"poseIDs":[901],
+				"modifierName":"Monster_Samurai_Kairagi_01_RemoveEnhanceEffect"
+			}
+		],
+		"onKill":
+		[
+			{
+				"$type":"RemoveModifier",
+				"modifierName":"Monster_Samurai_Kairagi_01_AddElement_Electric"
+			},
+			{
+				"$type":"RemoveModifier",
+				"modifierName":"Monster_Samurai_Kairagi_01_EnhanceElectric"
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Kairagi_01_EnhanceElectric":
+			{
+				"duration":30,
+				"onAdded":
+				[
+					{
+						"$type":"SetPoseBool",
+						"boolID":"EnhanceState",
+						"value":true
+					}
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"SetPoseBool",
+						"boolID":"EnhanceState",
+						"value":false
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_01_AddElement_ElectricDelay":
+			{
+				"duration":1.726,
+				"onRemoved":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Samurai_Kairagi_01_AddElement_Electric"
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_01_AddElement_Electric":
+			{
+				"duration":31.726,
+				"onAdded":
+				[
+					{
+						"$type":"AttachEffect",
+						"effectPattern":"Eff_Monster_Samurai_Kairagi_WeaponThunder"
+					}
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"FireEffect",
+						"effectPattern":"Eff_Monster_Samurai_Kairagi_WeaponThunderOff"
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_01_RemoveEnhanceEffect":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"RemoveModifier",
+						"modifierName":"Monster_Samurai_Kairagi_01_AddElement_Electric"
+					},
+					{
+						"$type":"RemoveModifier",
+						"modifierName":"Monster_Samurai_Kairagi_01_EnhanceElectric"
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 武器附魔-火
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_02_AddElement_Fire",
+		"onAbilityStart":
+		[
+			{
+				"$type":"ApplyModifier",
+				"modifierName":"Monster_Samurai_Kairagi_02_EnhanceFire"
+			},
+			{
+				"$type":"ApplyModifier",
+				"modifierName":"Monster_Samurai_Kairagi_02_AddElement_FireDelay"
+			}
+		],
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachToPoseIDMixin",
+				"poseIDs":[901],
+				"modifierName":"Monster_Samurai_Kairagi_02_RemoveEnhanceEffect"
+			}
+		],
+		"onKill":
+		[
+			{
+				"$type":"RemoveModifier",
+				"modifierName":"Monster_Samurai_Kairagi_02_AddElement_Fire"
+			},
+			{
+				"$type":"RemoveModifier",
+				"modifierName":"Monster_Samurai_Kairagi_02_EnhanceFire"
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Kairagi_02_EnhanceFire":
+			{
+				"duration":30,
+				"onAdded":
+				[
+					{
+						"$type":"SetPoseBool",
+						"boolID":"EnhanceState",
+						"value":true
+					}
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"SetPoseBool",
+						"boolID":"EnhanceState",
+						"value":false
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_02_AddElement_FireDelay":
+			{
+				"duration":1.726,
+				"onRemoved":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Samurai_Kairagi_02_AddElement_Fire"
+					}
+				],
+				"onChangeAuthority":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Samurai_Kairagi_02_AddElement_Fire"
+					}
+				],
+				"onReconnect":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Samurai_Kairagi_02_AddElement_Fire"
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_02_AddElement_Fire":
+			{
+				"duration":31.726,
+				"onAdded":
+				[
+					{
+						"$type":"AttachEffect",
+						"effectPattern":"Eff_Monster_Samurai_Kairagi_WeaponFire"
+					}
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"FireEffect",
+						"effectPattern":"Eff_Monster_Samurai_Kairagi_WeaponFireOff"
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_02_RemoveEnhanceEffect":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"RemoveModifier",
+						"modifierName":"Monster_Samurai_Kairagi_02_AddElement_Fire"
+					},
+					{
+						"$type":"RemoveModifier",
+						"modifierName":"Monster_Samurai_Kairagi_02_EnhanceFire"
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 强制闪避
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_ForceDodge",
+		"onAdded":
+		[
+			{
+				"$type":"AddGlobalValue",
+				"key":"_SAMURAI_KAIRAGI_ENABLE_DODGE",
+				"value":1,
+				"useLimitRange":true,
+				"maxValue":1,
+			},
+		],
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachToStateIDMixin",
+				"stateIDs":["BeHit"],
+				"modifierName":"Monster_Samurai_Kairagi_ForceDodge_Handler"
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Kairagi_ForceDodge_Handler":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetAnimatorTrigger",
+						"triggerID":"ForceDodge",
+						"predicates":
+						[
+							{
+								"$type":"ByTargetGlobalValue",
+								"key":"_SAMURAI_KAIRAGI_ENABLE_DODGE",
+								"value":1,
+								"compareType":"Equal"
+							},
+							{
+								"$type":"ByAnimatorFloat",
+								"parameter":"PoseID",
+								"value":201,
+								"logic":"Equal"
+							}
+						]
+					},
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Samurai_Kairagi_ForceDodge_Timer"
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_ForceDodge_Timer":
+			{
+				"duration":10,
+				"onAdded":
+				[
+					{
+						"$type":"AddGlobalValue",
+						"key":"_SAMURAI_KAIRAGI_ENABLE_DODGE",
+						"value":-2,
+						"useLimitRange":true,
+						"maxValue":1,
+					}
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"AddGlobalValue",
+						"key":"_SAMURAI_KAIRAGI_ENABLE_DODGE",
+						"value":1,
+						"useLimitRange":true,
+						"maxValue":1,
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 火属性跳劈 
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_FireArea",
+		"onAbilityStart":
+		[
+			{
+				"$type":"CreateGadget",
+				"gadgetID":42510001,
+				"byServer":false,
+			}
+		]
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 火属性跳劈 伤害区域
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_FireArea_Damage",
+		"onAdded":
+		[
+			{
+				"$type":"ApplyModifier",
+				"modifierName":"Monster_Samurai_Kairagi_FireArea_Damage"
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Kairagi_FireArea_Damage":
+			{
+				"duration":10,
+				"thinkInterval":1,
+				"onAdded":
+				[
+					{
+						"$type":"FireEffect",
+						"effectPattern":"Eff_Monster_Samurai_Kairagi_JumpAttack_FireArea",
+						"born":
+						{
+							"$type":"ConfigBornBySelf",
+							"offset":
+							{
+								"x":0,
+								"y":0,
+								"z":0.3
+							}
+						}
+					}
+				],
+				"onThinkInterval":
+				[
+					{
+						"$type" : "TriggerAttackEvent",
+						"targetType" : "Enemy",
+						"attackEvent":
+						{
+							"attackPattern" :
+							{
+								"$type" : "ConfigAttackBox",
+								"triggerType" : "TriggerNoRepeat",
+								"size":
+								{
+									"x":3,
+									"y":1.5,
+									"z":5.5
+								},
+								"born":
+								{
+									"$type": "ConfigBornBySelf",
+									"offset":
+									{
+										"x":0,
+										"y":0.75,
+										"z":0.5
+									}
+								},
+							},
+							"attackInfo":
+							{
+								"attackProperty":
+								{
+									"damagePercentage": 0.3,
+									"strikeType": "Blunt",
+									"elementType": "Fire",
+									"enBreak": 0,
+									"elementDurability": 50,
+								},
+								"hitPattern" :
+								{
+									"onHitEffectName":"none",
+									"hitImpulseType":"LV0",
+									"muteHitText" : false,
+								}
+							}
+						}
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 狂暴-雷
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_Angry_Thunder",
+		"onAbilityStart":
+		[
+			{
+				"$type":"AttachModifier",
+				"modifierName":"Monster_Samurai_Kairagi_Angry_ThunderDelay"
+			}
+		],
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachToPoseIDMixin",
+				"poseIDs":[901,902,903],
+				"modifierName":"Monster_Samurai_Kairagi_RemoveAngryEffect"
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Kairagi_Angry_ThunderDelay":
+			{
+				"duration":0.9,
+				"onRemoved":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Samurai_Kairagi_Angry_ThunderEffect"
+					},
+				],
+				"onReconnect":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Samurai_Kairagi_Angry_ThunderEffect"
+					}
+				],
+				"onChangeAuthority":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Samurai_Kairagi_Angry_ThunderEffect"
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_Angry_ThunderEffect":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"AttachEffect",
+						"effectPattern":"Eff_Monster_Samurai_Kairagi_Angry_Thunder",
+					},
+					{
+						"$type":"HealHP",
+						"amountByCasterMaxHPRatio":0.5,
+						"predicates":
+						[
+							{
+								"$type":"ByNot",
+								"predicates":
+								[
+									{
+										"$type":"ByTargetGlobalValue",
+										"key":"_MONSTER_KAIRAGI_ANGRY_TIMES",
+										"value":1,
+										"compareType":"Equal"
+									}
+								]
+							}	
+						]
+					},
+					{
+						"$type":"SetGlobalValue",
+						"key":"_MONSTER_KAIRAGI_ANGRY_TIMES",
+						"value":1
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_RemoveAngryEffect":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"RemoveModifier",
+						"modifierName":"Monster_Samurai_Kairagi_Angry_ThunderEffect"
+					}
+				]
+			}
+		},
+		"onKill":
+		[
+			{
+				"$type":"RemoveModifier",
+				"modifierName":"Monster_Samurai_Kairagi_Angry_ThunderEffect"
+			}
+		]
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 狂暴-火
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_Angry_Fire",
+		"onAbilityStart":
+		[
+			{
+				"$type":"AttachModifier",
+				"modifierName":"Monster_Samurai_Kairagi_Angry_FireDelay"
+			}
+		],
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachToPoseIDMixin",
+				"poseIDs":[901,902,903],
+				"modifierName":"Monster_Samurai_Kairagi_RemoveAngryEffect"
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Kairagi_Angry_FireDelay":
+			{
+				"duration":0.9,
+				"onRemoved":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Samurai_Kairagi_Angry_FireEffect"
+					}
+				],
+				"onReconnect":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Samurai_Kairagi_Angry_FireEffect"
+					}
+				],
+				"onChangeAuthority":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Samurai_Kairagi_Angry_FireEffect"
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_Angry_FireEffect":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"AttachEffect",
+						"effectPattern":"Eff_Monster_Samurai_Kairagi_Angry_Fire",
+					},
+					{
+						"$type":"HealHP",
+						"amountByCasterMaxHPRatio":0.5,
+						"predicates":
+						[
+							{
+								"$type":"ByNot",
+								"predicates":
+								[
+									{
+										"$type":"ByTargetGlobalValue",
+										"key":"_MONSTER_KAIRAGI_ANGRY_TIMES",
+										"value":1,
+										"compareType":"Equal"
+									}
+								]
+							}	
+						]
+					},
+					{
+						"$type":"SetGlobalValue",
+						"key":"_MONSTER_KAIRAGI_ANGRY_TIMES",
+						"value":1
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_RemoveAngryEffect":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"RemoveModifier",
+						"modifierName":"Monster_Samurai_Kairagi_Angry_FireEffect"
+					}
+				]
+			}
+		},
+		"onKill":
+		[
+			{
+				"$type":"RemoveModifier",
+				"modifierName":"Monster_Samurai_Kairagi_Angry_FireEffect"
+			}
+		]
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 海乱鬼格挡
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_Block",
+		"onAdded":
+		[
+
+		],
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachToStateIDMixin",
+				"stateIDs":["DefendBS","DefendAS","DefendLoop","DefendHit","DefendBreak"],
+				"modifierName":"Monster_Samurai_Kairagi_Block_Duration"
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Kairagi_Block_Duration":
+			{
+				"properties":
+				{
+					"Actor_EndureDelta":1,
+				},
+				"onAdded":
+				[
+					{
+						"$type":"SetPoseBool",
+						"boolID":"BlockState",
+						"value":true
+					}
+				],
+				"modifierMixins":
+				[
+					{
+						"$type":"MonsterDefendMixin",
+						"stateIDs":["DefendLoop","DefendHit"],
+						"defendTriggerID": "DefendHit",
+						"defendAngle": 90,
+						"onDefendSucceded":	
+						[
+							{
+								"$type": "FireEffect",
+								"otherTargets":
+								{
+									"$type":"SelectTargetsByEquipParts",
+									"equipPartNames":["equip01"]
+								},
+								"effectPattern": "Eff_Monster_Samurai_Ronin_BlockHit",
+								"born":
+								{
+									"$type": "ConfigBornByAttachPoint",
+									"attachPointName":"BlockPoint",
+									"attachPointTargetType":"Target"
+								}
+							}
+						]
+					},
+					{
+						"$type":"VelocityForceMixin",
+						"excludeForces":["RetreatAirType"]
+					}
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"SetPoseBool",
+						"boolID":"BlockState",
+						"value":false
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 海乱鬼雷属性击中玩家。添加标记
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_Thunder_AttackMark",
+		"onAdded":
+		[
+			{
+				"$type":"ApplyModifier",
+				"modifierName":"Monster_Samurai_Kairagi_Thunder_AttackMark"
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Kairagi_Thunder_AttackMark":
+			{
+				"onAttackLanded":
+				[
+					{
+						"$type":"ApplyModifier",
+						"target":"Target",
+						"modifierName":"Monster_Samurai_Kairagi_Thunder_AttackMarkToAvatar",
+						"predicates":
+						[
+							{
+								"$type":"ByAttackTags",
+								"attackTags":["Monster_Samurai_Kairagi_ThunderHit"]
+							}
+						]
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_Thunder_AttackMarkToAvatar":
+			{
+				"duration":5,
+				"onAdded":
+				[
+					{
+						"$type":"SetGlobalValue",
+						"key":"_MONSTER_KAIRAGI_THUNDER_HIT",
+						"value":1,
+						"predicates":
+						[
+							{
+								"$type":"ByNot",
+								"predicates":
+								[
+									{
+										"$type":"ByTargetGlobalValue",
+										"key":"_MONSTER_KAIRAGI_THUNDER_HIT_INCD",
+										"value":1,
+										"compareType":"Equal"
+									}
+								]
+							}
+						]
+					},
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Samurai_Kairagi_Thunder_AttackMarkCD",
+					}
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"SetGlobalValue",
+						"key":"_MONSTER_KAIRAGI_THUNDER_HIT",
+						"value":0
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_Thunder_AttackMarkCD":
+			{
+				"duration":10,
+				"stacking":"Unique",
+				"onAdded":
+				[
+					{
+						"$type":"SetGlobalValue",
+						"key":"_MONSTER_KAIRAGI_THUNDER_HIT_INCD",
+						"value":1
+					}
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"SetGlobalValue",
+						"key":"_MONSTER_KAIRAGI_THUNDER_HIT_INCD",
+						"value":0
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 海乱鬼火属性击中玩家。添加标记
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_Fire_AttackMark",
+		"onAdded":
+		[
+			{
+				"$type":"ApplyModifier",
+				"modifierName":"Monster_Samurai_Kairagi_Fire_AttackMark"
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Kairagi_Fire_AttackMark":
+			{
+				"onAttackLanded":
+				[
+					{
+						"$type":"ApplyModifier",
+						"target":"Target",
+						"modifierName":"Monster_Samurai_Kairagi_Fire_AttackMarkToAvatar",
+						"predicates":
+						[
+							{
+								"$type":"ByAttackTags",
+								"attackTags":["Monster_Samurai_Kairagi_FireHit"]
+							}
+						]
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_Fire_AttackMarkToAvatar":
+			{
+				"duration":5,
+				"onAdded":
+				[
+					{
+						"$type":"SetGlobalValue",
+						"key":"_MONSTER_KAIRAGI_FIRE_HIT",
+						"value":1,
+						"predicates":
+						[
+							{
+								"$type":"ByNot",
+								"predicates":
+								[
+									{
+										"$type":"ByTargetGlobalValue",
+										"key":"_MONSTER_KAIRAGI_FIRE_HIT_INCD",
+										"value":1,
+										"compareType":"Equal"
+									}
+								]
+							}
+						]
+					},
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Samurai_Kairagi_Fire_AttackMarkCD",
+					}
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"SetGlobalValue",
+						"key":"_MONSTER_KAIRAGI_FIRE_HIT",
+						"value":0
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_Fire_AttackMarkCD":
+			{
+				"duration":10,
+				"stacking":"Unique",
+				"onAdded":
+				[
+					{
+						"$type":"SetGlobalValue",
+						"key":"_MONSTER_KAIRAGI_FIRE_HIT_INCD",
+						"value":1
+					}
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"SetGlobalValue",
+						"key":"_MONSTER_KAIRAGI_FIRE_HIT_INCD",
+						"value":0
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 海乱鬼队友死亡狂暴
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_ChangeToAngryPose",
+		"onAdded":
+		[
+			{
+				"$type":"SetGlobalValue",
+				"key":"_MONSTER_KAIRAGI_BUDDY_ALIVE",
+				"value":1,
+			}
+		],
+		"onKill":
+		[
+			{
+				"$type":"AddGlobalValue",
+				"otherTargets":
+				{
+					"$type":"SelectTargetsByShape",
+					"shapeName":"CircleR50",
+					"centerBasedOn":"Self",
+					"campBasedOn":"Self",
+					"campTargetType":"Alliance"
+				},
+				"key":"_MONSTER_KAIRAGI_BUDDY_ALIVE",
+				"value":-5,
+				"useLimitRange":true,
+				"maxValue":1,
+				"minValue":0,
+				"predicates":
+				[
+					{
+						"$type":"ByTargetGlobalValue",
+						"key":"_MONSTER_KAIRAGI_BUDDY_ALIVE",
+						"value":1,
+						"compareType":"Equal"
+					}
+				]
+			}
+		],
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachModifierToSelfGlobalValueMixin",
+				"globalValueKey":"_MONSTER_KAIRAGI_BUDDY_ALIVE",
+				"defaultGlobalValueOnCreate":1,
+				"valueSteps":[-0.5,0.5,1.5],
+				"modifierNameSteps":["Monster_Samurai_Kairagi_ToAngry","Monster_Samurai_Kairagi_InPeace"]
+			},
+			{
+				"$type":"AttachToPoseIDMixin",
+				"poseIDs":[301],
+				"modifierName":"Monster_Samurai_Kairagi_InAngry"
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Kairagi_InPeace":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetPoseBool",
+						"boolID":"Angry",
+						"value":false
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_ToAngry":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetPoseBool",
+						"boolID":"Angry",
+						"value":true
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_InAngry":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetAISkillCDAvailableNow",
+						"skillIDs":[501]
+					},
+					{
+						"$type":"SetAISkillGCD",
+						"value":1
+					}
+				],
+				"onReconnect":
+				[
+					{
+						"$type":"SetAISkillCDAvailableNow",
+						"skillIDs":[501]
+					},
+					{
+						"$type":"SetAISkillGCD",
+						"value":1
+					}
+				],
+				"onChangeAuthority":
+				[
+					{
+						"$type":"SetAISkillCDAvailableNow",
+						"skillIDs":[501]
+					},
+					{
+						"$type":"SetAISkillGCD",
+						"value":1
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 海乱鬼雷 狂暴连击
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_01_AddElement_ComboCheckDistance",
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"ElementCombo_RushAtk_Thunder",
+				"normalizeStart":0.45,
+				"normalizeEnd":1,
+				"modifierName":"Monster_Samurai_Kairagi_AddElement_ComboCheckDistance"
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Kairagi_AddElement_ComboCheckDistance":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"Predicated",
+						"otherTargets":
+						{
+							"$type":"SelectTargetsByShape",
+							"shapeName":"CircleR30",
+							"centerBasedOn":"Self",
+							"campBasedOn":"Self",
+							"campTargetType":"Enemy"
+						},
+						"targetPredicates":
+						[
+							{
+								"$type":"ByEntityTypes",
+								"entityTypes":["Avatar"]
+							},
+							{
+								"$type":"ByTargetPositionToSelfPosition",
+								"compareType":"XZ",
+								"value":5,
+								"logic":"Greater"
+							}
+						],
+						"successActions":
+						[
+							{
+								"$type":"SetAnimatorTrigger",
+								"target":"Self",
+								"triggerID":"ElementComboFar",
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 海乱鬼火 狂暴连击
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Kairagi_02_AddElement_ComboCheckDistance",
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"ElementAttack",
+				"normalizeStart":0.45,
+				"normalizeEnd":1,
+				"modifierName":"Monster_Samurai_Kairagi_AddElement_ComboCheckDistance"
+			},
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"ElementCombo_RushAtk_Fire_1",
+				"normalizeStart":0.45,
+				"normalizeEnd":1,
+				"modifierName":"Monster_Samurai_Kairagi_AddElement_ComboCheckDistance"
+			},
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"ElementCombo_RushAtk_Fire_2",
+				"normalizeStart":0.45,
+				"normalizeEnd":1,
+				"modifierName":"Monster_Samurai_Kairagi_AddElement_ComboCheckDistance"
+			},
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"ElementCombo_JumpAttack_Fire_1",
+				"normalizeStart":0.5,
+				"normalizeEnd":1,
+				"modifierName":"Monster_Samurai_Kairagi_AddElement_ComboCheckDistance"
+			},
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"ElementCombo_JumpAttack_Fire_2",
+				"normalizeStart":0.5,
+				"normalizeEnd":1,
+				"modifierName":"Monster_Samurai_Kairagi_AddElement_ComboCheckDistanceNear"
+			},
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"JumpAttack_Fire",
+				"normalizeStart":0.7,
+				"normalizeEnd":1,
+				"modifierName":"Monster_Samurai_Kairagi_AddElement_ComboCheckDistanceNear"
+			},
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Kairagi_AddElement_ComboCheckDistance":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"Predicated",
+						"otherTargets":
+						{
+							"$type":"SelectTargetsByShape",
+							"shapeName":"CircleR30",
+							"centerBasedOn":"Self",
+							"campBasedOn":"Self",
+							"campTargetType":"Enemy"
+						},
+						"targetPredicates":
+						[
+							{
+								"$type":"ByEntityTypes",
+								"entityTypes":["Avatar"]
+							},
+							{
+								"$type":"ByTargetPositionToSelfPosition",
+								"compareType":"XZ",
+								"value":5,
+								"logic":"Greater"
+							}
+						],
+						"successActions":
+						[
+							{
+								"$type":"SetAnimatorTrigger",
+								"target":"Self",
+								"triggerID":"ElementComboFar",
+							}
+						]
+					}
+				]
+			},
+			"Monster_Samurai_Kairagi_AddElement_ComboCheckDistanceNear":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"Predicated",
+						"otherTargets":
+						{
+							"$type":"SelectTargetsByShape",
+							"shapeName":"CircleR30",
+							"centerBasedOn":"Self",
+							"campBasedOn":"Self",
+							"campTargetType":"Enemy"
+						},
+						"targetPredicates":
+						[
+							{
+								"$type":"ByEntityTypes",
+								"entityTypes":["Avatar"]
+							},
+							{
+								"$type":"ByTargetPositionToSelfPosition",
+								"compareType":"XZ",
+								"value":5,
+								"logic":"Lesser"
+							}
+						],
+						"successActions":
+						[
+							{
+								"$type":"SetAnimatorTrigger",
+								"target":"Self",
+								"triggerID":"ElementComboNear",
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+}
+]

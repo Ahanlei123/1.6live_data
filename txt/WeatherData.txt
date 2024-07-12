@@ -1,0 +1,132 @@
+ID	JSON天气区域ID	最大高度	描述	GadgetID	默认是否开启	TemplateName	Priority	区域环境配置	DefaultWeather	是否固定使用DefaultWeather	场景ID
+1	1		新手区	70020001	1	Weather_Sunny	100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_General	1	1	3
+2	2		风魔龙附近	70020002	1	Weather_WindDragon	100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_WindDragon	2	1	3
+3	3		蒙德城一阶段	70020003	0	Weather_MengDeInStorm	100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_City_Storm	1	1	3
+4	4		北风狼boss天气		1	Weather_Standard	100	Data/Environment/EnviroSystemProfile/Monster/ESP_Monster_LupiBoreas	2	1	3
+1000	1000		蒙德地区默认天气		1	Weather_Standard	5	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_General	1	0	3
+1001	1001		蒙德东		1	Weather_Standard	10	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_General	1	0	3
+1002	1002		丘丘圣山+誓言岬		1	Weather_Standard	10	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_General	1	0	3
+1003	1003		酒庄		1	Weather_Standard	10	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_General	1	0	3
+1004	1004		风龙外围		1	Weather_Standard	10	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_General	1	0	3
+1005	1005		剑冢任务天气		1	Weather_Standard	50	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_General	1	0	3
+1006	1006		蒙德城天气		1	Weather_City	25	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_General	1	0	3
+1007	1007		望风山地天气		1	Weather_WindDragon	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_WindDragon	2	1	3
+1008	1008		风花节活动蒙德城天气		0	Weather_City	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_City_Fenghuajie	1	0	3
+2000	2000		璃月地区默认天气		1	Weather_Standard	5	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_General	1	0	3
+2001	2001		轻策山天气		1	Weather_LiYueAreaQingCeVilla	100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_QingCeVilla	1	0	3
+2002	2002		花洲天气		1	Weather_Standard	10	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_General	1	0	3
+2003	2003		璃月平原天气		1	Weather_Standard	10	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_General	1	0	3
+2004	2004		石林天气		1	Weather_StoneNeedles	10	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_StoneNeedles	1	1	3
+2005	2005		璃月港天气		1	Weather_City	10	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_City_General	1	0	3
+2006	2006		瑶光滩初始天气		1	Weather_Foggy	50	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_General	6	1	3
+2007	2007	250	陆湖迷宫天气		1	Weather_Sunny	50	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_LandLakeMaze	1	1	3
+2107	2007	265	陆湖迷宫天气		1	Weather_Sunny	50	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_LandLakeMaze	1	1	3
+2207	2007		陆湖迷宫天气		1	Weather_Sunny	50	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_LandLakeMaze_Lv2	1	1	3
+2008	2008		矿山外围区域天气		1	Weather_Standard	10	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_LiShaCountrySide	1	0	3
+2009	2009		瑶光滩后续天气		0	Weather_LiYueAreaYaoGuangTan	100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_General	6	0	3
+2010	2010		轻策山遗迹天气		1	Weather_LiYueAreaQingCeVilla	50	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_QingCeVilla	1	0	3
+2011	2011		冲刷平原矿区天气		1	Weather_Standard	50	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_BeachMine	1	1	3
+2012	2012		鬼森林天气		1	Weather_Sunny	100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_BlackFroest	1	1	3
+2013	2013	189	地中之盐天气		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_SaltOfGround	1	1	3
+2113	2013		地中之盐天气		1	Weather_Standard	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_General	1	0	3
+2014	2014	240	轻策之藏天气		1	Weather_Sunny	100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_Treasure	1	1	3
+2114	2014		轻策之藏天气		1	Weather_LiYueAreaQingCeVilla	100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_QingCeVilla	1	0	3
+2015	2015	170	靖世九柱天气下层		1	Weather_Sunny	90	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_NinePillars_Tomb	1	0	3
+2115	2015		靖世九柱天气上层阴天		1	Weather_NinePillarsGeneral	90	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_NinePillars_General	1	0	3
+2016	2016	170	靖世九柱天气下层（未使用）		1	Weather_Sunny	50	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_NinePillars_Tomb	1	0	3
+2116	2016		靖世九柱天气上层转晴（未使用）		1	Weather_Standard	50	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_NinePillars_General	1	0	3
+2017	2017	215	蒙德急冻树boss天气		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Monster/ESP_Monster_Regisvine_Ice_01	1	1	3
+2117	2017		蒙德急冻树boss天气		1	Weather_Standard	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_General	1	0	3
+2018	2018	220	璃月爆炎树boss天气		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Monster/ESP_Monster_Regisvine_Fire_01	1	1	3
+2118	2018		璃月爆炎树boss天气		1	Weather_Standard	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_General	1	0	3
+2019	2019		无人岛天气		1	Weather_Md_Island_Foggy	50	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_General	6	1	3
+2020	2020		天遒谷天气		1	Weather_TianQiuGu	100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_TianQiuGu	1	0	3
+2021	2021	250	泉水精灵下层		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_Fountain_General	1	1	3
+2121	2021		泉水精灵上层		1	Weather_Standard	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_General	1	1	3
+2022	2022		雪山天气默认		1	Weather_Sunny	100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_General	1	1	3
+2023	2023		雪山天气山顶		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_Peak	1	1	3
+2024	2024	460	雪山天气洞穴洞内		1	Weather_Sunny	2050	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_Cave	1	1	3
+2124	2024		雪山天气洞穴上层		1	Weather_Sunny	2050	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_Peak	1	1	3
+2026	2026	180	璃沙郊小洞天气		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_SaltOfGround	1	1	3
+2126	2026		璃沙郊小洞往上天气		1	Weather_Standard	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_LiShaCountrySide	1	1	3
+90001	90001		雷雨天气测试		1	Weather_ThunderStorm	50	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_General	4	1	3
+3000	3000		香菱地城天气		1	Weather_Standard	50	Data/Environment/EnviroSystemProfile/Dungeon/ESP_XianglingPlotLevel01_Test	1	1	20005
+3001	3001		香菱地城天气01		1	Weather_Standard	50	Data/Environment/EnviroSystemProfile/Dungeon/ESP_XianglingPlotLevel01	1	1	20005
+9999	9999		千风神殿炼金炉		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_General	1	1	3
+10001	10001		香菱地城天气		1	Weather_Standard	50	Data/Environment/EnviroSystemProfile/Dungeon/ESP_XianglingPlotLevel01_Test	1	1	20005
+10002	10002		香菱地城天气01		1	Weather_Standard	50	Data/Environment/EnviroSystemProfile/Dungeon/ESP_XianglingPlotLevel01	1	1	20005
+2027	2027	295	龙骨心脏天气洞内		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_DunlinsHeart	1	1	3
+2127	2027		龙骨心脏天气洞外		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_General	1	1	3
+2028	2028		雪山南部山坡		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_South	1	1	3
+2029	2029		雪山东部山脚		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_EastCoast	1	1	3
+2030	2030	240	古岩龙蜥BOSS区域下		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Monster/ESP_Monster_Drake_Primo_Rock_01	1	1	3
+2130	2030		古岩龙蜥BOSS区域上		1	Weather_Standard	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_General	1	0	3
+2031	2031	450	(废弃)雪山山顶通道下		1	Weather_Sunny	2100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_Cave_Long	1	1	3
+2131	2031		(废弃)雪山山顶通道上		1	Weather_Sunny	2100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_Peak	1	1	3
+2032	2032	400	雪山密室下层		1	Weather_Sunny	2100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_Chamber	1	1	3
+2025	2025	275	雪山天气BOSS区域下层		1	Weather_Sunny	2050	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_Cave_Underboss	1	1	3
+2125	2025	300	雪山天气BOSS区域地面		1	Weather_Sunny	2050	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_Boss	1	1	3
+2225	2025		雪山天气BOSS区域上层		1	Weather_Sunny	2050	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_General	1	1	3
+2132	2032		雪山密室上层		1	Weather_Sunny	2100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_General	1	1	3
+2034	2034		雪山急冻树boss区域		0	Weather_Sunny	2100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_Boss	1	1	3
+2035	2035	440	(废弃)雪山洞穴过度区域		0	Weather_Sunny	1900	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_General	1	1	3
+2135	2035		(废弃)雪山洞穴过度区域上层		0	Weather_Sunny	1900	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_General	1	1	3
+2036	2036		雪山蒙德过度区域		1	Weather_Sunny	50	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_GeneralTransition	1	1	3
+2037	2037		雪山天气山顶后续		0	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_PeacePeak	1	1	3
+2038	2038	460	雪山天气洞穴洞内后续		0	Weather_Sunny	2050	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_Cave	1	1	3
+2138	2038		雪山天气洞穴上层后续		0	Weather_Sunny	2050	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Md_SnowMountain_PeacePeak	1	1	3
+10003	10003		胡桃个人线地城前半段		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_FCdungeon_Hutao_01	1	1	1059
+10004	10004		胡桃个人线地城后半段		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_FCdungeon_Hutao_02	1	1	1059
+10005	10005		双子线七天神像地城前半段		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_FCdungeon_GoddessLY01	1	1	20104
+10006	10006		双子线七天神像地城后半段		1	Weather_Sunny	2100	Data/Environment/EnviroSystemProfile/Dungeon/ESP_FCdungeon_GoddessLY02	1	1	20104
+10007	10007		双子线七天神像地城前半段		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_FCdungeon_GoddessLY01	1	1	20105
+10008	10008		双子线七天神像地城后半段		1	Weather_Sunny	2100	Data/Environment/EnviroSystemProfile/Dungeon/ESP_FCdungeon_GoddessLY02	1	1	20105
+10009	10009		风花节循环地城室内		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_CycleDungeon_WindFlower	1	1	35800
+10010	10010		风花节循环地城室外1		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_CycleDungeon_WindFlower_Outdoor	1	1	35800
+10011	10011		风花节循环地城室外2		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_CycleDungeon_WindFlower_Outdoor	1	1	35800
+10012	10012		若陀龙王地城天气		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_DahakaBoss01	1	1	20106
+10013	10013		若陀龙王地城天气		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_DahakaBoss01	1	1	20107
+10014	10014		若陀龙王地城天气		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_DahakaBoss01	1	1	20108
+10015	10015		若陀龙王地城天气		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_DahakaBoss01	1	1	20109
+10016	10016		若陀龙王地城天气		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_DahakaBoss01	1	1	20110
+10017	10018	35	角色试玩活动-迷城战线 BOSS房间		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_FCdungeon_MistTrial_Bottom	1	1	43001
+10018	10018		角色试玩活动-迷城战线 初始		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_FCdungeon_MistTrial	1	1	43001
+10019	10020	35	角色试玩活动-迷城战线 BOSS房间		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_FCdungeon_MistTrial_Bottom	1	1	43002
+10020	10020		角色试玩活动-迷城战线 初始		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_FCdungeon_MistTrial	1	1	43002
+10021	10022	35	角色试玩活动-迷城战线 BOSS房间		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_FCdungeon_MistTrial_Bottom	1	1	43003
+10022	10022		角色试玩活动-迷城战线 初始		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_FCdungeon_MistTrial	1	1	43003
+10023	10024	35	角色试玩活动-迷城战线 BOSS房间		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_FCdungeon_MistTrial_Bottom	1	1	43004
+10024	10024		角色试玩活动-迷城战线 初始		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_FCdungeon_MistTrial	1	1	43004
+10025	10026	35	角色试玩活动-迷城战线 BOSS房间		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_FCdungeon_MistTrial_Bottom	1	1	43005
+10026	10026		角色试玩活动-迷城战线 初始		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_FCdungeon_MistTrial	1	1	43005
+10027	10028	35	角色试玩活动-迷城战线 BOSS房间		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_FCdungeon_MistTrial_Bottom	1	1	43006
+10028	10028		角色试玩活动-迷城战线 初始		1	Weather_Sunny	2000	Data/Environment/EnviroSystemProfile/Dungeon/ESP_FCdungeon_MistTrial	1	1	43006
+2139	2139		(test)策划岛海岛天气预研-岛A-轻雾		1	Weather_WindDragon	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_Light	2	1	1
+2140	2140		(test)策划岛海岛天气预研-海域-重雾		1	Weather_Standard	5	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_Heavy	1	0	1
+2141	2141		(test)策划岛海岛天气预研-岛B-轻雾		1	Weather_WindDragon	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_Light	2	1	1
+2142	2142		(test)策划岛海岛天气预研-岛C-轻雾		1	Weather_WindDragon	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_Light	2	1	1
+2143	2143		(test)策划岛海岛天气预研-岛D-轻雾		1	Weather_WindDragon	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_Light	2	1	1
+2144	2144		海岛上升后-全海域-晴朗		1	Weather_Standard	20	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_General	1	0	4
+2145	2145		海岛上升前-全海域-重雾		0	Weather_Standard	50	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_Heavy	2	0	4
+2146	2146		海岛上升前-母子岛-轻雾		0	Weather_WindDragon	100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_Light	2	1	4
+2147	2147		海岛上升前-桥洞岛-轻雾		0	Weather_WindDragon	100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_Light	2	1	4
+2148	2148		海岛上升后-萨满堡垒-轻雾		0	Weather_WindDragon	100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_LowL_Boundry	2	1	4
+2149	2149		海岛上升前-音律岛-轻雾		0	Weather_WindDragon	100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_Light	2	1	4
+2150	2150		海岛上升前-颠倒山-轻雾		0	Weather_WindDragon	100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_Light	2	1	4
+2151	2151		[废弃]海岛上升后-萨满堡垒-轻雾		0	Weather_WindDragon	100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_Light	2	1	4
+2153	2153		海岛上升前-母子岛-轻轻雾		0	Weather_Standard	200	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_Clear	2	1	4
+2154	2154		海岛上升前-桥洞岛-轻轻雾		0	Weather_Standard	200	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_Clear	2	1	4
+2155	2155		[废弃]海岛上升前-萨满堡垒-轻轻雾		0	Weather_Standard	200	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_Clear	2	1	4
+2156	2156		海岛上升前-音律岛-轻轻雾		0	Weather_Standard	200	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_Clear	2	1	4
+2157	2157		海岛上升前-颠倒山-轻轻雾		0	Weather_Standard	200	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_Clear	2	1	4
+2158	2158		海岛上升前&后-边界-重雾		0	Weather_Standard	200	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_LowL_Boundry	2	1	4
+2159	2159		海岛上升后-英雄之路-重雾1		0	Weather_Standard	100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_Heavy	2	0	4
+2160	2160		海岛上升后-英雄之路-重雾2		0	Weather_Standard	100	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_Heavy	2	0	4
+2161	2161		海岛上升后-英雄之路-轻雾		0	Weather_Standard	80	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_Fog_Light	2	0	4
+2162	2162		海岛上升前-全海域-晴朗		0	Weather_Standard	30	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_HighL_General	1	0	4
+2163	2163		英雄之路晴朗区域		0	Weather_Standard	250	Data/Environment/EnviroSystemProfile/BigWorld/ESP_LP_General	1	0	4
+2164	2164		海岛上升后-傀儡将军-轻轻雾		0	Weather_Standard	40	Data/Environment/EnviroSystemProfile/Monster/ESP_Monster_Samurai_Ningyo	2	0	4
+2152	2152	240	钟离线龙王解封洞窟内部		1	Weather_Standard	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_DakahaEntrance	1	1	3
+2252	2152		钟离线龙王解封洞窟上层		1	Weather_StoneNeedles	2000	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_StoneNeedles	1	1	3
+3002	3002		(废弃、不可删除！)		1	Weather_Standard	5	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_General	1	0	3
+3003	3003		(废弃、不可删除！)		1	Weather_Standard	5	Data/Environment/EnviroSystemProfile/BigWorld/ESP_Ly_General	1	0	3

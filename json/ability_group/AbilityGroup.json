@@ -1,0 +1,93 @@
+{
+  "AmborBomber_StaminaReduced_Quest": {
+    "abilityGroupSourceType": "ABILITY_GROUP_SOURCE_QUEST",
+    "abilityGroupTargetType": "ABILITY_GROUP_TARGET_AVATAR",
+    "targetAbilities": [
+      {
+        "abilityID": "Avatar_Player_StaminaReduced_AbilityGroup",
+        "abilityName": "Avatar_Player_StaminaReduced_AbilityGroup"
+      }
+    ]
+  },
+  "Remove_AmborBomber_StaminaReduced_Quest": {
+    "abilityGroupSourceType": "ABILITY_GROUP_SOURCE_QUEST",
+    "abilityGroupTargetType": "ABILITY_GROUP_TARGET_AVATAR",
+    "targetAbilities": [
+      {
+        "abilityID": "Remove_Avatar_Player_StaminaReduced_AbilityGroup",
+        "abilityName": "Remove_Avatar_Player_StaminaReduced_AbilityGroup"
+      }
+    ]
+  },
+  "AlbedoQuest_FireDrug_Quest": {
+    "abilityGroupSourceType": "ABILITY_GROUP_SOURCE_QUEST",
+    "abilityGroupTargetType": "ABILITY_GROUP_TARGET_AVATAR",
+    "targetAbilities": [
+      {
+        "abilityID": "Avatar_Player_QuestFireDrug_AbilityGroup",
+        "abilityName": "Avatar_Player_QuestFireDrug_AbilityGroup"
+      }
+    ]
+  },
+  "Achievement_Avatar_Shooter":
+  {
+    "AbilityGroupSourceType":"ABILITY_GROUP_SOURCE_WATCHER",
+    "abilityGroupTargetType":"ABILITY_GROUP_TARGET_AVATAR",
+    "targetAbilities":
+    [
+      {
+        "abilityID":"Avatar_Common_Achievement_Listener",
+        "abilityName":"Avatar_Common_Achievement_Listener",
+      }
+    ],
+  },
+  "Achievement_Avatar_FallAnthem":
+  {
+    "AbilityGroupSourceType":"ABILITY_GROUP_SOURCE_WATCHER",
+    "abilityGroupTargetType":"ABILITY_GROUP_TARGET_AVATAR",
+    "targetAbilities":
+    [
+      {
+        "abilityID":"Avatar_FallAnthem_Achievement_Listener",
+        "abilityName":"Avatar_FallAnthem_Achievement_Listener",
+      }
+    ],
+  },
+  "Watcher_SnowMountain_MPPlay":
+  {
+    "AbilityGroupSourceType":"ABILITY_GROUP_SOURCE_WATCHER",
+    "abilityGroupTargetType":"ABILITY_GROUP_TARGET_AVATAR",
+    "targetAbilities":
+    [
+      {
+        "abilityID":"Avatar_Watcher_SnowMountain_MPPlay",
+        "abilityName":"Avatar_Watcher_SnowMountain_MPPlay",
+      }
+    ],
+  },
+  "Watcher_SuperTrial_RangeKillEnemy":
+  {
+    "AbilityGroupSourceType":"ABILITY_GROUP_SOURCE_WATCHER",
+    "abilityGroupTargetType":"ABILITY_GROUP_TARGET_AVATAR",
+    "targetAbilities":
+    [
+      {
+        "abilityID":"Avatar_Watcher_SuperTrial_RangeKillEnemy",
+        "abilityName":"Avatar_Watcher_SuperTrial_RangeKillEnemy",
+      }
+    ],
+  },
+
+  "QuestAbility_Player_SpecialBattle_200102":
+  {
+    "AbilityGroupSourceType":"ABILITY_GROUP_SOURCE_QUEST",
+    "abilityGroupTargetType":"ABILITY_GROUP_TARGET_AVATAR",
+    "targetAbilities":
+    [
+      {
+        "abilityID":"QuestAbility_Player_SpecialBattle_200102",
+        "abilityName":"QuestAbility_Player_SpecialBattle_200102",
+      }
+    ],
+  },
+}

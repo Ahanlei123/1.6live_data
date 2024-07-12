@@ -1,0 +1,21 @@
+ID	阶段	美术资源路径
+1	1	
+1	2	
+1	3	
+2	1	
+2	2	
+2	3	
+1001	1	
+1002	1	
+10001	1	
+10002	1	ART/UI/Menus/Widget/Activity/Activity_SignIn_HighLV
+10003	1	
+10004	1	
+10005	1	ART/UI/Menus/Widget/Activity/Activity_SignIn_HighLV
+10006	1	ART/UI/Menus/Widget/Activity/Activity_SignIn_HighLV
+10007	1	ART/UI/Menus/Widget/Activity/Activity_SignIn_HighLV
+10008	1	
+10009	1	
+10010	1	
+10011	1	ART/UI/Menus/Widget/Activity/Activity_SignIn_LanternRite
+10012	1	ART/UI/Menus/Widget/Activity/Activity_SignIn_RedandWhite

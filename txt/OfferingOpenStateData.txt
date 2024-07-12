@@ -1,0 +1,2 @@
+供奉系统ID	Openstate	ItemLimit
+1	1406	89

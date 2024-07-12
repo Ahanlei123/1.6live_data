@@ -1,0 +1,10 @@
+MaterialID	配置Json
+220001	ConfigWidget
+220002	ConfigWidget
+220003	ConfigWidget
+220004	ConfigWidget
+220005	ConfigWidget
+220006	ConfigWidget
+220007	ConfigWidget
+220008	ConfigWidget
+220009	ConfigWidget

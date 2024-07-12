@@ -1,0 +1,1005 @@
+[
+////////////////////////////////////////////////////////////////
+//
+// 武士敌人总控显示武器和PushCollider
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_EnsureVisible",
+		"onAdded":
+		[
+			{
+				"$type":"ApplyModifier",
+				"modifierName":"Monster_Samurai_EnsureVisible"
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_EnsureVisible":
+			{
+				"onChangeAuthority":
+				[
+					{
+						"$type":"TriggerSetVisible",
+						"visible":true
+					},
+					{
+						"$type":"HideUIBillBoard",
+						"hide":false
+					},
+					{
+						"$type":"EnablePushColliderName",
+						"pushColliderNames":["PushCollider"],
+						"setEnable":true
+					}
+				],
+				"onReconnect":
+				[
+					{
+						"$type":"TriggerSetVisible",
+						"visible":true
+					},
+					{
+						"$type":"HideUIBillBoard",
+						"hide":false
+					},
+					{
+						"$type":"EnablePushColliderName",
+						"pushColliderNames":["PushCollider"],
+						"setEnable":true
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 转向
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Ronin_01_Steer",
+		"abilityMixins":
+		[
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["RushAtk"],
+				"startNormalizedTime" : 0,
+				"endNormalizedTime" : 0.2,
+				"angularSpeed" : 360,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMoveMixin",
+				"steerStateIDs": ["RushAtk"],
+				"startNormalizedTime" : 0.47,
+				"endNormalizedTime" : 0.48,
+				"angularSpeed" : 200,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["MeleeAtk1"],
+				"startNormalizedTime" : 0.18,
+				"endNormalizedTime" : 0.23,
+				"angularSpeed" : 360,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["MeleeAtk2"],
+				"startNormalizedTime" : 0.15,
+				"endNormalizedTime" : 0.24,
+				"angularSpeed" : 360,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["Provoke"],
+				"startNormalizedTime" : 0,
+				"endNormalizedTime" : 0.15,
+				"angularSpeed" : 500,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackTraceMixin",
+				"steerStateIDs": ["Turn"],
+				"startNormalizedTime" : 0,
+				"endNormalizedTime" : 1,
+				"angularSpeed" : 200,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["ChargeAttack"],
+				"startNormalizedTime" : 0.03,
+				"endNormalizedTime" : 0.12,
+				"angularSpeed" : 360,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["PowerAtk1"],
+				"startNormalizedTime" : 0.03,
+				"endNormalizedTime" : 0.12,
+				"angularSpeed" : 360,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["PowerAtk1"],
+				"startNormalizedTime" : 0.03,
+				"endNormalizedTime" : 0.12,
+				"angularSpeed" : 360,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["PowerAtk2"],
+				"startNormalizedTime" : 0,
+				"endNormalizedTime" : 0.15,
+				"angularSpeed" : 360,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["BurstAttack"],
+				"startNormalizedTime" : 0.13,
+				"endNormalizedTime" : 0.35,
+				"angularSpeed" : 360,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["DefendBS"],
+				"startNormalizedTime" : 0,
+				"endNormalizedTime" : 0.6,
+				"angularSpeed" : 360,
+				"attackTrigger" : "",
+				"attackDistance" : 0,
+			},
+		]
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 浪人Alert
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Ronin_Alert",
+		"onAdded":
+		[
+			{
+				"$type":"SetWeaponAttachPointRealName",
+				"partName":"equip01",
+				"realName":"WeaponW"
+			}
+		],
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachToPoseIDMixin",
+				"poseIDs":[1],
+				"modifierName":"Monster_Samurai_Ronin_WeaponBeforeBattle",
+			},
+			{
+				"$type":"AttachToPoseIDMixin",
+				"poseIDs":[1001,1003,1004,1005,1006],
+				"modifierName":"Monster_Samurai_Ronin_WeaponHide",
+			},
+			{
+				"$type":"AttachToStateIDMixin",
+				"stateIDs":["BeHit","BeHitThrow","Die","Struggle","NormalIdle"],
+				"modifierName":"Monster_Samurai_Ronin_WeaponShow",
+				"predicates":
+				[
+					{
+						"$type":"ByAnimatorFloat",
+						"parameter":"PoseID",
+						"value":101,
+						"logic":"Equal"
+					}
+				]
+			},
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"Alert",
+				"normalizeStart":0,
+				"normalizeEnd":0.18,
+				"modifierName":"Monster_Samurai_Ronin_AlertWeapon"
+			},
+			{
+				"$type":"AttachToPoseIDMixin",
+				"poseIDs":[1006],
+				"modifierName":"Monster_Samurai_Ronin_Practice_WeaponShow",
+			},
+			{
+				"$type":"AttachToAIAlertnessMixin",
+				"alertness":[1,2],
+				"modifierName":"Monster_Samurai_Ronin_AlertPoseChange"
+			}
+		],
+		"onAbilityStart":
+		[
+			
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Ronin_WeaponBeforeBattle":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponW"
+					}
+				],
+				"onReconnect":
+				[
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponW"
+					}
+				],
+				"onChangeAuthority":
+				[
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponW"
+					}
+				]
+			},
+			"Monster_Samurai_Ronin_AlertWeapon":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponW"
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponR"
+					}
+				]
+			},
+			"Monster_Samurai_Ronin_WeaponShow":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponR"
+					}
+				]
+			},
+			"Monster_Samurai_Ronin_WeaponHide":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"TriggerHideWeapon",
+						"visible":false,
+						"partNames":["equip01"]
+					}
+				],
+				"onReconnect":
+				[
+					{
+						"$type":"TriggerHideWeapon",
+						"visible":false,
+						"partNames":["equip01"]
+					}
+				],
+				"onChangeAuthority":
+				[
+					{
+						"$type":"TriggerHideWeapon",
+						"visible":false,
+						"partNames":["equip01"]
+					}
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"TriggerHideWeapon",
+						"visible":true,
+						"partNames":["equip01"]
+					}
+				]
+			},
+			"Monster_Samurai_Ronin_Practice_WeaponShow":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponR"
+					}
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponW"
+					}
+				]
+			},
+			"Monster_Samurai_Ronin_AlertPoseChange":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetPoseBool",
+						"boolID":"Lie",
+						"value":false
+					},
+					{
+						"$type":"SetPoseBool",
+						"boolID":"Sit",
+						"value":false
+					},
+					{
+						"$type":"SetPoseBool",
+						"boolID":"SitDrink",
+						"value":false
+					},
+					{
+						"$type":"SetPoseBool",
+						"boolID":"SitSleep",
+						"value":false
+					},
+					{
+						"$type":"SetPoseBool",
+						"boolID":"Practice",
+						"value":false
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 冲刺攻击
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Ronin_01_RushAttack",
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"RushAtk",
+				"normalizeStart":0.49,
+				"normalizeEnd":0.55,
+				"modifierName":"Monster_Samurai_Ronin_01_RushAttack_Move"
+			},
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"DodgeAttack",
+				"normalizeStart":0.49,
+				"normalizeEnd":0.55,
+				"modifierName":"Monster_Samurai_Ronin_01_RushAttack_Move"
+			},
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"Combo_BurstAttack",
+				"normalizeStart":0.49,
+				"normalizeEnd":0.55,
+				"modifierName":"Monster_Samurai_Ronin_01_RushAttack_Move"
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Ronin_01_RushAttack_Move":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"EnablePushColliderName",
+						"pushColliderNames":["PushCollider"],
+						"setEnable":false
+					},
+					{
+						"$type":"AttachEffect",
+						"effectPattern":"Eff_Monster_Samurai_Ronin_RushAttack_Trail"
+					},
+					{
+						"$type":"FixedMonsterRushMove",
+						"toPos":
+						{
+							"$type":"ConfigBornBySelf",
+							"offset":
+							{
+								"x":0,
+								"y":0,
+								"z":10
+							}
+						},
+						"timeRange":0.15,
+						"maxRange":10,
+						"animatorStateIDs":["RushAtk","DodgeAttack","Combo_BurstAttack"]
+					}
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"EnablePushColliderName",
+						"pushColliderNames":["PushCollider"],
+						"setEnable":true
+					}
+				]
+			}
+		}
+	}
+},
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Hatamoto_BurstAttack",
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"BurstAttack",
+				"normalizeStart":0.41,
+				"normalizeEnd":0.5,
+				"modifierName":"Monster_Samurai_Hatamoto_BurstAttack_Move"
+			},
+			// {
+			// 	"$type":"AttachToNormalizedTimeMixin",
+			// 	"stateID":"DodgeAttack",
+			// 	"normalizeStart":0.41,
+			// 	"normalizeEnd":0.5,
+			// 	"modifierName":"Monster_Samurai_Hatamoto_BurstAttack_Move"
+			// }
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Hatamoto_BurstAttack_Move":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"EnablePushColliderName",
+						"pushColliderNames":["PushCollider"],
+						"setEnable":false
+					},
+					{
+						"$type":"AttachEffect",
+						"effectPattern":"Eff_Monster_Samurai_Ronin_BurstStrike_Trail"
+					},
+					{
+						"$type":"FixedMonsterRushMove",
+						"toPos":
+						{
+							"$type":"ConfigBornBySelf",
+							"offset":
+							{
+								"x":0,
+								"y":0,
+								"z":15
+							}
+						},
+						"timeRange":0.19,
+						"maxRange":15,
+						"animatorStateIDs":["BurstAttack","DodgeAttack"]
+					}
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"EnablePushColliderName",
+						"pushColliderNames":["PushCollider"],
+						"setEnable":true
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 强制闪避
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Ronin_ForceDodge",
+		"onAdded":
+		[
+			{
+				"$type":"AddGlobalValue",
+				"key":"_SAMURAI_RONIN_ENABLE_DODGE",
+				"value":1,
+				"useLimitRange":true,
+				"maxValue":1,
+			},
+		],
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachToStateIDMixin",
+				"stateIDs":["BeHit"],
+				"modifierName":"Monster_Samurai_Ronin_ForceDodge_Handler"
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Ronin_ForceDodge_Handler":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetAnimatorTrigger",
+						"triggerID":"ForceDodge",
+						"predicates":
+						[
+							{
+								"$type":"ByTargetGlobalValue",
+								"key":"_SAMURAI_RONIN_ENABLE_DODGE",
+								"value":1,
+								"compareType":"Equal"
+							}
+						]
+					},
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Samurai_Ronin_ForceDodge_Timer"
+					}
+				]
+			},
+			"Monster_Samurai_Ronin_ForceDodge_Timer":
+			{
+				"duration":10,
+				"onAdded":
+				[
+					{
+						"$type":"AddGlobalValue",
+						"key":"_SAMURAI_RONIN_ENABLE_DODGE",
+						"value":-2,
+						"useLimitRange":true,
+						"maxValue":1,
+					}
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"AddGlobalValue",
+						"key":"_SAMURAI_RONIN_ENABLE_DODGE",
+						"value":1,
+						"useLimitRange":true,
+						"maxValue":1,
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 射击子弹 和子弹伤害
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Ronin_Shoot",
+		"onAbilityStart":
+		[
+			{
+				"$type":"TriggerBullet",
+				"bulletID":42508001,
+				"born":
+				{
+					"$type":"ConfigBornByAttachPoint",
+					"attachPointName":"WeaponL",
+					"direction":
+					{
+						"$type":"ConfigDirectionByAttackTarget",
+						"maxAngleType":"Vertical",
+						"maxAngle":60
+					}
+				}
+			}
+		]
+	}
+},
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Ronin_ShootDamage",
+		"onAdded":
+		[
+			{
+				"$type":"ApplyModifier",
+				"modifierName":"Monster_Samurai_Ronin_ShootBullet"
+			}
+		],
+		"onAbilityStart":
+		[
+			{
+				"$type":"RemoveModifier",
+				"modifierName":"Monster_Samurai_Ronin_ShootBullet"
+			},
+			{
+				"$type" : "TriggerAttackEvent",
+				"targetType" : "Enemy",
+				"attackEvent": 
+				{
+					"attackPattern" :
+					{
+						"$type" : "ConfigAttackSphere",
+						"triggerType" : "TriggerNoRepeat",
+						"radius": 0.75,
+						"born":
+						{
+							"$type": "ConfigBornByCollisionPoint",
+						},
+						"checkHitLayerType": "Both",
+					},
+					"attackInfo":
+					{
+						"attackProperty":
+						{
+							"damagePercentage": 0.55,
+							"strikeType": "Blunt",
+							"enBreak": 50.0,
+						},
+						"hitPattern" :
+						{
+							"hitImpulseType": "LV2",
+							"reboundRatio": 0,
+							"muteHitText": false,
+						},
+						"forceCameraShake": false,
+					}
+				}
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Ronin_ShootBullet":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"AttachEffect",
+						"effectPattern":"Eff_Monster_Samurai_Ronin_Shoot_Bullet"
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 武器自身隐藏
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Ronin_EquipHide",
+		"onAbilityStart":
+		[
+			{
+				"$type":"TriggerSetVisible",
+				"visible":false
+			}
+		]
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 火药攻击
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Ronin_PowderAttack",
+		"onAbilityStart":
+		[
+			{
+				"$type":"ApplyModifier",
+				"modifierName":"Monster_Samurai_Ronin_PowderAttack"
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Ronin_PowderAttack":
+			{
+				"duration":0.3,
+				"onAdded":
+				[
+					{
+						"$type":"FireEffect",
+						"effectPattern":"Eff_Monster_Samurai_Ronin_PowderAttack"
+					},
+					{
+						"$type":"TriggerAttackEvent",
+						"targetType":"Enemy",
+						"attackEvent":
+						{
+							"attackPattern":
+							{
+								"$type": "ConfigAttackBox",
+								"triggerType": "TriggerNoRepeat",
+								"size":
+								{
+									"x" : 3.5,
+									"y" : 2,
+									"z" : 2.5,
+								},
+								"born":
+								{
+									"$type": "ConfigBornBySelf",
+									"offset":
+									{
+										"x": 0,
+										"y": 0,
+										"z": 3,
+									},
+								},
+							},
+							"attackInfo":
+							{
+								"attackProperty":
+								{
+									"damagePercentage": 0.3,
+									"strikeType": "Blunt",
+									"enBreak":101,
+								},
+								"hitPattern":
+								{
+									"onHitEffectName": "default",
+									"hitImpulseType":"LV4"
+								}
+							}
+						}
+					}
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"TriggerAttackEvent",
+						"targetType":"Enemy",
+						"attackEvent":
+						{
+							"attackPattern":
+							{
+								"$type": "ConfigAttackBox",
+								"triggerType": "TriggerNoRepeat",
+								"size":
+								{
+									"x" : 3.5,
+									"y" : 2,
+									"z" : 2.5,
+								},
+								"born":
+								{
+									"$type": "ConfigBornBySelf",
+									"offset":
+									{
+										"x": 0,
+										"y": 0,
+										"z": 1.5,
+									},
+								},
+							},
+							"attackInfo":
+							{
+								"attackProperty":
+								{
+									"damagePercentage": 0.3,
+									"strikeType": "Blunt",
+									"enBreak":101,
+								},
+								"hitPattern":
+								{
+									"onHitEffectName": "default",
+									"hitImpulseType":"LV4"
+								}
+							}
+						}
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 脱战和死亡表演
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Ronin_OutOfBattle",
+		"onAdded":
+		[
+
+		],
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachToPoseIDMixin",
+				"poseIDs":[901],
+				"modifierName":"Monster_Samurai_Ronin_OutOfBattle_Trigger"
+			},
+			{
+				"$type":"AttachToNormalizedTimeMixin",
+				"stateID":"OutOfBattle",
+				"normalizeStart":0.542,
+				"normalizeEnd":1,
+				"modifierName":"Monster_Samurai_Ronin_OutOfBattle_HideWeapon"
+			}
+		],
+		"onKill":
+		[
+
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Ronin_OutOfBattle_Trigger":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetAnimatorTrigger",
+						"triggerID":"OutOfBattle"
+					}
+				]
+			},
+			"Monster_Samurai_Ronin_OutOfBattle_HideWeapon":
+			{
+				"onAdded":
+				[
+					// {
+					// 	"$type":"TriggerHideWeapon",
+					// 	"partNames":["equip01"],
+					// 	"visible":false
+					// },
+					// {
+					// 	"$type":"AttachEffect",
+					// 	"effectPattern":"Eff_Monster_Samurai_Ronin_Weapon_Blade"
+					// },
+					{
+						"$type":"SetWeaponAttachPointRealName",
+						"partName":"equip01",
+						"realName":"WeaponW"
+					}
+				]
+			}
+		}
+	}
+},
+////////////////////////////////////////////////////////////////
+//
+// 幕府武士格挡
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type":"ConfigAbility",
+		"abilityName":"Monster_Samurai_Hatamoto_Block",
+		"onAdded":
+		[
+
+		],
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachToStateIDMixin",
+				"stateIDs":["DefendBS","DefendAS","DefendLoop","DefendHit","DefendBreak"],
+				"modifierName":"Monster_Samurai_Hatamoto_Block_Duration"
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Samurai_Hatamoto_Block_Duration":
+			{
+				"properties":
+				{
+					"Actor_EndureDelta":0.5,
+				},
+				"onAdded":
+				[
+					{
+						"$type":"SetPoseBool",
+						"boolID":"InBlock",
+						"value":true
+					}
+				],
+				"modifierMixins":
+				[
+					{
+						"$type":"MonsterDefendMixin",
+						"stateIDs":["DefendLoop","DefendHit"],
+						"defendTriggerID": "DefendHit",
+						"defendAngle": 90,
+						"onDefendSucceded":	
+						[
+							{
+								"$type": "FireEffect",
+								"otherTargets":
+								{
+									"$type":"SelectTargetsByEquipParts",
+									"equipPartNames":["equip01"]
+								},
+								"effectPattern": "Eff_Monster_Samurai_Ronin_BlockHit",
+								"born":
+								{
+									"$type": "ConfigBornByAttachPoint",
+									"attachPointName":"BlockPoint",
+									"attachPointTargetType":"Target"
+								}
+							}
+						]
+					},
+					{
+						"$type":"VelocityForceMixin",
+						"excludeForces":["RetreatAirType"]
+					}
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"SetPoseBool",
+						"boolID":"InBlock",
+						"value":false
+					}
+				]
+			}
+		}
+	}
+}
+]

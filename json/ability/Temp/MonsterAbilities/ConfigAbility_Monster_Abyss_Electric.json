@@ -1,0 +1,2549 @@
+[
+////////////////////////////////////////////////////////////////
+//
+//  Pose
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_Pose",
+		"abilityMixins":
+		[
+			// _ABILITY_ABYSS_POSETAG_
+			// 0:有盾
+			// 1:没盾元素缺失
+			// 2:没盾元素聚集
+			{
+				"$type": "AttachModifierToSelfGlobalValueMixin",
+				"globalValueKey": "_ABILITY_ABYSS_POSETAG_",
+				"valueSteps": [-0.5, 0.5, 1.5, 2.5],
+				"defaultGlobalValueOnCreate":0,
+				"removeAppliedModifier": true,
+				"modifierNameSteps": ["Pose_HasElement","Pose_DetectElement","Pose_GatherElement"],
+			},
+		],
+		"modifiers":
+		{
+			"Pose_HasElement":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetPoseBool",
+						"boolID":"ElementState",
+						"value":true,
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"SetPoseBool",
+						"boolID":"ElementState",
+						"value":false,
+					},
+				],
+			},
+			"Pose_DetectElement":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetPoseBool",
+						"boolID":"DetectEnd",
+						"value":false,
+					},
+					{
+						"$type":"SetPoseBool",
+						"boolID":"ElementState",
+						"value":false,
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"SetPoseBool",
+						"boolID":"DetectEnd",
+						"value":true,
+					},
+				],
+			},
+			"Pose_GatherElement":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetPoseBool",
+						"boolID":"GatherEnd",
+						"value":false,
+					},
+					{
+						"$type":"SetPoseBool",
+						"boolID":"ElementState",
+						"value":false,
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type":"SetPoseBool",
+						"boolID":"GatherEnd",
+						"value":true,
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  Specials State
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_SpecialsState",
+		"abilityMixins":
+		[
+			{
+				"$type": "DoActionByStateIDMixin",
+				"stateIDs": ["Sacrifice", "TurnToSacrifice"],
+				"enterPredicates":
+				[
+					{
+						"$type": "ByTargetGlobalValue",
+						"key": "_ELEMENTSHIELD_TAG_",
+						"value": 1,
+						"forceByCaster": true,
+						"compareType": "Equal",
+					},
+				],
+				"exitPredicates":
+				[
+					{
+						"$type": "ByTargetGlobalValue",
+						"key": "_ELEMENTSHIELD_TAG_",
+						"value": 0,
+						"forceByCaster": true,
+						"compareType": "Equal",
+					},
+				],
+				"enterActions":
+				[
+					{
+						"$type": "TriggerAbility",
+						"abilityName": "Monster_Abyss_Electric_ElementShield_Remove_NoBroken",
+						"target": "Self",
+					},
+				],
+				"exitActions":
+				[
+					{
+						"$type": "TriggerAbility",
+						"abilityName": "Monster_Abyss_Electric_ElementShield",
+						"target": "Self",
+					},
+				],
+			},
+		],
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  Sacrifice
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_ElementShield_Remove_NoBroken",
+		"onAbilityStart": 
+		[
+			{
+				"$type": "RemoveUniqueModifier",
+				"modifierName": "UNIQUE_Abyss_Electric_ElementShield",
+			},
+			{
+				"$type": "SetPoseInt",
+				"intID": "ElementState",
+				"value": 2,
+			},
+			{
+				"$type": "ResetAnimatorTrigger",
+				"triggerID": "ShiledBrokenTrigger",
+			},
+		],
+	},
+},
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_SacrificeAlert",
+		"onAbilityStart":
+		[
+			{
+				"$type": "TriggerAbility",
+				"abilityName": "Monster_Abyss_Electric_ElementShield",
+				"target": "Self",
+			},	
+		],
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  ElementShield
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_ElementShield",
+		"onAbilityStart":
+		[
+			// 更改globalvalueglobalvalue驱动pose 改变，pose改变引起上盾、下盾
+			{
+				"$type": "SetGlobalValue",
+				"key" : "_ABILITY_ABYSS_POSETAG_",
+				"value" : 0,
+			},
+		],
+		"abilityMixins":
+		[
+			{
+				"$type": "AttachToPoseIDMixin",
+				"poseIDs": [300, 301],
+				"modifierName": "UNIQUE_Abyss_Electric_ElementShield",
+			},
+		],
+		"modifiers":
+		{
+			"UNIQUE_Abyss_Electric_ElementShield":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"elementType": "Electric",
+				"elementDurability": "300*%ElementShield_DurabilityImprove+300",
+				"properties":
+				{
+					"Actor_EndureDelta": 0.0,
+				},
+				//"state": "LockHP",
+				"modifierMixins":
+				[
+					{
+						"$type": "ElementShieldMixin",
+						"elementType": "Electric",
+						"shieldHPRatio": 1.0,
+						"damageRatio": 0.2,
+						"useMutiPlayerFixData": true,
+						"onShieldSuccess":
+						[
+							{
+								"$type": "Predicated",
+								"target": "Target",
+								"targetPredicates":
+								[
+									{
+										"$type": "ByEntityTypes",
+										"entityTypes": ["Avatar"],
+									},
+								],
+								"successActions":
+								[
+									{
+										"$type": "SetGlobalDir",
+										"target": "Target",
+										"key": "_ABILITY_ABYSS_Electric_ELEMENTSHIELD_HIT",
+										"born":
+										{
+											"$type": "ConfigBornBySelf",
+											"direction":
+											{
+												"$type": "ConfigDirectionByLookAtEntity",
+											},
+										},
+										"setTarget": false,
+									},
+								],
+								"failActions":
+								[
+									{
+										"$type": "SetGlobalDir",
+										"target": "TargetOriginOwner",
+										"key": "_ABILITY_ABYSS_Electric_ELEMENTSHIELD_HIT",
+										"born":
+										{
+											"$type": "ConfigBornBySelf",
+											"direction":
+											{
+												"$type": "ConfigDirectionByLookAtEntity",
+											},
+										},
+										"setTarget": false,
+									},
+								],
+							},
+							{
+								"$type": "FireEffect",
+								"effectPattern": "Eff_Monster_Abyss_Electric_ElementShield_Hit_Invalid",
+								"born":
+								{
+									"$type": "ConfigBornByTarget",
+									"direction":
+									{
+										"$type": "ConfigDirectionByGlobalValue",
+										"directionKey": "_ABILITY_ABYSS_Electric_ELEMENTSHIELD_HIT",
+									},
+								},
+							},
+							{
+								"$type": "SendEffectTrigger",
+								"effectPattern": "Eff_Monster_Abyss_Electric_ElementShield_BS",
+								"parameter": "BeHitInvalid",
+							},
+						],
+						"onShieldFailed":
+						[
+							{
+								"$type": "Predicated",
+								"target": "Target",
+								"targetPredicates":
+								[
+									{
+										"$type": "ByEntityTypes",
+										"entityTypes": ["Avatar"],
+									},
+								],
+								"successActions":
+								[
+									{
+										"$type": "SetGlobalDir",
+										"target": "Target",
+										"key": "_ABILITY_ABYSS_Electric_ELEMENTSHIELD_HIT",
+										"born":
+										{
+											"$type": "ConfigBornBySelf",
+											"direction":
+											{
+												"$type": "ConfigDirectionByLookAtEntity",
+											},
+										},
+										"setTarget": false,
+									},
+								],
+								"failActions":
+								[
+									{
+										"$type": "SetGlobalDir",
+										"target": "TargetOriginOwner",
+										"key": "_ABILITY_ABYSS_Electric_ELEMENTSHIELD_HIT",
+										"born":
+										{
+											"$type": "ConfigBornBySelf",
+											"direction":
+											{
+												"$type": "ConfigDirectionByLookAtEntity",
+											},
+										},
+										"setTarget": false,
+									},
+								],
+							},
+							{
+								"$type": "FireEffect",
+								"effectPattern": "Eff_Monster_Abyss_Electric_ElementShield_Hit",
+								"born":
+								{
+									"$type": "ConfigBornByTarget",
+									"direction":
+									{
+										"$type": "ConfigDirectionByGlobalValue",
+										"directionKey": "_ABILITY_ABYSS_Electric_ELEMENTSHIELD_HIT",
+									},
+								},
+							},
+							{
+								"$type": "SendEffectTrigger",
+								"effectPattern": "Eff_Monster_Abyss_Electric_ElementShield_BS",
+								"parameter": "BeHit",
+							},
+						],
+					},
+					{
+						"$type":"VelocityForceMixin",
+						"excludeForces":["WindZoneType"]
+					}
+				],
+				"onAdded":
+				[
+					{
+						"$type": "SetGlobalValue",
+						"key" : "_ELEMENTSHIELD_TAG_",
+						"value" : 1,
+					},
+					{
+						"$type": "TriggerAbility",
+						"abilityName": "Monster_Abyss_Electric_ElementShield_Effect",
+						"target": "Self",
+					},
+					{
+						"$type": "EnableMonsterMoveOnWater",
+						"enable": true,
+					},	
+					{
+						"$type" : "AttachAbilityStateResistance",
+						"resistanceListID": 14001,
+					},
+				],
+				"onKill":
+				[
+					{
+						"$type": "RemoveUniqueModifier",
+						"modifierName": "UNIQUE_Abyss_Electric_ElementShield",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type": "SetAnimatorTrigger",
+						"triggerID": "ShiledBrokenTrigger",
+						"target": "Self",
+					},
+					{
+						"$type": "SetGlobalValue",
+						"key" : "_ABILITY_ABYSS_POSETAG_",
+						"value" : 1,
+					},
+					{
+						"$type": "SetGlobalValue",
+						"key" : "_ELEMENTSHIELD_TAG_",
+						"value" : 0,
+					},
+					{
+						"$type": "TriggerAbility",
+						"abilityName": "Monster_Abyss_Electric_DizzyTimer",
+						"target": "Self",
+					},
+					{
+						"$type": "EnableMonsterMoveOnWater",
+						"enable": false,
+						"predicates": 
+						[
+							{
+								"$type": "ByTargetGlobalValue",
+								"key": "_RETURNTOBORN_TAG_",
+								"value": 0,
+								"compareType": "NoneOrEqual",
+							},
+						],
+					},	
+					{
+						"$type": "RemoveUniqueModifier",
+						"modifierName": "UNIQUE_Abyss_Electric_ElementShield_Effect",
+					},
+				],
+			},
+		},
+		"abilitySpecials":
+		{
+			"ElementShield_DurabilityImprove": 0.0,
+		},
+	},
+},
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_ElementShield_Effect",
+		"onAbilityStart":
+		[
+			{
+				"$type": "ApplyModifier",
+				"target": "Self",
+				"modifierName": "UNIQUE_Abyss_Electric_ElementShield_Effect",
+			},
+		],
+		"modifiers":
+		{
+			"UNIQUE_Abyss_Electric_ElementShield_Effect":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type": "EnableHitBoxByName",
+						"hitBoxNames": ["HitBox_ElementShield"],
+						"setEnable": true,
+					},
+					{
+						"$type": "EnableHitBoxByName",
+						"hitBoxNames": ["HitBox", "HeadBox"],
+						"setEnable": false,
+					},
+					{
+						"$type": "EnablePushColliderName",
+						"pushColliderNames": ["PushCollider_ElementShield"],
+						"setEnable": true,
+					},
+					{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_Monster_Abyss_Electric_ElementShield_BS",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type": "EnableHitBoxByName",
+						"hitBoxNames": ["HitBox_ElementShield"],
+						"setEnable": false,
+					},
+					{
+						"$type": "EnableHitBoxByName",
+						"hitBoxNames": ["HitBox", "HeadBox"],
+						"setEnable": true,
+					},
+					{
+						"$type": "EnablePushColliderName",
+						"pushColliderNames": ["PushCollider_ElementShield"],
+						"setEnable": false,
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  Dizzy
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_DizzyTimer",
+		"onAbilityStart":
+		[
+			{
+				"$type": "SetGlobalValue",
+				"key" : "_ABILITY_ABYSS_POSETAG_",
+				"value" : 1,
+			},
+		],
+		"abilityMixins":
+		[
+			{
+				"$type": "AttachToPoseIDMixin",
+				"poseIDs": [101],
+				"modifierName": "UNIQUE_DizzyTimer",
+			},
+		],
+		"modifiers":
+		{
+			"UNIQUE_DizzyTimer" :
+			{
+				"properties":
+				{
+					"Actor_EndureDelta": 3,
+				},
+				"isUnique": true,
+				"duration": "12*%ElementShield_GapReduce+12",
+				"onRemoved": 
+				[
+					{
+						"$type": "SetGlobalValue",
+						"key": "_ABILITY_ABYSS_POSETAG_",
+						"value": 2,
+					},
+				],
+			},
+		},
+		"abilitySpecials":
+		{
+			"ElementShield_GapReduce": 0.0,
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  Gather
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_GatherBreak",
+		"abilityMixins" : 
+		[
+			{
+				"$type": "AttachToPoseIDMixin",
+				"poseIDs": [201],
+				"modifierName": "GatherBreakHandler",
+			},
+		],
+		"modifiers":
+		{
+			"GatherBreakHandler" :
+			{
+				"modifierMixins":
+				[
+					{
+						"$type":"AttachToStateIDMixin",
+						"stateIDs":["BeHit", "BeHitThrow", "Struggle"],
+						"modifierName":"GatherBreak",
+					},
+				],
+				"onAdded":
+				[
+					{
+						"$type":"SetPoseBool",
+						"boolID":"GatherBreak",
+						"value":false,
+					},
+				],
+			},
+			"GatherBreak" :
+			{
+				"onRemoved": 
+				[
+					// GatherState是基于动画状态的，被打断时，会remove，并将pose设置为3
+					// GatherBreak也基于受击的动画状态，被打断时，会进入onAdded，如果在此时同时设置pose，可能会出现时序问题，因此放在onRemoved上
+					// 会导致的问题就是，动画没出受击状态时断线balabala的，就保持pose为3了，不会重新回到1
+					// 这块的打断处理没想到更合理的方法了，等其他深渊法师如果有幸重构的话，学习一下
+					{
+						"$type": "SetGlobalValue",
+						"key": "_ABILITY_ABYSS_POSETAG_",
+						"value": 1,
+					},
+					{
+						"$type":"SetPoseBool",
+						"boolID":"GatherBreak",
+						"value":true,
+					},
+				],
+			},
+		},
+	},
+},
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_GatherSet",
+		"abilityMixins" : 
+		[
+			{
+				"$type": "AttachToStateIDMixin", 
+				"stateIDs": ["GatherStart", "GatherLoop", "GatherSuccess_Alert"],
+				"modifierName": "GatherState", 
+			},
+			{
+				"$type": "AttachToPoseIDMixin",
+				"poseIDs": [201],
+				"modifierName": "GatherEndure",
+			},
+		],
+		"modifiers":
+		{
+			"GatherEndure" :
+			{
+				"properties":
+				{
+					"Actor_EndureDelta": 0.4,
+				},
+			},
+			"GatherState" :
+			{
+				"onRemoved": 
+				[
+					{
+						"$type": "SetGlobalValue",
+						"intID": "_ABILITY_ABYSS_POSETAG_",
+						"value": 0,
+					},
+				],
+			},
+		},
+	},
+},
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_GatherLoop",
+		"abilityMixins" : 
+		[
+			{
+				"$type": "AttachToStateIDMixin", 
+				"stateIDs": ["GatherLoop"], 
+				"modifierName": "GatherLoop_Effect", 
+			},
+			{
+				"$type": "AttachToStateIDMixin", 
+				"stateIDs": ["GatherStart", "GatherLoop"], 
+				"modifierName": "Gather_Barrage", 
+			},
+		],
+		"modifiers":
+		{
+			"GatherLoop_Effect":
+			{
+				"onAdded":
+				[
+					{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_Monster_Abyss_Electric_Gather",
+					},
+				],
+			},
+			"Gather_Barrage":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"CreateGadget",
+						"gadgetID":42201020,
+						"byServer": true,
+						"lifeByOwnerIsAlive": true,
+						"born":
+						{
+							"$type":"ConfigBornBySelf",
+							"offset":
+							{
+								"x":0.0,
+								"y":0.0,
+								"z":0.0,
+							},
+						},
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type": "TriggerAbility",
+						"otherTargets":
+						{
+							"$type": "SelectTargetsByChildren",
+							"configID": 42201020,
+							"sortType": "Default",
+						},
+						"abilityName": "Abyss_Electric_GatherBarrageEmitter",
+					},
+				],
+			},
+		},
+	},
+},
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_GatherAlert",
+		"abilityMixins" : 
+		[
+			{
+				"$type": "AttachToStateIDMixin", 
+				"stateIDs": ["GatherSuccess_Alert"], 
+				"modifierName": "GatherAlert", 
+			},
+		],
+		"modifiers":
+		{
+			"GatherAlert":
+			{
+				"onAdded":
+				[
+					{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_Monster_Abyss_Electric_Gather_Alert",
+					},
+				],
+			},
+		},
+	},
+},
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_GatherSuccess",
+		"abilityMixins" : 
+		[
+			{
+				"$type": "AttachToStateIDMixin", 
+				"stateIDs": ["GatherSuccess"], 
+				"modifierName": "GatherSuccess", 
+			},
+		],
+		"modifiers":
+		{
+			"GatherSuccess":
+			{
+				"onAdded":
+				[
+					{
+						"$type": "RemoveUniqueModifier",
+						"modifierName": "UNIQUE_DizzyTimer",
+						"target": "Self",
+					},
+					{
+						"$type": "FireEffect",
+						"effectPattern": "Eff_Monster_Abyss_Electric_Gather_AS_Hor",
+						"born":
+						{
+							"$type": "ConfigBornByTarget",
+							"offset" : 
+							{
+								"x": 0.0, 
+								"y": 1.0, 
+								"z": 0.0, 
+							}
+						},
+					},
+					{
+						"$type" : "TriggerAttackEvent",
+						"targetType" : "Enemy",
+						"attackEvent": 
+						{
+							"attackPattern" : 
+							{
+								"$type" : "ConfigAttackCircle",
+								"duration" : 0.0,
+								"triggerType" : "TriggerNoRepeat",
+								"fanAngle" : 360.0,
+								"radius" : 5.0,
+								"born":
+								{
+									"$type": "ConfigBornBySelf",
+									"offset":
+									{
+										"x" : 0.0,
+										"y" : 0.75,
+										"z" : 0.0,
+									},
+								},
+							},
+							"attackInfo":
+							{
+								"attackProperty":
+								{
+									"damagePercentage": 1.5,
+									"strikeType": "Default",
+									"attackType": "Default",
+									"elementType": "Electric",
+									"elementDurability": 50,
+									"enBreak": 200,
+								},
+								"hitPattern" :
+								{
+									"hitImpulseType": "LV5",
+									"reboundRatio" : 0,
+									"hitHaltTime" : 0.0,
+									"hitHaltTimeScale" : 0.05,
+									"muteHitText" : false,
+								},
+							},
+						},
+					},
+					{
+						"$type": "FireEffect",
+						"effectPattern": "Eff_Monster_Abyss_Electric_Gather_AS_Ver",
+						"born":
+						{
+							"$type": "ConfigBornByTarget",
+							"offset" : 
+							{
+								"x": 0.0, 
+								"y": 0.0, 
+								"z": 0.0, 
+							}
+						},
+					},
+					{
+						"$type" : "TriggerAttackEvent",
+						"targetType" : "Enemy",
+						"attackEvent": 
+						{
+							"attackPattern" :
+							{
+								"$type" : "ConfigAttackBox",
+								"triggerType" : "TriggerNoRepeat",
+								"size" : 
+								{
+									"x" : 1.0,
+									"y" : 10.0,
+									"z" : 1.0,
+								},
+								"born":
+								{
+									"$type": "ConfigBornBySelf",
+									"offset" : 
+									{
+										"x": 0.0,
+										"y": 5.0, 
+										"z": -0.5,
+									}
+								},
+							},
+							"attackInfo":
+							{
+								"attackProperty":
+								{
+									"damagePercentage": 2.0,
+									"strikeType": "Default",
+									"attackType": "Default",
+									"elementType": "Electric",
+									"elementDurability": 50,
+									"enBreak": 200,
+								},
+								"hitPattern" :
+								{
+									"hitImpulseType": "LV5",
+									"reboundRatio" : 0,
+									"hitHaltTime" : 0.0,
+									"hitHaltTimeScale" : 0.05,
+									"muteHitText" : false,
+								},
+							},
+						},
+					},
+					{
+						"$type": "ActCameraShake",
+						"cameraShake":
+						{
+							"shakeType": "CustomVector",
+							"shakeRange": 0.16,
+							"shakeTime": 0.3,
+							"shakeDistance": 25,
+							"shakeDir":
+							{
+								"x":0, 
+								"y":1,
+								"z":0,
+							},
+							"extension":
+							{
+								"basecycle": 0.08,
+								"cycledamping": 0.04,
+								"rangeAttenuation": 0.9,
+							},
+						},
+					},
+					{
+						"$type": "TriggerAbility",
+						"abilityName": "Monster_Abyss_Electric_ElementShield",
+						"target": "Self",
+					},
+				],
+			},
+		},
+	},
+},
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Abyss_Electric_GatherBarrageEmitter",
+		"onAdded": 
+		[
+			{
+				"$type" : "ApplyModifier",
+				"modifierName":"GatherBarrageWave1Timer",
+			},
+			{
+				"$type" : "ApplyModifier",
+				"modifierName":"GatherBarrageWave2",
+			},
+		],
+		"onAbilityStart":
+		[
+			{
+				"$type": "TriggerAbility",
+				"otherTargets":
+				{
+					"$type": "SelectTargetsByChildren",
+					"configID": 42201018,
+					"sortType": "Default",
+				},
+				"abilityName": "Abyss_Electric_GatherBarrage_Hit",
+			},
+			{
+				"$type": "KillSelf",
+				"duration": 0.1,
+			},
+		],
+		"onKill": 
+		[
+			{
+				"$type" : "RemoveModifier",
+				"modifierName":"GatherBarrageWave1",
+			},
+			{
+				"$type" : "RemoveModifier",
+				"modifierName":"GatherBarrageWave2",
+			},
+		],
+		"modifiers":
+		{
+			"GatherBarrageWave1Timer":
+			{
+				"duration": 1.5,
+				"onRemoved":
+				[
+					{
+						"$type" : "ApplyModifier",
+						"modifierName":"GatherBarrageWave1",
+					},
+				],
+			},
+			"GatherBarrageWave1":
+			{
+				"onAdded":
+				[
+					{
+						"$type": "TriggerBullet",
+						"bulletID": 42201018,
+						"born":
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "BarrageAttachPoint1",
+							"offset":
+							{
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+							},
+							"direction":
+							{
+								"$type": "ConfigDirectionByAttachPoint",
+								"attachPointName":"BarrageAttachPoint1",
+								"attachPointTargetType":"Self",
+							}, 
+						},
+					},
+					{
+						"$type": "TriggerBullet",
+						"bulletID": 42201018,
+						"born":
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "BarrageAttachPoint2",
+							"offset":
+							{
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+							},
+							"direction":
+							{
+								"$type": "ConfigDirectionByAttachPoint",
+								"attachPointName":"BarrageAttachPoint2",
+								"attachPointTargetType":"Self",
+							},
+						},
+					},
+					{
+						"$type": "TriggerBullet",
+						"bulletID": 42201018,
+						"born":
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "BarrageAttachPoint3",
+							"offset":
+							{
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+							},
+							"direction":
+							{
+								"$type": "ConfigDirectionByAttachPoint",
+								"attachPointName":"BarrageAttachPoint3",
+								"attachPointTargetType":"Self",
+							},
+						},
+					},
+					{
+						"$type": "TriggerBullet",
+						"bulletID": 42201018,
+						"born":
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "BarrageAttachPoint4",
+							"offset":
+							{
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+							},
+							"direction":
+							{
+								"$type": "ConfigDirectionByAttachPoint",
+								"attachPointName":"BarrageAttachPoint4",
+								"attachPointTargetType":"Self",
+							},
+						},
+					},
+				],
+				"thinkInterval": 3.0,
+				"onThinkInterval":
+				[
+					{
+						"$type": "TriggerBullet",
+						"bulletID": 42201018,
+						"born":
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "BarrageAttachPoint1",
+							"offset":
+							{
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+							},
+							"direction":
+							{
+								"$type": "ConfigDirectionByAttachPoint",
+								"attachPointName":"BarrageAttachPoint1",
+								"attachPointTargetType":"Self",
+							}, 
+						},
+					},
+					{
+						"$type": "TriggerBullet",
+						"bulletID": 42201018,
+						"born":
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "BarrageAttachPoint2",
+							"offset":
+							{
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+							},
+							"direction":
+							{
+								"$type": "ConfigDirectionByAttachPoint",
+								"attachPointName":"BarrageAttachPoint2",
+								"attachPointTargetType":"Self",
+							},
+						},
+					},
+					{
+						"$type": "TriggerBullet",
+						"bulletID": 42201018,
+						"born":
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "BarrageAttachPoint3",
+							"offset":
+							{
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+							},
+							"direction":
+							{
+								"$type": "ConfigDirectionByAttachPoint",
+								"attachPointName":"BarrageAttachPoint3",
+								"attachPointTargetType":"Self",
+							},
+						},
+					},
+					{
+						"$type": "TriggerBullet",
+						"bulletID": 42201018,
+						"born":
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "BarrageAttachPoint4",
+							"offset":
+							{
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+							},
+							"direction":
+							{
+								"$type": "ConfigDirectionByAttachPoint",
+								"attachPointName":"BarrageAttachPoint4",
+								"attachPointTargetType":"Self",
+							},
+						},
+					},
+				],
+			},
+			"GatherBarrageWave2":
+			{
+				"thinkInterval": 3.0,
+				"onThinkInterval":
+				[
+					{
+						"$type": "TriggerBullet",
+						"bulletID": 42201018,
+						"born":
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "BarrageAttachPoint5",
+							"offset":
+							{
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+							},
+							"direction":
+							{
+								"$type": "ConfigDirectionByAttachPoint",
+								"attachPointName":"BarrageAttachPoint5",
+								"attachPointTargetType":"Self",
+							},
+						},
+					},
+					{
+						"$type": "TriggerBullet",
+						"bulletID": 42201018,
+						"born":
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "BarrageAttachPoint6",
+							"offset":
+							{
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+							},
+							"direction":
+							{
+								"$type": "ConfigDirectionByAttachPoint",
+								"attachPointName":"BarrageAttachPoint6",
+								"attachPointTargetType":"Self",
+							},
+						},
+					},
+					{
+						"$type": "TriggerBullet",
+						"bulletID": 42201018,
+						"born":
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "BarrageAttachPoint7",
+							"offset":
+							{
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+							},
+							"direction":
+							{
+								"$type": "ConfigDirectionByAttachPoint",
+								"attachPointName":"BarrageAttachPoint7",
+								"attachPointTargetType":"Self",
+							},
+						},
+					},
+					{
+						"$type": "TriggerBullet",
+						"bulletID": 42201018,
+						"born":
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName" : "BarrageAttachPoint8",
+							"offset":
+							{
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+							},
+							"direction":
+							{
+								"$type": "ConfigDirectionByAttachPoint",
+								"attachPointName":"BarrageAttachPoint8",
+								"attachPointTargetType":"Self",
+							},
+						},
+					},
+				],
+			},
+		},
+	},
+},
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Abyss_Electric_GatherBarrage_Hit",
+		"onAbilityStart": 
+		[
+			{
+				"$type" : "TriggerAttackEvent",
+				"targetType" : "Enemy",
+				"attackEvent": 
+				{
+					"attackPattern" :
+					{
+						"$type" : "ConfigAttackSphere",
+						"triggerType" : "TriggerNoRepeat",
+						"radius": 1.25,
+						"ignoreMassive": true,
+						"born":
+						{
+							"$type": "ConfigBornByCollisionPoint",
+						},
+					},
+					"attackInfo":
+					{
+						"attackProperty":
+						{
+							"damagePercentage": 0.5,
+							"strikeType": "Blunt",
+							"enBreak": 50.0,
+							"elementDurability":25,
+							"elementType": "Electric",
+						},
+						"hitPattern" :
+						{
+							"onHitEffectName" : "default",
+							"hitImpulseType":"LV3",
+							"reboundRatio": 0,
+							"hitHaltTime": 0.0,
+							"hitHaltTimeScale": 0.01,
+							"muteHitText": false,
+						},
+						"forceCameraShake": false,
+					},
+				},
+			},
+			{
+				"$type": "FireHitEffect",
+				"hitEntity": "Eff_Monster_Abyss_Electric_ElectricBullet_AS",
+				"hitScene":
+				{
+					"defaultEffect" : "Eff_Monster_Abyss_Electric_ElectricBullet_AS",
+				},
+			},
+			{
+				"$type":"KillSelf",
+			},
+		],
+	},
+},
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Abyss_Electric_GatherBarrage_Effect",
+		"onAdded": 
+		[
+			{
+				"$type": "ApplyModifier",
+				"modifierName": "GatherBarrage_BS",
+			},
+		],
+		"modifiers":
+		{
+			"GatherBarrage_BS":
+			{
+				"duration":0.8,
+				"onAdded":
+				[
+					{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_Monster_Abyss_Electric_ElectricBullet_BS",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type": "ApplyModifier",
+						"modifierName": "GatherBarrage_Loop",
+					},
+				],
+			},
+			"GatherBarrage_Loop":
+			{
+				"onAdded":
+				[
+					{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_Monster_Abyss_Electric_ElectricBullet_Loop",
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  Blink
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_BlinkEffect",
+		"abilityMixins":
+		[
+			{
+				"$type": "AttachToStateIDMixin",
+				"stateIDs": ["Blink"],
+				"modifierName": "Blink_State",
+			},
+		],
+		"onAbilityStart":
+		[
+			{
+				"$type": "ApplyModifier",
+				"modifierName": "UNIQUE_Blink_Shield",
+			},
+			{
+				"$type": "ApplyModifier",
+				"modifierName": "UNIQUE_Blink_Actions",
+			},
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Abyss_Electric_Blink_BS",
+			},
+			{
+				"$type": "ClearLockTarget",	
+				"target": "CurLocalAvatar",
+			},
+		],
+		"modifiers":
+		{
+			"Blink_State":
+			{
+				"onRemoved":
+				[
+					{
+						"$type": "RemoveUniqueModifier",
+						"modifierName": "UNIQUE_Blink_Shield",
+					},
+					{
+						"$type": "RemoveUniqueModifier",
+						"modifierName": "UNIQUE_Blink_Actions",
+					},
+				],
+			},
+			"UNIQUE_Blink_Shield":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type": "RemoveUniqueModifier",
+						"modifierName": "UNIQUE_Abyss_Electric_ElementShield_Effect",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type": "TriggerAbility",
+						"abilityName": "Monster_Abyss_Electric_ElementShield_Effect",
+						"predicates":
+						[
+							{
+								"$type": "ByTargetGlobalValue",
+								"key": "_ELEMENTSHIELD_TAG_",
+								"value": 1,
+								"compareType": "Equal",
+							},
+						],
+					},
+				],
+			},
+			"UNIQUE_Blink_Actions":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type": "AttachModifier",
+						"modifierName": "Blink_Invincible",
+						"target": "Self",
+					},
+					{
+						"$type": "AttachModifier",
+						"modifierName": "Blink_DenyLockOn",
+						"target": "Self",
+					},
+					{
+						"$type": "TriggerSetVisible",
+						"visible": false,
+						"target": "Self",
+					},
+					{
+						"$type": "TriggerHideWeapon",
+						"visible": false,
+						"partNames": ["equip01"],
+					},
+					{
+						"$type": "HideUIBillBoard",
+						"hide": true,
+						"target": "Self",
+					},
+					{
+						"$type": "EnableHitBoxByName",
+						"hitBoxNames": ["HitBox", "HeadBox"],
+						"setEnable": false,
+					},
+					{
+						"$type": "EnablePushColliderName",
+						"pushColliderNames": ["PushCollider"],
+						"setEnable": false,
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type": "EnableHitBoxByName",
+						"hitBoxNames": ["HitBox", "HeadBox"],
+						"setEnable": true,
+					},
+					{
+						"$type": "EnablePushColliderName",
+						"pushColliderNames": ["PushCollider"],
+						"setEnable": true,
+					},
+					{
+						"$type": "TriggerSetVisible",
+						"visible": true,
+						"target": "Self",
+					},
+					{
+						"$type": "TriggerHideWeapon",
+						"visible": true,
+						"partNames": ["equip01"],
+					},
+					{
+						"$type": "HideUIBillBoard",
+						"hide": false,
+						"target": "Self",
+					},
+				],
+			},
+			"Blink_Invincible" :
+			{
+				"state": "Invincible",
+			},
+			"Blink_DenyLockOn" :
+			{
+				"state": "DenyLockOn",
+			},
+		},
+	},
+},
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_FindBlinkPoint",
+		"onAbilityStart":
+		[
+			{
+				"$type": "TryFindBlinkPoint",
+				"target": "SelfAttackTarget",
+				"forwardAngle": 45,
+				"minRange": 2.0,
+				"maxRange": 3.0,
+			},
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Abyss_Electric_Blink",
+				"born":
+				{
+					"$type": "ConfigBornByTeleportToPoint",
+				},
+			},
+		],
+	},
+},
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_DoBlink",
+		"onAbilityStart":
+		[
+			{
+				"$type": "DoBlink",
+			},
+		],
+	},
+},
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_DoBlink_Visible",
+		"onAbilityStart":
+		[
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Abyss_Electric_Blink_AS",
+				"born":
+				{
+					"$type": "ConfigBornByTarget",
+					"offset":
+					{
+						"x": 0.0,
+						"y": 0.65,
+						"z": 0.0,
+					},
+				},
+			},
+			{
+				"$type": "RemoveUniqueModifier",
+				"modifierName": "UNIQUE_Blink_Actions",
+			},
+		],
+	},
+},
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_DoBlink_Damage",
+		"onAbilityStart":
+		[
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Abyss_Electric_MagneticStorm",
+				"scale": 0.6,
+				"born":
+				{
+					"$type": "ConfigBornBySelf",
+					"offset" :
+					{
+						"x" : 0.0,
+						"y" : 1.2,
+						"z" : 0.0,
+					},
+				},
+			},
+			{
+				"$type" : "TriggerAttackEvent",
+				"targetType" : "Enemy",
+				"attackEvent": 
+				{
+					"attackPattern" : 
+					{
+						"$type" : "ConfigAttackCircle",
+						"triggerType" : "TriggerNoRepeat",
+						"height": 2.0,
+						"fanAngle" : 360.0,
+						"radius" : 3.0,
+						"born":
+						{
+							"$type": "ConfigBornBySelf",
+							"offset":
+							{
+								"x" : 0.0,
+								"y" : 0.0,
+								"z" : 0.0,
+							},
+						},
+					},
+					"attackInfo":
+					{
+						"attackProperty":
+						{
+							"damagePercentage": 1.0,
+							"strikeType": "Default",
+							"attackType": "Default",
+							"elementType": "Electric",
+							"elementDurability": 50,
+							"enBreak": 50,
+						},
+						"hitPattern" :
+						{
+							"hitImpulseType": "LV4",
+							"reboundRatio" : 0,
+							"hitHaltTime" : 0.0,
+							"hitHaltTimeScale" : 0.05,
+							"muteHitText" : false,
+						},
+					},
+				},
+			},
+		],
+	},
+},
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_Blink_AS",
+		"onAbilityStart":
+		[
+			{
+				"$type": "RemoveUniqueModifier",
+				"modifierName": "UNIQUE_Blink_Shield",
+			},
+		],
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  ForceDefend
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_ForceDefend",
+		"abilityMixins":
+		[
+			{
+				"$type" : "AttachToPoseIDMixin",
+				"poseIDs": [101],
+				"modifierName" : "ForceDefend",
+			},
+		],
+		"modifiers":
+		{
+			"ForceDefend" :
+			{
+				"modifierMixins":
+				[
+					{
+						"$type": "MonsterDefendMixin",
+						"stateIDs": ["BeHit", "BeHitThrow"],
+						"defendTriggerID": "DefendTrigger",
+						"defendAngle": 360,
+						"defendTimeInterval": 8,
+						"defendProbability": 0.2,
+						"alwaysRecover": false,
+						"onDefendSucceded":
+						[
+							{
+								"$type": "TriggerAbility",
+								"abilityName": "Monster_Abyss_Electric_ForceBlink",
+								"target": "Self",
+							},
+							{
+								"$type": "ClearLockTarget",	
+								"target": "CurLocalAvatar",
+							},
+						],
+					},
+				],
+			},
+		},
+	},
+},
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_ForceBlink",
+		"abilityMixins":
+		[
+			{
+				"$type": "AttachToStateIDMixin",
+				"stateIDs": ["ForceBlink"],
+				"modifierName": "ForceBlink_State",
+			},
+		],
+		"onAbilityStart":
+		[
+			{
+				"$type": "RemoveUniqueModifier",
+				"modifierName": "UNIQUE_DizzyTimer",
+				"target": "Self",
+			},
+			{
+				"$type": "TryFindBlinkPoint",
+				"target": "SelfAttackTarget",
+				"forwardAngle": 30,
+				"minRange": 9.0,
+				"maxRange": 12.0,
+			},
+			{
+				"$type": "ApplyModifier",
+				"modifierName": "UNIQUE_ForceBlink_Actions",
+			},
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Abyss_Electric_Blink_BS",
+			},
+		],
+		"modifiers":
+		{
+			"ForceBlink_State":
+			{
+				"onRemoved":
+				[
+					{
+						"$type": "RemoveUniqueModifier",
+						"modifierName": "UNIQUE_Blink_Actions",
+					},
+				],
+			},
+			"UNIQUE_ForceBlink_Actions":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type": "AttachModifier",
+						"modifierName": "ForceBlink_Invincible",
+						"target": "Self",
+					},
+					{
+						"$type": "AttachModifier",
+						"modifierName": "ForceBlink_DenyLockOn",
+						"target": "Self",
+					},
+					{
+						"$type": "TriggerSetVisible",
+						"visible": false,
+						"target": "Self",
+					},
+					{
+						"$type": "TriggerHideWeapon",
+						"visible": false,
+						"partNames": ["equip01"],
+					},
+					{
+						"$type": "HideUIBillBoard",
+						"hide": true,
+						"target": "Self",
+					},
+					{
+						"$type": "EnableHitBoxByName",
+						"hitBoxNames": ["HitBox", "HeadBox"],
+						"setEnable": false,
+					},
+					{
+						"$type": "EnablePushColliderName",
+						"pushColliderNames": ["PushCollider"],
+						"setEnable": false,
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type": "EnableHitBoxByName",
+						"hitBoxNames": ["HitBox", "HeadBox"],
+						"setEnable": true,
+					},
+					{
+						"$type": "EnablePushColliderName",
+						"pushColliderNames": ["PushCollider"],
+						"setEnable": true,
+					},
+					{
+						"$type": "TriggerSetVisible",
+						"visible": true,
+						"target": "Self",
+					},
+					{
+						"$type": "TriggerHideWeapon",
+						"visible": true,
+						"partNames": ["equip01"],
+					},
+					{
+						"$type": "HideUIBillBoard",
+						"hide": false,
+						"target": "Self",
+					},
+				],
+			},
+			"ForceBlink_Invincible" :
+			{
+				"state": "Invincible",
+			},
+			"ForceBlink_DenyLockOn" :
+			{
+				"state": "DenyLockOn",
+			},
+		},
+	},
+},
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_ForceBlink_DoBlink",
+		"onAbilityStart":
+		[
+			{
+				"$type": "DoBlink",
+			},
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Abyss_Electric_Blink_AS",
+				"born":
+				{
+					"$type": "ConfigBornByAttachPoint",
+					"attachPointName": "RootNode",
+				},
+			},
+		],
+	},
+},
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_ForceBlink_Visible",
+		"onAbilityStart":
+		[
+			{
+				"$type": "RemoveUniqueModifier",
+				"modifierName": "UNIQUE_ForceBlink_Actions",
+			},
+		],
+	},
+},
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_ForceBlink_AS",
+		"onAbilityStart":
+		[	
+			{
+				"$type": "SetPoseInt",
+				"intID": "ElementState",
+				"value": 1,
+			},
+		],
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  ReturnToBorn
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_ReturnToBorn",
+		"abilityMixins":
+		[
+			{
+				"$type": "AttachToStateIDMixin",
+				"stateIDs": ["ReturnToBorn"],
+				"modifierName": "ReturnToBorn_Disappear",
+			},
+		],
+		"onAdded": 
+		[
+			{
+				"$type":"SetGlobalValue",
+				"key":"_RETURNTOBORN_TAG_",
+				"value":0,
+			},
+		],
+		"modifiers":
+		{
+			"ReturnToBorn_Disappear":
+			{
+				"onAdded": 
+				[
+					{
+						"$type":"SetGlobalValue",
+						"key":"_RETURNTOBORN_TAG_",
+						"value":1,
+					},
+					{
+						"$type": "AttachModifier",
+						"modifierName": "UNIQUE_ReturnToBorn_Shield",
+					},
+					{
+						"$type": "AttachModifier",
+						"modifierName": "UNIQUE_ReturnToBorn_Actions",
+					},
+					{
+						"$type": "AttachModifier",
+						"modifierName": "UNIQUE_ReturnToBorn_Dizzy",
+					},
+					{
+						"$type": "FireEffect",
+						"effectPattern": "Eff_Monster_Abyss_Electric_Blink_BS",
+					},
+				],
+				"onRemoved": 
+				[
+					{
+						"$type":"SetGlobalValue",
+						"key":"_RETURNTOBORN_TAG_",
+						"value":0,
+					},
+				],
+			},
+			"UNIQUE_ReturnToBorn_Shield":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type": "RemoveUniqueModifier",
+						"modifierName": "UNIQUE_Abyss_Electric_ElementShield",
+					},
+					{
+						"$type": "ResetAnimatorTrigger",
+						"triggerID": "ShiledBrokenTrigger",
+					},
+					{
+						"$type": "RemoveUniqueModifier",
+						"modifierName": "UNIQUE_DizzyTimer",
+						"target": "Self",
+					},
+					{
+						"$type": "AttachModifier",
+						"modifierName": "ReturnToBorn_Invincible",
+						"target": "Self",
+					},
+					{
+						"$type": "AttachModifier",
+						"modifierName": "ReturnToBorn_DenyLockOn",
+						"target": "Self",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type": "TriggerAbility",
+						"abilityName": "Monster_Abyss_Electric_ElementShield",
+						"target": "Self",
+					},
+				],
+			},
+			"UNIQUE_ReturnToBorn_Dizzy":
+			{
+				"isUnique": true,
+				"onRemoved":
+				[
+					{
+						"$type": "RemoveUniqueModifier",
+						"modifierName": "UNIQUE_DizzyTimer",
+						"target": "Self",
+					},
+				],
+			},
+			"UNIQUE_ReturnToBorn_Actions":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type": "TriggerSetVisible",
+						"visible": false,
+						"target": "Self",
+					},
+					{
+						"$type": "TriggerHideWeapon",
+						"visible": false,
+						"partNames": ["equip01"],
+					},
+					{
+						"$type": "HideUIBillBoard",
+						"hide": true,
+						"target": "Self",
+					},
+					{
+						"$type": "EnableHitBoxByName",
+						"hitBoxNames": ["HitBox", "HeadBox", "HitBox_ElementShield"],
+						"setEnable": false,
+					},
+					{
+						"$type": "EnablePushColliderName",
+						"pushColliderNames": ["PushCollider", "PushCollider_ElementShield"],
+						"setEnable": false,
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type": "TriggerSetVisible",
+						"visible": true,
+						"target": "Self",
+					},
+					{
+						"$type": "TriggerHideWeapon",
+						"visible": true,
+						"partNames": ["equip01"],
+					},
+					{
+						"$type": "HideUIBillBoard",
+						"hide": false,
+						"target": "Self",
+					},
+					{
+						"$type": "EnableHitBoxByName",
+						"hitBoxNames": ["HitBox", "HeadBox"],
+						"setEnable": true,
+					},
+					{
+						"$type": "EnablePushColliderName",
+						"pushColliderNames": ["PushCollider"],
+						"setEnable": true,
+					},
+				],
+			},
+			"ReturnToBorn_Invincible" :
+			{
+				"state": "Invincible",
+			},
+			"ReturnToBorn_DenyLockOn" :
+			{
+				"state": "DenyLockOn",
+			},
+		},
+	},
+},
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_ReturnToBorn_AS",
+		"onAbilityStart":
+		[	
+			{
+				"$type": "FireEffect",
+				"effectPattern": "Eff_Monster_Abyss_Electric_Blink_AS",
+				"born":
+				{
+					"$type": "ConfigBornByTarget",
+					"offset":
+					{
+						"x": 0.0,
+						"y": 0.65,
+						"z": 0.0,
+					},
+				},
+			},
+			{
+				"$type": "RemoveUniqueModifier",
+				"modifierName": "UNIQUE_ReturnToBorn_Dizzy",
+			},
+		],
+	},
+},
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_ReturnToBorn_Visible",
+		"onAbilityStart":
+		[	
+			{
+				"$type": "RemoveUniqueModifier",
+				"modifierName": "UNIQUE_ReturnToBorn_Actions",
+			},
+		],
+	},
+},
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_ReturnToBorn_ElementShield",
+		"onAbilityStart":
+		[
+			{
+				"$type": "RemoveUniqueModifier",
+				"modifierName": "UNIQUE_ReturnToBorn_Shield",
+			},
+		],
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  ElectricBall
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_ElectricBall",
+		"onAbilityStart":
+		[
+			{
+				"$type": "TriggerBullet",
+				"bulletID": 42201019,
+				"born": 
+				{
+					"$type": "ConfigBornByAttachPoint",
+					"attachPointName" : "ElectricBall",
+					"offset": 
+					{
+						"x": 0.0,
+						"y": 0.0,
+						"z": 0.0,
+					},
+					"direction":
+					{
+						"$type": "ConfigDirectionByAttackTarget"
+					}
+				},
+			},
+		],
+	},
+},
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Abyss_Electric_ElectricBall_Hit",
+		"onAbilityStart": 
+		[
+			{
+				"$type" : "TriggerAttackEvent",
+				"targetType" : "Enemy",
+				"attackEvent": 
+				{
+					"attackPattern" :
+					{
+						"$type" : "ConfigAttackSphere",
+						"triggerType" : "TriggerNoRepeat",
+						"radius": 0.5,
+						"born":
+						{
+							"$type": "ConfigBornByCollisionPoint",
+						},
+					},
+					"attackInfo":
+					{
+						"attackProperty":
+						{
+							"damagePercentage": 0.25,
+							"strikeType": "Blunt",
+							"enBreak": 100.0,
+							"elementDurability":50,
+							"elementType": "Electric",
+						},
+						"hitPattern" :
+						{
+							"onHitEffectName" : "none",
+							"hitImpulseType":"LV4",
+							"reboundRatio": 0,
+							"hitHaltTime": 0.0,
+							"hitHaltTimeScale": 0.01,
+							"muteHitText": false,
+						},
+						"forceCameraShake": false,
+					},
+				},
+			},
+			{
+				"$type": "FireHitEffect",
+				"hitEntity": "Eff_Monster_Abyss_Electric_ElectricBullet_AS",
+				"hitScene":
+				{
+					"defaultEffect" : "Eff_Monster_Abyss_Electric_ElectricBullet_AS",
+				},
+			},
+		],
+	},
+},
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Abyss_Electric_ElectricBall_Effect",
+		"onAdded": 
+		[
+			{
+				"$type": "ApplyModifier",
+				"modifierName": "ElectricBall_Effect",
+			},
+		],
+		"modifiers":
+		{
+			"ElectricBall_Effect":
+			{
+				"onAdded":
+				[
+					{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_Monster_Abyss_Electric_ElectricBullet_Loop",
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  ElectricCircle
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_ElectricCircle",
+		"onAbilityStart":
+		[
+			{
+				"$type": "ApplyModifier",
+				"modifierName": "ElectricCircle_DamageHandler",
+				"target": "Self",
+			},
+		],
+		"modifiers":
+		{
+			"ElectricCircle_DamageHandler":
+			{
+				"duration": 0.2,
+				"onAdded":
+				[
+					{
+						"$type": "FireEffect",
+						"effectPattern": "Eff_Monster_Abyss_Electric_ElectricCircle_Damage",
+						"born":
+						{
+							"$type": "ConfigBornBySelf",
+							"offset" :
+							{
+								"x" : 0.0,
+								"y" : 1.0,
+								"z" : 0.0,
+							},
+						},
+					},
+					{
+						"$type": "ApplyModifier",
+						"modifierName": "ElectricCircle_Damage1_Timer",
+					},
+					{
+						"$type": "ApplyModifier",
+						"modifierName": "ElectricCircle_Damage2_Timer",
+					},
+					{
+						"$type": "ApplyModifier",
+						"modifierName": "ElectricCircle_Damage3_Timer",
+					},
+					{
+						"$type": "ApplyModifier",
+						"modifierName": "ElectricCircle_Damage4_Timer",
+					},
+				],
+			},
+			// 这个地方测得时候注意看下remote端和换人
+			"ElectricCircle_Damage1_Timer":
+			{
+			    "duration":0.15,
+				"onRemoved":
+				[
+					{
+						"$type": "ApplyModifier",
+						"target": "AllPlayerAvatars",
+						"modifierName": "ElectricCircle_Damage_In",
+					},
+				],
+			},
+			"ElectricCircle_Damage2_Timer":
+			{
+			    "duration":0.45,
+				"onRemoved":
+				[
+					{
+						"$type": "ApplyModifier",
+						"target": "AllPlayerAvatars",
+						"modifierName": "ElectricCircle_Damage_Out",
+					},
+				],
+			},
+			"ElectricCircle_Damage3_Timer":
+			{
+			    "duration":0.95,
+				"onRemoved":
+				[
+					{
+						"$type": "ApplyModifier",
+						"target": "AllPlayerAvatars",
+						"modifierName": "ElectricCircle_Damage_Out",
+					},
+				],
+			},
+			"ElectricCircle_Damage4_Timer":
+			{
+			    "duration":1.25,
+				"onRemoved":
+				[
+					{
+						"$type": "ApplyModifier",
+						"target": "AllPlayerAvatars",
+						"modifierName": "ElectricCircle_Damage_In",
+					},
+				],
+			},
+			"ElectricCircle_Damage_In":
+			{
+				"duration": 0.2,
+				"onAdded":
+				[
+					{
+						"$type": "Predicated",
+						"target": "Applier",
+						"targetPredicates":
+						[
+							{
+								"$type": "ByTargetPositionToSelfPosition",
+								"compareType": "XZ",
+								"value": 3.0,
+								"logic": "Lesser",
+							},
+							{
+								"$type": "ByTargetPositionToSelfPosition",
+								"compareType": "Y",
+								"value": 2.5,
+								"logic": "Lesser",
+							},
+						],
+						"successActions":
+						[
+							{
+								"$type":"DamageByAttackValue",
+								"attacker":"Caster",
+								"target": "Self",
+								"attackInfo":
+								{
+									"attackProperty":
+									{
+										"damagePercentage": 1,
+										"strikeType": "Blunt",
+										"elementType" : "Electric",
+										"elementDurability" : 50,
+										"enBreak": 25,
+									},
+									"hitPattern" :
+									{
+										"onHitEffectName" : "none",
+										"hitImpulseType":"LV3",
+										"reboundRatio": 0,
+										"hitHaltTime": 0.0,
+										"hitHaltTimeScale": 0.01,
+										"muteHitText": false,
+									},
+									"forceCameraShake": false,
+								},
+							},
+						],
+					},
+				],
+			},
+			"ElectricCircle_Damage_Out":
+			{
+				"duration": 0.2,
+				"onAdded":
+				[
+					{
+						"$type": "Predicated",
+						"target": "Applier",
+						"targetPredicates":
+						[
+							{
+								"$type": "ByTargetPositionToSelfPosition",
+								"compareType": "XZ",
+								"value": 6.0,
+								"logic": "Lesser",
+							},
+							{
+								"$type": "ByTargetPositionToSelfPosition",
+								"compareType": "XZ",
+								"value": 3.0,
+								"logic": "GreaterOrEqual",
+							},
+							{
+								"$type": "ByTargetPositionToSelfPosition",
+								"compareType": "Y",
+								"value": 2.5,
+								"logic": "Lesser",
+							},
+						],
+						"successActions":
+						[
+							{
+								"$type":"DamageByAttackValue",
+								"attacker":"Caster",
+								"target": "Self",
+								"attackInfo":
+								{
+									"attackProperty":
+									{
+										"damagePercentage": 1,
+										"strikeType": "Blunt",
+										"elementType" : "Electric",
+										"elementDurability" : 50,
+										"enBreak": 25,
+									},
+									"hitPattern" :
+									{
+										"onHitEffectName" : "none",
+										"hitImpulseType":"LV3",
+										"reboundRatio": 0,
+										"hitHaltTime": 0.0,
+										"hitHaltTimeScale": 0.01,
+										"muteHitText": false,
+									},
+									"forceCameraShake": false,
+								},
+							},
+						],
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  Steer
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Monster_Abyss_Electric_AnimationSteer",
+		"abilityMixins":
+		[
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["NormalAtk"],
+				"startNormalizedTime": 0.0,
+				"endNormalizedTime": 1.0,
+				"angularSpeed": 180,
+				"attackTrigger" : "",
+				"attackDistance" : 12,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["SpecialAtk"],
+				"startNormalizedTime": 0.0,
+				"endNormalizedTime": 1.0,
+				"angularSpeed": 180,
+				"attackTrigger" : "",
+				"attackDistance" : 12,
+			},
+			{
+				"$type": "SteerAttackMixin",
+				"steerStateIDs": ["RandomAction"],
+				"startNormalizedTime": 0.0,
+				"endNormalizedTime": 1.0,
+				"angularSpeed": 180,
+				"attackTrigger" : "",
+				"attackDistance" : 12,
+			},
+		],
+	},
+},
+]

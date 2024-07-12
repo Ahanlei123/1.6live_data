@@ -1,0 +1,345 @@
+{
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// 家园 厨房模板 
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	"SceneObj_Homeworld_Standard_Cooking":
+	{
+		"$type" : "ConfigGadget",
+		"hasModel" : true,
+		"lowPriorityIntee": true,
+		"uiInteract":
+		{
+			"gadgetUIBtnCfgPath": "UI/open_cooking_page",
+			"uiName": "UI_COOKING_QTE_TITLE"
+		},
+		"intee":
+		{
+			"$type" : "ConfigIntee",
+			"triggerRadius": 1.5,
+			"triggerHeight": 2,
+		},
+		"keepModifierOutSight": false,
+		"combat" :
+		{
+			"property"://combat property 默认值一览
+			{
+				"useCreatorProperty" : false,// useCreatorProperty 默认值为true
+				"HP" : 99999,
+				"isInvincible":true,
+				"isLockHP":true,//默认为false
+				"ignoreDamageToSelf": true,//默认值为False
+				//"isInvincible":false,  //isInvincible 默认为false
+				//"isGhostToAllied" : false,  // isGhostToAllied默认值为false
+				//"isGhostToEnemy" : false,  // isGhostToEnemy 默认值为false
+				//"canTriggerBullet" : true,// canTriggerBullet 默认值为true
+			},
+			"beHit":
+			{
+				"hitAutoRedirect": false,
+			},
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Ability_01",
+
+				"abilityName" : "SceneObj_Homeworld_Standard_Cooking_Ability"
+			},
+		],
+	},
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// 家园 锻造模板 
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	"SceneObj_Homeworld_Standard_Forging":
+	{
+		"$type" : "ConfigGadget",
+		"hasModel" : true,
+		"lowPriorityIntee": true,
+		"uiInteract":
+		{
+			"gadgetUIBtnCfgPath": "UI/open_forging_page",
+			"uiName": "UI_FORGE_PAGE_TITLE"
+		},
+		"intee":
+		{
+			"$type" : "ConfigIntee",
+			"triggerRadius": 1.5,
+			"triggerHeight": 2,
+		},
+		"keepModifierOutSight": false,
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : false,
+				"HP" : 99999,
+				"isLockHP":true,
+				"ignoreDamageToSelf": true,
+			},		
+		},
+	},
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// 家园 锻造（铁匠铺专用） 
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	"SceneObj_Homeworld_Exterior_Md_Build_Store_04":
+	{
+		"$type" : "ConfigGadget",
+		"hasModel" : true,
+		"lowPriorityIntee": true,
+		"uiInteract":
+		{
+			"gadgetUIBtnCfgPath": "UI/open_forging_page",
+			"uiName": "UI_FORGE_PAGE_TITLE"
+		},
+		"intee":
+		{
+			"$type" : "ConfigIntee",
+			"triggerRadius": 7.0,
+			"triggerHeight": 2,
+		},
+		"keepModifierOutSight": false,
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : false,
+				"HP" : 99999,
+				"isLockHP":true,
+				"ignoreDamageToSelf": true,
+			},		
+		},
+	},	
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// 家园 合成模板 
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	"SceneObj_Homeworld_Standard_Synthesis":
+	{
+		"$type" : "ConfigGadget",
+		"hasModel" : true,
+		"lowPriorityIntee": true,
+		"uiInteract":
+		{
+			"gadgetUIBtnCfgPath": "UI/open_synthesis_page",
+			"uiName": "UI_SYNTHESIS_PAGE_TITLE"
+		},
+		"intee":
+		{
+			"$type" : "ConfigIntee",
+			"triggerRadius": 1.5,
+			"triggerHeight": 2,
+		},
+		"keepModifierOutSight": false,
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : false,
+				"HP" : 99999,
+				"isLockHP":true,
+				"ignoreDamageToSelf": true,
+			},		
+		},
+	},
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// 家园 主建筑模板
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	"SceneObj_Homeworld_Standard_MainBuilding":
+	{
+		"$type" : "ConfigGadget",
+		"hasModel" : true,
+		"abilities":
+		[
+			{
+				"abilityID": "Ability_01",
+
+				"abilityName" : "SceneObj_Homeworld_Standard_MainBuilding_Ability"
+			},
+		],
+	},				
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// 家园 烛光模板
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	"SceneObj_Homeworld_Standard_Candlelight":
+	{
+		"$type" : "ConfigGadget",
+		"abilities":
+		[
+			{
+				"abilityID": "Ability_01",
+
+				"abilityName" : "SceneObj_Homeworld_Standard_Candlelight_Ability"
+			},
+		],
+	},
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// 家园 灌木
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	"SceneObj_Homeworld_Standard_Bush" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachMesh",
+				"mesh" : "EffectMesh",
+			},
+			"viewSize": 1,
+			"affectedByWorld" : true,
+		},
+		"combat" :
+		{
+			"beHit": {
+				"hitBloodEffect": "",
+				"muteAllHit": true,
+				"muteAllHitEffect": true,
+				"muteAllHitText": true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+				"lockType": "Gadget_Lv1"
+			},
+			"property":
+			{
+				"HP" : 100,
+				"attack" : 10,
+				"defense" : 0,
+				"weight" : 75,
+				"isLockHP": true,
+				"isGhostToAllied": true,
+				"isGhostToEnemy": false,
+				"canTriggerBullet": true,
+				"ignorePurgeRate": true,
+			},
+			"die":
+			{
+				"dieDisappearEffect":"",
+			},
+		},
+		"abilities" :
+		[
+			{
+				"abilityID": "Ability_01",
+
+				"abilityName" : "SceneObj_Homeworld_Standard_Bush_Ability"
+			},			
+		],
+	},
+/////////////////////////////////////////////////////////////////
+//
+// 家园门模板
+//
+/////////////////////////////////////////////////////////////////	
+	"SceneObj_Homeworld_Standard_Door" :
+	{
+		"$type" : "ConfigGadget",
+		"hasModel": true,
+		"combat" ://该注释用于探索元素视野的最小集合设置
+		{
+			"property":
+			{
+				"HP" : 99999,									
+				"isInvincible":true,
+				"isLockHP":true,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},		
+		},
+		"stateLayers":
+		{
+			"defaultLayer":
+			{
+				"$type" : "ConfigNormalStateLayer",
+				"stateIDs" :
+				{
+					"All" :
+					{
+						"$type": "ConfigNormalStateIDInfo",
+						"animatorStates":
+						{
+							"ClosingIn": ["Audio_SceneObj_Gear_KnightDoor_Close"],
+							"ClosingWait": [],
+							"OpeningIn":["Audio_SceneObj_Gear_KnightDoor_Open"],
+							"OpenIn": [],
+							"OpeningOut":["Audio_SceneObj_Gear_KnightDoor_Open"],
+							"OpenOut":[],
+							"ClosingOut":["Audio_SceneObj_Gear_KnightDoor_Close"],
+							"ClosingOutWait":[],
+						},
+						"cullingModelAlwaysAnimate": true,
+					},																			
+				},
+			},
+		},
+		"misc": 
+		{
+	    	"autoDoor": 
+	    	{
+		        "triggerDistance": 3,  //角色人物与门的距离 (默认3.0)
+		        "checkInterval": 0.05, //触发间隔(0.05s)
+	    	},
+	    },
+	},
+/////////////////////////////////////////////////////////////////
+//
+// 家园套装模板
+//
+/////////////////////////////////////////////////////////////////
+	"SceneObj_Homeworld_Standard_Bundle" :
+	{
+		"$type" : "ConfigGadget",
+		"uiInteract":
+		{
+			"gadgetUIBtnCfgPath": "UI/open_homeworld_NPC_summon",
+			"uiName": "UI_HOMEWORLD_NPC_SUMMON"
+		},
+	},
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// 家园 邮箱
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	"SceneObj_Homeworld_Exterior_Common_Decoration_Mail_01":
+	{
+		"$type" : "ConfigGadget",
+		"hasModel" : true,
+		"lowPriorityIntee": true,
+		"uiInteract":
+		{
+			"gadgetUIBtnCfgPath": "UI/open_mail_page",
+			"uiName": "UI_MAIL_TITLE"
+		},
+		"intee":
+		{
+			"$type" : "ConfigIntee",
+			"triggerRadius": 1.0,
+			"triggerHeight": 2,
+		},
+		"keepModifierOutSight": false,
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : false,
+				"HP" : 99999,
+				"isLockHP":true,
+				"ignoreDamageToSelf": true,
+			},		
+		},
+	},					
+}

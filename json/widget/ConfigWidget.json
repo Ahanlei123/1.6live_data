@@ -1,0 +1,484 @@
+{
+	// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+	"widgets": {
+		"220004": {
+			"$type": "ConfigWidgetClientCollector",
+			"isConsumeMaterial": false,
+			"isEquipable": true,
+			"coolDown": 100,
+			"rechargePoints": 1,
+			"maxPoints": 5,
+			"isAllowedInDungeon": true,
+			"isAllowedInRoom": false,
+			"targetType": "WindSeed",
+			"elementType": "Wind",
+			"effectGadgetId": 70500012,
+			"useGadgetId": 70500005,
+			"allowOtherWorld": false
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		// 宝箱探测器（璃月）
+		"220003": {
+			"$type": "ConfigWidgetClientDetector",
+			"isConsumeMaterial": false,
+			"isEquipable": true,
+			"coolDown": 30,
+			"coolDownOnFail": 5,
+			"coolDownGroup": 2,
+			"gadgetId": 70500009,
+			"allowCityId": 2,
+			"hintGroup": 1,
+			"isAllowedInDungeon": false,
+			"isAllowedInRoom": false,
+			"distanceToAvatar": 1,
+			"height": 1
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		// 宝箱探测器(蒙德）
+		"220009": {
+			"$type": "ConfigWidgetClientDetector",
+			"isConsumeMaterial": false,
+			"isEquipable": true,
+			"coolDown": 30,
+			"coolDownOnFail": 5,
+			"coolDownGroup": 2,
+			"gadgetId": 70500008,
+			"allowCityId": 1,
+			"hintGroup": 2,
+			"isAllowedInDungeon": false,
+			"isAllowedInRoom": false,
+			"distanceToAvatar": 1,
+			"height": 1
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		// 风神瞳搜集器
+		"220001": {
+			"$type": "ConfigWidgetOneoffGatherPointDetector",
+			"isConsumeMaterial": true,
+			"isEquipable": true,
+			"coolDown": 300,
+			"coolDownOnFail": 5,
+			"coolDownGroup": 1,
+			"hintRadius": 160,
+			"nearbyRadius": 80,
+			"gridSearchRange": 4,
+			"successGadgetId": 70500007,
+			"failedGadgetId": 70500011,
+			"gatherPointType": 4001001,
+			"hintGroup": 3,
+			"effectLastTime": 4,
+			"isAllowedInDungeon": false,
+			"isAllowedInRoom": false,
+			"distanceToAvatar": 1,
+			"height": 0.5
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		// 岩神瞳收集器
+		"220002": {
+			"$type": "ConfigWidgetOneoffGatherPointDetector",
+			"isConsumeMaterial": true,
+			"isEquipable": true,
+			"coolDown": 300,
+			"coolDownOnFail": 5,
+			"coolDownGroup": 1,
+			"hintRadius": 160,
+			"nearbyRadius": 80,
+			"gridSearchRange": 4,
+			"successGadgetId": 70500006,
+			"failedGadgetId": 70500010,
+			"gatherPointType": 4002,
+			"hintGroup": 3,
+			"effectLastTime": 4,
+			"isAllowedInDungeon": false,
+			"isAllowedInRoom": false,
+			"distanceToAvatar": 1,
+			"height": 0.5
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		"220005": {
+			"$type": "ConfigWidgetAnchorPoint",
+			"isConsumeMaterial": true,
+			"isEquipable": false,
+			"coolDown": 60,
+			"lastingTime": 604800,
+			"maxCountInScene": 1,
+			"gadgetId": 70500004,
+			"isAllowedInDungeon": false,
+			"isAllowedInRoom": false,
+			"invalidSceneIds":[
+				4,
+			]
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		"220006": {
+			"$type": "ConfigWidgetBonfire",
+			"isConsumeMaterial": true,
+			"isEquipable": false,
+			"coolDown": 300,
+			"lastingTime": 300,
+			"maxCountInScene": 5,
+			"maxCountByPlayer": 1,
+			"gadgetId": 70500003,
+			"distanceToAvatar": 1,
+			"radius": 0.5,
+			"isAllowedInDungeon": true,
+			"isAllowedInRoom": false,
+			"combatDestroyDistance": 40
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		// 浓缩树脂严格来说不算小道具，所以也不配一般的字段
+		"220007": {
+			"$type": "ConfigWidgetCondenseResin",
+			"replaceResinCount": 20,	// 浓缩树脂只能在哪些体力值的地脉之花或循环地城使用
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		"220008": {
+			"$type": "ConfigWidgetLunchBox",
+			"isEquipable": true,
+			"isAllowedInDungeon": true,
+			"isAllowedInRoom": false,
+			"reviveMaterials": [	// 能放进便当盒的复活类道具
+				108004,
+				108005,
+				108006,
+				108007,
+				108008,
+				108009,
+				108010,
+				108022,
+				108023,
+				108024,
+				108065,
+				108066,
+				108067,
+				108092,
+				108093,
+				108094,
+				108095,
+				108096,
+				108097,
+				108098,
+				108099,
+				108100,
+				108116,
+				108118,
+				108125,
+				108126,
+				108127,
+				108134,
+				108138,
+				108139,
+				108146,
+				108179,
+				108180,
+				108181,
+				108188,
+				108189,
+				108190,
+				108200,
+				108176,
+				108177,
+				108178,
+				108244,
+			],
+			"healMaterials": {		// 能放进便当盒的加血类道具
+				"noticeAddHpMaterials": [
+					108011,
+					108012,
+					108013,
+					108014,
+					108015,
+					108016,
+					108017,
+					108018,
+					108019,
+					108020,
+					108021,
+					108031,
+					108032,
+					108033,
+					108041,
+					108042,
+					108043,
+					108044,
+					108045,
+					108046,
+					108047,
+					108048,
+					108074,
+					108075,
+					108076,
+					108077,
+					108078,
+					108079,
+					108089,
+					108090,
+					108091,
+					108104,
+					108105,
+					108106,
+					108107,
+					108108,
+					108109,
+					108135,
+					108136,
+					108145,
+					108148,
+					108151,
+					108152,
+					108153,
+					108154,
+					108170,
+					108171,
+					108172,
+					108173,
+					108201,
+					108202,
+					108203,
+					108213,
+					108215,
+					108222,
+					108223,
+					108224,
+					108225,
+					108226,
+					108227,
+					108234,
+					108238,
+					108239,
+					108240,
+					108185,
+					108186,
+					108187,
+					108197,
+					108198,
+					108199,
+				],
+				"otherAddHpMaterials": [
+				],
+			},
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		//藏宝图探测器
+		"220013": {
+            "$type": "ConfigWidgetTreasureMapDetector",
+            "isConsumeMaterial":false,
+            "isEquipable":true,
+            "coolDown": 30,
+            "coolDownOnFail":5,
+            "gadgetId":70500013,
+			"radiusSucc":20,
+			"detectRange":90,
+			"gadgetDuration":1800,
+            "isAllowedInDungeon":false,
+            "isAllowedInRoom":false,
+		    "ornamentsType":"Fly",  
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		//藏宝图探测器宠物
+		"220014": {
+            "$type": "ConfigWidgetAttachAvatar",
+            "coolDown": 2,
+            "coolDownGroup":3,
+            "useGadgetId":70500019,
+            "isAllowedInDungeon":true,
+            "isAllowedInRoom":true,
+		    "ornamentsType":"Fly",   
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		"220015": {
+            "$type": "ConfigWidgetAttachAvatar",
+            "coolDown": 2,
+            "coolDownGroup":3,
+			"useGadgetId": 70500015, 
+            "isAllowedInDungeon":true,
+            "isAllowedInRoom":true,
+		    "ornamentsType":"Fly", 
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		"220016": {
+            "$type": "ConfigWidgetAttachAvatar",
+            "coolDown": 2,
+            "coolDownGroup":3,
+			"useGadgetId": 70500018, 
+            "isAllowedInDungeon":true,
+            "isAllowedInRoom":true,  
+		    "ornamentsType":"Fly",   
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		//暖源
+		"220017": {
+            "$type": "ConfigWidgetGadgetBuilder",
+            "isConsumeMaterial":true,
+			"isEquipable": true,
+			"coolDown": 120,
+			"isAllowedInDungeon": true,
+			"isAllowedInRoom": true,
+			"lastingTime": 6,
+      		"maxCountInScene":5,
+      		"maxCountByPlayer":1,
+      		"gadgetId":70500014,      		
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		// 截图小道具
+    	"220018": {
+      		"$type": "ConfigWidgetTakePhoto",
+      		"isConsumeMaterial": false,
+      		"isEquipable": true,
+			"isAllowedInRoom": true,
+			"hasCameraEffect": false,
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		// 扫五福活动，坏掉的相机
+		"220019": {
+			"$type": "ConfigWidgetBlessingCamera",
+			"isConsumeMaterial": false,
+			"isEquipable": true,
+			"isAllowedInRoom": true,
+			"isFixed": false,
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		// 扫五福活动，修复的相机。改成截图小道具类型了
+		"220020": {
+			"$type": "ConfigWidgetTakePhoto",
+			"isConsumeMaterial": false,
+			"isEquipable": true,
+			"isAllowedInRoom": true,
+			"hasCameraEffect": true,
+			"cameraScreenEffect": "PostEffect_Scene_PhotoFilter_Blessing",
+			"mainCameraEffect": "ART/Effect/UI/UI/Eff_UI_BlessingPhoto_MainCamera_Particle",
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		//奇迹炼金釜（奇迹方块）
+		"220021": {
+			"$type": "ConfigWidgetMiracleRing",
+			"isConsumeMaterial": false,
+			"isEquipable": false,
+			"coolDown": 5,
+			"coolDownOnFail":5,
+			"isAllowedInDungeon": false,
+			"isAllowedInRoom": false,
+			"maxCountInScene": 5,
+			"maxCountByPlayer": 1,
+			"gadgetId": 70500020,
+			"distanceToAvatar": 1,
+			"radius": 0.5,
+			"combatDestroyDistance": 40
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		// 纯水精灵-活动
+		"220022": {
+			"$type": "ConfigWidgetWaterSprite",
+			"isConsumeMaterial": false,
+			"isEquipable": true,
+            "coolDown": 2,
+            "coolDownGroup":3,
+			"abilityTriggerName":"ActivityAbility_Endora_SwtichSkill",
+			"abilityTriggerNameSecond":"ActivityAbility_Endora_RemoveSkill",
+            "isAllowedInDungeon":false,
+			"isAllowedInRoom":false,     
+			"isCdUnderTimeScale":false,
+		    "ornamentsType":"Fly", 
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		// 纯水精灵-宠物
+	    "220023": {
+		    "$type": "ConfigWidgetAbilityGroupGenerator",
+		    "coolDown": 2,
+		    "coolDownGroup": 3,
+		    "abilityGroupName": "DynamicAbility_Toys_Endora",
+		    "isAllowedInDungeon": true,
+		    "isAllowedInRoom": true,
+		    "ornamentsType":"Fly",
+	    },
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+	    // 气球
+	    "220024": {
+            "$type": "ConfigWidgetGadgetBuilder",
+            "isConsumeMaterial":false,
+			"isEquipable": true,
+			"coolDown": 5,
+			"isAllowedInDungeon": false,
+			"isAllowedInRoom": false,
+			"lastingTime": 21,
+      		"maxCountInScene":10,
+      		"maxCountByPlayer":4,
+      		"gadgetId":70500022,
+      		"distanceToAvatar":3,
+      		"heightToAvatar":2,      		
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		// 提瓦特琴
+		"220025": {
+      "$type": "ConfigWidgetOpenPage",
+      "pageName": "InLevelMusicPage",
+      "coolDown": 2,
+      "isConsumeMaterial": false,
+			"isEquipable": true,
+      "isAllowedInDungeon":false,
+      "isAllowedInRoom":true,     
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		// 羽球球拍测试
+		"220027": {
+			"$type": "ConfigWidgetUseAttachAbilityGroupToy",
+			"isConsumeMaterial": false,
+			"isEquipable": true,
+            "coolDownGroup":16,
+            "coolDown": 2,
+			"abilityGroupNameSecond": "ActivityAbility_LudiHarpastum_Serve", 
+			"isCdUnderTimeScale":false,
+		    "ornamentsType":"Fly"
+		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		///修船
+		"220028": 
+        {
+            "$type": "ConfigWidgetAddBuffToy",
+            "buffId": 600202,
+            "isConsumeMaterial": false,
+            "coolDown": 90,
+            "coolDownGroup": 17,
+            "coolDownOnFail":5,
+        },
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		// 羽球球拍测试
+		"220029": {
+			"$type": "ConfigWidgetUseAttachAbilityGroupToy",
+			"isConsumeMaterial": true,
+			"isEquipable": true,
+            "coolDownGroup":18,
+            "coolDown": 7,
+			"abilityGroupNameSecond": "ActivityAbility_LudiHarpastum_BombTypeA", 
+			"isCdUnderTimeScale":false,
+		    "ornamentsType":"Fly",
+		    "isUpdateCDAfterAbilityTrigger":true
+		},
+				// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		// 羽球球拍测试
+		"220030": {
+			"$type": "ConfigWidgetUseAttachAbilityGroupToy",
+			"isConsumeMaterial": true,
+			"isEquipable": true,
+            "coolDownGroup":18,
+            "coolDown": 7, 
+			"abilityGroupNameSecond": "ActivityAbility_LudiHarpastum_BombTypeB", 
+			"isCdUnderTimeScale":false,
+		    "ornamentsType":"Fly",
+		    "isUpdateCDAfterAbilityTrigger":true
+		},
+				// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
+		// 羽球球拍测试
+		"220031": {
+			"$type": "ConfigWidgetUseAttachAbilityGroupToy",
+			"isConsumeMaterial": true,
+			"isEquipable": true,
+            "coolDownGroup":18,
+            "coolDown": 7,
+			"abilityGroupNameSecond": "ActivityAbility_LudiHarpastum_BombTypeC", 
+			"isCdUnderTimeScale":false,
+		    "ornamentsType":"Fly",
+		    "isUpdateCDAfterAbilityTrigger":true
+		},
+	}
+}

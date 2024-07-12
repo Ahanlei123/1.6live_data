@@ -1,0 +1,159 @@
+{
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// 家园 欧式的火炉
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	"SceneObj_Homeworld_Interior_Md_Decoration_Fireplace_01":
+	{
+		"$type" : "ConfigGadget",
+		"hasModel" : true,
+		"combat" :
+		{
+			"property"://combat property 默认值一览
+			{
+				"useCreatorProperty" : false,// useCreatorProperty 默认值为true
+				"HP" : 99999,
+				"isInvincible":true,
+				"isLockHP":true,//默认为false
+				"ignoreDamageToSelf": true,//默认值为False
+				//"isInvincible":false,  //isInvincible 默认为false
+				//"isGhostToAllied" : false,  // isGhostToAllied默认值为false
+				//"isGhostToEnemy" : false,  // isGhostToEnemy 默认值为false
+				//"canTriggerBullet" : true,// canTriggerBullet 默认值为true
+			},
+			"beHit":
+			{
+				"hitAutoRedirect": false,
+			},
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Ability_01",
+
+				"abilityName" : "SceneObj_Homeworld_Interior_Md_Decoration_Fireplace_01_Ability"
+			},
+		],
+	},
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// 家园 丘丘人标靶
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	"SceneObj_Homeworld_Exterior_Common_Decoration_Junk_06":
+	{
+		"$type" : "ConfigGadget",
+		"hasModel" : true,
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachMesh",
+				"mesh": "EffectMesh",
+				"scaleX": 1.0,
+				"scaleY": 1.0,
+				"scaleZ": 1.0,
+			},
+			"affectedByWorld": true,
+		},
+		"combat" :
+		{
+			"property"://combat property 默认值一览
+			{
+				"useCreatorProperty" : true,// useCreatorProperty 默认值为true
+				"HP": 1000,
+				"attack": 300,
+				"defense": 1,
+				"endure":0,
+				"isLockHP":true,//默认为false
+				//"canTriggerBullet" : true,// canTriggerBullet 默认值为true
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+				"lockType": "Gadget_Lv1",
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "Eff_Hit_QQObject_Immortal",
+				"hitAutoRedirect": false,
+				"muteAllHit" : false,
+				"muteAllHitEffect" : false,
+				"muteAllHitText" : true,
+				
+			},
+		},
+		"specialPoint":
+		{
+			"bulletAim": "bulletAim",
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Ability_01",
+
+				"abilityName" : "SceneObj_Homeworld_Exterior_Common_Decoration_Junk_06_Ability"
+			},
+		],
+	},
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// 家园 木桩
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	"SceneObj_Homeworld_Exterior_Common_Decoration_Stake_01":
+	{
+		"$type" : "ConfigGadget",
+		"hasModel" : true,
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachMesh",
+				"mesh": "EffectMesh",
+				"scaleX": 1.0,
+				"scaleY": 1.0,
+				"scaleZ": 1.0,
+			},
+			"affectedByWorld": true,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true,
+				"HP": 1000,
+				"attack": 300,
+				"defense": 1,
+				"endure":0,
+				"isLockHP":true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+				"lockType": "Gadget_Lv1",
+			},
+			"beHit" :
+			{
+				"hitBloodEffect": "",
+				"muteAllHit": false,//是否mute掉这个单位的受击动画
+				"muteAllHitEffect": false,//是否mute掉这个单位身上的受击伤害跳字
+				"muteAllHitText": true,
+				"hitAutoRedirect": false,			
+			},
+		},
+		"specialPoint":
+		{
+			"bulletAim": "bulletAim",
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Ability_01",
+
+				"abilityName" : "SceneObj_Homeworld_Exterior_Common_Decoration_Stake_01_Ability"
+			},
+		],
+	},		
+}

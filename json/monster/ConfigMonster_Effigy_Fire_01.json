@@ -1,0 +1,1796 @@
+{
+	"$type" : "ConfigMonster",
+	"common":
+	{
+		"mass" : 10000.0,
+		"height": 3,
+		"affectedByWorld" : true,
+		"checkInSurface" : true,
+		"scale": 1.2,
+		"viewSize": 1,
+		"effectAttachShape" :
+		{
+			"$type" : "ConfigEffectAttachSkinnedMesh",
+			"mesh" : "Body",
+			"normalOffset" : 0,
+			"scaleX": 1,
+			"scaleY": 1,
+			"scaleZ": 1,
+		},
+	},
+	"partControl":
+	{
+		"parts":
+		[
+			{
+				"$type" : "ConfigControlPart",
+				"partRootName": "ReviveSkillDirection",
+				"angularSpeed": 3600.0,
+				"forwardBy": "Parent",
+				"rotateBy": "WorldXZ",
+				"doOnUnEabled": "Stay",
+				"limitHorizontal": 360.0,
+				"limitVertical": 0.0,
+			},
+		],
+	},
+	"dither":
+	{
+		"showDitherDuration": 2.0,
+		"normalBetweenCamera":
+		{
+			"detectDitherRange": 0.0,
+		},
+	},
+	"model":
+	{
+		"canBakeMesh": false,
+	},
+	"billboard":
+	{
+		"$type" : "ConfigCombatBillboard",
+		"offset":
+		{
+			"x": 0,
+			"y": 1.5,
+			"z": 0,
+		},
+		"radiusOffset": 1.0,
+		"enableSelfAdapt": true,
+		"showHPBar": true,
+		"size": "Big",
+	},
+	"cameraAdjust":
+	{
+		"$type" : "ConfigSpecialCamera",
+		"priority": 1.0,	//优先?
+		"enterRadius": 30,	//开启大怪相机的人怪距?
+		"exitRadius": 35,	//脱离大怪相机的人怪距?
+		"heightAdjust": 0.75,	//相机高度修正
+		"fov": 45.0,	//相机FOV修正
+		"zoom": 10,	//相机Z距离修正
+		"sphericalY": 10,	//初始俯角（游戏种默认?6?
+		"lockSphericalY": false,	//是否锁定俯仰?
+		"sphericalYUp": 10,	//始俯? 上修? （最大俯仰角为sphericalY + sphericalYUp?
+		"sphericalYDown": 10,	//始俯? 下修正（最大俯仰角为sphericalY - sphericalYDown?
+		"autoTurnStartMin": 30,	//人怪距?1米时，开启视角旋转修正的最小?
+		"autoTurnStartMax": 15,	//人怪距?15米时，开启视角旋转修正的最大?
+		"autoTurnEndMin": 120,	//人怪距?1米时，视角旋转修正后的角?
+		"autoTurnEndMax": 170,	//人怪距?15米时，视角旋转修正后的角?
+	},
+	"move":
+	{
+		"$type": "ConfigAnimatorMove",
+		"positionModifyState":"None",
+		"destroyRockWhenInit": true,
+	},
+	"combat" :
+	{
+		"property":
+		{
+			"endureType": "Monster_Boss_Other",
+			"weight" : 300,	//weightLevel = 3
+		},
+		"combatLock":
+ 		{
+ 			"denyLockOn": false,
+ 			"lockType": "Avatar&Monster_Lv4",
+ 		},
+		"beHit" :
+		{
+			"hitBloodEffect": "",
+			"hitAutoRedirect": false,
+			"muteAllHit": false,
+			"muteAllHitEffect": false,
+			"muteAllHitText": false,
+		},
+		"die":
+		{
+			"hasAnimatorDie": false,
+			"dieDisappearEffect": "",
+			"dieDisappearEffectDelay": 1.0,
+			"dieEndTime": 1,
+			"dieForceDisappearTime": 4,
+		},
+		"animEvents":
+		{
+			"AtkL01":
+			{
+				"attackPattern" :
+				{
+					"$type" : "ConfigAttackCircle",
+					"duration" : 0.0,
+					"height" : 5,
+					"triggerType" : "TriggerNoRepeat",
+					"fanAngle" : 180.0,
+					"radius" : 7,
+					"born":
+					{
+						"$type": "ConfigBornBySelf",
+						"offset":
+						{
+							"x" : 0.0,
+							"y" : 0.0,
+							"z" : 0.0,
+						},
+					},
+				},
+				"attackInfo":
+				{
+					"attackProperty":
+					{
+						"damagePercentage": 1.0,
+						"strikeType": "Blunt",
+						"attackType": "Melee",
+						"enBreak": 200.0,
+						"elementDurability":50,
+						"elementType": "Fire",
+					},
+					"hitPattern" :
+					{
+						"hitImpulseType":"LV5",
+						"reboundRatio": 0,
+						"hitHaltTime": 0.0,
+						"hitHaltTimeScale": 0.01,
+						"muteHitText":false,
+					},
+					"forceCameraShake": true,
+					"cameraShake":
+					{
+						"shakeType": "Center",
+						"shakeRange": 1,
+						"shakeTime": 0.3,
+						"shakeDistance": 30.0,
+					},
+				},
+			},
+			"AtkBurning01":
+			{
+				"attackPattern" :
+				{
+					"$type": "ConfigAttackBox",
+					"triggerType": "TriggerNoRepeat",
+					"size":
+					{
+						"x":3,
+						"y":5,
+						"z":7.0,
+					},
+					"born":
+					{
+						"$type":"ConfigBornByTarget",
+						"offset" :
+						{
+							"x":0,
+							"y":2.5,
+							"z":2.5,
+						},
+					},
+				},
+				"attackInfo":
+				{
+					"attackProperty":
+					{
+						"damagePercentage": 1.25,
+						"strikeType": "Blunt",
+						"attackType": "Melee",
+						"enBreak": 200.0,
+						"elementDurability":50,
+						"elementType": "Fire",
+					},
+					"hitPattern" :
+					{
+						"hitImpulseType":"LV5",
+						"reboundRatio": 0,
+						"hitHaltTime": 0.0,
+						"hitHaltTimeScale": 0.01,
+						"muteHitText":false,
+					},
+					"forceCameraShake": true,
+					"cameraShake":
+					{
+						"shakeType": "Center",
+						"shakeRange": 1,
+						"shakeTime": 0.3,
+						"shakeDistance": 30.0,
+					},
+				},
+			},
+			"AtkBurning02_01":
+			{
+				"attackPattern" :
+				{
+					"$type" : "ConfigAttackCircle",
+					"duration" : 0.0,
+					"height" : 5,
+					"triggerType" : "TriggerNoRepeat",
+					"fanAngle" : 360.0,
+					"radius" : 3,
+					"born":
+					{
+						"$type": "ConfigBornBySelf",
+						"offset":
+						{
+							"x" : 0.0,
+							"y" : 1.5,
+							"z" : 0.0,
+						},
+					},
+				},
+				"attackInfo":
+				{
+					"attackProperty":
+					{
+						"damagePercentage": 1.25,
+						"strikeType": "Blunt",
+						"attackType": "Melee",
+						"enBreak": 200.0,
+						"elementDurability":50,
+						"elementType": "Fire",
+					},
+					"hitPattern" :
+					{
+						"hitImpulseType":"LV4",
+						"reboundRatio": 0,
+						"hitHaltTime": 0.0,
+						"hitHaltTimeScale": 0.01,
+						"muteHitText":false,
+					},
+				},
+			},
+			"AtkBurning02_02":
+			{
+				"attackPattern" :
+				{
+					"$type" : "ConfigAttackCircle",
+					"duration" : 0.0,
+					"height" : 5,
+					"triggerType" : "TriggerNoRepeat",
+					"fanAngle" : 360.0,
+					"radius" : 5,
+					"born":
+					{
+						"$type": "ConfigBornBySelf",
+						"offset":
+						{
+							"x" : 0.0,
+							"y" : 0.0,
+							"z" : 3.5,
+						},
+					},
+				},
+				"attackInfo":
+				{
+					"attackProperty":
+					{
+						"damagePercentage": 1.25,
+						"strikeType": "Blunt",
+						"attackType": "Melee",
+						"enBreak": 200.0,
+						"elementDurability":50,
+						"elementType": "Fire",
+					},
+					"hitPattern" :
+					{
+						"hitImpulseType":"LV5",
+						"reboundRatio": 0,
+						"hitHaltTime": 0.0,
+						"hitHaltTimeScale": 0.01,
+						"muteHitText":false,
+					},
+					"forceCameraShake": true,
+					"cameraShake":
+					{
+						"shakeType": "Center",
+						"shakeRange": 1,
+						"shakeTime": 0.3,
+						"shakeDistance": 30.0,
+					},
+				},
+			},
+			"AtkBurning03":
+			{
+				"attackPattern" :
+				{
+					"$type" : "ConfigAttackCircle",
+					"duration" : 0.0,
+					"height" : 5,
+					"triggerType" : "TriggerNoRepeat",
+					"fanAngle" : 180.0,
+					"radius" : 5,
+					"born":
+					{
+						"$type": "ConfigBornBySelf",
+						"offset":
+						{
+							"x" : 0.0,
+							"y" : 0.0,
+							"z" : 0.0,
+						},
+					},
+				},
+				"attackInfo":
+				{
+					"attackProperty":
+					{
+						"damagePercentage": 1.25,
+						"strikeType": "Blunt",
+						"attackType": "Melee",
+						"enBreak": 200.0,
+						"elementDurability":50,
+						"elementType": "Fire",
+					},
+					"hitPattern" :
+					{
+						"hitImpulseType":"LV5",
+						"reboundRatio": 0,
+						"hitHaltTime": 0.0,
+						"hitHaltTimeScale": 0.01,
+						"muteHitText":false,
+					},
+					"forceCameraShake": true,
+					"cameraShake":
+					{
+						"shakeType": "Center",
+						"shakeRange": 1,
+						"shakeTime": 0.3,
+						"shakeDistance": 30.0,
+					},
+				},
+			},
+			"AtkBurning03_02":
+			{
+				"attackPattern" :
+				{
+					"$type" : "ConfigAttackCircle",
+					"duration" : 0.0,
+					"height" : 5,
+					"triggerType" : "TriggerNoRepeat",
+					"fanAngle" : 180.0,
+					"radius" : 4,
+					"born":
+					{
+						"$type": "ConfigBornBySelf",
+						"offset":
+						{
+							"x" : 0.0,
+							"y" : 0.0,
+							"z" : 0.0,
+						},
+					},
+				},
+				"attackInfo":
+				{
+					"attackProperty":
+					{
+						"damagePercentage": 0.5,
+						"strikeType": "Blunt",
+						"attackType": "Melee",
+						"enBreak": 50.0,
+						"elementDurability":50,
+						"elementType": "Fire",
+					},
+					"hitPattern" :
+					{
+						"hitImpulseType":"LV3",
+						"reboundRatio": 0,
+						"hitHaltTime": 0.0,
+						"hitHaltTimeScale": 0.01,
+						"muteHitText":false,
+					},
+				},
+			},
+			"DiveCrush":
+			{
+				"attackPattern" :
+				{
+					"$type" : "ConfigAttackCircle",
+					"duration" : 0.0,
+					"height" : 2,
+					"triggerType" : "TriggerNoRepeat",
+					"fanAngle" : 180.0,
+					"radius" : 7,
+					"born":
+					{
+						"$type": "ConfigBornBySelf",
+						"offset":
+						{
+							"x" : 0.0,
+							"y" : 0.0,
+							"z" : 0.0,
+						},
+					},
+				},
+				"attackInfo":
+				{
+					"attenuationTag":"Burning_DiveCrush",
+					"attenuationGroup": "MonsterAffix_GeneralSkill_IceDamage_Prison",
+					"attackProperty":
+					{
+						"damagePercentage": 1.25,
+						"strikeType": "Blunt",
+						"attackType": "Melee",
+						"enBreak": 200.0,
+						"elementDurability":50,
+						"elementType": "Fire",
+					},
+					"hitPattern" :
+					{
+						"hitImpulseType":"LV6",
+						"reboundRatio": 0,
+						"hitHaltTime": 0.0,
+						"hitHaltTimeScale": 0.01,
+						"muteHitText":false,
+					},
+				},
+			},
+		},
+	},
+	"inputKeys":
+	[
+		{
+			"keyID": 211,
+			"inputKeyCode": 257,
+		},
+		{
+			"keyID": 221,
+			"inputKeyCode": 258,
+		},
+		{
+			"keyID": 231,
+			"inputKeyCode": 259,
+		},
+		{
+			"keyID": 241,
+			"inputKeyCode": 260,
+		},
+		{
+			"keyID": 311,
+			"inputKeyCode": 261,
+		},
+		{
+			"keyID": 321,
+			"inputKeyCode": 262,
+		},
+		{
+			"keyID": 331,
+			"inputKeyCode": 263,
+		},
+		{
+			"keyID": 341,
+			"inputKeyCode": 264,
+		},
+		{
+			"keyID": 351,
+			"inputKeyCode": 265,
+		},
+	],
+	"stateLayers":
+	{
+		"defaultLayer":
+		{
+			"$type" : "ConfigNormalStateLayer",
+			"stateIDs" :
+			{
+				"Born" :
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Born": [],
+					},
+					"combatMove": true,
+					"canDoSkill" : true,
+					"canSyncMove" : true,
+					"resetAnimatorTriggerOnEnter" : ["DoSkill","ToShaderState2"],
+					"resetAnimatorTriggerOnExit": ["DoSkill" ,"ToShaderState1"],
+				},
+				"StandbyCooldown_BS" :
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"StandbyCooldown_BS": [""],
+					},
+					"combatMove": true,
+					//"canDoSkill" : true,
+					"canSyncMove" : true,
+					"cullingModelAlwaysAnimate": true,
+					"resetAnimatorTriggerOnEnter" : ["DoSkill","ToShaderState2"],
+					"resetAnimatorTriggerOnExit" : ["ToShaderState1"],
+				},
+				"StandbyCooldown_AS" :
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"StandbyCooldown_AS": [],
+					},
+					"combatMove": true,
+					"canDoSkill" : true,
+					"canSyncMove" : true,
+					"cullingModelAlwaysAnimate": true,
+					"resetAnimatorTriggerOnEnter" : ["ToShaderState2"],
+					"resetAnimatorTriggerOnExit" : ["DoSkill","ToShaderState1"],
+				},
+				"StandbyBurning_BS" :
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"StandbyBurning_BS": [""],
+					},
+					"combatMove": true,
+					"canDoSkill" : true,
+					"canSyncMove" : true,
+					"cullingModelAlwaysAnimate": true,
+					"resetAnimatorTriggerOnEnter" : ["DoSkill","ToShaderState2"],
+					"resetAnimatorTriggerOnExit" : ["ToShaderState1"],
+				},
+				"StandbyBurning_AS" :
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"StandbyBurning_AS": [],
+					},
+					"combatMove": true,
+					"canDoSkill" : true,
+					"canSyncMove" : true,
+					"cullingModelAlwaysAnimate": true,
+					"resetAnimatorTriggerOnEnter" : ["ToShaderState2"],
+					"resetAnimatorTriggerOnExit" : ["DoSkill","ToShaderState1"],
+				},
+				"StandbyFree" :
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"StandbyFree": [],
+					},
+					"combatMove": true,
+					"canDoSkill" : true,
+					"canSyncMove" : true,
+					"cullingModelAlwaysAnimate": true,
+					"resetAnimatorTriggerOnEnter" : ["DoSkill","ToShaderState2"],
+					"resetAnimatorTriggerOnExit" : ["DoSkill","ToShaderState1"],
+				},
+				"Die":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Die": ["Monster_Effigy_Fire_Die"],
+						"SwimDie": ["Monster_Effigy_Fire_Die"],
+					},
+				},
+				"Warning" :
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Warning": [],
+					},
+					"combatMove" : true,
+					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill","ToShaderState1" ],
+				},
+				///////////////////////////////////////////////
+				//	BeHit No use
+				///////////////////////////////////////////////
+				"BeHit":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Hit_L": [],
+						"Hit_H": [],
+					},
+					"combatMove": true,
+					"resetAnimatorTriggerOnEnter": [ "BeHit" ],
+					"resetAnimatorTriggerOnExit": [ "DoSkill","ToShaderState1" ],
+				},
+				"BeHitThrow":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"HitThrow": [],
+						"HitThrowDrop": [],
+						"HitThrowToGround": [],
+					},
+					"combatMove": true,
+					"resetAnimatorTriggerOnEnter": [ "BeHit", "HitAir2HitDrop" ],
+					"resetAnimatorTriggerOnExit": [ "DoSkill","ToShaderState1" ],
+				},
+				"RushAway":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"RushAway_BS": [],
+					},
+					"combatMove": true,
+					"canSteer": true,
+					"canSyncMove" : true,
+					"cullingModelAlwaysAnimate": true,
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill" ],
+				},
+				"RushAway_AS":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"RushAway_AS": [""],
+					},
+					"combatMove": true,
+					"canSteer": true,
+					"canDoSkill": true,
+					"canSyncMove" : true,
+					"cullingModelAlwaysAnimate": true,
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill" ],
+				},
+				///////////////////////////////////////////////
+				//	SingleAtk
+				///////////////////////////////////////////////
+				"SingleAtk":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"SingleAtk": ["Monster_Effigy_Fire_SingleAtk"],
+						"SingleAtk_CoreOutLoop": [],
+						"SingleAtk_CoreOutAS": ["Monster_Effigy_Fire_SingleAtk_CoreOutAS",""],
+					},
+					"combatMove": true,
+					"resetAnimatorTriggerOnEnter": ["RushAwayTrigger"],
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill"],
+					"cullingModelAlwaysAnimate": true,
+				},
+				"SingleAtk_Rush":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"SingleAtk_Rush": [""],
+					},
+					"combatMove": true,
+					"canSteer": true,
+					"canSyncMove" : true,
+					"cullingModelAlwaysAnimate": true,
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill" ,"SingleAtk_RushStop"],
+				},
+				///////////////////////////////////////////////
+				//	RangeAtk
+				///////////////////////////////////////////////
+				"RangeAtk":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"RangeAtk_BS1": [""],
+						"RangeAtk_BS2": ["Monster_Effigy_Fire_RangeAtk_BS"],
+						"RangeAtk_Loop1": ["Monster_Effigy_Fire_RangeAtk_Loop"],
+						"RangeAtk_Loop2": [""],
+						"RangeAtk_AS": ["Monster_Effigy_Fire_RangeAtk_AS"],
+					},
+					"combatMove": true,
+					"canSteer": true,
+					"resetAnimatorTriggerOnEnter": ["RushAwayTrigger"],
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill"],
+					"cullingModelAlwaysAnimate": true,
+				},
+				///////////////////////////////////////////////
+				//	FirePillarStrike
+				///////////////////////////////////////////////
+				"FirePillarStrike":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"FirePillarStrike_BS01": ["Monster_Effigy_Fire_FirePillarStrike_BS01"],
+						"FirePillarStrike_BS02": ["Monster_Effigy_Fire_FirePillarStrike_BS01"],
+						"FirePillarStrike_BS03": ["Monster_Effigy_Fire_FirePillarStrike_BS01"],
+						"FirePillarStrike_CoreExpose1": [""],
+						"FirePillarStrike_CoreExpose2": [""],
+						"FirePillarStrike_Reform": ["Monster_Effigy_Fire_Reform"],
+					},
+					"combatMove": true,
+					"canSteer": true,
+					"resetAnimatorTriggerOnEnter": ["RushAwayTrigger"],
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill"],
+					"cullingModelAlwaysAnimate": true,
+				},
+				///////////////////////////////////////////////
+				//	Ignite
+				///////////////////////////////////////////////
+				"Ignite":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Ignite_Blink": ["Monster_Effigy_Fire_BlinkReborn"],
+						"Ignite_BS": ["Monster_Effigy_Fire_Ignite_BS"],
+						"Ignite_Loop": [""],
+						"Ignite_BS02": ["Monster_Effigy_Fire_Ignite_BS02"],
+						"Ignite_AS": ["Monster_Effigy_Fire_Ignite_AS"],
+						"Ignite_Success": ["Monster_Effigy_Fire_Ignite_Success"],
+					},
+					"combatMove": true,
+					"canSteer": true,
+					"resetAnimatorTriggerOnEnter": ["RushAwayTrigger"],
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill"],
+					"cullingModelAlwaysAnimate": true,
+				},
+				///////////////////////////////////////////////
+				//	Burning_RollingCharge
+				///////////////////////////////////////////////
+				"Burning_RollingCharge_BS":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Burning_RollingCharge_BS": ["Monster_Effigy_Fire_Burning_RollingCharge_BS"],
+					},
+					"combatMove": true,
+					"canSteer": true,
+					"resetAnimatorTriggerOnEnter": ["RushAwayTrigger"],
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill"],
+					"cullingModelAlwaysAnimate": true,
+				},
+				"Burning_RollingCharge_Aiming":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Burning_RollingCharge_Aiming": [""],
+					},
+					"combatMove": true,
+					"canSteer": true,
+					"resetAnimatorTriggerOnEnter": ["RushAwayTrigger"],
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill"],
+					"cullingModelAlwaysAnimate": true,
+				},
+				"Burning_RollingCharge_Loop":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Burning_RollingCharge_Loop1": [""],
+						"Burning_RollingCharge_Loop2": [""],
+						"Burning_RollingCharge_Loop3": [""],
+					},
+					"combatMove": true,
+					"canSteer": true,
+					"resetAnimatorTriggerOnEnter": ["RushAwayTrigger"],
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill"],
+					"cullingModelAlwaysAnimate": true,
+				},
+				"Burning_RollingCharge_Turning":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Burning_RollingCharge_Turning1": [""],
+						"Burning_RollingCharge_Turning2": [""],
+					},
+					"combatMove": true,
+					"canSteer": true,
+					"resetAnimatorTriggerOnEnter": ["RushAwayTrigger"],
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill"],
+					"cullingModelAlwaysAnimate": true,
+				},
+				"Burning_RollingCharge_AS":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Burning_RollingCharge_AS": ["Monster_Effigy_Fire_Burning_RollingCharge_AS"],
+					},
+					"combatMove": true,
+					"canSteer": true,
+					"canDoSkill": true,
+					"resetAnimatorTriggerOnEnter": ["RushAwayTrigger"],
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill"],
+					"cullingModelAlwaysAnimate": true,
+				},
+				///////////////////////////////////////////////
+				//	Burning_MeleeAttack
+				///////////////////////////////////////////////
+				"Burning_MeleeAttack01":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Burning_MeleeAttack01": ["Monster_Effigy_Fire_Burning_MeleeAttack01"],
+						"Burning_MeleeAttack01_Pause": [""],
+					},
+					"combatMove": true,
+					"canSteer": true,
+					"resetAnimatorTriggerOnEnter": ["RushAwayTrigger"],
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill"],
+					"cullingModelAlwaysAnimate": true,
+				},
+				"Burning_MeleeAttack02":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Burning_MeleeAttack02": ["Monster_Effigy_Fire_Burning_MeleeAttack02"],
+						"Burning_MeleeAttack02_Pause": ["Monster_Effigy_Fire_Burning_MeleeAttack02_Pause"],
+					},
+					"combatMove": true,
+					"canSteer": true,
+					"resetAnimatorTriggerOnEnter": ["RushAwayTrigger"],
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill"],
+					"cullingModelAlwaysAnimate": true,
+				},
+				"Burning_MeleeAttack03":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Burning_MeleeAttack03": ["Monster_Effigy_Fire_Burning_MeleeAttack03"],
+					},
+					"combatMove": true,
+					"canSteer": true,
+					"resetAnimatorTriggerOnEnter": ["RushAwayTrigger"],
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill"],
+					"cullingModelAlwaysAnimate": true,
+				},
+				///////////////////////////////////////////////
+				//	Burning_DiveCrush
+				///////////////////////////////////////////////
+				"Burning_DiveCrush":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Burning_DiveCrush": ["Monster_Effigy_Fire_Burning_DiveCrush"],
+					},
+					"combatMove": true,
+					"canSteer": true,
+					"resetAnimatorTriggerOnEnter": ["RushAwayTrigger"],
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill"],
+					"cullingModelAlwaysAnimate": true,
+				},
+				///////////////////////////////////////////////
+				//	Burning_MultiFire
+				///////////////////////////////////////////////
+				"Burning_MultiFire":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Burning_MultiFire_BS": ["Monster_Effigy_Fire_Burning_MultiFire_BS"],
+						"Burning_MultiFire_Loop": ["Monster_Effigy_Fire_Burning_MultiFire_Loop"],
+						"Burning_MultiFire_AS": ["Monster_Effigy_Fire_Burning_MultiFire_AS"],
+					},
+					"combatMove": true,
+					"canSteer": true,
+					"resetAnimatorTriggerOnEnter": ["RushAwayTrigger"],
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill"],
+					"cullingModelAlwaysAnimate": true,
+				},
+				///////////////////////////////////////////////
+				//	Burning_UltimateExplode
+				///////////////////////////////////////////////
+				"Burning_UltimateExplode":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Burning_UltimateExplode_Blink": ["Monster_Effigy_Fire_BlinkReborn"],
+						"Burning_UltimateExplode_BS": [""],
+						"Burning_UltimateExplode_Loop": [""],
+						"Burning_UltimateExplode_Explode": ["Monster_Effigy_Fire_Burning_UltimateExplode_Explode"],
+					},
+					"combatMove": true,
+					"canSteer": true,
+					"resetAnimatorTriggerOnEnter": ["RushAwayTrigger"],
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill"],
+					"cullingModelAlwaysAnimate": true,
+				},
+				///////////////////////////////////////////////
+				//	Burning_Extinct
+				///////////////////////////////////////////////
+				"Burning_Extinct":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"Burning_Extinct": ["Monster_Effigy_Fire_Burning_Extinct"],
+					},
+					"combatMove": true,
+					"canSteer": true,
+					"resetAnimatorTriggerOnEnter": ["RushAwayTrigger"],
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill"],
+					"cullingModelAlwaysAnimate": true,
+				},
+				///////////////////////////////////////////////
+				//	ReturnToBorn
+				///////////////////////////////////////////////
+				"ReturnToBorn":
+				{
+					"$type": "ConfigMonsterStateIDInfo",
+					"animatorStates":
+					{
+						"ReturnToBorn": [],
+						"ReturnToBorn_Blink": [""],
+						"ReturnToBorn_AS": [],
+					},
+					"combatMove": true,
+					"canSyncMove" : true,
+					"resetAnimatorTriggerOnExit": ["BeHit", "DoSkill" ],
+					"cullingModelAlwaysAnimate": true,
+				},
+			},
+		},
+	},
+	"abilities":
+	[
+		///////////////////////////////////////////////
+		//	General
+		///////////////////////////////////////////////
+		{
+			"abilityID": "Monster_Effigy_Fire_StandyEffect",
+			"abilityName": "Monster_Effigy_Fire_StandyEffect"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_FightingPoseManager",
+			"abilityName": "Monster_Effigy_Fire_FightingPoseManager"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_ShieldAndCore",
+			"abilityName": "Monster_Effigy_Fire_ShieldAndCore"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_SetShieldOn",
+			"abilityName": "Monster_Effigy_Fire_SetShieldOn"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_SetShieldOff",
+			"abilityName": "Monster_Effigy_Fire_SetShieldOff"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_Steer",
+			"abilityName": "Monster_Effigy_Fire_Steer"
+		},
+		{
+			"abilityID": "Monster_Effigy_Electric_ShaderState1ToState2",
+			"abilityName": "Monster_Effigy_Electric_ShaderState1ToState2"
+		},
+		{
+			"abilityID": "Monster_Effigy_Electric_ShaderState2ToState1",
+			"abilityName": "Monster_Effigy_Electric_ShaderState2ToState1"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_RandomMove",
+			"abilityName": "Monster_Effigy_Fire_RandomMove"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_CombatMoveLogic",
+			"abilityName": "Monster_Effigy_Fire_CombatMoveLogic"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_RushMove",
+			"abilityName": "Monster_Effigy_Fire_RushMove"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_Ignite",
+			"abilityName": "Monster_Effigy_Fire_Ignite"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_HideEnergyCore",
+			"abilityName": "Monster_Effigy_Fire_HideEnergyCore"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_ShowEnergyCore",
+			"abilityName": "Monster_Effigy_Fire_ShowEnergyCore"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_SetCoreOutRender",
+			"abilityName": "Monster_Effigy_Fire_SetCoreOutRender"
+		},
+		///////////////////////////////////////////////
+		//	Blink
+		///////////////////////////////////////////////
+		{
+			"abilityID": "Monster_Effigy_Fire_BlinkStart",
+			"abilityName": "Monster_Effigy_Fire_BlinkStart"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_FindBlinkPoint",
+			"abilityName": "Monster_Effigy_Fire_FindBlinkPoint"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_Blink",
+			"abilityName": "Monster_Effigy_Fire_Blink"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_BlinkAS",
+			"abilityName": "Monster_Effigy_Fire_BlinkAS"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_FindBlinkPoint_Chase",
+			"abilityName": "Monster_Effigy_Fire_FindBlinkPoint_Chase"
+		},
+		///////////////////////////////////////////////
+		//	Skill
+		///////////////////////////////////////////////
+		{
+			"abilityID": "Monster_Effigy_Fire_RangeAtk",
+			"abilityName": "Monster_Effigy_Fire_RangeAtk"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_FirePillarStrike",
+			"abilityName": "Monster_Effigy_Fire_FirePillarStrike"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_Burning_RollingCharge",
+			"abilityName": "Monster_Effigy_Fire_Burning_RollingCharge"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_Burning_MultiFire",
+			"abilityName": "Monster_Effigy_Fire_Burning_MultiFire"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_Burning_DiveCrush_Wave01",
+			"abilityName": "Monster_Effigy_Fire_Burning_DiveCrush_Wave01"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_Burning_DiveCrush_Wave02",
+			"abilityName": "Monster_Effigy_Fire_Burning_DiveCrush_Wave02"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_Burning_DiveCrush_Wave03",
+			"abilityName": "Monster_Effigy_Fire_Burning_DiveCrush_Wave03"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_Burning_MeleeAttack",
+			"abilityName": "Monster_Effigy_Fire_Burning_MeleeAttack"
+		},
+		{
+			"abilityID": "Monster_Effigy_Fire_Burning_UltimateExplode",
+			"abilityName": "Monster_Effigy_Fire_Burning_UltimateExplode"
+		},
+		///////////////////////////////////////////////
+		//	Common
+		///////////////////////////////////////////////
+	],
+	"initialPoses":
+	{
+		"Default":
+		{
+			"initialPoseID": 0,
+		},
+	},
+	"aibeta":
+	{
+		"enable": true,
+		"moveSetting":
+		{
+			"useNavMesh":  false,
+		},
+		"skillGCD": 0,
+		"profiling":
+		{
+			"lodStrategy": "Best",
+		},
+		"sensing":
+		{
+			"settings":
+			{
+				"DefaultSetting":
+				{
+					"viewPanoramic": true,
+					"viewRange": 15,
+					"feelRange": 7.5,
+				},
+			},
+			"templates":
+			{
+				"DefaultTemplate":
+				{
+					"DefaultPoses": "DefaultSetting",
+				},
+			},
+		},
+		"defendArea":
+		{
+			"defendRange": 50.0,
+		},
+		"threat":
+		{
+			"clearThreatTargetDistance": 70.0,
+			"clearThreatEdgeDistance": 7.5,
+			"clearThreatByTargetOutOfZone": true,
+			"viewThreatGrow": 35.0,
+			"feelThreatGrow": 500.0,
+			"threatDecreaseSpeed": 100,
+			"resistTauntLevel": "Monster_TauntLevel_4",
+		},
+		"returnToBornTactic":
+		{
+			"enable": true,
+			"condition":
+			{
+				"pose": [1,101],
+			},
+			"defaultSetting":
+			{
+				"speedLevel": 0,
+				"fadeoutBeginTime": 3.0,
+				"fadeoutEndTime": 3.5,
+			},
+		},
+		"skillGroupCDConfigs":
+		[
+			{
+				//WheelCharge
+				"skillGroupCDID": 2,
+				"skillGroupCDTime": 15.0,
+			},
+		],
+		"skills":
+		{
+			"100":
+			{
+				"name": "OnAlert",
+				"stateIDs": ["Warning"],
+				"skillType": "OnAlert",
+				"skillQueryingTime": 4.0,
+				"triggerGCD": false,
+				"faceTarget": true,
+				"castCondition":
+				{
+					"pose": [1,101,201],
+				},
+			},
+			/////////////////////////////////////////////////////////
+			//	FightCoolDown Skills
+			/////////////////////////////////////////////////////////
+			//MeleeAtks
+			"211":
+			{
+				"cd": 5,
+				"cdUpperRange": 0,
+				"initialCD": 15,
+				"skillQueryingTime":4.0,
+				"flagTargetReachable":"11",
+				"name": "SingleAtk",
+				"stateIDs": ["SingleAtk"],
+				"skillGroupCDID": 2,
+				"castCondition":
+				{
+					"pickRangeMin": 0,
+					"pickRangeMax": 8,
+					"pose": [101],
+					"needReInitCD": true,
+				},
+			},
+			//RangedAtks
+			"221":
+			{
+				"cd": 5,
+				"cdUpperRange": 0,
+				"initialCD": 15,
+				"priority": 4,
+				"skillQueryingTime":4.0,
+				"flagTargetInZone": "10",
+				"name": "RangeAtk",
+				"stateIDs": ["RangeAtk"],
+				"skillGroupCDID": 2,
+				"castCondition":
+				{
+					"pickRangeMin": 5,
+					"pickRangeMax": 50,
+					"pose": [101],
+					"needReInitCD": true,
+				},
+			},
+			//Ignite
+			"241":
+			{
+				"cd": 20,
+				"cdUpperRange": 0,
+				"initialCD": 1,
+				"priority": 4,
+				"skillQueryingTime":4.0,
+				"flagTargetInZone": "10",
+				"triggerGCD": false,
+				"ignoreGCD":true,
+				"name": "Ignite",
+				"stateIDs": ["Ignite"],
+				"castCondition":
+				{
+					"pickRangeMin": 0,
+					"pickRangeMax": 50,
+					"pose": [101],
+					"needReInitCD": true,
+				},
+			},
+			/////////////////////////////////////////////////////////
+			//	FightBurning Skills
+			/////////////////////////////////////////////////////////
+			//Burning_RollingCharge
+			"311":
+			{
+				"cd": 6,
+				//"cdUpperRange": 5,
+				"initialCD": 1,
+				"skillQueryingTime":4.0,
+				"flagTargetReachable":"11",
+				"name": "Burning_RollingCharge",
+				"stateIDs": 
+				[
+					"Burning_RollingCharge_BS",
+					"Burning_RollingCharge_Aiming",
+					"Burning_RollingCharge_Loop",
+					"Burning_RollingCharge_Turning",
+					"Burning_RollingCharge_AS"
+				],
+				"skillGroupCDID": 3,
+				"castCondition":
+				{
+					"pickRangeMin": 0,
+					"pickRangeMax": 50,
+					"pose": [201],
+					"needReInitCD": true,
+				},
+			},
+			//Burning_MeleeAttack
+			"321":
+			{
+				"cd": 15,
+				//"cdUpperRange": 5,
+				"skillQueryingTime":4.0,
+				"flagTargetReachable":"11",
+				"name": "Burning_MeleeAttack",
+				"stateIDs": ["Burning_MeleeAttack"],
+				"skillGroupCDID": 3,
+				"castCondition":
+				{
+					"pickRangeMin": 0,
+					"pickRangeMax": 15,
+					"pose": [201],
+				},
+			},
+			//Burning_DiveCrush
+			"331":
+			{
+				"cd": 10,
+				//"cdUpperRange": 5,
+				"skillQueryingTime":1.0,
+				"flagTargetReachable":"11",
+				"name": "Burning_DiveCrush",
+				"stateIDs": ["Burning_DiveCrush"],
+				"skillGroupCDID": 3,
+				"castCondition":
+				{
+					"pickRangeMin": 0,
+					"pickRangeMax": 12,
+					"pose": [201],
+				},
+			},
+			//Burning_MultiFire
+			"341":
+			{
+				"cd": 6,
+				//"cdUpperRange": 5,
+				"skillQueryingTime":4.0,
+				"flagTargetReachable":"11",
+				"name": "Burning_MultiFire",
+				"stateIDs": ["Burning_MultiFire"],
+				"skillGroupCDID": 3,
+				"castCondition":
+				{
+					"pickRangeMin": 12,
+					"pickRangeMax": 50,
+					"pose": [201],
+				},
+			},
+			//Burning_UltimateExplode
+			"351":
+			{
+				"cd": 45,
+				"initialCD": 45,
+				//"cdUpperRange": 5,
+				"skillQueryingTime":4.0,
+				"flagTargetReachable":"11",
+				"name": "Burning_UltimateExplode",
+				"stateIDs": ["Burning_UltimateExplode"],
+				"skillGroupCDID": 3,
+				"castCondition":
+				{
+					"pickRangeMin": 0,
+					"pickRangeMax": 50,
+					"pose": [201],
+					"needReInitCD": true,
+				},
+			},
+		},
+	},
+	"audio" :
+	{
+	    "$type": "ConfigMonsterAudio",
+		"animAudio":
+		{
+			"onTransitionIn":
+			[
+				{
+					"currentStateName": "ElectricEscape_BS",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_electricEscape_BS"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "ElectricEscape_AS",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_electricEscape_AS"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "ElectricRush_BS",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_electricRushBS"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "ElectricRush_AS",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_electricEscape_AS"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "RangeAtk_BS",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_rangeAtk_BS"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "RangeAtk_Loop1",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_rangeAtk"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "RangeAtk_AS",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_rangeAtk_AS"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "Warning",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_electric_warning"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "RushMove_BS",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_rushMove_BS"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "AreaAtkRush_BS",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_rushMove_BS"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "SingleAtk",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_singleAtk"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "MultiAtk",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_multiAtk"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "FistAtk",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_fistAtk"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "AreaAtk_BS",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_areaAtk"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "ElectricBarrage_BS",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_electricBarrage_BS"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "ElectricBarrage_Loop1",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_electricBarrage_loop1"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "ElectricBarrage_Loop2",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_electricBarrage_loop2"
+					},
+					"otherStateNames": [""],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "ElectricDefence_BS",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_electricDefence"
+					},
+					"otherStateNames": [""],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "ElectricDefence_AS2",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_electric_warning"
+					},
+					"otherStateNames": [""],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "FistAtk_Rush",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_electricBarrage_loop"
+					},
+					"otherStateNames": [""],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "SingleAtk_Rush",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_electricBarrage_loop"
+					},
+					"otherStateNames": [""],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "MultiAtk_Rush",
+					"audioEvent":
+					{
+						"text": "Play_sfx_monster_effigy_electricBarrage_loop"
+					},
+					"otherStateNames": [""],
+					"usage": "Any"
+				},
+			],
+			"onTransitionOut":
+			[
+				{
+					"currentStateName": "ElectricEscape_BS",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_electricEscape_BS"
+					},
+					"otherStateNames": ["ElectricEscape_AS","ElectricEscape_Loop1","ElectricEscape_Loop2"],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "ElectricEscape_Loop1",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_electricEscape_BS"
+					},
+					"otherStateNames": ["ElectricEscape_AS"],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "ElectricEscape_Loop2",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_electricEscape_BS"
+					},
+					"otherStateNames": ["ElectricEscape_AS"],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "ElectricRush_BS",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_electricRush_BS"
+					},
+					"otherStateNames": ["ElectricRush_Loop"],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "ElectricRush_Loop",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_electricRush_BS"
+					},
+					"otherStateNames": ["ElectricRush_AS"],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "RangeAtk_BS",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_rangeAtk_BS"
+					},
+					"otherStateNames": ["RangeAtk_Loop1","RangeAtk_Loop2"],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "RushMove_Loop",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_rushMove"
+					},
+					"otherStateNames": [""],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "AreaAtkRush_Loop",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_rushMove"
+					},
+					"otherStateNames": [""],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "SingleAtk",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_singleAtk"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "MultiAtk",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_multiAtk"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "AreaAtk_BS",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_areaAtk"
+					},
+					"otherStateNames": ["AreaAtk_Loop1","AreaAtk_Loop2","AreaAtk_AS1","AreaAtk_AS2"],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "AreaAtk_Loop1",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_areaAtk"
+					},
+					"otherStateNames": ["AreaAtk_Loop2","AreaAtk_AS1","AreaAtk_AS2"],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "AreaAtk_Loop2",
+					"audioEvent":	
+					{
+						"text": "Stop_sfx_monster_effigy_areaAtk"
+					},
+					"otherStateNames": ["AreaAtk_AS2"],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "AreaAtk_AS1",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_areaAtk	"
+					},
+					"otherStateNames": ["AreaAtk_AS2","AreaAtk_Loop2"],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "AreaAtk_AS2",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_areaAtk"
+					},
+					"otherStateNames": [""],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "RangeAtk_Loop1",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_rangeAtk"
+					},
+					"otherStateNames": ["RangeAtk_Loop2"],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "RangeAtk_Loop2",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_rangeAtk"
+					},
+					"otherStateNames": ["RangeAtk_AS"],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "FistAtk",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_fistAtk"
+					},
+					"otherStateNames": [""],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "ElectricRush_AS",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_electric_warning"
+					},
+					"otherStateNames": [""],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "MultiAtk",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_electric_warning"
+					},
+					"otherStateNames": [""],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "ElectricBarrage_BS",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_electricBarrage_BS"
+					},
+					"otherStateNames": ["ElectricBarrage_Loop1"],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "ElectricBarrage_Loop1",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_electricBarrage_loop1"
+					},
+					"otherStateNames": ["ElectricBarrage_Loop2","ElectricBarrage_AS1"],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "ElectricBarrage_Loop2",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_electricBarrage_loop2"
+					},
+					"otherStateNames": ["ElectricBarrage_AS1"],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "ElectricDefence_BS",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_electricDefence"
+					},
+					"otherStateNames": ["ElectricDefence_Loop"],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "ElectricDefence_AS2",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_electric_warning"
+					},
+					"otherStateNames": [""],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "FistAtk_Rush",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_electricBarrage_loop"
+					},
+					"otherStateNames": [""],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "SingleAtk_Rush",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_electricBarrage_loop"
+					},
+					"otherStateNames": [""],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "MultiAtk_Rush",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_monster_effigy_electricBarrage_loop"
+					},
+					"otherStateNames": [""],
+					"usage": "Any"
+				},
+			],
+		}
+	}
+}

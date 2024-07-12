@@ -1,0 +1,408 @@
+{
+////////////////////////////////////////////////////////////////
+//
+//  Invoker_Herald_Water_SlashAtk
+//
+////////////////////////////////////////////////////////////////
+	"Invoker_Herald_Water_SlashAtk_Bullet":
+	{
+		"$type": "ConfigGadget",
+		"combat":
+		{
+			"property":
+			{
+				"useCreatorProperty": true,
+				"isInvincible": true,
+				"canTriggerBullet": false,
+				"isGhostToAllied": true,
+				"isGhostToEnemy": true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit":
+			{
+				"hitBloodEffect": "",
+				"muteAllHit": true,
+				"muteAllHitEffect": true,
+				"muteAllHitText": true,
+			},
+		},
+		"move" :
+		{
+			"$type" : "ConfigLinerBulletMove",
+			"speed" : 25.0,
+			"updateAngle" :
+			{
+				"$type": "ConfigBulletMoveAngleByVelocity",
+			},
+		},
+		"timer":
+		{
+			"lifeTime": 1.2,			//存在时间
+		},
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerNoRepeat",
+			},
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Invoker_Herald_Water_SlashAtk_Bullet",
+				},
+			],
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Invoker_Herald_Water_SlashAtk_Bullet",
+				"abilityName":"Invoker_Herald_Water_SlashAtk_Bullet",
+			},
+		],
+	},
+////////////////////////////////////////////////////////////////
+//
+//  Invoker_Herald_Water_ChargeAtk
+//
+////////////////////////////////////////////////////////////////
+	"Invoker_Herald_Water_ChargeAtk01_Bullet":
+	{
+		"$type": "ConfigGadget",
+		"combat":
+		{
+			"property":
+			{
+				"useCreatorProperty": true,
+				"isInvincible": true,
+				"canTriggerBullet": false,
+				"isGhostToAllied": true,
+				"isGhostToEnemy": true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit":
+			{
+				"hitBloodEffect": "",
+				"muteAllHit": true,
+				"muteAllHitEffect": true,
+				"muteAllHitText": true,
+			},
+		},
+		"move" :
+		{
+			"$type" : "ConfigLinerBulletMove",
+			"speed" : 25.0,
+			"updateAngle" :
+			{
+				"$type": "ConfigBulletMoveAngleByVelocity",
+			},
+		},
+		"timer":
+		{
+			"lifeTime": 1.2,			//存在时间
+		},
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerNoRepeat",
+			},
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Invoker_Herald_Water_ChargeAtk01_Bullet",
+				},
+			],
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Invoker_Herald_Water_ChargeAtk01_Bullet",
+				"abilityName":"Invoker_Herald_Water_ChargeAtk01_Bullet",
+			},
+		],
+	},
+
+	"Invoker_Herald_Water_ChargeAtk02_Bullet":
+	{
+		"$type": "ConfigGadget",
+		"combat":
+		{
+			"property":
+			{
+				"useCreatorProperty": true,
+				"isInvincible": true,
+				"canTriggerBullet": false,
+				"isGhostToAllied": true,
+				"isGhostToEnemy": true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit":
+			{
+				"hitBloodEffect": "",
+				"muteAllHit": true,
+				"muteAllHitEffect": true,
+				"muteAllHitText": true,
+			},
+		},
+		"move" :
+		{
+			"$type" : "ConfigLinerBulletMove",
+			"speed" : 25.0,
+			"updateAngle" :
+			{
+				"$type": "ConfigBulletMoveAngleByVelocity",
+			},
+		},
+		"timer":
+		{
+			"lifeTime": 1.2,			//存在时间
+		},
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerNoRepeat",
+			},
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Invoker_Herald_Water_ChargeAtk02_Bullet",
+				},
+			],
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Invoker_Herald_Water_ChargeAtk02_Bullet",
+				"abilityName":"Invoker_Herald_Water_ChargeAtk02_Bullet",
+			},
+		],
+	},
+////////////////////////////////////////////////////////////////
+//
+//  Invoker_Deacon_Electric_RangeAtk
+//
+////////////////////////////////////////////////////////////////
+	"Invoker_Deacon_Electric_RangeAtk_Bullet":
+	{
+		"$type": "ConfigGadget",
+		"combat":
+		{
+			"property":
+			{
+				"useCreatorProperty": true,
+				"isInvincible": true,
+				"canTriggerBullet": false,
+				"isGhostToAllied": true,
+				"isGhostToEnemy": true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit":
+			{
+				"hitBloodEffect": "",
+				"muteAllHit": true,
+				"muteAllHitEffect": true,
+				"muteAllHitText": true,
+			},
+		},
+		"move" :
+		{
+			"$type" : "ConfigLinerBulletMove",
+			"speed" : 15.0,
+			"updateAngle" :
+			{
+				"$type": "ConfigBulletMoveAngleByVelocity",
+			},
+		},
+		"timer":
+		{
+			"lifeTime": 3.0,			//存在时间
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Invoker_Deacon_Electric_RangeAtk_Bullet",
+				"abilityName":"Invoker_Deacon_Electric_RangeAtk_Bullet",
+			},
+		],
+	},
+////////////////////////////////////////////////////////////////
+//
+//  Invoker_Deacon_Electric_ChargeAtk
+//
+////////////////////////////////////////////////////////////////
+	"Invoker_Deacon_Electric_ChargeAtk01_Bullet":
+	{
+		"$type": "ConfigGadget",
+		"combat":
+		{
+			"property":
+			{
+				"useCreatorProperty": true,
+				"isInvincible": true,
+				"canTriggerBullet": false,
+				"isGhostToAllied": true,
+				"isGhostToEnemy": true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit":
+			{
+				"hitBloodEffect": "",
+				"muteAllHit": true,
+				"muteAllHitEffect": true,
+				"muteAllHitText": true,
+			},
+		},
+		"move" :
+		{
+			"$type": "ConfigItanoCircusBulletMove",
+			"delay": 1.5,
+			"speed": 20.0,
+			"itanoCircusStartAngler": 3600,
+			"guidanceMinAnglerVelocity": 3600,
+			"guidanceDelay": 0.0,
+			"guidanceDuration": 0.1,
+			"updateAngle":
+			{
+				"$type": "ConfigBulletMoveAngleByVelocity",
+			},
+		},
+		"timer":
+		{
+			"lifeTime": 3.0,			//存在时间
+		},
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerOnce",
+			},
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Invoker_Deacon_Electric_ChargeAtk01_Bullet",
+				},
+			],
+			"triggerLifeOverActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Invoker_Deacon_Electric_ChargeAtk01_Explosion",
+				},
+			],
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Invoker_Deacon_Electric_ChargeAtk01_Bullet",
+				"abilityName":"Invoker_Deacon_Electric_ChargeAtk01_Bullet",
+			},
+			{
+				"abilityID": "Invoker_Deacon_Electric_ChargeAtk01_Explosion",
+				"abilityName":"Invoker_Deacon_Electric_ChargeAtk01_Explosion",
+			},
+		],
+	},
+
+	"Invoker_Deacon_Electric_ChargeAtk02_Bullet":
+	{
+		"$type": "ConfigGadget",
+		"combat":
+		{
+			"property":
+			{
+				"useCreatorProperty": true,
+				"isInvincible": true,
+				"canTriggerBullet": false,
+				"isGhostToAllied": true,
+				"isGhostToEnemy": true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit":
+			{
+				"hitBloodEffect": "",
+				"muteAllHit": true,
+				"muteAllHitEffect": true,
+				"muteAllHitText": true,
+			},
+		},
+		"move" :
+		{
+			"$type" : "ConfigLinerBulletMove",
+			"speed" : 20.0,
+			"acceleration": -10.0,
+			"updateAngle" :
+			{
+				"$type": "ConfigBulletMoveAngleByVelocity",
+			},
+		},
+		"timer":
+		{
+			"lifeTime": 5.0,			//存在时间
+		},
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerNoRepeat",
+			},
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Invoker_Deacon_Electric_ChargeAtk02_Bullet",
+				},
+			],
+			"triggerLifeOverActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Invoker_Deacon_Electric_ChargeAtk02_Explosion",
+				},
+			],
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Invoker_Deacon_Electric_ChargeAtk02_Bullet",
+				"abilityName":"Invoker_Deacon_Electric_ChargeAtk02_Bullet",
+			},
+			{
+				"abilityID": "Invoker_Deacon_Electric_ChargeAtk02_Explosion",
+				"abilityName":"Invoker_Deacon_Electric_ChargeAtk02_Explosion",
+			},
+		],
+	},
+}

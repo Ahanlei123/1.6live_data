@@ -1,0 +1,2923 @@
+[
+////////////////活动通用词缀
+////////////////////////////////////////////////////////////////
+//
+//  NeverCombat--永不入战
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "MonsterAffix_NeverCombat",
+		"isDynamicAbility": true,
+		"onAdded": 
+		[
+			{
+				"$type": "ResetAIThreatBroadcastRange",
+				"range": 0.0,
+				"canBeHandledOnRecover": true,
+			},
+			{
+				"$type": "ResetAIResistTauntLevel",
+				"resistTauntLevel": "Monster_TauntLevel_6",
+				"canBeHandledOnRecover": true,
+			},
+			{
+				"$type": "SetAIHitFeeling",
+				"enable": false,
+			},
+		],
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  ElementMuteHurt--通用伤害免疫
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "MonsterAffix_FireMuteHurt",
+		"isDynamicAbility": true,
+		"onAdded": 
+		[
+			{
+				"$type" : "ApplyModifier",
+				"modifierName" : "FireMuteHurt",
+				"target" : "Self",
+				"doOffStage" : true,
+			},
+		],
+		"modifiers":
+		{
+			"FireMuteHurt":
+			{
+				"properties":
+				{
+					"Actor_FireMuteHurtDelta" :1,
+				},
+			},
+		},
+	},
+},	
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "MonsterAffix_ElecMuteHurt",
+		"isDynamicAbility": true,
+		"onAdded": 
+		[
+			{
+				"$type" : "ApplyModifier",
+				"modifierName" : "ElecMuteHurt",
+				"target" : "Self",
+				"doOffStage" : true,
+			},
+		],
+		"modifiers":
+		{
+			"ElecMuteHurt":
+			{
+				"properties":
+				{
+					"Actor_ElecMuteHurtDelta" :1,
+				},
+			},
+		},
+	},
+},
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "MonsterAffix_WaterMuteHurt",
+		"isDynamicAbility": true,
+		"onAdded": 
+		[
+			{
+				"$type" : "ApplyModifier",
+				"modifierName" : "WaterMuteHurt",
+				"target" : "Self",
+				"doOffStage" : true,
+			},
+		],
+		"modifiers":
+		{
+			"WaterMuteHurt":
+			{
+				"properties":
+				{
+					"Actor_WaterMuteHurtDelta" :1,
+				},
+			},
+		},
+	},
+},
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "MonsterAffix_GrassMuteHurt",
+		"isDynamicAbility": true,
+		"onAdded": 
+		[
+			{
+				"$type" : "ApplyModifier",
+				"modifierName" : "GrassMuteHurt",
+				"target" : "Self",
+				"doOffStage" : true,
+			},
+		],
+		"modifiers":
+		{
+			"GrassMuteHurt":
+			{
+				"properties":
+				{
+					"Actor_GrassMuteHurtDelta" :1,
+				},
+			},
+		},
+	},
+},
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "MonsterAffix_WindMuteHurt",
+		"isDynamicAbility": true,
+		"onAdded": 
+		[
+			{
+				"$type" : "ApplyModifier",
+				"modifierName" : "WindMuteHurt",
+				"target" : "Self",
+				"doOffStage" : true,
+			},
+		],
+		"modifiers":
+		{
+			"WindMuteHurt":
+			{
+				"properties":
+				{
+					"Actor_WindMuteHurtDelta" :1,
+				},
+			},
+		},
+	},
+},
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "MonsterAffix_IceMuteHurt",
+		"isDynamicAbility": true,
+		"onAdded": 
+		[
+			{
+				"$type" : "ApplyModifier",
+				"modifierName" : "IceMuteHurt",
+				"target" : "Self",
+				"doOffStage" : true,
+			},
+		],
+		"modifiers":
+		{
+			"IceMuteHurt":
+			{
+				"properties":
+				{
+					"Actor_IceMuteHurtDelta" :1,
+				},
+			},
+		},
+	},
+},
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "MonsterAffix_RockMuteHurt",
+		"isDynamicAbility": true,
+		"onAdded": 
+		[
+			{
+				"$type" : "ApplyModifier",
+				"modifierName" : "RockMuteHurt",
+				"target" : "Self",
+				"doOffStage" : true,
+			},
+		],
+		"modifiers":
+		{
+			"RockMuteHurt":
+			{
+				"properties":
+				{
+					"Actor_RockMuteHurtDelta" :1,
+				},
+			},
+		},
+	},
+},
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "MonsterAffix_PhysicalMuteHurt",
+		"isDynamicAbility": true,
+		"onAdded": 
+		[
+			{
+				"$type" : "ApplyModifier",
+				"modifierName" : "PhysicalMuteHurt",
+				"target" : "Self",
+				"doOffStage" : true,
+			},
+		],
+		"modifiers":
+		{
+			"PhysicalMuteHurt":
+			{
+				"properties":
+				{
+					"Actor_PhysicalMuteHurtDelta" :1,
+				},
+			},
+		},
+	},
+},
+
+////////////////狩猎活动用词缀
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_CatalystMuteHurt_ForHunting--4003
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_CatalystMuteHurt_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_CatalystMuteHurt_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_CatalystMuteHurt_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_CatalystMuteHurt_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_SwordMuteHurt_ForHunting--4004
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_SwordMuteHurt_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_SwordMuteHurt_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_SwordMuteHurt_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_SwordMuteHurt_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_ClaymoreMuteHurt_ForHunting--4005
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_ClaymoreMuteHurt_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_ClaymoreMuteHurt_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_ClaymoreMuteHurt_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_ClaymoreMuteHurt_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_PoleMuteHurt_ForHunting--4006
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_PoleMuteHurt_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_PoleMuteHurt_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_PoleMuteHurt_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_PoleMuteHurt_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_BowMuteHurt_ForHunting--4007
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_BowMuteHurt_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_BowMuteHurt_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_BowMuteHurt_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_BowMuteHurt_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_ExtraAttackMuteHurt_ForHunting--4015
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_ExtraAttackMuteHurt_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_ExtraAttackMuteHurt_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_ExtraAttackMuteHurt_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_ExtraAttackMuteHurt_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+
+////角色武器额外伤害
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_CatalystVulnerable_ForHunting--4016
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_CatalystVulnerable_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_CatalystVulnerable_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_CatalystVulnerable_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_CatalystVulnerable_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_SwordVulnerable_ForHunting--4017
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_SwordVulnerable_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_SwordVulnerable_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_SwordVulnerable_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_SwordVulnerable_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_ClaymoreVulnerable_ForHunting--4018
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_ClaymoreVulnerable_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_ClaymoreVulnerable_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_ClaymoreVulnerable_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_ClaymoreVulnerable_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_PoleVulnerable_ForHunting--4019
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_PoleVulnerable_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_PoleVulnerable_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_PoleVulnerable_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_PoleVulnerable_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_BowVulnerable_ForHunting--4020
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_BowVulnerable_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_BowVulnerable_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_BowVulnerable_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_BowVulnerable_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_CatalystVulnerable_High_ForHunting--4044
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_CatalystVulnerable_High_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_CatalystVulnerable_High_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_CatalystVulnerable_High_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_CatalystVulnerable_High_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_SwordVulnerable_High_ForHunting--4045
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_SwordVulnerable_High_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_SwordVulnerable_High_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_SwordVulnerable_High_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_SwordVulnerable_High_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_ClaymoreVulnerable_High_ForHunting--4046
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_ClaymoreVulnerable_High_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_ClaymoreVulnerable_High_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_ClaymoreVulnerable_High_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_ClaymoreVulnerable_High_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_PoleVulnerable_High_ForHunting--4047
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_PoleVulnerable_High_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_PoleVulnerable_High_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_PoleVulnerable_High_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_PoleVulnerable_High_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_BowVulnerable_High_ForHunting--4048
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_BowVulnerable_High_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_BowVulnerable_High_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_BowVulnerable_High_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_BowVulnerable_High_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+
+////重击额外伤害
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_ExtraCritical_ForHunting--4021
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_ExtraCritical_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_ExtraCritical_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_ExtraCritical_ForHunting":
+			{
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_AntiCriticalDelta": -0.5,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_ExtraCriticalHurt_ForHunting--4022
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_ExtraCriticalHurt_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_ExtraCriticalHurt_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_ExtraCriticalHurt_ForHunting":
+			{
+				"isUnique": true,				
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_ExtraCriticalHurt_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_ExtraAttackVulnerable_ForHunting--4023
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_ExtraAttackVulnerable_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_ExtraAttackVulnerable_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_ExtraAttackVulnerable_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_ExtraAttackVulnerable_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_ExtraAttackVulnerable_High_ForHunting--4023
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_ExtraAttackVulnerable_High_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_ExtraAttackVulnerable_High_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_ExtraAttackVulnerable_High_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_ExtraAttackVulnerable_High_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_FallingAttackVulnerable_ForHunting--4024
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_FallingAttackVulnerable_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_FallingAttackVulnerable_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_FallingAttackVulnerable_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_FallingAttackVulnerable_ForHunting",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_FireVulnerable_Low_ForHunting--4025
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_FireVulnerable_Low_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_FireVulnerable_Low_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_FireVulnerable_Low_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_FireSubHurtDelta" : -0.5,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_WaterVulnerable_Low_ForHunting--4026
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_WaterVulnerable_Low_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_WaterVulnerable_Low_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_WaterVulnerable_Low_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_WaterSubHurtDelta" : -0.5,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_IceVulnerable_Low_ForHunting--4027
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_IceVulnerable_Low_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_IceVulnerable_Low_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_IceVulnerable_Low_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_IceSubHurtDelta" : -0.5,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_ElecVulnerable_Low_ForHunting--4028
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_ElecVulnerable_Low_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_ElecVulnerable_Low_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_ElecVulnerable_Low_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_ElecSubHurtDelta" : -0.5,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_RockVulnerable_Low_ForHunting--4029
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_RockVulnerable_Low_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_RockVulnerable_Low_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_RockVulnerable_Low_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_RockSubHurtDelta" : -0.5,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_WindVulnerable_Low_ForHunting--4030
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_WindVulnerable_Low_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_WindVulnerable_Low_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_WindVulnerable_Low_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"state": "DefenseUp",
+				"properties":
+				{
+					"Actor_WindSubHurtDelta" : -0.5,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_GrassVulnerable_Low_ForHunting--4031
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_GrassVulnerable_Low_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_GrassVulnerable_Low_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_GrassVulnerable_Low_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_GrassSubHurtDelta" : -0.5,
+				},
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_FireVulnerable_High_ForHunting--4049
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_FireVulnerable_High_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_FireVulnerable_High_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_FireVulnerable_High_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_FireSubHurtDelta" : -1,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_WaterVulnerable_High_ForHunting--4050
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_WaterVulnerable_High_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_WaterVulnerable_High_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_WaterVulnerable_High_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_WaterSubHurtDelta" : -1,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_IceVulnerable_High_ForHunting--4051
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_IceVulnerable_High_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_IceVulnerable_High_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_IceVulnerable_High_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_IceSubHurtDelta" : -1,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_ElecVulnerable_High_ForHunting--4052
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_ElecVulnerable_High_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_ElecVulnerable_High_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_ElecVulnerable_High_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_ElecSubHurtDelta" : -1,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_RockVulnerable_High_ForHunting--4053
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_RockVulnerable_High_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_RockVulnerable_High_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_RockVulnerable_High_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_RockSubHurtDelta" : -1,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_WindVulnerable_High_ForHunting--4054
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_WindVulnerable_High_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_WindVulnerable_High_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_WindVulnerable_High_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"state": "DefenseUp",
+				"properties":
+				{
+					"Actor_WindSubHurtDelta" : -1,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_GrassVulnerable_High_ForHunting--4055
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_GrassVulnerable_High_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_GrassVulnerable_High_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_GrassVulnerable_High_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_GrassSubHurtDelta" : -1,
+				},
+			},
+		},
+	},
+},
+
+////血量提升
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_HpUp_01_ForHunting--4032
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_HpUp_01_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_HpUp_01_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_HpUp_01_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": 0.1,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_HpUp_02_ForHunting--4061
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_HpUp_02_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_HpUp_02_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_HpUp_02_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": 0.2,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_HpUp_03_ForHunting--4056
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_HpUp_03_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_HpUp_03_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_HpUp_03_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": 0.25,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_HpUp_04_ForHunting--4033
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_HpUp_04_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_HpUp_04_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_HpUp_04_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": 0.5,
+				},
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_HpUp_05_ForHunting--4034
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_HpUp_05_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_HpUp_05_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_HpUp_05_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": 0.75,
+				},
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_HpUp_06_ForHunting--4035
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_HpUp_06_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_HpUp_06_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_HpUp_06_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": 1.0,
+				},
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_HpUp_07_ForHunting--4036
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_HpUp_07_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_HpUp_07_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_HpUp_07_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": 1.25,
+				},
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_HpUp_08_ForHunting--4037
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_HpUp_08_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_HpUp_08_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_HpUp_08_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": 2.0,
+				},
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_HpUp_09_ForHunting--4038
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_HpUp_09_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_HpUp_09_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_HpUp_09_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": 2.5,
+				},
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_HpUp_10_ForHunting--4039
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_HpUp_10_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_HpUp_10_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_HpUp_10_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": 3.0,
+				},
+			},
+		},
+	},
+},
+
+
+////攻击力提升
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_AtkUp_01_ForHunting--4040
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_AtkUp_01_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_AtkUp_01_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_AtkUp_01_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_AttackRatio": 0.1,
+				},
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_AtkUp_02_ForHunting--4041
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_AtkUp_02_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_AtkUp_02_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_AtkUp_02_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_AttackRatio": 0.2,
+				},
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_AtkUp_03_ForHunting--4042
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_AtkUp_03_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_AtkUp_03_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_AtkUp_03_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_AttackRatio": 0.3,
+				},
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_AtkUp_04_ForHunting--4057
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_AtkUp_04_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_AtkUp_04_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_AtkUp_04_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_AttackRatio": 0.5,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_AtkUp_05_ForHunting--4058
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_AtkUp_05_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_AtkUp_05_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_AtkUp_05_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_AttackRatio": 1.0,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_AtkUp_06_ForHunting--4059
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_AtkUp_06_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_AtkUp_06_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_AtkUp_06_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_AttackRatio": 1.2,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_AtkUp_07_ForHunting--4062
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_AtkUp_07_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_AtkUp_07_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_AtkUp_07_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_AttackRatio": 2.0,
+				},
+			},
+		},
+	},
+},
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_AtkUp_08_ForHunting--4063
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_AtkUp_08_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_AtkUp_08_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_AtkUp_08_ForHunting":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_AttackRatio": 2.5,
+				},
+			},
+		},
+	},
+},
+////目标提示特效
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_HintEffect_ForHunting-4043
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_HintEffect_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_HintEffect_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_HintEffect_ForHunting":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_SceneObj_Mark_01",
+					},
+				],
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_FinalTarget_ForHunting-4064
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_FinalTarget_ForHunting",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_FinalTarget_ForHunting",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_FinalTarget_ForHunting":
+			{
+				"isUnique": true,
+				"modifierMixins":
+				[
+					{
+						"$type":"BillboardMarkMixin",
+						"iconName":"UI_NPCTopIcon_ReputationHunting",
+					},
+				],
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_HpDecrease_01_ForDragonSpine
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_HpDecrease_01_ForDragonSpine",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "MonsterAffix_HpDecrease_01_ForDragonSpine",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"MonsterAffix_HpDecrease_01_ForDragonSpine":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": -0.25,
+				},
+			},
+		},
+	},
+},
+
+/////////未归的熄星活动
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_HpUp_High_ForAster--4101
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_HpUp_High_ForAster",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_HpUp_High_ForAster",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_HpUp_High_ForAster":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": 1.0,
+				},
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_HpUp_Mid_ForAster--4102
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_HpUp_Mid_ForAster",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_HpUp_Mid_ForAster",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_HpUp_Mid_ForAster":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": 0.5,
+				},
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_HpUp_Low_ForAster--4103
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_HpUp_Low_ForAster",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_HpUp_Low_ForAster",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_HpUp_Low_ForAster":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": 0.25,
+				},
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_AtkUp_High_ForAster--4104
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_AtkUp_High_ForAster",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_AtkUp_High_ForAster",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_AtkUp_High_ForAster":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_AttackRatio": 0.5,
+				},
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_AtkUp_Mid_ForAster--4105
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_AtkUp_Mid_ForAster",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_AtkUp_Mid_ForAster",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_AtkUp_Mid_ForAster":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_AttackRatio": 0.25,
+				},
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_AtkUp_Low_ForAster--4106
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_AtkUp_Low_ForAster",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_AtkUp_Low_ForAster",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_AtkUp_Low_ForAster":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_AttackRatio": 0.15,
+				},
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_AssignedAvatarVulnerable_High_ForAster--4107
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_AssignedAvatarVulnerable_High_ForAster",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_AssignedAvatarVulnerable_High_ForAster",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_AssignedAvatarVulnerable_High_ForAster":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_AssignedAvatarVulnerable_High_ForAster",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_AssignedAvatarVulnerable_Mid_ForAster--4108
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_AssignedAvatarVulnerable_Mid_ForAster",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_AssignedAvatarVulnerable_Mid_ForAster",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_AssignedAvatarVulnerable_Mid_ForAster":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_AssignedAvatarVulnerable_Mid_ForAster",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_AssignedAvatarVulnerable_Low_ForAster-4109
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_AssignedAvatarVulnerable_Low_ForAster",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_AssignedAvatarVulnerable_Low_ForAster",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_AssignedAvatarVulnerable_Low_ForAster":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_MONSTERAFFIX_AssignedAvatarVulnerable_Low_ForAster",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_HighScoreTarget_ForAster-4110
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_HighScoreTarget_ForAster",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_HighScoreTarget_ForAster",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_HighScoreTarget_ForAster":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_SceneObj_Mark_02",
+					},
+				],
+			},
+		},
+	},
+},
+
+/////////塔防活动
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_HpUp_01_ForTowerDefense--4111
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_HpUp_01_ForTowerDefense",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_HpUp_01_ForTowerDefense",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_HpUp_01_ForTowerDefense":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": 4.0,
+				},
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_HpUp_02_ForTowerDefense--4112
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_HpUp_02_ForTowerDefense",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_HpUp_02_ForTowerDefense",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_HpUp_02_ForTowerDefense":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": 2.5,
+				},
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_DefImprove_01_ForTowerDefense--4113
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_DefImprove_01_ForTowerDefense",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_DefImprove_01_ForTowerDefense",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_DefImprove_01_ForTowerDefense":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_DefenceRatio": 0.2,
+				},
+			},
+		},
+	},
+},
+
+///////家园活动
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_LowAlert_ForMimiTomo--4114
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "MonsterAffix_LowAlert_ForMimiTomo",
+		"isDynamicAbility": true,
+		"onAdded": 
+		[
+			{
+				"$type" : "ApplyModifier",
+				"modifierName"  : "MonsterAffix_LowAlert_ForMimiTomo",
+			},
+		],
+		"abilityMixins":
+		[
+			{
+				"$type": "AttachToAIAlertnessMixin",
+				"alertness": [1, 2],
+				"modifierName": "MonsterAffix_LowAlert_ForMimiTomo_IntoBattle",
+			},
+		],
+		"modifiers":
+		{
+			"MonsterAffix_LowAlert_ForMimiTomo":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "HideUIBillBoard",
+						"hide"  : true,
+					},
+					{
+						"$type": "ResetAIThreatBroadcastRange",
+						"range": 0.0,
+						"canBeHandledOnRecover": true,
+					},
+				],			
+			},
+			"MonsterAffix_LowAlert_ForMimiTomo_IntoBattle":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "HideUIBillBoard",
+						"hide"  : false,
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "HideUIBillBoard",
+						"hide"  : true,
+					},
+				],
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_HpUp_01_ForHunting--4032
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_HpUp_01_ForMimiTomo",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_HpUp_01_ForMimiTomo",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_HpUp_01_ForMimiTomo":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": 9.0,
+				},
+			},
+		},
+	},
+},
+/////////擂台活动
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_AtkUp_01_ForArenaChallenge--4115
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_AtkUp_01_ForArenaChallenge",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_AtkUp_01_ForArenaChallenge",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_AtkUp_01_ForArenaChallenge":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_AttackRatio": 2.0,
+				},
+			},
+		},
+	},
+},
+
+/////////圆盘活动
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_HpUp_01_ForChannellerSlab--4116
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_HpUp_01_ForChannellerSlab",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_HpUp_01_ForChannellerSlab",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_HpUp_01_ForChannellerSlab":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": 1.5,
+				},
+			},
+		},
+	},
+},
+
+/////////酣战热浪
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_HighThreatTarget_ForBuoyantCombat-4043
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_HighThreatTarget_ForBuoyantCombat",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_HighThreatTarget_ForBuoyantCombat",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_HighThreatTarget_ForBuoyantCombat":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_Monster_Common_HighThreatTarget_ForBuoyantCombat",
+					},
+				],
+			},
+		},
+	},
+},
+]

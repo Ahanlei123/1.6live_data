@@ -1,0 +1,6297 @@
+[
+  {
+    "pointArrayId": 300200001,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 1752.88977,
+          "y": 256.516846,
+          "z": -913.6052
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 1752.88977,
+          "y": 256.516846,
+          "z": -896.5178
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 1752.88977,
+          "y": 253.5168,
+          "z": -896.5178
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 1752.88977,
+          "y": 250.5168,
+          "z": -896.5178
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 5,
+        "position": {
+          "x": 1752.88977,
+          "y": 238.5168,
+          "z": -896.5178
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 6,
+        "position": {
+          "x": 1752.88977,
+          "y": 238.5168,
+          "z": -913.6052
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 7,
+        "position": {
+          "x": 1752.88977,
+          "y": 241.5168,
+          "z": -913.6052
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 8,
+        "position": {
+          "x": 1752.88977,
+          "y": 244.5168,
+          "z": -913.6052
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300200002,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 1769.11548,
+          "y": 246.64473,
+          "z": -923.2983
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 6.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 1773.33569,
+          "y": 246.64473,
+          "z": -890.885437
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 6.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 1810.74207,
+          "y": 246.64473,
+          "z": -892.5049
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 6.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 1806.64636,
+          "y": 246.64473,
+          "z": -924.733948
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 6.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 5,
+        "position": {
+          "x": 1769.258,
+          "y": 246.64473,
+          "z": -920.4505
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 6.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 6,
+        "position": {
+          "x": 1769.32153,
+          "y": 246.64473,
+          "z": -917.6188
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 6.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 7,
+        "position": {
+          "x": 1775.98462,
+          "y": 246.64473,
+          "z": -891.147034
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 6.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 8,
+        "position": {
+          "x": 1778.60754,
+          "y": 246.64473,
+          "z": -891.435
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 6.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 9,
+        "position": {
+          "x": 1810.34033,
+          "y": 246.64473,
+          "z": -894.933044
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 6.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 10,
+        "position": {
+          "x": 1809.99963,
+          "y": 246.64473,
+          "z": -897.1329
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 6.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 11,
+        "position": {
+          "x": 1804.38232,
+          "y": 246.64473,
+          "z": -924.6466
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 6.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 12,
+        "position": {
+          "x": 1802.035,
+          "y": 246.64473,
+          "z": -924.4764
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 6.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300200003,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 1774.28271,
+          "y": 248.5839,
+          "z": -937.5598
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 1760.09839,
+          "y": 248.5839,
+          "z": -905.9912
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 1772.725,
+          "y": 240.0956,
+          "z": -896.0145
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 1772.313,
+          "y": 259.759,
+          "z": -896.3204
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300200004,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 1765.17041,
+          "y": 253.691223,
+          "z": -905.735168
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 2.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 1765.17,
+          "y": 260.038452,
+          "z": -905.7352
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 2.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 1764.0188,
+          "y": 257.051971,
+          "z": -909.0708
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 2.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 1766.12646,
+          "y": 257.052,
+          "z": -902.9646
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 2.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 5,
+        "position": {
+          "x": 1765.17041,
+          "y": 240.540436,
+          "z": -905.735168
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 2.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 6,
+        "position": {
+          "x": 1765.17,
+          "y": 272.314178,
+          "z": -905.7352
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 2.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 7,
+        "position": {
+          "x": 1759.37073,
+          "y": 257.051971,
+          "z": -922.761169
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 2.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 8,
+        "position": {
+          "x": 1770.79224,
+          "y": 257.052,
+          "z": -889.3174
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 2.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300200005,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 1807.38464,
+          "y": 262.66864,
+          "z": -883.0687
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 2.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 1814.0625,
+          "y": 237.964035,
+          "z": -886.2299
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 2.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 1807.38464,
+          "y": 247.905029,
+          "z": -883.0687
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 2.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 1814.0625,
+          "y": 250.5568,
+          "z": -886.2299
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 2.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300200006,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 1787.7196,
+          "y": 240.1046,
+          "z": -944.731934
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 1781.336,
+          "y": 248.3932,
+          "z": -940.104
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 1787.72,
+          "y": 256.0002,
+          "z": -944.7319
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 1794.72168,
+          "y": 248.3932,
+          "z": -940.892639
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300200007,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 1815.97913,
+          "y": 259.699219,
+          "z": -898.7864
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 1806.55615,
+          "y": 247.1509,
+          "z": -892.7799
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300001,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2882.715,
+          "y": 292.961365,
+          "z": -1870.75
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 3.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2882.715,
+          "y": 269.457245,
+          "z": -1870.75
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 3.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300002,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2857.862,
+          "y": 270.0,
+          "z": -1858.25
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2857.862,
+          "y": 273.0,
+          "z": -1858.25
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2857.862,
+          "y": 276.0,
+          "z": -1858.25
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2857.862,
+          "y": 279.0,
+          "z": -1858.25
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 5,
+        "position": {
+          "x": 2857.862,
+          "y": 282.0,
+          "z": -1858.25
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 6,
+        "position": {
+          "x": 2857.862,
+          "y": 285.0,
+          "z": -1858.25
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 7,
+        "position": {
+          "x": 2854.542,
+          "y": 285.0,
+          "z": -1834.93921
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 8,
+        "position": {
+          "x": 2854.542,
+          "y": 270.0,
+          "z": -1834.939
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300003,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2875.238,
+          "y": 271.8994,
+          "z": -1821.99292
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 157.29155,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 4.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2863.15137,
+          "y": 286.7148,
+          "z": -1831.72852
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 140.3362,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 4.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300004,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2875.238,
+          "y": 282.714874,
+          "z": -1821.99292
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 152.302887,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2863.15112,
+          "y": 275.8994,
+          "z": -1831.72852
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 140.3362,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2880.16113,
+          "y": 292.7149,
+          "z": -1818.05029
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 152.302887,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2857.33325,
+          "y": 265.8994,
+          "z": -1836.68494
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 140.3362,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300005,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2245.801,
+          "y": 261.54007,
+          "z": -1567.25073
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2242.532,
+          "y": 261.54007,
+          "z": -1564.22986
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2242.73657,
+          "y": 261.54007,
+          "z": -1560.25732
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2246.38647,
+          "y": 261.54007,
+          "z": -1557.2533
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 5,
+        "position": {
+          "x": 2250.53271,
+          "y": 261.54007,
+          "z": -1558.46155
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 6,
+        "position": {
+          "x": 2253.54541,
+          "y": 261.54007,
+          "z": -1561.941
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 7,
+        "position": {
+          "x": 2252.924,
+          "y": 261.54007,
+          "z": -1566.52429
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 8,
+        "position": {
+          "x": 2250.4,
+          "y": 261.54007,
+          "z": -1569.07056
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300006,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2236.16626,
+          "y": 254.7102,
+          "z": -1565.11353
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2228.27661,
+          "y": 254.7102,
+          "z": -1568.9834
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2223.798,
+          "y": 254.7102,
+          "z": -1560.60864
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2232.0415,
+          "y": 254.7102,
+          "z": -1556.6062
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300007,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2239.33887,
+          "y": 266.099548,
+          "z": -1561.73474
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2242.0127,
+          "y": 266.0995,
+          "z": -1562.08093
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2236.47778,
+          "y": 266.0995,
+          "z": -1561.86548
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2239.33887,
+          "y": 259.499664,
+          "z": -1561.73474
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 5,
+        "position": {
+          "x": 2242.0127,
+          "y": 259.4996,
+          "z": -1562.08093
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 6,
+        "position": {
+          "x": 2236.47778,
+          "y": 259.4996,
+          "z": -1561.86548
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 7,
+        "position": {
+          "x": 2243.068,
+          "y": 246.441925,
+          "z": -1562.97485
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 8,
+        "position": {
+          "x": 2235.22632,
+          "y": 246.441925,
+          "z": -1562.498
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 9,
+        "position": {
+          "x": 2243.068,
+          "y": 256.8261,
+          "z": -1562.97485
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 10,
+        "position": {
+          "x": 2235.22632,
+          "y": 256.8261,
+          "z": -1562.498
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 11,
+        "position": {
+          "x": 2251.67,
+          "y": 257.182739,
+          "z": -1570.824
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 241.401978,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 12,
+        "position": {
+          "x": 2251.67,
+          "y": 261.857483,
+          "z": -1570.824
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 241.401978,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 13,
+        "position": {
+          "x": 2251.67,
+          "y": 249.612274,
+          "z": -1570.824
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 241.401978,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300008,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2250.4292,
+          "y": 250.8251,
+          "z": -1589.12524
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2250.4292,
+          "y": 259.0323,
+          "z": -1589.12524
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2254.9895,
+          "y": 259.0323,
+          "z": -1582.23169
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2254.9895,
+          "y": 250.8251,
+          "z": -1582.23169
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300009,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2241.05322,
+          "y": 266.3616,
+          "z": -1600.56287
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 3.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2231.14624,
+          "y": 261.666351,
+          "z": -1597.62842
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 3.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2241.05322,
+          "y": 249.6044,
+          "z": -1600.5625
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 3.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2231.14624,
+          "y": 253.690338,
+          "z": -1597.62842
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 3.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 5,
+        "position": {
+          "x": 2241.053,
+          "y": 258.1497,
+          "z": -1600.563
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 3.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 6,
+        "position": {
+          "x": 2231.14624,
+          "y": 257.8993,
+          "z": -1597.62842
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 3.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 7,
+        "position": {
+          "x": 2219.2915,
+          "y": 266.361572,
+          "z": -1586.52
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 3.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 8,
+        "position": {
+          "x": 2226.73486,
+          "y": 261.666351,
+          "z": -1594.704
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 3.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 9,
+        "position": {
+          "x": 2219.2915,
+          "y": 249.6044,
+          "z": -1586.52
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 3.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 10,
+        "position": {
+          "x": 2226.735,
+          "y": 253.690338,
+          "z": -1594.704
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 3.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 11,
+        "position": {
+          "x": 2219.292,
+          "y": 258.1497,
+          "z": -1586.52
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 3.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 12,
+        "position": {
+          "x": 2226.735,
+          "y": 257.8993,
+          "z": -1594.704
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 3.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 13,
+        "position": {
+          "x": 2228.685,
+          "y": 261.666351,
+          "z": -1596.53
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 33.93368,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 3.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 14,
+        "position": {
+          "x": 2228.685,
+          "y": 272.398376,
+          "z": -1596.53
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 33.93368,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300010,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2222.50342,
+          "y": 253.327042,
+          "z": -1572.67053
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2218.18628,
+          "y": 253.327,
+          "z": -1570.4657
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2217.72827,
+          "y": 253.327,
+          "z": -1565.78308
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2222.65039,
+          "y": 253.327,
+          "z": -1563.69788
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 5,
+        "position": {
+          "x": 2226.282,
+          "y": 253.327,
+          "z": -1566.84729
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 6,
+        "position": {
+          "x": 2226.48022,
+          "y": 253.327042,
+          "z": -1571.06812
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 7,
+        "position": {
+          "x": 2222.50342,
+          "y": 257.327,
+          "z": -1572.67053
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 8,
+        "position": {
+          "x": 2218.18628,
+          "y": 257.327,
+          "z": -1570.4657
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 9,
+        "position": {
+          "x": 2217.72827,
+          "y": 257.327,
+          "z": -1565.78308
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 10,
+        "position": {
+          "x": 2222.65039,
+          "y": 257.327,
+          "z": -1563.69788
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 11,
+        "position": {
+          "x": 2226.282,
+          "y": 257.327,
+          "z": -1566.84729
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 12,
+        "position": {
+          "x": 2226.48022,
+          "y": 257.327,
+          "z": -1571.06812
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 13,
+        "position": {
+          "x": 2222.50342,
+          "y": 261.327,
+          "z": -1572.67053
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 14,
+        "position": {
+          "x": 2218.18628,
+          "y": 261.327,
+          "z": -1570.4657
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 15,
+        "position": {
+          "x": 2217.72827,
+          "y": 261.327,
+          "z": -1565.78308
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 16,
+        "position": {
+          "x": 2222.65039,
+          "y": 261.327,
+          "z": -1563.69788
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 17,
+        "position": {
+          "x": 2226.282,
+          "y": 261.327,
+          "z": -1566.84729
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 18,
+        "position": {
+          "x": 2226.48022,
+          "y": 261.327,
+          "z": -1571.06812
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 19,
+        "position": {
+          "x": 2223.19653,
+          "y": 265.327,
+          "z": -1569.36609
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 124.041908,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 20,
+        "position": {
+          "x": 2223.19653,
+          "y": 249.327,
+          "z": -1569.36609
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 124.041908,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300011,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2893.026,
+          "y": 283.3992,
+          "z": -1818.72
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2893.026,
+          "y": 270.192017,
+          "z": -1818.72
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2858.14868,
+          "y": 273.435,
+          "z": -1848.32959
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2874.837,
+          "y": 273.435,
+          "z": -1848.32959
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300012,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2926.51074,
+          "y": 283.2246,
+          "z": -1867.69226
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 5.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2926.51074,
+          "y": 255.647263,
+          "z": -1867.69226
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 5.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2917.99731,
+          "y": 271.02243,
+          "z": -1884.095
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 5.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2932.39429,
+          "y": 271.02243,
+          "z": -1852.15356
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 5.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300013,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2879.45435,
+          "y": 275.005219,
+          "z": -1815.55493
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 3.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2879.45435,
+          "y": 290.654968,
+          "z": -1815.55493
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 3.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2879.45435,
+          "y": 261.533417,
+          "z": -1815.55493
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 3.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300014,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2866.45313,
+          "y": 290.9019,
+          "z": -1868.42151
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 5.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2866.45313,
+          "y": 263.757874,
+          "z": -1868.42151
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 5.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2887.26416,
+          "y": 263.6221,
+          "z": -1870.15955
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 5.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2887.26416,
+          "y": 290.500458,
+          "z": -1870.15955
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 5.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300015,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2890.309,
+          "y": 279.4169,
+          "z": -1806.952
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2908.15674,
+          "y": 279.4169,
+          "z": -1821.36011
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2911.004,
+          "y": 279.4169,
+          "z": -1848.404
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2910.444,
+          "y": 279.4169,
+          "z": -1823.56738
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300016,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2247.068,
+          "y": 275.618164,
+          "z": -1547.8291
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 5.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2247.068,
+          "y": 248.547745,
+          "z": -1547.8291
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 5.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300017,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2259.68213,
+          "y": 264.465363,
+          "z": -1590.32764
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2254.11768,
+          "y": 269.452484,
+          "z": -1586.8092
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2248.91528,
+          "y": 264.062256,
+          "z": -1583.5188
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2254.73145,
+          "y": 257.5664,
+          "z": -1587.19739
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300018,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2213.917,
+          "y": 261.4469,
+          "z": -1579.016
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2219.384,
+          "y": 261.4469,
+          "z": -1573.105
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2226.993,
+          "y": 261.4469,
+          "z": -1579.036
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2219.365,
+          "y": 261.4469,
+          "z": -1585.752
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300019,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2211.554,
+          "y": 252.069489,
+          "z": -1544.66675
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 5.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2211.554,
+          "y": 271.805847,
+          "z": -1544.66675
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 5.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2225.87817,
+          "y": 259.8927,
+          "z": -1538.43909
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 5.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2233.447,
+          "y": 267.7163,
+          "z": -1541.26782
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 5.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 5,
+        "position": {
+          "x": 2246.87427,
+          "y": 252.6479,
+          "z": -1547.4939
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 5.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300020,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2235.41577,
+          "y": 254.0043,
+          "z": -1541.97815
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 3.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2250.39941,
+          "y": 254.0043,
+          "z": -1549.32556
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2250.39941,
+          "y": 259.9038,
+          "z": -1549.32556
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2255.64551,
+          "y": 259.9038,
+          "z": -1558.00317
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 5,
+        "position": {
+          "x": 2255.64551,
+          "y": 249.8004,
+          "z": -1558.00317
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 6,
+        "position": {
+          "x": 2250.76025,
+          "y": 248.435364,
+          "z": -1555.76233
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 7,
+        "position": {
+          "x": 2238.39746,
+          "y": 260.98526,
+          "z": -1551.36194
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300021,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2228.69922,
+          "y": 257.66214,
+          "z": -1596.5675
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 2.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2225.76,
+          "y": 287.350647,
+          "z": -1594.75818
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 2.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2231.92822,
+          "y": 287.350647,
+          "z": -1598.55652
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 2.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2228.699,
+          "y": 293.326721,
+          "z": -1596.568
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 1.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 5,
+        "position": {
+          "x": 2228.69922,
+          "y": 271.8168,
+          "z": -1596.5675
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 2.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 6,
+        "position": {
+          "x": 2225.76,
+          "y": 271.8168,
+          "z": -1594.75818
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 2.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 7,
+        "position": {
+          "x": 2231.92822,
+          "y": 271.816833,
+          "z": -1598.55652
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 2.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 8,
+        "position": {
+          "x": 2228.699,
+          "y": 276.2472,
+          "z": -1596.568
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 1.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300300022,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2228.65649,
+          "y": 277.0935,
+          "z": -1596.6073
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 5.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2228.65649,
+          "y": 257.06076,
+          "z": -1596.6073
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 5.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300400001,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2564.816,
+          "y": 268.4196,
+          "z": -304.8461
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2564.81641,
+          "y": 277.9134,
+          "z": -304.8461
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2573.608,
+          "y": 272.2103,
+          "z": -242.7462
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 184.9456,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2580.0166,
+          "y": 278.1454,
+          "z": -247.263
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 184.9456,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 5,
+        "position": {
+          "x": 2568.56079,
+          "y": 276.225159,
+          "z": -249.5061
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 184.9456,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 6,
+        "position": {
+          "x": 2573.608,
+          "y": 285.428284,
+          "z": -242.7462
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 184.9456,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 7,
+        "position": {
+          "x": 2580.0166,
+          "y": 291.363373,
+          "z": -247.263
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 184.9456,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 8,
+        "position": {
+          "x": 2568.56079,
+          "y": 289.443146,
+          "z": -249.5061
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 184.9456,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300400002,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2602.53516,
+          "y": 289.41037,
+          "z": -241.3286
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2606.32349,
+          "y": 289.41037,
+          "z": -245.3315
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2608.0437,
+          "y": 289.41037,
+          "z": -250.079437
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2607.049,
+          "y": 289.41037,
+          "z": -255.472839
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 5,
+        "position": {
+          "x": 2604.27173,
+          "y": 289.41037,
+          "z": -260.6686
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 6,
+        "position": {
+          "x": 2599.81372,
+          "y": 289.41037,
+          "z": -264.464264
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 7,
+        "position": {
+          "x": 2593.00049,
+          "y": 289.41037,
+          "z": -265.05304
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 8,
+        "position": {
+          "x": 2587.61475,
+          "y": 289.41037,
+          "z": -263.8477
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 9,
+        "position": {
+          "x": 2582.29883,
+          "y": 289.41037,
+          "z": -261.3929
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 10,
+        "position": {
+          "x": 2579.06055,
+          "y": 289.41037,
+          "z": -256.3432
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 11,
+        "position": {
+          "x": 2577.99951,
+          "y": 289.41037,
+          "z": -250.229752
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 12,
+        "position": {
+          "x": 2580.92432,
+          "y": 289.41037,
+          "z": -244.197189
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 13,
+        "position": {
+          "x": 2585.70923,
+          "y": 289.41037,
+          "z": -239.9657
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 14,
+        "position": {
+          "x": 2591.951,
+          "y": 289.41037,
+          "z": -238.5775
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 15,
+        "position": {
+          "x": 2597.66772,
+          "y": 289.41037,
+          "z": -238.437759
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300400003,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2597.75244,
+          "y": 289.41037,
+          "z": -291.674042
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2599.10913,
+          "y": 289.41037,
+          "z": -287.497742
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2599.53418,
+          "y": 289.41037,
+          "z": -282.5916
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2598.412,
+          "y": 289.41037,
+          "z": -277.4299
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 5,
+        "position": {
+          "x": 2596.15,
+          "y": 289.41037,
+          "z": -272.797119
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 6,
+        "position": {
+          "x": 2591.08276,
+          "y": 289.41037,
+          "z": -270.192749
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 7,
+        "position": {
+          "x": 2585.37842,
+          "y": 289.41037,
+          "z": -270.837555
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 8,
+        "position": {
+          "x": 2578.2395,
+          "y": 289.41037,
+          "z": -275.2588
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 9,
+        "position": {
+          "x": 2577.07837,
+          "y": 289.41037,
+          "z": -283.146
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 10,
+        "position": {
+          "x": 2579.639,
+          "y": 289.41037,
+          "z": -290.260254
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 11,
+        "position": {
+          "x": 2583.66919,
+          "y": 289.41037,
+          "z": -294.8004
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 12,
+        "position": {
+          "x": 2589.82324,
+          "y": 289.41037,
+          "z": -296.969116
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 13,
+        "position": {
+          "x": 2595.364,
+          "y": 289.41037,
+          "z": -295.4437
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300400004,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2581.98438,
+          "y": 279.5303,
+          "z": -291.945129
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2584.553,
+          "y": 279.5303,
+          "z": -293.181549
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2586.75562,
+          "y": 279.5303,
+          "z": -295.052277
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2589.49536,
+          "y": 279.5303,
+          "z": -296.1829
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 5,
+        "position": {
+          "x": 2591.79565,
+          "y": 279.5303,
+          "z": -296.915771
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 6,
+        "position": {
+          "x": 2593.52441,
+          "y": 279.5303,
+          "z": -299.54245
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 7,
+        "position": {
+          "x": 2596.35474,
+          "y": 279.5303,
+          "z": -300.743042
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 8,
+        "position": {
+          "x": 2598.63916,
+          "y": 279.5303,
+          "z": -308.1496
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 9,
+        "position": {
+          "x": 2587.20142,
+          "y": 286.274628,
+          "z": -310.1707
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 10,
+        "position": {
+          "x": 2566.52686,
+          "y": 294.434631,
+          "z": -306.025848
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 11,
+        "position": {
+          "x": 2557.94824,
+          "y": 294.434631,
+          "z": -302.966858
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 6.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 12,
+        "position": {
+          "x": 2553.1272,
+          "y": 275.4518,
+          "z": -291.040771
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 8.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 13,
+        "position": {
+          "x": 2565.79761,
+          "y": 273.706055,
+          "z": -281.062622
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 6.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 14,
+        "position": {
+          "x": 2574.67017,
+          "y": 276.4541,
+          "z": -284.145538
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 15,
+        "position": {
+          "x": 2578.66455,
+          "y": 279.1194,
+          "z": -288.156464
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300400005,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2565.3938,
+          "y": 276.795715,
+          "z": -300.1837
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2574.9165,
+          "y": 276.795715,
+          "z": -300.1837
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2562.699,
+          "y": 276.795715,
+          "z": -300.1837
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2554.03125,
+          "y": 276.795715,
+          "z": -300.1837
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 5,
+        "position": {
+          "x": 2563.7,
+          "y": 282.2169,
+          "z": -314.1523
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 6,
+        "position": {
+          "x": 2563.7,
+          "y": 291.2169,
+          "z": -314.1523
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 3.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300400006,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2571.59448,
+          "y": 269.88208,
+          "z": -301.3096
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2559.57617,
+          "y": 269.88205,
+          "z": -301.165833
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2565.713,
+          "y": 269.88205,
+          "z": -295.4231
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2564.764,
+          "y": 269.88205,
+          "z": -306.165161
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300400007,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2551.15552,
+          "y": 271.151672,
+          "z": -288.253265
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2545.01855,
+          "y": 271.151672,
+          "z": -293.995972
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2550.20654,
+          "y": 271.151672,
+          "z": -298.995361
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2557.03662,
+          "y": 271.1518,
+          "z": -294.139771
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300400008,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2563.24268,
+          "y": 280.570038,
+          "z": -319.915527
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2558.05469,
+          "y": 280.570038,
+          "z": -314.916138
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2564.19165,
+          "y": 280.570038,
+          "z": -309.173431
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2570.07275,
+          "y": 280.570129,
+          "z": -315.059937
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 5,
+        "position": {
+          "x": 2563.70044,
+          "y": 282.216858,
+          "z": -314.1523
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 6,
+        "position": {
+          "x": 2563.7,
+          "y": 300.1236,
+          "z": -314.40863
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 4.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300400009,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2569.845,
+          "y": 270.6952,
+          "z": -282.6745
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2566.179,
+          "y": 270.6951,
+          "z": -277.9119
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2562.246,
+          "y": 270.6951,
+          "z": -282.703
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2566.189,
+          "y": 270.6951,
+          "z": -286.7847
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 2.0,
+        "time": 0.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300400010,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2571.739,
+          "y": 275.6399,
+          "z": -258.8278
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 1.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2562.296,
+          "y": 275.6399,
+          "z": -261.7216
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 1.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2556.975,
+          "y": 273.2538,
+          "z": -264.3621
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 1.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2549.798,
+          "y": 276.6031,
+          "z": -264.9531
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 1.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 5,
+        "position": {
+          "x": 2540.666,
+          "y": 275.5779,
+          "z": -265.5309
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 1.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 6,
+        "position": {
+          "x": 2542.477,
+          "y": 281.598,
+          "z": -257.1059
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 1.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 7,
+        "position": {
+          "x": 2552.151,
+          "y": 277.1841,
+          "z": -252.6489
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 1.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 8,
+        "position": {
+          "x": 2559.182,
+          "y": 281.797,
+          "z": -245.594
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 1.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 9,
+        "position": {
+          "x": 2569.827,
+          "y": 286.6807,
+          "z": -244.9039
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 1.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  },
+  {
+    "pointArrayId": 300400011,
+    "platformPointList": [
+      {
+        "pointId": 1,
+        "position": {
+          "x": 2530.51978,
+          "y": 283.622467,
+          "z": -249.272858
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 1.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 2,
+        "position": {
+          "x": 2532.918,
+          "y": 281.962616,
+          "z": -260.456573
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 1.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 3,
+        "position": {
+          "x": 2524.807,
+          "y": 277.882355,
+          "z": -266.242584
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 1.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 4,
+        "position": {
+          "x": 2519.74146,
+          "y": 284.192383,
+          "z": -280.646973
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 1.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 5,
+        "position": {
+          "x": 2509.591,
+          "y": 286.809143,
+          "z": -295.382233
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 1.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 6,
+        "position": {
+          "x": 2517.13867,
+          "y": 284.0969,
+          "z": -296.7037
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 1.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 7,
+        "position": {
+          "x": 2524.56079,
+          "y": 279.327972,
+          "z": -296.7037
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 1.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 8,
+        "position": {
+          "x": 2529.68921,
+          "y": 275.271667,
+          "z": -292.623474
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 1.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      },
+      {
+        "pointId": 9,
+        "position": {
+          "x": 2537.842,
+          "y": 270.612885,
+          "z": -292.407684
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "velocity": 0.0,
+        "time": 1.0,
+        "isReachEvent": false,
+        "rotAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotSpeed": 0.0,
+        "arriveRange": 2.0
+      }
+    ]
+  }
+]
